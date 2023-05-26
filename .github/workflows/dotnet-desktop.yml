@@ -7,21 +7,19 @@ on:
     branches: [ "develop" ]
 
 jobs:
+
   build:
-    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: windows-latest 
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1.0.0
-
-      - name: Restore NuGet packages
-        run: msbuild PteroController.sln /t:Restore
-
-      - name: Build the project
-        run: msbuild PteroController.sln /p:Configuration=Release
-
-      - name: Run tests
-        run: msbuild PteroController.sln /t:Test /p:Configuration=Release
+    
