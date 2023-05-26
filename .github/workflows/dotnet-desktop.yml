@@ -8,34 +8,29 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
     runs-on: windows-latest
 
-    env:
-      Solution_Name: PteroController.sln
-      Project_Name: PteroController.csproj
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'
 
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
-      
-    - name: List files
-      run: ls -R
+      - name: Change working directory
+        run: Set-Location -Path 'D:\a\PteroController\PteroController'
 
-    - name: Build the application
-      run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      - name: Restore NuGet packages
+        run: dotnet restore
+
+      - name: Build the project
+        run: dotnet build --configuration ${{ matrix.configuration }}
+        env:
+          Configuration: ${{ matrix.configuration }}
+
+      - name: Run tests
+        run: dotnet test --configuration ${{ matrix.configuration }}
+        env:
+          Configuration: ${{ matrix.configuration }}
