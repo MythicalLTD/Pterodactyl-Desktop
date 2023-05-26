@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using PteroController.Properties;
+using Salaros.Configuration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,12 +12,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PteroControler
+namespace PteroController
 {
-    public partial class FrmServerList : Form
+    public partial class FrmMain : Form
     {
         private HttpClient httpClient;
-        public FrmServerList()
+        private static string accountinfo = Application.StartupPath + @"\account.ini";
+        private static string settings = Application.StartupPath + @"\settings.ini";
+        public FrmMain()
         {
             InitializeComponent();
             serverListBox.SelectedIndex = -1;
@@ -25,6 +29,7 @@ namespace PteroControler
         private bool isFirstLoad = true;
         private async void FrmServerList_Load(object sender, EventArgs e)
         {
+            loadSettings();
             label1.Text = "Hi, "+FrmLogin.username;
             try
             {
@@ -53,6 +58,15 @@ namespace PteroControler
         {
             public List<ServerData> Data { get; set; }
         }
+        private void loadSettings()
+        {
+            var cfg = new ConfigParser(settings);
+            string allontop = cfg.GetValue("CONFIG", "always_on_top");
+            if (allontop == "true")
+            {
+                this.TopMost = true;
+            }
+        }
 
         public class ServerData
         {
@@ -70,20 +84,80 @@ namespace PteroControler
         {
             if (isFirstLoad)
             {
-                isFirstLoad = false; 
+                isFirstLoad = false;
                 return;
             }
-            string selectedServerName = serverListBox.SelectedItem?.ToString();
 
-            if (!string.IsNullOrEmpty(selectedServerName))
+            if (serverListBox.SelectedItem != null && serverListBox.SelectedItem is string selectedServerName)
             {
-                // Extract the identifier from the selected server name
                 string identifier = selectedServerName.Substring(selectedServerName.IndexOf('(') + 1);
                 identifier = identifier.TrimEnd(')');
-
                 FrmServerControler serverDetailsForm = new FrmServerControler(identifier);
                 serverDetailsForm.Show();
+                this.Hide();
             }
+        }
+
+        private void lblexit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void lblmin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            var cfg = new ConfigParser(accountinfo);
+            cfg.SetValue("LOGIN", "remember_me", "false");
+            cfg.Save();
+            FrmLogin x = new FrmLogin();
+            x.Show();
+            this.Hide();
+        }
+
+        private void serverListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void btnlogin_Click(object sender, EventArgs e)
+        {
+            FrmProfile x = new FrmProfile();
+            x.Show();
+            this.Hide();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            FrmProfile x = new FrmProfile();
+            x.Show();
+            this.Hide();
+        }
+
+        private void btnsettings_Click(object sender, EventArgs e)
+        {
+            FrmSettings x = new FrmSettings();
+            x.Show();
+            this.Hide();
+        }
+
+        private void sidenav_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            FrmSettings x = new FrmSettings();
+            x.Show();
+            this.Hide();
         }
     }
     

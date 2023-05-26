@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PteroControler")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("PteroController")]
+[assembly: AssemblyDescription("A Pterodactyl Panel desktop app that uses the Client API!")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("MythicalSystems")]
-[assembly: AssemblyProduct("PteroControler")]
+[assembly: AssemblyProduct("PteroController")]
 [assembly: AssemblyCopyright("Copyright © MythicalSystems 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

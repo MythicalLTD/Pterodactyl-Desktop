@@ -11,15 +11,17 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PteroController.Properties;
 
-namespace PteroControler
+namespace PteroController
 {
     public partial class FrmServerControler : Form
     {
         public static string ServerId;
         public static string authToken;
         public static string wsuri;
-        private static string appConfig = Application.StartupPath + @"\settings.ini";
+        private static string settings = Application.StartupPath + @"\settings.ini";
+        private static string accountinfo = Application.StartupPath + @"\account.ini";
         private ClientWebSocket webSocket;
         private CancellationTokenSource cancellationTokenSource;
         private string serverIdentifier;
@@ -232,14 +234,23 @@ namespace PteroControler
                 MessageBox.Show("Failed to connect to the websocket: " + ex.Message);
             }
         }
+        private void loadSettings()
+        {
+            var cfg = new ConfigParser(settings);
+            string allontop = cfg.GetValue("CONFIG", "always_on_top");
+            if (allontop == "true")
+            {
+                this.TopMost = true;
+            }
+        }
         private void FrmMain_Load(object sender, EventArgs e)
         {
             loadWebsocket();
             timer1.Interval = 840000;
             timer1.Tick += timer1_Tick;
             timer1.Start();
-            var cfg = new ConfigParser(appConfig);
             LoadSettings();
+            loadSettings();
             timer1.Start();
             try
             {
@@ -361,7 +372,12 @@ namespace PteroControler
         @"0;36;22m",
         @"39;",
         @"0;31;22m",
-        @";8eeab68"
+        @";8eeab68",
+        @"32;22m",
+        @"33;1m",
+        @"1m",
+        @"38;2;85;255;255m",
+        @"38;2;85;255;85m"
     };
 
             foreach (var pattern in excludedPatterns)
@@ -397,6 +413,47 @@ namespace PteroControler
             OnFormClosing(null);
             Environment.Exit(0x0);
             Application.Exit();
+        }
+
+        private void lblexit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void lblmin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnlogin_Click(object sender, EventArgs e)
+        {
+            FrmProfile x = new FrmProfile();
+            x.Show();
+            this.Hide();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            FrmProfile x = new FrmProfile();
+            x.Show();
+            this.Hide();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            FrmSettings x = new FrmSettings();
+            x.Show();
+            this.Hide();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            var cfg = new ConfigParser(accountinfo);
+            cfg.SetValue("LOGIN", "remember_me", "false");
+            cfg.Save();
+            FrmLogin x = new FrmLogin();
+            x.Show();
+            this.Hide();
         }
     }
 }

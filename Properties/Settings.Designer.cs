@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PteroControler.Properties {
+namespace PteroController.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

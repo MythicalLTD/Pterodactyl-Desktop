@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 
-namespace PteroControler
+namespace PteroController
 {
     public partial class FrmLogin : Form
     {
         private static string accountinfo = Application.StartupPath + @"\account.ini";
+        private static string settings = Application.StartupPath + @"\settings.ini";
         public static string user_api_key;
         public static string panel_url;
 
@@ -28,17 +29,97 @@ namespace PteroControler
         {
             InitializeComponent();
         }
+        private async Task<bool> Login(string apiKey, Uri panelUri)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = panelUri;
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync("/api/client/account");
+
+                    return response.IsSuccessStatusCode;
+                }
+                catch (HttpRequestException)
+                {
+                    return false;
+                }
+            }
+        }
+
+        private void loadSettings()
+        {
+            var cfg = new ConfigParser(settings);
+            string allontop = cfg.GetValue("CONFIG", "always_on_top");
+            if (allontop == "true")
+            {
+                this.TopMost = true;
+            }
+        }
+
+        private async Task<string> GetUserInfo(string apiKey, Uri panelUri)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = panelUri;
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync("/api/client/account");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        return jsonResponse;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (HttpRequestException)
+                {
+                    return null;
+                }
+            }
+        }
+        private void Alert(string msg, FrmAlert.enmType type)
+        {
+            FrmAlert frm = new FrmAlert();
+            frm.showAlert(msg, type);
+        }
+        private void CheckSession()
+        {
+            var cfg = new ConfigParser(accountinfo);
+            string enableSession = cfg.GetValue("LOGIN", "remember_me");
+            if (enableSession == "true")
+            {
+                string panelUrl = cfg.GetValue("LOGIN", "panel_url");
+                string apiKey = cfg.GetValue("LOGIN", "api_key");
+                txtpanelurl.Text = panelUrl;
+                txtapikey.Text = apiKey;
+                cbsavelogin.Checked = true;
+                btnlogin.PerformClick();
+            }
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            CheckSession();
+            loadSettings();
+            lblappname.Text = "PteroController (" + Program.appversion + ")";
+        }
 
         private async void btnlogin_Click(object sender, EventArgs e)
         {
-            if (txtapikey.Text == "")
+            if (txtapikey.Text == "" || txtpanelurl.Text == "")
             {
-                MessageBox.Show("Please fill in your Pterodactyl client API key!");
-                return;
-            }
-            if (txtpanelurl.Text == "")
-            {
-                MessageBox.Show("Please fill in the Pterodactyl URL");
+                Alert("Please fill in your pterodactyl connection info",FrmAlert.enmType.Error);
                 return;
             }
 
@@ -47,7 +128,7 @@ namespace PteroControler
 
             if (!Uri.TryCreate(panelUrl, UriKind.Absolute, out Uri panelUri))
             {
-                MessageBox.Show("Invalid Pterodactyl URL. Please provide a valid URL.");
+                Alert("Invalid Pterodactyl URL.", FrmAlert.enmType.Warning);
                 return;
             }
 
@@ -93,84 +174,24 @@ namespace PteroControler
                     panel_url = panelUrl;
                 }
 
-                FrmServerList x = new FrmServerList();
+                FrmMain x = new FrmMain();
                 x.Show();
                 Hide();
             }
             else
             {
-                MessageBox.Show("Login failed. Please check your API key and try again.");
+                Alert("Login failed. Please check your API key", FrmAlert.enmType.Error);
             }
         }
 
-        private async Task<bool> Login(string apiKey, Uri panelUri)
+        private void lblexit_Click(object sender, EventArgs e)
         {
-            using (HttpClient client = new HttpClient())
-            {
-                client.BaseAddress = panelUri;
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync("/api/client/account");
-
-                    return response.IsSuccessStatusCode;
-                }
-                catch (HttpRequestException)
-                {
-                    return false;
-                }
-            }
+            Application.Exit();
         }
 
-        private async Task<string> GetUserInfo(string apiKey, Uri panelUri)
+        private void lblmin_Click(object sender, EventArgs e)
         {
-            using (HttpClient client = new HttpClient())
-            {
-                client.BaseAddress = panelUri;
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync("/api/client/account");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string jsonResponse = await response.Content.ReadAsStringAsync();
-                        return jsonResponse;
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                }
-                catch (HttpRequestException)
-                {
-                    return null;
-                }
-            }
-        }
-
-        private void CheckSession()
-        {
-            var cfg = new ConfigParser(accountinfo);
-            string enableSession = cfg.GetValue("LOGIN", "remember_me");
-            if (enableSession == "true")
-            {
-                string panelUrl = cfg.GetValue("LOGIN", "panel_url");
-                string apiKey = cfg.GetValue("LOGIN", "api_key");
-                txtpanelurl.Text = panelUrl;
-                txtapikey.Text = apiKey;
-                cbsavelogin.Checked = true;
-                btnlogin.PerformClick();
-            }
-        }
-
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-            CheckSession();
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
