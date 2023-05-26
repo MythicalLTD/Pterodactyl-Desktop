@@ -16,6 +16,7 @@ jobs:
 
     env:
       Solution_Name: PteroController.sln
+      Project_Name: PteroController.csproj
 
     steps:
     - name: Checkout
@@ -40,4 +41,3 @@ jobs:
       run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
-
