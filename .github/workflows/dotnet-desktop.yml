@@ -35,12 +35,6 @@ jobs:
     - name: List files
       run: ls -R
 
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration --no-restore
-      env:
-        Configuration: ${{ matrix.configuration }}
-
-
     - name: Build the application
       run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
       env:
