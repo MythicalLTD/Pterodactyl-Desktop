@@ -19,6 +19,11 @@ jobs:
       Project_Name: PteroController.csproj
 
     steps:
+    - name: Clean workspace
+      run: |
+        git clean -fdx
+        git reset --hard
+
     - name: Checkout
       uses: actions/checkout@v3
       with:
@@ -36,9 +41,10 @@ jobs:
       run: ls -R
 
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration --no-restore
       env:
         Configuration: ${{ matrix.configuration }}
+
 
     - name: Build the application
       run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
