@@ -19,11 +19,6 @@ jobs:
       Project_Name: PteroController.csproj
 
     steps:
-    - name: Clean workspace
-      run: |
-        git clean -fdx
-        git reset --hard
-
     - name: Checkout
       uses: actions/checkout@v3
       with:
