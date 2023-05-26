@@ -33,8 +33,8 @@ namespace PteroControler
 
         void LoadSettings()
         {
-            
-           
+
+
         }
 
         private void btnshutdown_Click(object sender, EventArgs e)
@@ -177,7 +177,7 @@ namespace PteroControler
                 request.AddParameter("command", commandTextBox.Text);
 
                 var response = client.Execute(request);
-                
+
                 if (!response.IsSuccessful)
                 {
                     MessageBox.Show($"Failed to send command. Error: {response.Content}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -217,6 +217,8 @@ namespace PteroControler
                     MessageBox.Show($"Failed to fetch server information. Error: {response.Content}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 webSocket = new ClientWebSocket();
+                webSocket.Options.SetRequestHeader("Origin", FrmLogin.panel_url);
+                
                 await webSocket.ConnectAsync(new Uri(wsuri), CancellationToken.None);
                 cancellationTokenSource = new CancellationTokenSource();
 
@@ -232,8 +234,8 @@ namespace PteroControler
         }
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            
-            timer1.Interval = 840000; 
+            loadWebsocket();
+            timer1.Interval = 840000;
             timer1.Tick += timer1_Tick;
             timer1.Start();
             var cfg = new ConfigParser(appConfig);
@@ -268,6 +270,7 @@ namespace PteroControler
             {
                 MessageBox.Show($"An error occurred while fetching server information. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private async Task AuthenticateWebSocket()
@@ -347,7 +350,18 @@ namespace PteroControler
         @"33m1m",
         @"39m",
         @"38;2;255;170;",
-        @"38;2;170;170;17"
+        @"38;2;170;170;17",
+        @"33m",
+        @"0;33;1m",
+        @"0;33;22m",
+        @"0;32;1m",
+        @"0;32;22m",
+        @"0;30;1m",
+        @"0;36;1m",
+        @"0;36;22m",
+        @"39;",
+        @"0;31;22m",
+        @";8eeab68"
     };
 
             foreach (var pattern in excludedPatterns)
@@ -358,20 +372,11 @@ namespace PteroControler
             return input;
         }
 
-
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             cancellationTokenSource?.Cancel();
             webSocket?.Dispose();
             base.OnFormClosing(e);
-        }
-
-        private void fetch_Click(object sender, EventArgs e)
-        {
-            LoadSettings();
-           
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -395,4 +400,3 @@ namespace PteroControler
         }
     }
 }
-

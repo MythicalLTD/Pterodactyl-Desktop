@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnshutdown.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="btnstart.Location" type="System.Drawing.Point, System.Drawing">
     <value>307, 439</value>
@@ -165,7 +165,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnstart.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="btnrestart.Location" type="System.Drawing.Point, System.Drawing">
     <value>388, 439</value>
@@ -189,7 +189,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnrestart.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="btnkill.Location" type="System.Drawing.Point, System.Drawing">
     <value>469, 439</value>
@@ -213,7 +213,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnkill.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="btnsendcmd.Location" type="System.Drawing.Point, System.Drawing">
     <value>638, 413</value>
@@ -237,7 +237,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnsendcmd.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="svname.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -264,7 +264,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;svname.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="svdescription.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -295,7 +295,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;svdescription.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="svnode.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -325,7 +325,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;svnode.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="separator.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -355,33 +355,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;separator.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="fetch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="fetch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 75</value>
-  </data>
-  <data name="fetch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 23</value>
-  </data>
-  <data name="fetch.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="fetch.Text" xml:space="preserve">
-    <value>Fetch</value>
-  </data>
-  <data name="&gt;&gt;fetch.Name" xml:space="preserve">
-    <value>fetch</value>
-  </data>
-  <data name="&gt;&gt;fetch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fetch.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;fetch.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="consoleTextBox.Location" type="System.Drawing.Point, System.Drawing">

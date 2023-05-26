@@ -66,7 +66,7 @@ No our app is 100% safe and has no virus inside it or any kind keyloger etc
 Because the app is not signed by Microsoft yet
 
 #### If my host does not setup the console access, can I still see my console?
-No sadly no because we use a method called WebSockets to get the live console info
+Yes you can but there may be bugs
 
 #### Is this really free?
 Yes it's totally free forever

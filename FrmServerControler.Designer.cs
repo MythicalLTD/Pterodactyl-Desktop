@@ -39,7 +39,6 @@
             this.svdescription = new System.Windows.Forms.Label();
             this.svnode = new System.Windows.Forms.Label();
             this.separator = new System.Windows.Forms.Label();
-            this.fetch = new System.Windows.Forms.Button();
             this.consoleTextBox = new System.Windows.Forms.RichTextBox();
             this.commandTextBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -101,13 +100,6 @@
             resources.ApplyResources(this.separator, "separator");
             this.separator.Name = "separator";
             // 
-            // fetch
-            // 
-            resources.ApplyResources(this.fetch, "fetch");
-            this.fetch.Name = "fetch";
-            this.fetch.UseVisualStyleBackColor = true;
-            this.fetch.Click += new System.EventHandler(this.fetch_Click);
-            // 
             // consoleTextBox
             // 
             resources.ApplyResources(this.consoleTextBox, "consoleTextBox");
@@ -137,7 +129,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.commandTextBox);
             this.Controls.Add(this.consoleTextBox);
-            this.Controls.Add(this.fetch);
             this.Controls.Add(this.separator);
             this.Controls.Add(this.svnode);
             this.Controls.Add(this.svdescription);
@@ -165,7 +156,6 @@
         private System.Windows.Forms.Label svdescription;
         private System.Windows.Forms.Label svnode;
         private System.Windows.Forms.Label separator;
-        private System.Windows.Forms.Button fetch;
         private System.Windows.Forms.RichTextBox consoleTextBox;
         private System.Windows.Forms.TextBox commandTextBox;
         private System.Windows.Forms.Timer timer1;
