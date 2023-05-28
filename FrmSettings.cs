@@ -82,5 +82,31 @@ namespace PteroController
             x.Show();
             this.Hide();
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            FrmProfile x = new FrmProfile();
+            x.Show();
+            this.Hide();
+        }
+
+        private void btnlogin_Click(object sender, EventArgs e)
+        {
+            FrmProfile x = new FrmProfile();
+            x.Show();
+            this.Hide();
+        }
+
+        private void sidenav_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            FrmMain x = new FrmMain();
+            x.Show();
+            this.Hide();
+        }
     }
 }

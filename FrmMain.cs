@@ -29,6 +29,7 @@ namespace PteroController
         private bool isFirstLoad = true;
         private async void FrmServerList_Load(object sender, EventArgs e)
         {
+            
             loadSettings();
             label1.Text = "Hi, "+FrmLogin.username;
             try
@@ -158,6 +159,11 @@ namespace PteroController
             FrmSettings x = new FrmSettings();
             x.Show();
             this.Hide();
+        }
+
+        private void licensing1_Load(object sender, EventArgs e)
+        {
+
         }
     }
     

@@ -45,8 +45,6 @@ namespace PteroController
             lblemail.Text = "Email: " + FrmLogin.email;
             lblfirstname.Text = "First Name: " + FrmLogin.firstName;
             lbllastname.Text = "Last Name: " + FrmLogin.lastName;
-            lbladmin.Text = "Admin: " + FrmLogin.admin;
-            lbllang.Text = "Language: " + FrmLogin.language;
             LoadSettings();
         }
         private void LoadSettings()

@@ -32,32 +32,32 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSettings));
             this.navbar = new System.Windows.Forms.Panel();
             this.lblappname = new System.Windows.Forms.Label();
+            this.appicon = new System.Windows.Forms.PictureBox();
             this.lblmin = new System.Windows.Forms.Label();
             this.lblexit = new System.Windows.Forms.Label();
             this.sidenav = new System.Windows.Forms.Panel();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnsettings = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnlogin = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.appicon = new System.Windows.Forms.PictureBox();
-            this.btnsettings = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cballontop = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cballontop = new Guna.UI2.WinForms.Guna2CheckBox();
             this.navbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.sidenav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,16 @@
             this.lblappname.Size = new System.Drawing.Size(116, 16);
             this.lblappname.TabIndex = 9;
             this.lblappname.Text = "PteroController";
+            // 
+            // appicon
+            // 
+            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
+            this.appicon.Location = new System.Drawing.Point(3, 4);
+            this.appicon.Name = "appicon";
+            this.appicon.Size = new System.Drawing.Size(20, 20);
+            this.appicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.appicon.TabIndex = 8;
+            this.appicon.TabStop = false;
             // 
             // lblmin
             // 
@@ -129,127 +139,7 @@
             this.sidenav.Name = "sidenav";
             this.sidenav.Size = new System.Drawing.Size(206, 519);
             this.sidenav.TabIndex = 11;
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.Location = new System.Drawing.Point(8, 467);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(191, 10);
-            this.guna2Separator1.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.label2.Location = new System.Drawing.Point(28, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 22);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "PteroController";
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(-75, 0);
-            this.guna2Button1.ImageSize = new System.Drawing.Size(28, 28);
-            this.guna2Button1.Location = new System.Drawing.Point(12, 230);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(187, 45);
-            this.guna2Button1.TabIndex = 16;
-            this.guna2Button1.Text = "Servers";
-            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.TextOffset = new System.Drawing.Point(30, 0);
-            // 
-            // btnlogin
-            // 
-            this.btnlogin.Animated = true;
-            this.btnlogin.BackColor = System.Drawing.Color.Transparent;
-            this.btnlogin.BorderColor = System.Drawing.Color.Transparent;
-            this.btnlogin.BorderRadius = 10;
-            this.btnlogin.CheckedState.Parent = this.btnlogin;
-            this.btnlogin.CustomImages.Parent = this.btnlogin;
-            this.btnlogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.btnlogin.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.btnlogin.ForeColor = System.Drawing.Color.White;
-            this.btnlogin.HoverState.Parent = this.btnlogin;
-            this.btnlogin.Image = ((System.Drawing.Image)(resources.GetObject("btnlogin.Image")));
-            this.btnlogin.ImageOffset = new System.Drawing.Point(-75, 0);
-            this.btnlogin.ImageSize = new System.Drawing.Size(28, 28);
-            this.btnlogin.Location = new System.Drawing.Point(12, 179);
-            this.btnlogin.Name = "btnlogin";
-            this.btnlogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
-            this.btnlogin.ShadowDecoration.Parent = this.btnlogin;
-            this.btnlogin.Size = new System.Drawing.Size(187, 45);
-            this.btnlogin.TabIndex = 15;
-            this.btnlogin.Text = "Account";
-            this.btnlogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnlogin.TextOffset = new System.Drawing.Point(30, 0);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(89, 480);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 14;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(8, 480);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(169, 480);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PteroController.Properties.Resources.pterry;
-            this.pictureBox1.Location = new System.Drawing.Point(49, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(111, 99);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
-            // appicon
-            // 
-            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
-            this.appicon.Location = new System.Drawing.Point(3, 4);
-            this.appicon.Name = "appicon";
-            this.appicon.Size = new System.Drawing.Size(20, 20);
-            this.appicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.appicon.TabIndex = 8;
-            this.appicon.TabStop = false;
+            this.sidenav.Paint += new System.Windows.Forms.PaintEventHandler(this.sidenav_Paint);
             // 
             // btnsettings
             // 
@@ -277,6 +167,120 @@
             this.btnsettings.TextOffset = new System.Drawing.Point(30, 0);
             this.btnsettings.Click += new System.EventHandler(this.btnsettings_Click);
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageOffset = new System.Drawing.Point(-75, 0);
+            this.guna2Button1.ImageSize = new System.Drawing.Size(28, 28);
+            this.guna2Button1.Location = new System.Drawing.Point(12, 230);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(187, 45);
+            this.guna2Button1.TabIndex = 16;
+            this.guna2Button1.Text = "Servers";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.TextOffset = new System.Drawing.Point(30, 0);
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // btnlogin
+            // 
+            this.btnlogin.Animated = true;
+            this.btnlogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnlogin.BorderColor = System.Drawing.Color.Transparent;
+            this.btnlogin.BorderRadius = 10;
+            this.btnlogin.CheckedState.Parent = this.btnlogin;
+            this.btnlogin.CustomImages.Parent = this.btnlogin;
+            this.btnlogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.btnlogin.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.btnlogin.ForeColor = System.Drawing.Color.White;
+            this.btnlogin.HoverState.Parent = this.btnlogin;
+            this.btnlogin.Image = ((System.Drawing.Image)(resources.GetObject("btnlogin.Image")));
+            this.btnlogin.ImageOffset = new System.Drawing.Point(-75, 0);
+            this.btnlogin.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnlogin.Location = new System.Drawing.Point(12, 179);
+            this.btnlogin.Name = "btnlogin";
+            this.btnlogin.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
+            this.btnlogin.ShadowDecoration.Parent = this.btnlogin;
+            this.btnlogin.Size = new System.Drawing.Size(187, 45);
+            this.btnlogin.TabIndex = 15;
+            this.btnlogin.Text = "Account";
+            this.btnlogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnlogin.TextOffset = new System.Drawing.Point(30, 0);
+            this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(89, 480);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 14;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(8, 480);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 13;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(169, 480);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Location = new System.Drawing.Point(8, 467);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(191, 10);
+            this.guna2Separator1.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.label2.Location = new System.Drawing.Point(28, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 22);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "PteroController";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PteroController.Properties.Resources.pterry;
+            this.pictureBox1.Location = new System.Drawing.Point(49, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(111, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
@@ -288,14 +292,37 @@
             this.panel1.Size = new System.Drawing.Size(691, 476);
             this.panel1.TabIndex = 12;
             // 
-            // guna2DragControl1
+            // cballontop
             // 
-            this.guna2DragControl1.TargetControl = this.navbar;
+            this.cballontop.AutoSize = true;
+            this.cballontop.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cballontop.CheckedState.BorderRadius = 2;
+            this.cballontop.CheckedState.BorderThickness = 0;
+            this.cballontop.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cballontop.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.cballontop.ForeColor = System.Drawing.Color.White;
+            this.cballontop.Location = new System.Drawing.Point(19, 47);
+            this.cballontop.Name = "cballontop";
+            this.cballontop.Size = new System.Drawing.Size(105, 19);
+            this.cballontop.TabIndex = 19;
+            this.cballontop.Text = "Always on top";
+            this.cballontop.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cballontop.UncheckedState.BorderRadius = 2;
+            this.cballontop.UncheckedState.BorderThickness = 0;
+            this.cballontop.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cballontop.UseVisualStyleBackColor = true;
             // 
-            // guna2Elipse1
+            // label1
             // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.label1.Location = new System.Drawing.Point(15, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 22);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Settings";
             // 
             // guna2Button2
             // 
@@ -318,37 +345,14 @@
             this.guna2Button2.Text = "Save";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
-            // label1
+            // guna2DragControl1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.label1.Location = new System.Drawing.Point(15, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 22);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Settings";
+            this.guna2DragControl1.TargetControl = this.navbar;
             // 
-            // cballontop
+            // guna2Elipse1
             // 
-            this.cballontop.AutoSize = true;
-            this.cballontop.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cballontop.CheckedState.BorderRadius = 2;
-            this.cballontop.CheckedState.BorderThickness = 0;
-            this.cballontop.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cballontop.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.cballontop.ForeColor = System.Drawing.Color.White;
-            this.cballontop.Location = new System.Drawing.Point(19, 47);
-            this.cballontop.Name = "cballontop";
-            this.cballontop.Size = new System.Drawing.Size(105, 19);
-            this.cballontop.TabIndex = 19;
-            this.cballontop.Text = "Always on top";
-            this.cballontop.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cballontop.UncheckedState.BorderRadius = 2;
-            this.cballontop.UncheckedState.BorderThickness = 0;
-            this.cballontop.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cballontop.UseVisualStyleBackColor = true;
+            this.guna2Elipse1.BorderRadius = 20;
+            this.guna2Elipse1.TargetControl = this;
             // 
             // FrmSettings
             // 
@@ -367,13 +371,13 @@
             this.Load += new System.EventHandler(this.FrmSettings_Load);
             this.navbar.ResumeLayout(false);
             this.navbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appicon)).EndInit();
             this.sidenav.ResumeLayout(false);
             this.sidenav.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appicon)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

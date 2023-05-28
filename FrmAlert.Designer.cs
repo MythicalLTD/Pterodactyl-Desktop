@@ -45,10 +45,10 @@
             // lblMsg
             // 
             this.lblMsg.AutoSize = true;
-            this.lblMsg.Font = new System.Drawing.Font("Trebuchet MS", 15F, System.Drawing.FontStyle.Bold);
-            this.lblMsg.Location = new System.Drawing.Point(65, 37);
+            this.lblMsg.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold);
+            this.lblMsg.Location = new System.Drawing.Point(65, 39);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(175, 26);
+            this.lblMsg.Size = new System.Drawing.Size(139, 22);
             this.lblMsg.TabIndex = 1;
             this.lblMsg.Text = "An alert message";
             // 

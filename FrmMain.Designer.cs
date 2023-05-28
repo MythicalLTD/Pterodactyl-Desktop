@@ -34,29 +34,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.navbar = new System.Windows.Forms.Panel();
             this.lblappname = new System.Windows.Forms.Label();
+            this.appicon = new System.Windows.Forms.PictureBox();
             this.lblmin = new System.Windows.Forms.Label();
             this.lblexit = new System.Windows.Forms.Label();
             this.sidenav = new System.Windows.Forms.Panel();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.label2 = new System.Windows.Forms.Label();
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnsettings = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnlogin = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.appicon = new System.Windows.Forms.PictureBox();
-            this.btnsettings = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             this.navbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.sidenav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.SuspendLayout();
             // 
             // serverListBox
@@ -108,6 +108,16 @@
             this.lblappname.TabIndex = 9;
             this.lblappname.Text = "PteroController";
             // 
+            // appicon
+            // 
+            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
+            this.appicon.Location = new System.Drawing.Point(3, 4);
+            this.appicon.Name = "appicon";
+            this.appicon.Size = new System.Drawing.Size(20, 20);
+            this.appicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.appicon.TabIndex = 8;
+            this.appicon.TabStop = false;
+            // 
             // lblmin
             // 
             this.lblmin.AutoSize = true;
@@ -153,45 +163,31 @@
             this.sidenav.TabIndex = 9;
             this.sidenav.Paint += new System.Windows.Forms.PaintEventHandler(this.sidenav_Paint);
             // 
-            // guna2Separator1
+            // btnsettings
             // 
-            this.guna2Separator1.Location = new System.Drawing.Point(8, 467);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(191, 10);
-            this.guna2Separator1.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.label2.Location = new System.Drawing.Point(28, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 22);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "PteroController";
-            // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.TargetControl = this.navbar;
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.label3.Location = new System.Drawing.Point(223, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(215, 22);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Showing your servers";
+            this.btnsettings.Animated = true;
+            this.btnsettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnsettings.BorderColor = System.Drawing.Color.Transparent;
+            this.btnsettings.BorderRadius = 10;
+            this.btnsettings.CheckedState.Parent = this.btnsettings;
+            this.btnsettings.CustomImages.Parent = this.btnsettings;
+            this.btnsettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.btnsettings.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.btnsettings.ForeColor = System.Drawing.Color.White;
+            this.btnsettings.HoverState.Parent = this.btnsettings;
+            this.btnsettings.Image = ((System.Drawing.Image)(resources.GetObject("btnsettings.Image")));
+            this.btnsettings.ImageOffset = new System.Drawing.Point(-75, 0);
+            this.btnsettings.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnsettings.Location = new System.Drawing.Point(12, 281);
+            this.btnsettings.Name = "btnsettings";
+            this.btnsettings.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
+            this.btnsettings.ShadowDecoration.Parent = this.btnsettings;
+            this.btnsettings.Size = new System.Drawing.Size(187, 45);
+            this.btnsettings.TabIndex = 18;
+            this.btnsettings.Text = "Settings";
+            this.btnsettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnsettings.TextOffset = new System.Drawing.Point(30, 0);
+            this.btnsettings.Click += new System.EventHandler(this.btnsettings_Click);
             // 
             // guna2Button1
             // 
@@ -277,6 +273,25 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Location = new System.Drawing.Point(8, 467);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(191, 10);
+            this.guna2Separator1.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.label2.Location = new System.Drawing.Point(28, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 22);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "PteroController";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PteroController.Properties.Resources.pterry;
@@ -287,41 +302,26 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // appicon
+            // guna2DragControl1
             // 
-            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
-            this.appicon.Location = new System.Drawing.Point(3, 4);
-            this.appicon.Name = "appicon";
-            this.appicon.Size = new System.Drawing.Size(20, 20);
-            this.appicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.appicon.TabIndex = 8;
-            this.appicon.TabStop = false;
+            this.guna2DragControl1.TargetControl = this.navbar;
             // 
-            // btnsettings
+            // guna2Elipse1
             // 
-            this.btnsettings.Animated = true;
-            this.btnsettings.BackColor = System.Drawing.Color.Transparent;
-            this.btnsettings.BorderColor = System.Drawing.Color.Transparent;
-            this.btnsettings.BorderRadius = 10;
-            this.btnsettings.CheckedState.Parent = this.btnsettings;
-            this.btnsettings.CustomImages.Parent = this.btnsettings;
-            this.btnsettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.btnsettings.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.btnsettings.ForeColor = System.Drawing.Color.White;
-            this.btnsettings.HoverState.Parent = this.btnsettings;
-            this.btnsettings.Image = ((System.Drawing.Image)(resources.GetObject("btnsettings.Image")));
-            this.btnsettings.ImageOffset = new System.Drawing.Point(-75, 0);
-            this.btnsettings.ImageSize = new System.Drawing.Size(28, 28);
-            this.btnsettings.Location = new System.Drawing.Point(12, 281);
-            this.btnsettings.Name = "btnsettings";
-            this.btnsettings.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
-            this.btnsettings.ShadowDecoration.Parent = this.btnsettings;
-            this.btnsettings.Size = new System.Drawing.Size(187, 45);
-            this.btnsettings.TabIndex = 18;
-            this.btnsettings.Text = "Settings";
-            this.btnsettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnsettings.TextOffset = new System.Drawing.Point(30, 0);
-            this.btnsettings.Click += new System.EventHandler(this.btnsettings_Click);
+            this.guna2Elipse1.BorderRadius = 20;
+            this.guna2Elipse1.TargetControl = this;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.label3.Location = new System.Drawing.Point(223, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(215, 22);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Showing your servers";
             // 
             // FrmMain
             // 
@@ -343,13 +343,13 @@
             this.Load += new System.EventHandler(this.FrmServerList_Load);
             this.navbar.ResumeLayout(false);
             this.navbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appicon)).EndInit();
             this.sidenav.ResumeLayout(false);
             this.sidenav.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appicon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

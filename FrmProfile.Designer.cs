@@ -32,38 +32,36 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProfile));
             this.navbar = new System.Windows.Forms.Panel();
             this.lblappname = new System.Windows.Forms.Label();
+            this.appicon = new System.Windows.Forms.PictureBox();
             this.lblmin = new System.Windows.Forms.Label();
             this.lblexit = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbllastname = new System.Windows.Forms.Label();
+            this.lblfirstname = new System.Windows.Forms.Label();
+            this.lblemail = new System.Windows.Forms.Label();
+            this.lblusername = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.sidenav = new System.Windows.Forms.Panel();
-            this.lblusername = new System.Windows.Forms.Label();
-            this.lblemail = new System.Windows.Forms.Label();
-            this.lbllastname = new System.Windows.Forms.Label();
-            this.lblfirstname = new System.Windows.Forms.Label();
-            this.lbladmin = new System.Windows.Forms.Label();
-            this.lbllang = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btnsettings = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnlogin = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.appicon = new System.Windows.Forms.PictureBox();
-            this.btnsettings = new Guna.UI2.WinForms.Guna2Button();
             this.navbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.panel1.SuspendLayout();
-            this.sidenav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.sidenav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.SuspendLayout();
             // 
             // navbar
@@ -90,6 +88,16 @@
             this.lblappname.Size = new System.Drawing.Size(116, 16);
             this.lblappname.TabIndex = 9;
             this.lblappname.Text = "PteroController";
+            // 
+            // appicon
+            // 
+            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
+            this.appicon.Location = new System.Drawing.Point(3, 4);
+            this.appicon.Name = "appicon";
+            this.appicon.Size = new System.Drawing.Size(20, 20);
+            this.appicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.appicon.TabIndex = 8;
+            this.appicon.TabStop = false;
             // 
             // lblmin
             // 
@@ -129,8 +137,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.panel1.Controls.Add(this.lbllang);
-            this.panel1.Controls.Add(this.lbladmin);
             this.panel1.Controls.Add(this.lbllastname);
             this.panel1.Controls.Add(this.lblfirstname);
             this.panel1.Controls.Add(this.lblemail);
@@ -140,6 +146,64 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(691, 476);
             this.panel1.TabIndex = 11;
+            // 
+            // lbllastname
+            // 
+            this.lbllastname.AutoSize = true;
+            this.lbllastname.BackColor = System.Drawing.Color.Transparent;
+            this.lbllastname.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbllastname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.lbllastname.Location = new System.Drawing.Point(18, 259);
+            this.lbllastname.Name = "lbllastname";
+            this.lbllastname.Size = new System.Drawing.Size(114, 22);
+            this.lbllastname.TabIndex = 20;
+            this.lbllastname.Text = "Last Name:";
+            // 
+            // lblfirstname
+            // 
+            this.lblfirstname.AutoSize = true;
+            this.lblfirstname.BackColor = System.Drawing.Color.Transparent;
+            this.lblfirstname.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfirstname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.lblfirstname.Location = new System.Drawing.Point(18, 237);
+            this.lblfirstname.Name = "lblfirstname";
+            this.lblfirstname.Size = new System.Drawing.Size(116, 22);
+            this.lblfirstname.TabIndex = 19;
+            this.lblfirstname.Text = "First Name:";
+            // 
+            // lblemail
+            // 
+            this.lblemail.AutoSize = true;
+            this.lblemail.BackColor = System.Drawing.Color.Transparent;
+            this.lblemail.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblemail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.lblemail.Location = new System.Drawing.Point(18, 303);
+            this.lblemail.Name = "lblemail";
+            this.lblemail.Size = new System.Drawing.Size(68, 22);
+            this.lblemail.TabIndex = 18;
+            this.lblemail.Text = "Email:";
+            // 
+            // lblusername
+            // 
+            this.lblusername.AutoSize = true;
+            this.lblusername.BackColor = System.Drawing.Color.Transparent;
+            this.lblusername.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.lblusername.Location = new System.Drawing.Point(18, 281);
+            this.lblusername.Name = "lblusername";
+            this.lblusername.Size = new System.Drawing.Size(111, 22);
+            this.lblusername.TabIndex = 17;
+            this.lblusername.Text = "Username:";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(690, 234);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
             // 
             // label2
             // 
@@ -178,87 +242,31 @@
             this.sidenav.Size = new System.Drawing.Size(206, 519);
             this.sidenav.TabIndex = 10;
             // 
-            // lblusername
+            // btnsettings
             // 
-            this.lblusername.AutoSize = true;
-            this.lblusername.BackColor = System.Drawing.Color.Transparent;
-            this.lblusername.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblusername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.lblusername.Location = new System.Drawing.Point(18, 281);
-            this.lblusername.Name = "lblusername";
-            this.lblusername.Size = new System.Drawing.Size(111, 22);
-            this.lblusername.TabIndex = 17;
-            this.lblusername.Text = "Username:";
-            // 
-            // lblemail
-            // 
-            this.lblemail.AutoSize = true;
-            this.lblemail.BackColor = System.Drawing.Color.Transparent;
-            this.lblemail.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblemail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.lblemail.Location = new System.Drawing.Point(18, 303);
-            this.lblemail.Name = "lblemail";
-            this.lblemail.Size = new System.Drawing.Size(68, 22);
-            this.lblemail.TabIndex = 18;
-            this.lblemail.Text = "Email:";
-            // 
-            // lbllastname
-            // 
-            this.lbllastname.AutoSize = true;
-            this.lbllastname.BackColor = System.Drawing.Color.Transparent;
-            this.lbllastname.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllastname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.lbllastname.Location = new System.Drawing.Point(18, 259);
-            this.lbllastname.Name = "lbllastname";
-            this.lbllastname.Size = new System.Drawing.Size(114, 22);
-            this.lbllastname.TabIndex = 20;
-            this.lbllastname.Text = "Last Name:";
-            // 
-            // lblfirstname
-            // 
-            this.lblfirstname.AutoSize = true;
-            this.lblfirstname.BackColor = System.Drawing.Color.Transparent;
-            this.lblfirstname.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfirstname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.lblfirstname.Location = new System.Drawing.Point(18, 237);
-            this.lblfirstname.Name = "lblfirstname";
-            this.lblfirstname.Size = new System.Drawing.Size(116, 22);
-            this.lblfirstname.TabIndex = 19;
-            this.lblfirstname.Text = "First Name:";
-            // 
-            // lbladmin
-            // 
-            this.lbladmin.AutoSize = true;
-            this.lbladmin.BackColor = System.Drawing.Color.Transparent;
-            this.lbladmin.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbladmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.lbladmin.Location = new System.Drawing.Point(18, 325);
-            this.lbladmin.Name = "lbladmin";
-            this.lbladmin.Size = new System.Drawing.Size(76, 22);
-            this.lbladmin.TabIndex = 21;
-            this.lbladmin.Text = "Admin:";
-            // 
-            // lbllang
-            // 
-            this.lbllang.AutoSize = true;
-            this.lbllang.BackColor = System.Drawing.Color.Transparent;
-            this.lbllang.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.lbllang.Location = new System.Drawing.Point(18, 347);
-            this.lbllang.Name = "lbllang";
-            this.lbllang.Size = new System.Drawing.Size(110, 22);
-            this.lbllang.TabIndex = 22;
-            this.lbllang.Text = "Language:";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(690, 234);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
+            this.btnsettings.Animated = true;
+            this.btnsettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnsettings.BorderColor = System.Drawing.Color.Transparent;
+            this.btnsettings.BorderRadius = 10;
+            this.btnsettings.CheckedState.Parent = this.btnsettings;
+            this.btnsettings.CustomImages.Parent = this.btnsettings;
+            this.btnsettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.btnsettings.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.btnsettings.ForeColor = System.Drawing.Color.White;
+            this.btnsettings.HoverState.Parent = this.btnsettings;
+            this.btnsettings.Image = ((System.Drawing.Image)(resources.GetObject("btnsettings.Image")));
+            this.btnsettings.ImageOffset = new System.Drawing.Point(-75, 0);
+            this.btnsettings.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnsettings.Location = new System.Drawing.Point(12, 277);
+            this.btnsettings.Name = "btnsettings";
+            this.btnsettings.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
+            this.btnsettings.ShadowDecoration.Parent = this.btnsettings;
+            this.btnsettings.Size = new System.Drawing.Size(187, 45);
+            this.btnsettings.TabIndex = 18;
+            this.btnsettings.Text = "Settings";
+            this.btnsettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnsettings.TextOffset = new System.Drawing.Point(30, 0);
+            this.btnsettings.Click += new System.EventHandler(this.btnsettings_Click);
             // 
             // guna2Button1
             // 
@@ -353,42 +361,6 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // appicon
-            // 
-            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
-            this.appicon.Location = new System.Drawing.Point(3, 4);
-            this.appicon.Name = "appicon";
-            this.appicon.Size = new System.Drawing.Size(20, 20);
-            this.appicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.appicon.TabIndex = 8;
-            this.appicon.TabStop = false;
-            // 
-            // btnsettings
-            // 
-            this.btnsettings.Animated = true;
-            this.btnsettings.BackColor = System.Drawing.Color.Transparent;
-            this.btnsettings.BorderColor = System.Drawing.Color.Transparent;
-            this.btnsettings.BorderRadius = 10;
-            this.btnsettings.CheckedState.Parent = this.btnsettings;
-            this.btnsettings.CustomImages.Parent = this.btnsettings;
-            this.btnsettings.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.btnsettings.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.btnsettings.ForeColor = System.Drawing.Color.White;
-            this.btnsettings.HoverState.Parent = this.btnsettings;
-            this.btnsettings.Image = ((System.Drawing.Image)(resources.GetObject("btnsettings.Image")));
-            this.btnsettings.ImageOffset = new System.Drawing.Point(-75, 0);
-            this.btnsettings.ImageSize = new System.Drawing.Size(28, 28);
-            this.btnsettings.Location = new System.Drawing.Point(12, 277);
-            this.btnsettings.Name = "btnsettings";
-            this.btnsettings.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
-            this.btnsettings.ShadowDecoration.Parent = this.btnsettings;
-            this.btnsettings.Size = new System.Drawing.Size(187, 45);
-            this.btnsettings.TabIndex = 18;
-            this.btnsettings.Text = "Settings";
-            this.btnsettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnsettings.TextOffset = new System.Drawing.Point(30, 0);
-            this.btnsettings.Click += new System.EventHandler(this.btnsettings_Click);
-            // 
             // FrmProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,16 +378,16 @@
             this.Load += new System.EventHandler(this.FrmProfile_Load);
             this.navbar.ResumeLayout(false);
             this.navbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appicon)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.sidenav.ResumeLayout(false);
             this.sidenav.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appicon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -444,8 +416,6 @@
         private System.Windows.Forms.Label lblemail;
         private System.Windows.Forms.Label lbllastname;
         private System.Windows.Forms.Label lblfirstname;
-        private System.Windows.Forms.Label lbladmin;
-        private System.Windows.Forms.Label lbllang;
         private Guna.UI2.WinForms.Guna2Button btnsettings;
     }
 }
