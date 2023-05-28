@@ -51,6 +51,7 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.cbdevmode = new Guna.UI2.WinForms.Guna2CheckBox();
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.sidenav.SuspendLayout();
@@ -284,6 +285,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.panel1.Controls.Add(this.cbdevmode);
             this.panel1.Controls.Add(this.cballontop);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.guna2Button2);
@@ -354,6 +356,26 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // cbdevmode
+            // 
+            this.cbdevmode.AutoSize = true;
+            this.cbdevmode.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbdevmode.CheckedState.BorderRadius = 2;
+            this.cbdevmode.CheckedState.BorderThickness = 0;
+            this.cbdevmode.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbdevmode.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.cbdevmode.ForeColor = System.Drawing.Color.White;
+            this.cbdevmode.Location = new System.Drawing.Point(19, 68);
+            this.cbdevmode.Name = "cbdevmode";
+            this.cbdevmode.Size = new System.Drawing.Size(221, 19);
+            this.cbdevmode.TabIndex = 20;
+            this.cbdevmode.Text = "Development Mode (DEBUG MODE)";
+            this.cbdevmode.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbdevmode.UncheckedState.BorderRadius = 2;
+            this.cbdevmode.UncheckedState.BorderThickness = 0;
+            this.cbdevmode.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbdevmode.UseVisualStyleBackColor = true;
+            // 
             // FrmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,5 +429,6 @@
         private Guna.UI2.WinForms.Guna2CheckBox cballontop;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2CheckBox cbdevmode;
     }
 }

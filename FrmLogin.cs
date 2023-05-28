@@ -1,11 +1,10 @@
-﻿using Salaros.Configuration;
+﻿using Newtonsoft.Json.Linq;
+using Salaros.Configuration;
 using System;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json.Linq;
 
 namespace PteroController
 {
@@ -121,7 +120,7 @@ namespace PteroController
         {
             if (txtapikey.Text == "" || txtpanelurl.Text == "" || txtpanelpwd.Text == "")
             {
-                Alert("Please fill in your pterodactyl connection info",FrmAlert.enmType.Error);
+                Alert("Please fill in your pterodactyl connection info", FrmAlert.enmType.Error);
                 return;
             }
 
@@ -168,7 +167,7 @@ namespace PteroController
                     cfg.SetValue("LOGIN", "remember_me", "true");
                     cfg.SetValue("LOGIN", "panel_url", panelUrl);
                     cfg.SetValue("LOGIN", "api_key", apiKey);
-                    cfg.SetValue("LOGIN", "panel_pwd",txtpanelpwd.Text);
+                    cfg.SetValue("LOGIN", "panel_pwd", txtpanelpwd.Text);
                     cfg.Save();
                     user_api_key = apiKey;
                     panel_url = panelUrl;

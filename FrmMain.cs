@@ -1,15 +1,8 @@
 ﻿using Newtonsoft.Json;
-using PteroController.Properties;
 using Salaros.Configuration;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PteroController
@@ -29,12 +22,12 @@ namespace PteroController
         private bool isFirstLoad = true;
         private async void FrmServerList_Load(object sender, EventArgs e)
         {
-            
+
             loadSettings();
-            label1.Text = "Hi, "+FrmLogin.username;
+            label1.Text = "Hi, " + FrmLogin.username;
             try
             {
-                
+
                 HttpResponseMessage response = await httpClient.GetAsync(FrmLogin.panel_url + "/api/client");
                 response.EnsureSuccessStatusCode();
                 string jsonResponse = await response.Content.ReadAsStringAsync();
@@ -76,7 +69,7 @@ namespace PteroController
 
         public class ServerAttributes
         {
-            
+
             public string Identifier { get; set; }
             public string Name { get; set; }
         }
@@ -166,5 +159,5 @@ namespace PteroController
 
         }
     }
-    
+
 }

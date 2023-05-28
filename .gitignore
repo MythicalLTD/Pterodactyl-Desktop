@@ -1,4 +1,4 @@
 .vs/
-bin/
+bin/debug/
 obj/
 packages/

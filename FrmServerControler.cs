@@ -1,5 +1,4 @@
-﻿using Guna.UI2.WinForms;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using Salaros.Configuration;
@@ -71,7 +70,7 @@ namespace PteroController
 
                     string token = serverInfo["data"]["token"].ToString();
                     string socket = serverInfo["data"]["socket"].ToString();
-                   
+
                     wsuri = socket;
                     authToken = token;
                 }
@@ -107,7 +106,7 @@ namespace PteroController
         }
         private void isMcSv()
         {
-            string url = "https://api.mcsrvstat.us/2/"+ipAlias+":"+svmport;
+            string url = "https://api.mcsrvstat.us/2/" + ipAlias + ":" + svmport;
             string json = new WebClient().DownloadString(url);
             JObject data = JObject.Parse(json);
             bool isOnline = (bool)data["online"];
@@ -124,15 +123,8 @@ namespace PteroController
 
             }
         }
-        private async void FrmMain_Load(object sender, EventArgs e)
+        private void loadServerInfo()
         {
-            Pages.TabSize = new Size(0,0);
-            loadWebsocket();
-            timer1.Interval = 840000;
-            timer1.Tick += timer1_Tick;
-            timer1.Start();
-            loadSettings();
-            timer1.Start();
             try
             {
                 var client = new RestClient(FrmLogin.panel_url);
@@ -159,7 +151,7 @@ namespace PteroController
                     }
                     else
                     {
-                        lblram.Text = "Ram: "+servermaxram;
+                        lblram.Text = "Ram: " + servermaxram;
                     }
                     if (servermaxdisk == "0")
                     {
@@ -189,7 +181,7 @@ namespace PteroController
                         {
                             ipAlias = allocation["attributes"]["ip_alias"].ToString();
                             svmport = allocation["attributes"]["port"].ToString();
-                            lblsvip.Text = "IP: " + (string.IsNullOrEmpty(ipAlias) ? "N/A" : ipAlias) + " :" + (string.IsNullOrEmpty(svmport) ? "N/A" : svmport);
+                            lblsvip.Text = "IP: " + (string.IsNullOrEmpty(ipAlias) ? "N/A" : ipAlias) + ":" + (string.IsNullOrEmpty(svmport) ? "N/A" : svmport);
                             break;
                         }
                     }
@@ -204,6 +196,18 @@ namespace PteroController
             {
                 MessageBox.Show($"An error occurred while fetching server information. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private async void FrmMain_Load(object sender, EventArgs e)
+        {
+            Pages.TabSize = new Size(0, 0);
+            loadWebsocket();
+            timer1.Interval = 840000;
+            timer1.Tick += timer1_Tick;
+            timer1.Start();
+            loadSettings();
+            timer1.Start();
+            Pages.SelectedPage = tab1;
+            loadServerInfo();
             isMcSv();
             await LoadDatabases();
         }
@@ -354,14 +358,15 @@ namespace PteroController
                             consoleTextBox.ScrollToCaret();
                         }
                     }
-                }catch 
+                }
+                catch
                 {
                     MessageBox.Show("Sorry we can't handle this console output please do not use this command or please wait for a bug fix");
                     FrmServerControler x = new FrmServerControler(ServerId);
                     x.Show();
                     this.Hide();
                 }
-               
+
             }
         }
         private string RemoveEscapeSequences(string input)
@@ -428,7 +433,7 @@ namespace PteroController
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Alert("Your time is out!",FrmAlert.enmType.Warning);
+            Alert("Your time is out!", FrmAlert.enmType.Warning);
             FrmMain x = new FrmMain();
             x.Show();
             this.Hide();
@@ -696,13 +701,13 @@ namespace PteroController
 
         private void dataTable_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-           
+
         }
 
         private void dataTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            { 
+            {
                 var cellValue = dataTable.Rows[e.RowIndex].Cells[e.ColumnIndex].Value?.ToString();
                 if (!string.IsNullOrEmpty(cellValue))
                 {
