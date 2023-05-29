@@ -113,12 +113,19 @@ namespace PteroController
             if (isOnline)
             {
                 string imageDataUri = (string)data["icon"];
-                string base64Data = imageDataUri.Split(',')[1];
-                byte[] imageData = Convert.FromBase64String(base64Data);
-                using (MemoryStream ms = new MemoryStream(imageData))
+                if (imageDataUri != null)
                 {
-                    Image image = Image.FromStream(ms);
-                    pcsvimg.Image = image;
+                    string base64Data = imageDataUri.Split(',')[1];
+                    byte[] imageData = Convert.FromBase64String(base64Data);
+                    using (MemoryStream ms = new MemoryStream(imageData))
+                    {
+                        Image image = Image.FromStream(ms);
+                        pcsvimg.Image = image;
+                    }
+                }
+                else
+                {
+
                 }
 
             }
