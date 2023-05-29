@@ -86,7 +86,7 @@ namespace PteroController
             {
                 string identifier = selectedServerName.Substring(selectedServerName.IndexOf('(') + 1);
                 identifier = identifier.TrimEnd(')');
-                FrmServerControler serverDetailsForm = new FrmServerControler(identifier);
+                FrmServerController serverDetailsForm = new FrmServerController(identifier);
                 serverDetailsForm.Show();
                 this.Hide();
             }

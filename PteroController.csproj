@@ -294,11 +294,11 @@
     <Compile Include="FrmProfile.Designer.cs">
       <DependentUpon>FrmProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmServerControler.cs">
+    <Compile Include="FrmServerController.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmServerControler.Designer.cs">
-      <DependentUpon>FrmServerControler.cs</DependentUpon>
+    <Compile Include="FrmServerController.Designer.cs">
+      <DependentUpon>FrmServerController.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -323,8 +323,8 @@
     <EmbeddedResource Include="FrmProfile.resx">
       <DependentUpon>FrmProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmServerControler.resx">
-      <DependentUpon>FrmServerControler.cs</DependentUpon>
+    <EmbeddedResource Include="FrmServerController.resx">
+      <DependentUpon>FrmServerController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

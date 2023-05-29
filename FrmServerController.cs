@@ -20,7 +20,7 @@ using System.Windows.Forms;
 
 namespace PteroController
 {
-    public partial class FrmServerControler : Form
+    public partial class FrmServerController : Form
     {
         public static string ServerId;
         public static string authToken;
@@ -38,7 +38,7 @@ namespace PteroController
         private DataTable datatable;
 
 
-        public FrmServerControler(string serverIdentifier)
+        public FrmServerController(string serverIdentifier)
         {
             InitializeComponent();
             commandTextBox.KeyPress += commandTextBox_KeyPress;
@@ -366,10 +366,11 @@ namespace PteroController
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                     MessageBox.Show("Sorry we can't handle this console output please do not use this command or please wait for a bug fix");
-                    FrmServerControler x = new FrmServerControler(ServerId);
+                    FrmServerController x = new FrmServerController(ServerId);
                     x.Show();
                     this.Hide();
                 }
