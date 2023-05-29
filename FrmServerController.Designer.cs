@@ -43,6 +43,7 @@
             this.lblmin = new System.Windows.Forms.Label();
             this.lblexit = new System.Windows.Forms.Label();
             this.sidenav = new System.Windows.Forms.Panel();
+            this.btndbs = new Guna.UI2.WinForms.Guna2Button();
             this.btnsftp = new Guna.UI2.WinForms.Guna2Button();
             this.btnconsole = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
@@ -78,8 +79,8 @@
             this.Pages = new Manina.Windows.Forms.TabControl();
             this.tab1 = new Manina.Windows.Forms.Tab();
             this.tab2 = new Manina.Windows.Forms.Tab();
-            this.btndbs = new Guna.UI2.WinForms.Guna2Button();
             this.dataTable = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.sidenav.SuspendLayout();
@@ -141,7 +142,6 @@
             // 
             // appicon
             // 
-            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
             resources.ApplyResources(this.appicon, "appicon");
             this.appicon.Name = "appicon";
             this.appicon.TabStop = false;
@@ -179,6 +179,28 @@
             this.sidenav.Controls.Add(this.pictureBox1);
             resources.ApplyResources(this.sidenav, "sidenav");
             this.sidenav.Name = "sidenav";
+            // 
+            // btndbs
+            // 
+            this.btndbs.Animated = true;
+            this.btndbs.BackColor = System.Drawing.Color.Transparent;
+            this.btndbs.BorderColor = System.Drawing.Color.Transparent;
+            this.btndbs.BorderRadius = 10;
+            this.btndbs.CheckedState.Parent = this.btndbs;
+            this.btndbs.CustomImages.Parent = this.btndbs;
+            this.btndbs.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            resources.ApplyResources(this.btndbs, "btndbs");
+            this.btndbs.ForeColor = System.Drawing.Color.White;
+            this.btndbs.HoverState.Parent = this.btndbs;
+            this.btndbs.Image = ((System.Drawing.Image)(resources.GetObject("btndbs.Image")));
+            this.btndbs.ImageOffset = new System.Drawing.Point(-75, 0);
+            this.btndbs.ImageSize = new System.Drawing.Size(28, 28);
+            this.btndbs.Name = "btndbs";
+            this.btndbs.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
+            this.btndbs.ShadowDecoration.Parent = this.btndbs;
+            this.btndbs.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btndbs.TextOffset = new System.Drawing.Point(30, 0);
+            this.btndbs.Click += new System.EventHandler(this.btndbs_Click);
             // 
             // btnsftp
             // 
@@ -308,7 +330,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PteroController.Properties.Resources.pterry;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
@@ -514,38 +535,17 @@
             // tab2
             // 
             this.tab2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            this.tab2.Controls.Add(this.guna2Button2);
             this.tab2.Controls.Add(this.dataTable);
             resources.ApplyResources(this.tab2, "tab2");
             this.tab2.Name = "tab2";
-            // 
-            // btndbs
-            // 
-            this.btndbs.Animated = true;
-            this.btndbs.BackColor = System.Drawing.Color.Transparent;
-            this.btndbs.BorderColor = System.Drawing.Color.Transparent;
-            this.btndbs.BorderRadius = 10;
-            this.btndbs.CheckedState.Parent = this.btndbs;
-            this.btndbs.CustomImages.Parent = this.btndbs;
-            this.btndbs.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            resources.ApplyResources(this.btndbs, "btndbs");
-            this.btndbs.ForeColor = System.Drawing.Color.White;
-            this.btndbs.HoverState.Parent = this.btndbs;
-            this.btndbs.Image = ((System.Drawing.Image)(resources.GetObject("btndbs.Image")));
-            this.btndbs.ImageOffset = new System.Drawing.Point(-75, 0);
-            this.btndbs.ImageSize = new System.Drawing.Size(28, 28);
-            this.btndbs.Name = "btndbs";
-            this.btndbs.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
-            this.btndbs.ShadowDecoration.Parent = this.btndbs;
-            this.btndbs.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btndbs.TextOffset = new System.Drawing.Point(30, 0);
-            this.btndbs.Click += new System.EventHandler(this.btndbs_Click);
             // 
             // dataTable
             // 
             this.dataTable.AllowUserToAddRows = false;
             this.dataTable.AllowUserToDeleteRows = false;
             this.dataTable.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
             this.dataTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
@@ -553,7 +553,7 @@
             this.dataTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -562,43 +562,62 @@
             this.dataTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.dataTable, "dataTable");
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataTable.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dataTable.EnableHeadersVisualStyles = false;
+            this.dataTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(62)))));
             this.dataTable.Name = "dataTable";
             this.dataTable.ReadOnly = true;
+            this.dataTable.RowHeadersVisible = false;
             this.dataTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataTable.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.dataTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataTable.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Dark;
+            this.dataTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
             this.dataTable.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dataTable.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dataTable.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dataTable.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dataTable.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
-            this.dataTable.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dataTable.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dataTable.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(62)))));
+            this.dataTable.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
             this.dataTable.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataTable.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dataTable.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dataTable.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dataTable.ThemeStyle.HeaderStyle.Height = 25;
             this.dataTable.ThemeStyle.ReadOnly = true;
-            this.dataTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.dataTable.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataTable.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dataTable.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.dataTable.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
             this.dataTable.ThemeStyle.RowsStyle.Height = 22;
-            this.dataTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dataTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dataTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
+            this.dataTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dataTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTable_CellDoubleClick);
             this.dataTable.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataTable_CellMouseClick);
             // 
-            // FrmServerControler
+            // guna2Button2
+            // 
+            this.guna2Button2.Animated = true;
+            this.guna2Button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.guna2Button2.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.BorderRadius = 10;
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(179)))));
+            resources.ApplyResources(this.guna2Button2, "guna2Button2");
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2HtmlToolTip1.SetToolTip(this.guna2Button2, resources.GetString("guna2Button2.ToolTip"));
+            // 
+            // FrmServerController
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -609,7 +628,7 @@
             this.Controls.Add(this.label3);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmServerControler";
+            this.Name = "FrmServerController";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.navbar.ResumeLayout(false);
             this.navbar.PerformLayout();
@@ -688,6 +707,7 @@
         private Manina.Windows.Forms.Tab tab2;
         private Guna.UI2.WinForms.Guna2Button btndbs;
         private Guna.UI2.WinForms.Guna2DataGridView dataTable;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }
 
