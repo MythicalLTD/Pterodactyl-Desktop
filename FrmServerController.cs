@@ -206,14 +206,12 @@ namespace PteroController
         }
         private async void FrmMain_Load(object sender, EventArgs e)
         {
-            Pages.TabSize = new Size(0, 0);
             loadWebsocket();
             timer1.Interval = 840000;
             timer1.Tick += timer1_Tick;
             timer1.Start();
             loadSettings();
             timer1.Start();
-            Pages.SelectedPage = tab1;
             loadServerInfo();
             isMcSv();
             await LoadDatabases();
@@ -504,7 +502,7 @@ namespace PteroController
         }
         static bool IsWinSCPInstalled()
         {
-            string winscpPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "WinSCP", "WinSCP.exe");
+            string winscpPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "WinSCP", "WinSCP.exe");
             return File.Exists(winscpPath);
         }
         private void Alert(string msg, FrmAlert.enmType type)
@@ -518,7 +516,7 @@ namespace PteroController
             bool isWinSCPInstalled = IsWinSCPInstalled();
             if (isWinSCPInstalled)
             {
-                string command = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "WinSCP", "WinSCP.exe");
+                string command = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "WinSCP", "WinSCP.exe");
                 string arguments = @"sftp://" + FrmLogin.username + "." + ServerId + ":" + FrmLogin.panel_pwd + "@" + sftp_ip + ":" + sftp_port + "";
                 ProcessStartInfo processInfo = new ProcessStartInfo(command, arguments);
                 processInfo.RedirectStandardOutput = true;
@@ -690,16 +688,17 @@ namespace PteroController
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            Pages.SelectedPage = tab1;
+            Pages.SetPage(pageConsole);
             btndbs.FillColor = Color.FromArgb(34, 39, 57);
             btnconsole.FillColor = Color.FromArgb(27, 28, 46);
         }
 
         private void btndbs_Click(object sender, EventArgs e)
         {
-            Pages.SelectedPage = tab2;
+            Pages.SetPage(PageDB);
             btndbs.FillColor = Color.FromArgb(27, 28, 46);
             btnconsole.FillColor = Color.FromArgb(34, 39, 57);
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

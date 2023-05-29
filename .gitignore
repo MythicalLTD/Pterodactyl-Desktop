@@ -1,4 +1,6 @@
 .vs/
 bin/debug/
+bin/Release/account.ini
 obj/
 packages/
+bunifu/

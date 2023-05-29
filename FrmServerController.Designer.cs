@@ -33,8 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.svname = new System.Windows.Forms.Label();
-            this.svnode = new System.Windows.Forms.Label();
+            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.navbar = new System.Windows.Forms.Panel();
@@ -55,32 +54,34 @@
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.consoleTextBox = new System.Windows.Forms.RichTextBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.commandTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnsend = new Guna.UI2.WinForms.Guna2Button();
-            this.lblsvip = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.psvkill = new System.Windows.Forms.PictureBox();
-            this.svshutdown = new System.Windows.Forms.PictureBox();
-            this.svrestart = new System.Windows.Forms.PictureBox();
-            this.svstart = new System.Windows.Forms.PictureBox();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.lblcopy = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblsvinfo = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbldisk = new System.Windows.Forms.Label();
-            this.lblcpu = new System.Windows.Forms.Label();
-            this.lblram = new System.Windows.Forms.Label();
-            this.lblsvlimit = new System.Windows.Forms.Label();
-            this.pcsvimg = new System.Windows.Forms.PictureBox();
-            this.Pages = new Manina.Windows.Forms.TabControl();
-            this.tab1 = new Manina.Windows.Forms.Tab();
-            this.tab2 = new Manina.Windows.Forms.Tab();
-            this.dataTable = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.dataTable = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Pages = new Bunifu.UI.WinForms.BunifuPages();
+            this.PageDB = new System.Windows.Forms.TabPage();
+            this.pageConsole = new System.Windows.Forms.TabPage();
+            this.pnlsvlimits = new System.Windows.Forms.Panel();
+            this.lblsvlimit = new System.Windows.Forms.Label();
+            this.lblram = new System.Windows.Forms.Label();
+            this.lblcpu = new System.Windows.Forms.Label();
+            this.lbldisk = new System.Windows.Forms.Label();
+            this.pcsvimg = new System.Windows.Forms.PictureBox();
+            this.pnlconsole = new System.Windows.Forms.Panel();
+            this.svstart = new System.Windows.Forms.PictureBox();
+            this.commandTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.svrestart = new System.Windows.Forms.PictureBox();
+            this.btnsend = new Guna.UI2.WinForms.Guna2Button();
+            this.svshutdown = new System.Windows.Forms.PictureBox();
+            this.psvkill = new System.Windows.Forms.PictureBox();
+            this.consoleTextBox = new System.Windows.Forms.RichTextBox();
+            this.pnlsvinfo = new System.Windows.Forms.Panel();
+            this.svnode = new System.Windows.Forms.Label();
+            this.lblsvip = new System.Windows.Forms.Label();
+            this.svname = new System.Windows.Forms.Label();
+            this.lblsvinfo = new System.Windows.Forms.Label();
+            this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.sidenav.SuspendLayout();
@@ -88,29 +89,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.psvkill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.svshutdown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.svrestart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.svstart)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcsvimg)).BeginInit();
-            this.Pages.SuspendLayout();
-            this.tab1.SuspendLayout();
-            this.tab2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable)).BeginInit();
+            this.Pages.SuspendLayout();
+            this.PageDB.SuspendLayout();
+            this.pageConsole.SuspendLayout();
+            this.pnlsvlimits.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcsvimg)).BeginInit();
+            this.pnlconsole.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.svstart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svrestart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svshutdown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.psvkill)).BeginInit();
+            this.pnlsvinfo.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // svname
-            // 
-            resources.ApplyResources(this.svname, "svname");
-            this.svname.Name = "svname";
-            // 
-            // svnode
-            // 
-            resources.ApplyResources(this.svnode, "svnode");
-            this.svnode.Name = "svnode";
             // 
             // timer1
             // 
@@ -165,6 +156,7 @@
             // sidenav
             // 
             this.sidenav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.sidenav.Controls.Add(this.guna2VSeparator1);
             this.sidenav.Controls.Add(this.btndbs);
             this.sidenav.Controls.Add(this.btnsftp);
             this.sidenav.Controls.Add(this.btnconsole);
@@ -334,15 +326,6 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
-            // consoleTextBox
-            // 
-            this.consoleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
-            this.consoleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.consoleTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            resources.ApplyResources(this.consoleTextBox, "consoleTextBox");
-            this.consoleTextBox.Name = "consoleTextBox";
-            this.consoleTextBox.ReadOnly = true;
-            // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.TargetControl = this.navbar;
@@ -352,193 +335,27 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // commandTextBox
-            // 
-            this.commandTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.commandTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
-            this.commandTextBox.BorderRadius = 12;
-            this.commandTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.commandTextBox.DefaultText = "";
-            this.commandTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.commandTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.commandTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.commandTextBox.DisabledState.Parent = this.commandTextBox;
-            this.commandTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.commandTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
-            this.commandTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.commandTextBox.FocusedState.Parent = this.commandTextBox;
-            this.commandTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.commandTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.commandTextBox.HoverState.Parent = this.commandTextBox;
-            resources.ApplyResources(this.commandTextBox, "commandTextBox");
-            this.commandTextBox.Name = "commandTextBox";
-            this.commandTextBox.PasswordChar = '\0';
-            this.commandTextBox.PlaceholderText = "";
-            this.commandTextBox.SelectedText = "";
-            this.commandTextBox.ShadowDecoration.Parent = this.commandTextBox;
-            // 
-            // btnsend
-            // 
-            this.btnsend.Animated = true;
-            this.btnsend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.btnsend.BorderColor = System.Drawing.Color.Transparent;
-            this.btnsend.BorderRadius = 10;
-            this.btnsend.CheckedState.Parent = this.btnsend;
-            this.btnsend.CustomImages.Parent = this.btnsend;
-            this.btnsend.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(179)))));
-            resources.ApplyResources(this.btnsend, "btnsend");
-            this.btnsend.ForeColor = System.Drawing.Color.White;
-            this.btnsend.HoverState.Parent = this.btnsend;
-            this.btnsend.Name = "btnsend";
-            this.btnsend.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
-            this.btnsend.ShadowDecoration.Parent = this.btnsend;
-            this.guna2HtmlToolTip1.SetToolTip(this.btnsend, resources.GetString("btnsend.ToolTip"));
-            this.btnsend.Click += new System.EventHandler(this.btnsend_Click);
-            // 
-            // lblsvip
-            // 
-            resources.ApplyResources(this.lblsvip, "lblsvip");
-            this.lblsvip.Name = "lblsvip";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.panel1.Controls.Add(this.consoleTextBox);
-            this.panel1.Controls.Add(this.psvkill);
-            this.panel1.Controls.Add(this.svshutdown);
-            this.panel1.Controls.Add(this.btnsend);
-            this.panel1.Controls.Add(this.svrestart);
-            this.panel1.Controls.Add(this.commandTextBox);
-            this.panel1.Controls.Add(this.svstart);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // psvkill
-            // 
-            resources.ApplyResources(this.psvkill, "psvkill");
-            this.psvkill.Name = "psvkill";
-            this.psvkill.TabStop = false;
-            this.guna2HtmlToolTip1.SetToolTip(this.psvkill, resources.GetString("psvkill.ToolTip"));
-            this.psvkill.Click += new System.EventHandler(this.svkill_Click);
-            // 
-            // svshutdown
-            // 
-            resources.ApplyResources(this.svshutdown, "svshutdown");
-            this.svshutdown.Name = "svshutdown";
-            this.svshutdown.TabStop = false;
-            this.guna2HtmlToolTip1.SetToolTip(this.svshutdown, resources.GetString("svshutdown.ToolTip"));
-            this.svshutdown.Click += new System.EventHandler(this.svshutdown_Click);
-            // 
-            // svrestart
-            // 
-            resources.ApplyResources(this.svrestart, "svrestart");
-            this.svrestart.Name = "svrestart";
-            this.svrestart.TabStop = false;
-            this.guna2HtmlToolTip1.SetToolTip(this.svrestart, resources.GetString("svrestart.ToolTip"));
-            this.svrestart.Click += new System.EventHandler(this.svrestart_Click);
-            // 
-            // svstart
-            // 
-            resources.ApplyResources(this.svstart, "svstart");
-            this.svstart.Name = "svstart";
-            this.svstart.TabStop = false;
-            this.guna2HtmlToolTip1.SetToolTip(this.svstart, resources.GetString("svstart.ToolTip"));
-            this.svstart.Click += new System.EventHandler(this.svstart_Click);
-            // 
             // guna2HtmlToolTip1
             // 
             this.guna2HtmlToolTip1.AllowLinksHandling = true;
             this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
             // 
-            // lblcopy
+            // guna2Button2
             // 
-            resources.ApplyResources(this.lblcopy, "lblcopy");
-            this.lblcopy.BackColor = System.Drawing.Color.Transparent;
-            this.lblcopy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.lblcopy.Name = "lblcopy";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.panel2.Controls.Add(this.lblsvinfo);
-            this.panel2.Controls.Add(this.svname);
-            this.panel2.Controls.Add(this.lblsvip);
-            this.panel2.Controls.Add(this.svnode);
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
-            // 
-            // lblsvinfo
-            // 
-            resources.ApplyResources(this.lblsvinfo, "lblsvinfo");
-            this.lblsvinfo.Name = "lblsvinfo";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.panel3.Controls.Add(this.lbldisk);
-            this.panel3.Controls.Add(this.lblcpu);
-            this.panel3.Controls.Add(this.lblram);
-            this.panel3.Controls.Add(this.lblsvlimit);
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Name = "panel3";
-            // 
-            // lbldisk
-            // 
-            resources.ApplyResources(this.lbldisk, "lbldisk");
-            this.lbldisk.Name = "lbldisk";
-            // 
-            // lblcpu
-            // 
-            resources.ApplyResources(this.lblcpu, "lblcpu");
-            this.lblcpu.Name = "lblcpu";
-            // 
-            // lblram
-            // 
-            resources.ApplyResources(this.lblram, "lblram");
-            this.lblram.Name = "lblram";
-            // 
-            // lblsvlimit
-            // 
-            resources.ApplyResources(this.lblsvlimit, "lblsvlimit");
-            this.lblsvlimit.Name = "lblsvlimit";
-            // 
-            // pcsvimg
-            // 
-            resources.ApplyResources(this.pcsvimg, "pcsvimg");
-            this.pcsvimg.Name = "pcsvimg";
-            this.pcsvimg.TabStop = false;
-            // 
-            // Pages
-            // 
-            this.Pages.Controls.Add(this.tab1);
-            this.Pages.Controls.Add(this.tab2);
-            resources.ApplyResources(this.Pages, "Pages");
-            this.Pages.Name = "Pages";
-            this.Pages.SelectedIndex = 1;
-            this.Pages.TabLocation = ((Manina.Windows.Forms.TabLocation)((Manina.Windows.Forms.TabLocation.Near | Manina.Windows.Forms.TabLocation.Bottom)));
-            this.Pages.Tabs.Add(this.tab1);
-            this.Pages.Tabs.Add(this.tab2);
-            this.Pages.TabSizing = Manina.Windows.Forms.TabSizing.Fixed;
-            // 
-            // tab1
-            // 
-            this.tab1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
-            this.tab1.Controls.Add(this.panel2);
-            this.tab1.Controls.Add(this.lblcopy);
-            this.tab1.Controls.Add(this.pcsvimg);
-            this.tab1.Controls.Add(this.panel3);
-            this.tab1.Controls.Add(this.panel1);
-            resources.ApplyResources(this.tab1, "tab1");
-            this.tab1.Name = "tab1";
-            // 
-            // tab2
-            // 
-            this.tab2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
-            this.tab2.Controls.Add(this.guna2Button2);
-            this.tab2.Controls.Add(this.dataTable);
-            resources.ApplyResources(this.tab2, "tab2");
-            this.tab2.Name = "tab2";
+            this.guna2Button2.Animated = true;
+            this.guna2Button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.guna2Button2.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.BorderRadius = 10;
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(179)))));
+            resources.ApplyResources(this.guna2Button2, "guna2Button2");
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2HtmlToolTip1.SetToolTip(this.guna2Button2, resources.GetString("guna2Button2.ToolTip"));
             // 
             // dataTable
             // 
@@ -564,7 +381,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -593,29 +410,230 @@
             this.dataTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.dataTable.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataTable.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dataTable.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
+            this.dataTable.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
             this.dataTable.ThemeStyle.RowsStyle.Height = 22;
             this.dataTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
             this.dataTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dataTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTable_CellDoubleClick);
             this.dataTable.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataTable_CellMouseClick);
             // 
-            // guna2Button2
+            // Pages
             // 
-            this.guna2Button2.Animated = true;
-            this.guna2Button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.guna2Button2.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(179)))));
-            resources.ApplyResources(this.guna2Button2, "guna2Button2");
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2HtmlToolTip1.SetToolTip(this.guna2Button2, resources.GetString("guna2Button2.ToolTip"));
+            resources.ApplyResources(this.Pages, "Pages");
+            this.Pages.AllowTransitions = false;
+            this.Pages.Controls.Add(this.pageConsole);
+            this.Pages.Controls.Add(this.PageDB);
+            this.Pages.Multiline = true;
+            this.Pages.Name = "Pages";
+            this.Pages.Page = this.PageDB;
+            this.Pages.PageIndex = 1;
+            this.Pages.PageName = "PageDB";
+            this.Pages.PageTitle = "Database";
+            this.Pages.SelectedIndex = 0;
+            animation1.AnimateOnlyDifferences = false;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.Pages.Transition = animation1;
+            this.Pages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Custom;
+            // 
+            // PageDB
+            // 
+            this.PageDB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            this.PageDB.Controls.Add(this.guna2Button2);
+            this.PageDB.Controls.Add(this.dataTable);
+            resources.ApplyResources(this.PageDB, "PageDB");
+            this.PageDB.Name = "PageDB";
+            // 
+            // pageConsole
+            // 
+            this.pageConsole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            this.pageConsole.Controls.Add(this.pnlsvinfo);
+            this.pageConsole.Controls.Add(this.pnlconsole);
+            this.pageConsole.Controls.Add(this.pcsvimg);
+            this.pageConsole.Controls.Add(this.pnlsvlimits);
+            resources.ApplyResources(this.pageConsole, "pageConsole");
+            this.pageConsole.Name = "pageConsole";
+            // 
+            // pnlsvlimits
+            // 
+            this.pnlsvlimits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.pnlsvlimits.Controls.Add(this.lbldisk);
+            this.pnlsvlimits.Controls.Add(this.lblcpu);
+            this.pnlsvlimits.Controls.Add(this.lblram);
+            this.pnlsvlimits.Controls.Add(this.lblsvlimit);
+            resources.ApplyResources(this.pnlsvlimits, "pnlsvlimits");
+            this.pnlsvlimits.Name = "pnlsvlimits";
+            // 
+            // lblsvlimit
+            // 
+            resources.ApplyResources(this.lblsvlimit, "lblsvlimit");
+            this.lblsvlimit.Name = "lblsvlimit";
+            // 
+            // lblram
+            // 
+            resources.ApplyResources(this.lblram, "lblram");
+            this.lblram.Name = "lblram";
+            // 
+            // lblcpu
+            // 
+            resources.ApplyResources(this.lblcpu, "lblcpu");
+            this.lblcpu.Name = "lblcpu";
+            // 
+            // lbldisk
+            // 
+            resources.ApplyResources(this.lbldisk, "lbldisk");
+            this.lbldisk.Name = "lbldisk";
+            // 
+            // pcsvimg
+            // 
+            resources.ApplyResources(this.pcsvimg, "pcsvimg");
+            this.pcsvimg.Name = "pcsvimg";
+            this.pcsvimg.TabStop = false;
+            // 
+            // pnlconsole
+            // 
+            this.pnlconsole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.pnlconsole.Controls.Add(this.consoleTextBox);
+            this.pnlconsole.Controls.Add(this.psvkill);
+            this.pnlconsole.Controls.Add(this.svshutdown);
+            this.pnlconsole.Controls.Add(this.btnsend);
+            this.pnlconsole.Controls.Add(this.svrestart);
+            this.pnlconsole.Controls.Add(this.commandTextBox);
+            this.pnlconsole.Controls.Add(this.svstart);
+            resources.ApplyResources(this.pnlconsole, "pnlconsole");
+            this.pnlconsole.Name = "pnlconsole";
+            this.pnlconsole.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // svstart
+            // 
+            resources.ApplyResources(this.svstart, "svstart");
+            this.svstart.Name = "svstart";
+            this.svstart.TabStop = false;
+            this.guna2HtmlToolTip1.SetToolTip(this.svstart, resources.GetString("svstart.ToolTip"));
+            this.svstart.Click += new System.EventHandler(this.svstart_Click);
+            // 
+            // commandTextBox
+            // 
+            this.commandTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.commandTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
+            this.commandTextBox.BorderRadius = 12;
+            this.commandTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.commandTextBox.DefaultText = "";
+            this.commandTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.commandTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.commandTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.commandTextBox.DisabledState.Parent = this.commandTextBox;
+            this.commandTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.commandTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
+            this.commandTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.commandTextBox.FocusedState.Parent = this.commandTextBox;
+            this.commandTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.commandTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.commandTextBox.HoverState.Parent = this.commandTextBox;
+            resources.ApplyResources(this.commandTextBox, "commandTextBox");
+            this.commandTextBox.Name = "commandTextBox";
+            this.commandTextBox.PasswordChar = '\0';
+            this.commandTextBox.PlaceholderText = "";
+            this.commandTextBox.SelectedText = "";
+            this.commandTextBox.ShadowDecoration.Parent = this.commandTextBox;
+            // 
+            // svrestart
+            // 
+            resources.ApplyResources(this.svrestart, "svrestart");
+            this.svrestart.Name = "svrestart";
+            this.svrestart.TabStop = false;
+            this.guna2HtmlToolTip1.SetToolTip(this.svrestart, resources.GetString("svrestart.ToolTip"));
+            this.svrestart.Click += new System.EventHandler(this.svrestart_Click);
+            // 
+            // btnsend
+            // 
+            this.btnsend.Animated = true;
+            this.btnsend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.btnsend.BorderColor = System.Drawing.Color.Transparent;
+            this.btnsend.BorderRadius = 10;
+            this.btnsend.CheckedState.Parent = this.btnsend;
+            this.btnsend.CustomImages.Parent = this.btnsend;
+            this.btnsend.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(179)))));
+            resources.ApplyResources(this.btnsend, "btnsend");
+            this.btnsend.ForeColor = System.Drawing.Color.White;
+            this.btnsend.HoverState.Parent = this.btnsend;
+            this.btnsend.Name = "btnsend";
+            this.btnsend.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
+            this.btnsend.ShadowDecoration.Parent = this.btnsend;
+            this.guna2HtmlToolTip1.SetToolTip(this.btnsend, resources.GetString("btnsend.ToolTip"));
+            this.btnsend.Click += new System.EventHandler(this.btnsend_Click);
+            // 
+            // svshutdown
+            // 
+            resources.ApplyResources(this.svshutdown, "svshutdown");
+            this.svshutdown.Name = "svshutdown";
+            this.svshutdown.TabStop = false;
+            this.guna2HtmlToolTip1.SetToolTip(this.svshutdown, resources.GetString("svshutdown.ToolTip"));
+            this.svshutdown.Click += new System.EventHandler(this.svshutdown_Click);
+            // 
+            // psvkill
+            // 
+            resources.ApplyResources(this.psvkill, "psvkill");
+            this.psvkill.Name = "psvkill";
+            this.psvkill.TabStop = false;
+            this.guna2HtmlToolTip1.SetToolTip(this.psvkill, resources.GetString("psvkill.ToolTip"));
+            this.psvkill.Click += new System.EventHandler(this.svkill_Click);
+            // 
+            // consoleTextBox
+            // 
+            this.consoleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
+            this.consoleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.consoleTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            resources.ApplyResources(this.consoleTextBox, "consoleTextBox");
+            this.consoleTextBox.Name = "consoleTextBox";
+            this.consoleTextBox.ReadOnly = true;
+            // 
+            // pnlsvinfo
+            // 
+            this.pnlsvinfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.pnlsvinfo.Controls.Add(this.lblsvinfo);
+            this.pnlsvinfo.Controls.Add(this.svname);
+            this.pnlsvinfo.Controls.Add(this.lblsvip);
+            this.pnlsvinfo.Controls.Add(this.svnode);
+            resources.ApplyResources(this.pnlsvinfo, "pnlsvinfo");
+            this.pnlsvinfo.Name = "pnlsvinfo";
+            // 
+            // svnode
+            // 
+            resources.ApplyResources(this.svnode, "svnode");
+            this.svnode.Name = "svnode";
+            // 
+            // lblsvip
+            // 
+            resources.ApplyResources(this.lblsvip, "lblsvip");
+            this.lblsvip.Name = "lblsvip";
+            // 
+            // svname
+            // 
+            resources.ApplyResources(this.svname, "svname");
+            this.svname.Name = "svname";
+            // 
+            // lblsvinfo
+            // 
+            resources.ApplyResources(this.lblsvinfo, "lblsvinfo");
+            this.lblsvinfo.Name = "lblsvinfo";
+            // 
+            // guna2VSeparator1
+            // 
+            resources.ApplyResources(this.guna2VSeparator1, "guna2VSeparator1");
+            this.guna2VSeparator1.Name = "guna2VSeparator1";
             // 
             // FrmServerController
             // 
@@ -639,29 +657,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.psvkill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.svshutdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.svrestart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.svstart)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcsvimg)).EndInit();
-            this.Pages.ResumeLayout(false);
-            this.tab1.ResumeLayout(false);
-            this.tab1.PerformLayout();
-            this.tab2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataTable)).EndInit();
+            this.Pages.ResumeLayout(false);
+            this.PageDB.ResumeLayout(false);
+            this.pageConsole.ResumeLayout(false);
+            this.pnlsvlimits.ResumeLayout(false);
+            this.pnlsvlimits.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcsvimg)).EndInit();
+            this.pnlconsole.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.svstart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svrestart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svshutdown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.psvkill)).EndInit();
+            this.pnlsvinfo.ResumeLayout(false);
+            this.pnlsvinfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label svname;
-        private System.Windows.Forms.Label svnode;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel navbar;
@@ -679,35 +694,37 @@
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RichTextBox consoleTextBox;
         private Guna.UI2.WinForms.Guna2Button btnconsole;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Button btnsftp;
-        private Guna.UI2.WinForms.Guna2TextBox commandTextBox;
-        private Guna.UI2.WinForms.Guna2Button btnsend;
-        private System.Windows.Forms.Label lblsvip;
-        private System.Windows.Forms.PictureBox svshutdown;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox psvkill;
-        private System.Windows.Forms.PictureBox svrestart;
-        private System.Windows.Forms.PictureBox svstart;
         private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
-        private System.Windows.Forms.Label lblcopy;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lblsvinfo;
-        private System.Windows.Forms.Label lblsvlimit;
-        private System.Windows.Forms.Label lblram;
-        private System.Windows.Forms.Label lbldisk;
-        private System.Windows.Forms.Label lblcpu;
-        private System.Windows.Forms.PictureBox pcsvimg;
-        private Manina.Windows.Forms.TabControl Pages;
-        private Manina.Windows.Forms.Tab tab1;
-        private Manina.Windows.Forms.Tab tab2;
         private Guna.UI2.WinForms.Guna2Button btndbs;
         private Guna.UI2.WinForms.Guna2DataGridView dataTable;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Bunifu.UI.WinForms.BunifuPages Pages;
+        private System.Windows.Forms.TabPage pageConsole;
+        private System.Windows.Forms.Panel pnlsvinfo;
+        private System.Windows.Forms.Label lblsvinfo;
+        private System.Windows.Forms.Label svname;
+        private System.Windows.Forms.Label lblsvip;
+        private System.Windows.Forms.Label svnode;
+        private System.Windows.Forms.Panel pnlconsole;
+        private System.Windows.Forms.RichTextBox consoleTextBox;
+        private System.Windows.Forms.PictureBox psvkill;
+        private System.Windows.Forms.PictureBox svshutdown;
+        private Guna.UI2.WinForms.Guna2Button btnsend;
+        private System.Windows.Forms.PictureBox svrestart;
+        private Guna.UI2.WinForms.Guna2TextBox commandTextBox;
+        private System.Windows.Forms.PictureBox svstart;
+        private System.Windows.Forms.PictureBox pcsvimg;
+        private System.Windows.Forms.Panel pnlsvlimits;
+        private System.Windows.Forms.Label lbldisk;
+        private System.Windows.Forms.Label lblcpu;
+        private System.Windows.Forms.Label lblram;
+        private System.Windows.Forms.Label lblsvlimit;
+        private System.Windows.Forms.TabPage PageDB;
+        private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
     }
 }
 
