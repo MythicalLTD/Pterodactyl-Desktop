@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using DiscordRPC;
+using DiscordRPC.Logging;
+using Newtonsoft.Json.Linq;
 using Salaros.Configuration;
 using System;
 using System.Net.Http;
@@ -24,11 +26,60 @@ namespace PteroController
         public static string firstName;
         public static string lastName;
         public static string language;
+        public DiscordRpcClient client;
+
+        void InitializeRPC()
+        {
+            Console.WriteLine("[{0:HH:mm:ss}] [DISCORD RPC] Please wait while we load RPC", DateTime.Now);
+            client = new DiscordRpcClient("1114229771426078790");
+
+            client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
+
+            client.OnReady += (sender, e) =>
+            {
+                Console.WriteLine("[{0:HH:mm:ss}] [DISCORD RPC] Received Ready from user {0}", e.User.Username, DateTime.Now);
+            };
+
+            client.OnPresenceUpdate += (sender, e) =>
+            {
+                Console.WriteLine("[{0:HH:mm:ss}] [DISCORD RPC] Received Update! {0}", e.Presence, DateTime.Now);
+            };
+
+            client.Initialize();
+            DiscordRPC.Button btns = new DiscordRPC.Button();
+            DiscordRPC.Button btns2 = new DiscordRPC.Button();
+            btns.Label = "Example Button 1";
+            btns.Url = "https://superhori.ro";
+            btns2.Label = "Example Button 2";
+            btns2.Url = "https://mythicalsystems.tech/";
+
+            client.SetPresence(new RichPresence()
+            {
+                Details = "Using PteroController",
+                State = "Best pterodactyl controller that exists",
+                Assets = new Assets()
+                {
+                    LargeImageKey = "logo",
+                    LargeImageText = "PteroController",
+                },
+                Buttons = new DiscordRPC.Button[]
+                {
+                    btns,
+                    btns2
+                },
+            });
+
+            Console.WriteLine("[{0:HH:mm:ss}] Discord RPC was successfully loaded", DateTime.Now);
+
+        }
+
 
         public FrmLogin()
         {
             InitializeComponent();
+            InitializeRPC();
         }
+
         private async Task<bool> Login(string apiKey, Uri panelUri)
         {
             using (HttpClient client = new HttpClient())
