@@ -48,15 +48,15 @@ namespace PteroController
             client.Initialize();
             DiscordRPC.Button btns = new DiscordRPC.Button();
             DiscordRPC.Button btns2 = new DiscordRPC.Button();
-            btns.Label = "Example Button 1";
-            btns.Url = "https://superhori.ro";
-            btns2.Label = "Example Button 2";
-            btns2.Url = "https://mythicalsystems.tech/";
+            btns.Label = "Pterodactyl";
+            btns.Url = "https://pterodactyl.io";
+            btns2.Label = "Desktop app";
+            btns2.Url = "https://github.com/MythicalLTD/PteroController";
 
             client.SetPresence(new RichPresence()
             {
                 Details = "Using PteroController",
-                State = "Best pterodactyl controller that exists",
+                State = "A Pterodactyl Panel Desktop App! <3",
                 Assets = new Assets()
                 {
                     LargeImageKey = "logo",
