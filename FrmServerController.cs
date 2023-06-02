@@ -206,14 +206,12 @@ namespace PteroController
         }
         private async void FrmMain_Load(object sender, EventArgs e)
         {
-            Pages.TabSize = new Size(0, 0);
             loadWebsocket();
             timer1.Interval = 840000;
             timer1.Tick += timer1_Tick;
             timer1.Start();
             loadSettings();
             timer1.Start();
-            Pages.SelectedPage = tab1;
             loadServerInfo();
             isMcSv();
             await LoadDatabases();
@@ -504,7 +502,7 @@ namespace PteroController
         }
         static bool IsWinSCPInstalled()
         {
-            string winscpPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "WinSCP", "WinSCP.exe");
+            string winscpPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "WinSCP", "WinSCP.exe");
             return File.Exists(winscpPath);
         }
         private void Alert(string msg, FrmAlert.enmType type)
@@ -518,7 +516,7 @@ namespace PteroController
             bool isWinSCPInstalled = IsWinSCPInstalled();
             if (isWinSCPInstalled)
             {
-                string command = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "WinSCP", "WinSCP.exe");
+                string command = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "WinSCP", "WinSCP.exe");
                 string arguments = @"sftp://" + FrmLogin.username + "." + ServerId + ":" + FrmLogin.panel_pwd + "@" + sftp_ip + ":" + sftp_port + "";
                 ProcessStartInfo processInfo = new ProcessStartInfo(command, arguments);
                 processInfo.RedirectStandardOutput = true;
@@ -690,16 +688,17 @@ namespace PteroController
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            Pages.SelectedPage = tab1;
+            Pages.SetPage(PageConsole);
             btndbs.FillColor = Color.FromArgb(34, 39, 57);
             btnconsole.FillColor = Color.FromArgb(27, 28, 46);
         }
 
         private void btndbs_Click(object sender, EventArgs e)
         {
-            Pages.SelectedPage = tab2;
+            Pages.SetPage(PageDB);
             btndbs.FillColor = Color.FromArgb(27, 28, 46);
             btnconsole.FillColor = Color.FromArgb(34, 39, 57);
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -722,6 +721,38 @@ namespace PteroController
                     Clipboard.SetText(cellValue);
                 }
             }
+        }
+
+        private async void guna2Button3_Click_1(object sender, EventArgs e)
+        {
+            var client = new RestClient(FrmLogin.panel_url);
+            var request = new RestRequest($"/api/client/servers/" + ServerId + "/databases", Method.Post);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Authorization", $"Bearer {FrmLogin.user_api_key}");
+            string requestBody = $"{{\"database\":\"{txtdbname.Text}\",\"remote\":\"{txtdbconn.Text}\"}}";
+
+            request.AddParameter("application/json", requestBody, ParameterType.RequestBody);
+            
+            var response = client.Execute(request);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Alert("Database created successfully!", FrmAlert.enmType.Succes);
+                Pages.SetPage(PageDB);
+                await LoadDatabases();
+            }
+            else
+            {
+                Alert("Error while creating your database!", FrmAlert.enmType.Error);
+                Pages.SetPage(PageDB);
+                Console.WriteLine(response.ErrorMessage);
+            }
+        }
+
+        private void guna2Button2_Click_1(object sender, EventArgs e)
+        {
+            Pages.SetPage(PageDBCreate);
         }
     }
 }

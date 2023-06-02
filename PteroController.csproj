@@ -61,13 +61,13 @@
     <ApplicationIcon>pterry %281%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPages">
+      <HintPath>bunifu\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+    </Reference>
     <Reference Include="ConfigParser, Version=0.3.8.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Salaros.ConfigParser.0.3.8\lib\net45\ConfigParser.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL" />
-    <Reference Include="JsonDiffPatch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\JsonDiffPatch.2.0.61\lib\net452\JsonDiffPatch.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -79,9 +79,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="PagedControl, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\PagedControl.2.2.0\lib\net35\PagedControl.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -265,13 +262,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TabControl, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\TabControl.2.1.2\lib\net35\TabControl.dll</HintPath>
-    </Reference>
     <Reference Include="UIAutomationProvider" />
-    <Reference Include="websocket-sharp, Version=1.0.1.0, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
-      <HintPath>packages\WebSocketSharp-netstandard.1.0.1\lib\net45\websocket-sharp.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
@@ -332,6 +323,7 @@
     <EmbeddedResource Include="FrmSettings.resx">
       <DependentUpon>FrmSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -352,398 +344,48 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Scripts\kendo\2023.1.425\jquery.min.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.angular.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.autocomplete.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.badge.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.binder.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.bottomnavigation.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.button.menu.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.button.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.buttongroup.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.calendar.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.checkbox.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.color.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.colorpicker.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.combobox.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.core.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.data.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.data.odata.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.data.signalr.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.data.xml.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.dateinput.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.datepicker.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.datetimepicker.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.dialog.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.draganddrop.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.dropdownbutton.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.dropdownlist.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.editable.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.floatinglabel.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.fx.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.html.base.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.html.button.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.html.chip.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.html.chiplist.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.html.icon.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.html.input.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.icons.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.label.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.list.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.listbox.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.listview.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.loader.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.maskedtextbox.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.menu.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.actionsheet.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.application.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.button.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.buttongroup.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.collapsible.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.drawer.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.listview.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.loader.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.modalview.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.navbar.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.pane.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.popover.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.scroller.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.scrollview.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.shim.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.splitview.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.switch.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.tabstrip.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.mobile.view.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.multiselect.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.notification.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.numerictextbox.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.pager.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.panelbar.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.popup.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.progressbar.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.resizable.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.responsivepanel.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.router.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.selectable.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.slider.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.sortable.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.splitbutton.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.splitter.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.tabstrip.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.textarea.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.textbox.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.timepicker.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.timezones.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.togglebutton.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.toggleinputbase.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.toolbar.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.tooltip.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.touch.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.ui.core.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.userevents.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.validator.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.view.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.virtuallist.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\kendo.window.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-AE.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-BH.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-DJ.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-DZ.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-EG.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-ER.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-IL.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-IQ.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-JO.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-KM.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-KW.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-LB.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-LY.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-MA.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-MR.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-OM.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-PS.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-QA.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-SA.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-SD.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-SO.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-SS.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-SY.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-TD.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-TN.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-YE.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.bg-BG.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.cs-CZ.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.da-DK.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.de-AT.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.de-CH.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.de-DE.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.de-LI.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.el-GR.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.en-AU.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.en-CA.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.en-GB.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.en-US.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-AR.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-BO.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-CL.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-CO.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-CR.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-DO.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-EC.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-ES.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-GT.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-HN.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-MX.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-NI.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-PA.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-PE.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-PR.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-PY.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-US.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-UY.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-VE.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fa-IR.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fi-FI.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-BE.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-CA.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-CD.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-CH.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-CI.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-CM.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-FR.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-HT.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-LU.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-MA.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-MC.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-ML.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-SN.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.he-IL.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.hr-HR.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.hu-HU.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.hy-AM.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.it-CH.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.it-IT.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ja-JP.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.mk-MK.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.nb-NO.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.nl-BE.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.nl-NL.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.pl-PL.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.pt-BR.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.pt-PT.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ro-RO.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ru-RU.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.sk-SK.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.sq-AL.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.sr-Latn-RS.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.sv-SE.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.tr-TR.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.uk-UA.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.vi-VN.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.zh-CN.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.zh-HK.min.js.map" />
-    <None Include="Scripts\kendo\2023.1.425\messages\kendo.messages.zh-TW.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="bunifu\Bunifu.Licensing.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.1.5.3.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuButton.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuCheckBox.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuCircleProgress.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuColorTransition.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuDataGridView.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuDatePicker.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuDropdown.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuFormDock.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuGauge.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuGradientPanel.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuGroupBox.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuImageButton.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuLabel.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuPages.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuPanel.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuPictureBox.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuProgressBar.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuRadioButton.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuRating.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuScrollBar.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuSeparator.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuShadowPanel.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuShapes.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuSlider.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuSnackbar.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuTextBox.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuToggleSwitch.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuToolTip.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuTransition.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.BunifuUserControl.dll" />
+    <EmbeddedResource Include="bunifu\Bunifu.UI.WinForms.Deprecated.dll" />
     <Content Include="Guna.UI2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="pterry %281%29.ico" />
-    <Content Include="Scripts\kendo\2023.1.425\angular.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\jquery.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.angular.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.autocomplete.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.badge.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.binder.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.bottomnavigation.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.button.menu.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.button.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.buttongroup.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.calendar.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.checkbox.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.color.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.colorpicker.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.combobox.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.core.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.data.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.data.odata.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.data.signalr.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.data.xml.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.dateinput.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.datepicker.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.datetimepicker.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.dialog.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.draganddrop.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.dropdownbutton.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.dropdownlist.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.editable.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.floatinglabel.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.fx.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.html.base.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.html.button.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.html.chip.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.html.chiplist.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.html.icon.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.html.input.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.icons.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.label.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.list.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.listbox.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.listview.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.loader.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.maskedtextbox.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.menu.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.actionsheet.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.application.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.button.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.buttongroup.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.collapsible.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.drawer.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.listview.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.loader.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.modalview.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.navbar.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.pane.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.popover.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.scroller.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.scrollview.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.shim.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.splitview.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.switch.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.tabstrip.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.mobile.view.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.multiselect.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.notification.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.numerictextbox.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.pager.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.panelbar.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.popup.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.progressbar.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.resizable.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.responsivepanel.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.router.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.selectable.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.slider.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.sortable.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.splitbutton.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.splitter.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.tabstrip.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.textarea.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.textbox.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.timepicker.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.timezones.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.togglebutton.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.toggleinputbase.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.toolbar.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.tooltip.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.touch.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.ui.core.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.userevents.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.validator.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.view.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.virtuallist.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\kendo.window.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-AE.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-BH.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-DJ.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-DZ.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-EG.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-ER.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-IL.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-IQ.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-JO.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-KM.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-KW.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-LB.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-LY.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-MA.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-MR.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-OM.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-PS.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-QA.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-SA.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-SD.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-SO.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-SS.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-SY.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-TD.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-TN.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ar-YE.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.bg-BG.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.cs-CZ.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.da-DK.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.de-AT.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.de-CH.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.de-DE.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.de-LI.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.el-GR.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.en-AU.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.en-CA.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.en-GB.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.en-US.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-AR.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-BO.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-CL.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-CO.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-CR.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-DO.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-EC.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-ES.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-GT.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-HN.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-MX.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-NI.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-PA.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-PE.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-PR.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-PY.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-US.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-UY.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.es-VE.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fa-IR.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fi-FI.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-BE.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-CA.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-CD.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-CH.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-CI.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-CM.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-FR.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-HT.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-LU.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-MA.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-MC.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-ML.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.fr-SN.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.he-IL.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.hr-HR.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.hu-HU.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.hy-AM.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.it-CH.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.it-IT.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ja-JP.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.mk-MK.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.nb-NO.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.nl-BE.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.nl-NL.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.pl-PL.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.pt-BR.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.pt-PT.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ro-RO.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.ru-RU.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.sk-SK.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.sq-AL.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.sr-Latn-RS.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.sv-SE.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.tr-TR.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.uk-UA.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.vi-VN.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.zh-CN.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.zh-HK.min.js" />
-    <Content Include="Scripts\kendo\2023.1.425\messages\kendo.messages.zh-TW.min.js" />
     <None Include="Resources\warning.png" />
     <None Include="Resources\info.png" />
     <None Include="Resources\happycloud.png" />

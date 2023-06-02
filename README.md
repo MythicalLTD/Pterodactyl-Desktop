@@ -43,6 +43,10 @@ Yes it's totally free forever
 
 #### Is there another theme?
 No currently the app is still in development, and we don't provide themes yet but if you are excellent as a designer in WinForms you can make your own theme 
+
+### Im a developer where can i find the BunifUI files?
+Well we are using a cracked version of BunifUI and we wont provide the files on the repo but if you need them dm `NaysKutzu#5375` on discord 
+
 ## Authors
 
 - [@NaysKutzu](https://github.com/NaysKutzu)
