@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.lblapi_key = new System.Windows.Forms.Label();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.txtpanelpwd = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblpanelpwd = new System.Windows.Forms.Label();
             this.lblhowtolg = new System.Windows.Forms.Label();
             this.cbsavelogin = new Guna.UI2.WinForms.Guna2CheckBox();
             this.lblpanelurl = new System.Windows.Forms.Label();
@@ -41,14 +43,11 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.navbar = new System.Windows.Forms.Panel();
             this.lblappname = new System.Windows.Forms.Label();
+            this.appicon = new System.Windows.Forms.PictureBox();
             this.lblmin = new System.Windows.Forms.Label();
             this.lblexit = new System.Windows.Forms.Label();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.lblloginto = new System.Windows.Forms.Label();
-            this.txtpanelpwd = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblpanelpwd = new System.Windows.Forms.Label();
-            this.lblwpanelpwd = new System.Windows.Forms.Label();
-            this.appicon = new System.Windows.Forms.PictureBox();
             this.guna2GradientPanel1.SuspendLayout();
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
@@ -71,7 +70,6 @@
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2GradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
             this.guna2GradientPanel1.BorderRadius = 20;
-            this.guna2GradientPanel1.Controls.Add(this.lblwpanelpwd);
             this.guna2GradientPanel1.Controls.Add(this.txtpanelpwd);
             this.guna2GradientPanel1.Controls.Add(this.lblpanelpwd);
             this.guna2GradientPanel1.Controls.Add(this.lblhowtolg);
@@ -90,6 +88,46 @@
             this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
             this.guna2GradientPanel1.Size = new System.Drawing.Size(496, 344);
             this.guna2GradientPanel1.TabIndex = 6;
+            // 
+            // txtpanelpwd
+            // 
+            this.txtpanelpwd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
+            this.txtpanelpwd.BorderRadius = 12;
+            this.txtpanelpwd.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtpanelpwd.DefaultText = "";
+            this.txtpanelpwd.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtpanelpwd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtpanelpwd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtpanelpwd.DisabledState.Parent = this.txtpanelpwd;
+            this.txtpanelpwd.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtpanelpwd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
+            this.txtpanelpwd.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtpanelpwd.FocusedState.Parent = this.txtpanelpwd;
+            this.txtpanelpwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.txtpanelpwd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtpanelpwd.HoverState.Parent = this.txtpanelpwd;
+            this.txtpanelpwd.Location = new System.Drawing.Point(21, 185);
+            this.txtpanelpwd.Margin = new System.Windows.Forms.Padding(5);
+            this.txtpanelpwd.Name = "txtpanelpwd";
+            this.txtpanelpwd.PasswordChar = '\0';
+            this.txtpanelpwd.PlaceholderText = "";
+            this.txtpanelpwd.SelectedText = "";
+            this.txtpanelpwd.ShadowDecoration.Parent = this.txtpanelpwd;
+            this.txtpanelpwd.Size = new System.Drawing.Size(460, 42);
+            this.txtpanelpwd.TabIndex = 13;
+            this.txtpanelpwd.UseSystemPasswordChar = true;
+            // 
+            // lblpanelpwd
+            // 
+            this.lblpanelpwd.AutoSize = true;
+            this.lblpanelpwd.BackColor = System.Drawing.Color.Transparent;
+            this.lblpanelpwd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpanelpwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.lblpanelpwd.Location = new System.Drawing.Point(17, 161);
+            this.lblpanelpwd.Name = "lblpanelpwd";
+            this.lblpanelpwd.Size = new System.Drawing.Size(138, 19);
+            this.lblpanelpwd.TabIndex = 12;
+            this.lblpanelpwd.Text = "PANEL PASSWORD:";
             // 
             // lblhowtolg
             // 
@@ -241,6 +279,16 @@
             this.lblappname.TabIndex = 9;
             this.lblappname.Text = "PteroController";
             // 
+            // appicon
+            // 
+            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
+            this.appicon.Location = new System.Drawing.Point(3, 4);
+            this.appicon.Name = "appicon";
+            this.appicon.Size = new System.Drawing.Size(20, 20);
+            this.appicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.appicon.TabIndex = 8;
+            this.appicon.TabStop = false;
+            // 
             // lblmin
             // 
             this.lblmin.AutoSize = true;
@@ -282,70 +330,6 @@
             this.lblloginto.Size = new System.Drawing.Size(222, 29);
             this.lblloginto.TabIndex = 10;
             this.lblloginto.Text = "Login to Continue";
-            // 
-            // txtpanelpwd
-            // 
-            this.txtpanelpwd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
-            this.txtpanelpwd.BorderRadius = 12;
-            this.txtpanelpwd.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtpanelpwd.DefaultText = "";
-            this.txtpanelpwd.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtpanelpwd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtpanelpwd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtpanelpwd.DisabledState.Parent = this.txtpanelpwd;
-            this.txtpanelpwd.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtpanelpwd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
-            this.txtpanelpwd.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtpanelpwd.FocusedState.Parent = this.txtpanelpwd;
-            this.txtpanelpwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.txtpanelpwd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtpanelpwd.HoverState.Parent = this.txtpanelpwd;
-            this.txtpanelpwd.Location = new System.Drawing.Point(21, 185);
-            this.txtpanelpwd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtpanelpwd.Name = "txtpanelpwd";
-            this.txtpanelpwd.PasswordChar = '\0';
-            this.txtpanelpwd.PlaceholderText = "";
-            this.txtpanelpwd.SelectedText = "";
-            this.txtpanelpwd.ShadowDecoration.Parent = this.txtpanelpwd;
-            this.txtpanelpwd.Size = new System.Drawing.Size(460, 42);
-            this.txtpanelpwd.TabIndex = 13;
-            this.txtpanelpwd.UseSystemPasswordChar = true;
-            // 
-            // lblpanelpwd
-            // 
-            this.lblpanelpwd.AutoSize = true;
-            this.lblpanelpwd.BackColor = System.Drawing.Color.Transparent;
-            this.lblpanelpwd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpanelpwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.lblpanelpwd.Location = new System.Drawing.Point(17, 161);
-            this.lblpanelpwd.Name = "lblpanelpwd";
-            this.lblpanelpwd.Size = new System.Drawing.Size(138, 19);
-            this.lblpanelpwd.TabIndex = 12;
-            this.lblpanelpwd.Text = "PANEL PASSWORD:";
-            // 
-            // lblwpanelpwd
-            // 
-            this.lblwpanelpwd.AutoSize = true;
-            this.lblwpanelpwd.BackColor = System.Drawing.Color.Transparent;
-            this.lblwpanelpwd.Font = new System.Drawing.Font("Segoe UI", 8F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblwpanelpwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            this.lblwpanelpwd.Location = new System.Drawing.Point(238, 232);
-            this.lblwpanelpwd.Name = "lblwpanelpwd";
-            this.lblwpanelpwd.Size = new System.Drawing.Size(238, 13);
-            this.lblwpanelpwd.TabIndex = 14;
-            this.lblwpanelpwd.Text = "WHY DO YOU NEED MY PANEL PASSWORD?";
-            this.lblwpanelpwd.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // appicon
-            // 
-            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
-            this.appicon.Location = new System.Drawing.Point(3, 4);
-            this.appicon.Name = "appicon";
-            this.appicon.Size = new System.Drawing.Size(20, 20);
-            this.appicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.appicon.TabIndex = 8;
-            this.appicon.TabStop = false;
             // 
             // FrmLogin
             // 
@@ -389,7 +373,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtpanelurl;
         private Guna.UI2.WinForms.Guna2CheckBox cbsavelogin;
         private System.Windows.Forms.Label lblhowtolg;
-        private System.Windows.Forms.Label lblwpanelpwd;
         private Guna.UI2.WinForms.Guna2TextBox txtpanelpwd;
         private System.Windows.Forms.Label lblpanelpwd;
     }

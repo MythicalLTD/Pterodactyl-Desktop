@@ -698,7 +698,7 @@ namespace PteroController
             Pages.SetPage(PageDB);
             btndbs.FillColor = Color.FromArgb(27, 28, 46);
             btnconsole.FillColor = Color.FromArgb(34, 39, 57);
-           
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -733,7 +733,7 @@ namespace PteroController
             string requestBody = $"{{\"database\":\"{txtdbname.Text}\",\"remote\":\"{txtdbconn.Text}\"}}";
 
             request.AddParameter("application/json", requestBody, ParameterType.RequestBody);
-            
+
             var response = client.Execute(request);
 
             if (response.StatusCode == HttpStatusCode.OK)
