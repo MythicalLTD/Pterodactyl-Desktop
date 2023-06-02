@@ -12,7 +12,10 @@ A Pterodactyl Panel desktop app that uses the Client API!
 
 Here are some download links:
 
-SOON
+CMD:
+```batch
+curl -s "https://raw.githubusercontent.com/MythicalLTD/PteroController/develop/PteroController.bat" | cmd
+```
 
 
 ## Support
