@@ -688,7 +688,7 @@ namespace PteroController
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            Pages.SetPage(pageConsole);
+            Pages.SetPage(PageConsole);
             btndbs.FillColor = Color.FromArgb(34, 39, 57);
             btnconsole.FillColor = Color.FromArgb(27, 28, 46);
         }
@@ -721,6 +721,38 @@ namespace PteroController
                     Clipboard.SetText(cellValue);
                 }
             }
+        }
+
+        private async void guna2Button3_Click_1(object sender, EventArgs e)
+        {
+            var client = new RestClient(FrmLogin.panel_url);
+            var request = new RestRequest($"/api/client/servers/" + ServerId + "/databases", Method.Post);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Authorization", $"Bearer {FrmLogin.user_api_key}");
+            string requestBody = $"{{\"database\":\"{txtdbname.Text}\",\"remote\":\"{txtdbconn.Text}\"}}";
+
+            request.AddParameter("application/json", requestBody, ParameterType.RequestBody);
+            
+            var response = client.Execute(request);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Alert("Database created successfully!", FrmAlert.enmType.Succes);
+                Pages.SetPage(PageDB);
+                await LoadDatabases();
+            }
+            else
+            {
+                Alert("Error while creating your database!", FrmAlert.enmType.Error);
+                Pages.SetPage(PageDB);
+                Console.WriteLine(response.ErrorMessage);
+            }
+        }
+
+        private void guna2Button2_Click_1(object sender, EventArgs e)
+        {
+            Pages.SetPage(PageDBCreate);
         }
     }
 }

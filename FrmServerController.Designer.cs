@@ -42,6 +42,7 @@
             this.lblmin = new System.Windows.Forms.Label();
             this.lblexit = new System.Windows.Forms.Label();
             this.sidenav = new System.Windows.Forms.Panel();
+            this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.btndbs = new Guna.UI2.WinForms.Guna2Button();
             this.btnsftp = new Guna.UI2.WinForms.Guna2Button();
             this.btnconsole = new Guna.UI2.WinForms.Guna2Button();
@@ -58,30 +59,44 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.dataTable = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Pages = new Bunifu.UI.WinForms.BunifuPages();
-            this.PageDB = new System.Windows.Forms.TabPage();
-            this.pageConsole = new System.Windows.Forms.TabPage();
-            this.pnlsvlimits = new System.Windows.Forms.Panel();
-            this.lblsvlimit = new System.Windows.Forms.Label();
-            this.lblram = new System.Windows.Forms.Label();
-            this.lblcpu = new System.Windows.Forms.Label();
-            this.lbldisk = new System.Windows.Forms.Label();
-            this.pcsvimg = new System.Windows.Forms.PictureBox();
-            this.pnlconsole = new System.Windows.Forms.Panel();
             this.svstart = new System.Windows.Forms.PictureBox();
-            this.commandTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.svrestart = new System.Windows.Forms.PictureBox();
             this.btnsend = new Guna.UI2.WinForms.Guna2Button();
             this.svshutdown = new System.Windows.Forms.PictureBox();
             this.psvkill = new System.Windows.Forms.PictureBox();
-            this.consoleTextBox = new System.Windows.Forms.RichTextBox();
+            this.btncreatedb = new Guna.UI2.WinForms.Guna2Button();
+            this.dataTable = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Pages = new Bunifu.UI.WinForms.BunifuPages();
+            this.PageConsole = new System.Windows.Forms.TabPage();
             this.pnlsvinfo = new System.Windows.Forms.Panel();
-            this.svnode = new System.Windows.Forms.Label();
-            this.lblsvip = new System.Windows.Forms.Label();
-            this.svname = new System.Windows.Forms.Label();
             this.lblsvinfo = new System.Windows.Forms.Label();
-            this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
+            this.svname = new System.Windows.Forms.Label();
+            this.lblsvip = new System.Windows.Forms.Label();
+            this.svnode = new System.Windows.Forms.Label();
+            this.pnlconsole = new System.Windows.Forms.Panel();
+            this.consoleTextBox = new System.Windows.Forms.RichTextBox();
+            this.commandTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pcsvimg = new System.Windows.Forms.PictureBox();
+            this.pnlsvlimits = new System.Windows.Forms.Panel();
+            this.lbldisk = new System.Windows.Forms.Label();
+            this.lblcpu = new System.Windows.Forms.Label();
+            this.lblram = new System.Windows.Forms.Label();
+            this.lblsvlimit = new System.Windows.Forms.Label();
+            this.PageDB = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.lbldbapp = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PageDBCreate = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtdbconn = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtdbname = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblcopy = new System.Windows.Forms.Label();
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.sidenav.SuspendLayout();
@@ -89,18 +104,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable)).BeginInit();
-            this.Pages.SuspendLayout();
-            this.PageDB.SuspendLayout();
-            this.pageConsole.SuspendLayout();
-            this.pnlsvlimits.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcsvimg)).BeginInit();
-            this.pnlconsole.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.svstart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svrestart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svshutdown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.psvkill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable)).BeginInit();
+            this.Pages.SuspendLayout();
+            this.PageConsole.SuspendLayout();
             this.pnlsvinfo.SuspendLayout();
+            this.pnlconsole.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcsvimg)).BeginInit();
+            this.pnlsvlimits.SuspendLayout();
+            this.PageDB.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.PageDBCreate.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -171,6 +191,11 @@
             this.sidenav.Controls.Add(this.pictureBox1);
             resources.ApplyResources(this.sidenav, "sidenav");
             this.sidenav.Name = "sidenav";
+            // 
+            // guna2VSeparator1
+            // 
+            resources.ApplyResources(this.guna2VSeparator1, "guna2VSeparator1");
+            this.guna2VSeparator1.Name = "guna2VSeparator1";
             // 
             // btndbs
             // 
@@ -343,7 +368,7 @@
             // guna2Button2
             // 
             this.guna2Button2.Animated = true;
-            this.guna2Button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button2.BorderColor = System.Drawing.Color.Transparent;
             this.guna2Button2.BorderRadius = 10;
             this.guna2Button2.CheckedState.Parent = this.guna2Button2;
@@ -356,6 +381,75 @@
             this.guna2Button2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
             this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
             this.guna2HtmlToolTip1.SetToolTip(this.guna2Button2, resources.GetString("guna2Button2.ToolTip"));
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click_1);
+            // 
+            // svstart
+            // 
+            resources.ApplyResources(this.svstart, "svstart");
+            this.svstart.Name = "svstart";
+            this.svstart.TabStop = false;
+            this.guna2HtmlToolTip1.SetToolTip(this.svstart, resources.GetString("svstart.ToolTip"));
+            this.svstart.Click += new System.EventHandler(this.svstart_Click);
+            // 
+            // svrestart
+            // 
+            resources.ApplyResources(this.svrestart, "svrestart");
+            this.svrestart.Name = "svrestart";
+            this.svrestart.TabStop = false;
+            this.guna2HtmlToolTip1.SetToolTip(this.svrestart, resources.GetString("svrestart.ToolTip"));
+            this.svrestart.Click += new System.EventHandler(this.svrestart_Click);
+            // 
+            // btnsend
+            // 
+            this.btnsend.Animated = true;
+            this.btnsend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.btnsend.BorderColor = System.Drawing.Color.Transparent;
+            this.btnsend.BorderRadius = 10;
+            this.btnsend.CheckedState.Parent = this.btnsend;
+            this.btnsend.CustomImages.Parent = this.btnsend;
+            this.btnsend.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(179)))));
+            resources.ApplyResources(this.btnsend, "btnsend");
+            this.btnsend.ForeColor = System.Drawing.Color.White;
+            this.btnsend.HoverState.Parent = this.btnsend;
+            this.btnsend.Name = "btnsend";
+            this.btnsend.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
+            this.btnsend.ShadowDecoration.Parent = this.btnsend;
+            this.guna2HtmlToolTip1.SetToolTip(this.btnsend, resources.GetString("btnsend.ToolTip"));
+            this.btnsend.Click += new System.EventHandler(this.btnsend_Click);
+            // 
+            // svshutdown
+            // 
+            resources.ApplyResources(this.svshutdown, "svshutdown");
+            this.svshutdown.Name = "svshutdown";
+            this.svshutdown.TabStop = false;
+            this.guna2HtmlToolTip1.SetToolTip(this.svshutdown, resources.GetString("svshutdown.ToolTip"));
+            this.svshutdown.Click += new System.EventHandler(this.svshutdown_Click);
+            // 
+            // psvkill
+            // 
+            resources.ApplyResources(this.psvkill, "psvkill");
+            this.psvkill.Name = "psvkill";
+            this.psvkill.TabStop = false;
+            this.guna2HtmlToolTip1.SetToolTip(this.psvkill, resources.GetString("psvkill.ToolTip"));
+            this.psvkill.Click += new System.EventHandler(this.svkill_Click);
+            // 
+            // btncreatedb
+            // 
+            this.btncreatedb.Animated = true;
+            this.btncreatedb.BackColor = System.Drawing.Color.Transparent;
+            this.btncreatedb.BorderColor = System.Drawing.Color.Transparent;
+            this.btncreatedb.BorderRadius = 10;
+            this.btncreatedb.CheckedState.Parent = this.btncreatedb;
+            this.btncreatedb.CustomImages.Parent = this.btncreatedb;
+            this.btncreatedb.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(179)))));
+            resources.ApplyResources(this.btncreatedb, "btncreatedb");
+            this.btncreatedb.ForeColor = System.Drawing.Color.White;
+            this.btncreatedb.HoverState.Parent = this.btncreatedb;
+            this.btncreatedb.Name = "btncreatedb";
+            this.btncreatedb.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
+            this.btncreatedb.ShadowDecoration.Parent = this.btncreatedb;
+            this.guna2HtmlToolTip1.SetToolTip(this.btncreatedb, resources.GetString("btncreatedb.ToolTip"));
+            this.btncreatedb.Click += new System.EventHandler(this.guna2Button3_Click_1);
             // 
             // dataTable
             // 
@@ -421,14 +515,15 @@
             // 
             resources.ApplyResources(this.Pages, "Pages");
             this.Pages.AllowTransitions = false;
-            this.Pages.Controls.Add(this.pageConsole);
+            this.Pages.Controls.Add(this.PageConsole);
             this.Pages.Controls.Add(this.PageDB);
+            this.Pages.Controls.Add(this.PageDBCreate);
             this.Pages.Multiline = true;
             this.Pages.Name = "Pages";
-            this.Pages.Page = this.PageDB;
-            this.Pages.PageIndex = 1;
-            this.Pages.PageName = "PageDB";
-            this.Pages.PageTitle = "Database";
+            this.Pages.Page = this.PageConsole;
+            this.Pages.PageIndex = 0;
+            this.Pages.PageName = "PageConsole";
+            this.Pages.PageTitle = "Console";
             this.Pages.SelectedIndex = 0;
             animation1.AnimateOnlyDifferences = false;
             animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
@@ -448,59 +543,46 @@
             this.Pages.Transition = animation1;
             this.Pages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Custom;
             // 
-            // PageDB
+            // PageConsole
             // 
-            this.PageDB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
-            this.PageDB.Controls.Add(this.guna2Button2);
-            this.PageDB.Controls.Add(this.dataTable);
-            resources.ApplyResources(this.PageDB, "PageDB");
-            this.PageDB.Name = "PageDB";
+            this.PageConsole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            this.PageConsole.Controls.Add(this.pnlsvinfo);
+            this.PageConsole.Controls.Add(this.pnlconsole);
+            this.PageConsole.Controls.Add(this.pcsvimg);
+            this.PageConsole.Controls.Add(this.pnlsvlimits);
+            this.PageConsole.Controls.Add(this.lblcopy);
+            resources.ApplyResources(this.PageConsole, "PageConsole");
+            this.PageConsole.Name = "PageConsole";
             // 
-            // pageConsole
+            // pnlsvinfo
             // 
-            this.pageConsole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
-            this.pageConsole.Controls.Add(this.pnlsvinfo);
-            this.pageConsole.Controls.Add(this.pnlconsole);
-            this.pageConsole.Controls.Add(this.pcsvimg);
-            this.pageConsole.Controls.Add(this.pnlsvlimits);
-            resources.ApplyResources(this.pageConsole, "pageConsole");
-            this.pageConsole.Name = "pageConsole";
+            this.pnlsvinfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.pnlsvinfo.Controls.Add(this.lblsvinfo);
+            this.pnlsvinfo.Controls.Add(this.svname);
+            this.pnlsvinfo.Controls.Add(this.lblsvip);
+            this.pnlsvinfo.Controls.Add(this.svnode);
+            resources.ApplyResources(this.pnlsvinfo, "pnlsvinfo");
+            this.pnlsvinfo.Name = "pnlsvinfo";
             // 
-            // pnlsvlimits
+            // lblsvinfo
             // 
-            this.pnlsvlimits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.pnlsvlimits.Controls.Add(this.lbldisk);
-            this.pnlsvlimits.Controls.Add(this.lblcpu);
-            this.pnlsvlimits.Controls.Add(this.lblram);
-            this.pnlsvlimits.Controls.Add(this.lblsvlimit);
-            resources.ApplyResources(this.pnlsvlimits, "pnlsvlimits");
-            this.pnlsvlimits.Name = "pnlsvlimits";
+            resources.ApplyResources(this.lblsvinfo, "lblsvinfo");
+            this.lblsvinfo.Name = "lblsvinfo";
             // 
-            // lblsvlimit
+            // svname
             // 
-            resources.ApplyResources(this.lblsvlimit, "lblsvlimit");
-            this.lblsvlimit.Name = "lblsvlimit";
+            resources.ApplyResources(this.svname, "svname");
+            this.svname.Name = "svname";
             // 
-            // lblram
+            // lblsvip
             // 
-            resources.ApplyResources(this.lblram, "lblram");
-            this.lblram.Name = "lblram";
+            resources.ApplyResources(this.lblsvip, "lblsvip");
+            this.lblsvip.Name = "lblsvip";
             // 
-            // lblcpu
+            // svnode
             // 
-            resources.ApplyResources(this.lblcpu, "lblcpu");
-            this.lblcpu.Name = "lblcpu";
-            // 
-            // lbldisk
-            // 
-            resources.ApplyResources(this.lbldisk, "lbldisk");
-            this.lbldisk.Name = "lbldisk";
-            // 
-            // pcsvimg
-            // 
-            resources.ApplyResources(this.pcsvimg, "pcsvimg");
-            this.pcsvimg.Name = "pcsvimg";
-            this.pcsvimg.TabStop = false;
+            resources.ApplyResources(this.svnode, "svnode");
+            this.svnode.Name = "svnode";
             // 
             // pnlconsole
             // 
@@ -516,13 +598,14 @@
             this.pnlconsole.Name = "pnlconsole";
             this.pnlconsole.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // svstart
+            // consoleTextBox
             // 
-            resources.ApplyResources(this.svstart, "svstart");
-            this.svstart.Name = "svstart";
-            this.svstart.TabStop = false;
-            this.guna2HtmlToolTip1.SetToolTip(this.svstart, resources.GetString("svstart.ToolTip"));
-            this.svstart.Click += new System.EventHandler(this.svstart_Click);
+            this.consoleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
+            this.consoleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.consoleTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            resources.ApplyResources(this.consoleTextBox, "consoleTextBox");
+            this.consoleTextBox.Name = "consoleTextBox";
+            this.consoleTextBox.ReadOnly = true;
             // 
             // commandTextBox
             // 
@@ -549,91 +632,193 @@
             this.commandTextBox.SelectedText = "";
             this.commandTextBox.ShadowDecoration.Parent = this.commandTextBox;
             // 
-            // svrestart
+            // pcsvimg
             // 
-            resources.ApplyResources(this.svrestart, "svrestart");
-            this.svrestart.Name = "svrestart";
-            this.svrestart.TabStop = false;
-            this.guna2HtmlToolTip1.SetToolTip(this.svrestart, resources.GetString("svrestart.ToolTip"));
-            this.svrestart.Click += new System.EventHandler(this.svrestart_Click);
+            resources.ApplyResources(this.pcsvimg, "pcsvimg");
+            this.pcsvimg.Name = "pcsvimg";
+            this.pcsvimg.TabStop = false;
             // 
-            // btnsend
+            // pnlsvlimits
             // 
-            this.btnsend.Animated = true;
-            this.btnsend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.btnsend.BorderColor = System.Drawing.Color.Transparent;
-            this.btnsend.BorderRadius = 10;
-            this.btnsend.CheckedState.Parent = this.btnsend;
-            this.btnsend.CustomImages.Parent = this.btnsend;
-            this.btnsend.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(179)))));
-            resources.ApplyResources(this.btnsend, "btnsend");
-            this.btnsend.ForeColor = System.Drawing.Color.White;
-            this.btnsend.HoverState.Parent = this.btnsend;
-            this.btnsend.Name = "btnsend";
-            this.btnsend.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
-            this.btnsend.ShadowDecoration.Parent = this.btnsend;
-            this.guna2HtmlToolTip1.SetToolTip(this.btnsend, resources.GetString("btnsend.ToolTip"));
-            this.btnsend.Click += new System.EventHandler(this.btnsend_Click);
+            this.pnlsvlimits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.pnlsvlimits.Controls.Add(this.lbldisk);
+            this.pnlsvlimits.Controls.Add(this.lblcpu);
+            this.pnlsvlimits.Controls.Add(this.lblram);
+            this.pnlsvlimits.Controls.Add(this.lblsvlimit);
+            resources.ApplyResources(this.pnlsvlimits, "pnlsvlimits");
+            this.pnlsvlimits.Name = "pnlsvlimits";
             // 
-            // svshutdown
+            // lbldisk
             // 
-            resources.ApplyResources(this.svshutdown, "svshutdown");
-            this.svshutdown.Name = "svshutdown";
-            this.svshutdown.TabStop = false;
-            this.guna2HtmlToolTip1.SetToolTip(this.svshutdown, resources.GetString("svshutdown.ToolTip"));
-            this.svshutdown.Click += new System.EventHandler(this.svshutdown_Click);
+            resources.ApplyResources(this.lbldisk, "lbldisk");
+            this.lbldisk.Name = "lbldisk";
             // 
-            // psvkill
+            // lblcpu
             // 
-            resources.ApplyResources(this.psvkill, "psvkill");
-            this.psvkill.Name = "psvkill";
-            this.psvkill.TabStop = false;
-            this.guna2HtmlToolTip1.SetToolTip(this.psvkill, resources.GetString("psvkill.ToolTip"));
-            this.psvkill.Click += new System.EventHandler(this.svkill_Click);
+            resources.ApplyResources(this.lblcpu, "lblcpu");
+            this.lblcpu.Name = "lblcpu";
             // 
-            // consoleTextBox
+            // lblram
             // 
-            this.consoleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
-            this.consoleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.consoleTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
-            resources.ApplyResources(this.consoleTextBox, "consoleTextBox");
-            this.consoleTextBox.Name = "consoleTextBox";
-            this.consoleTextBox.ReadOnly = true;
+            resources.ApplyResources(this.lblram, "lblram");
+            this.lblram.Name = "lblram";
             // 
-            // pnlsvinfo
+            // lblsvlimit
             // 
-            this.pnlsvinfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
-            this.pnlsvinfo.Controls.Add(this.lblsvinfo);
-            this.pnlsvinfo.Controls.Add(this.svname);
-            this.pnlsvinfo.Controls.Add(this.lblsvip);
-            this.pnlsvinfo.Controls.Add(this.svnode);
-            resources.ApplyResources(this.pnlsvinfo, "pnlsvinfo");
-            this.pnlsvinfo.Name = "pnlsvinfo";
+            resources.ApplyResources(this.lblsvlimit, "lblsvlimit");
+            this.lblsvlimit.Name = "lblsvlimit";
             // 
-            // svnode
+            // PageDB
             // 
-            resources.ApplyResources(this.svnode, "svnode");
-            this.svnode.Name = "svnode";
+            this.PageDB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            this.PageDB.Controls.Add(this.panel2);
+            resources.ApplyResources(this.PageDB, "PageDB");
+            this.PageDB.Name = "PageDB";
             // 
-            // lblsvip
+            // panel2
             // 
-            resources.ApplyResources(this.lblsvip, "lblsvip");
-            this.lblsvip.Name = "lblsvip";
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.panel2.Controls.Add(this.pictureBox5);
+            this.panel2.Controls.Add(this.lbldbapp);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.guna2Button2);
+            this.panel2.Controls.Add(this.dataTable);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
             // 
-            // svname
+            // pictureBox5
             // 
-            resources.ApplyResources(this.svname, "svname");
-            this.svname.Name = "svname";
+            resources.ApplyResources(this.pictureBox5, "pictureBox5");
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.TabStop = false;
             // 
-            // lblsvinfo
+            // lbldbapp
             // 
-            resources.ApplyResources(this.lblsvinfo, "lblsvinfo");
-            this.lblsvinfo.Name = "lblsvinfo";
+            resources.ApplyResources(this.lbldbapp, "lbldbapp");
+            this.lbldbapp.BackColor = System.Drawing.Color.Transparent;
+            this.lbldbapp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.lbldbapp.Name = "lbldbapp";
             // 
-            // guna2VSeparator1
+            // label1
             // 
-            resources.ApplyResources(this.guna2VSeparator1, "guna2VSeparator1");
-            this.guna2VSeparator1.Name = "guna2VSeparator1";
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.label1.Name = "label1";
+            // 
+            // PageDBCreate
+            // 
+            this.PageDBCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            this.PageDBCreate.Controls.Add(this.panel1);
+            resources.ApplyResources(this.PageDBCreate, "PageDBCreate");
+            this.PageDBCreate.Name = "PageDBCreate";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.txtdbconn);
+            this.panel1.Controls.Add(this.txtdbname);
+            this.panel1.Controls.Add(this.btncreatedb);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.label5.Name = "label5";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.label4.Name = "label4";
+            // 
+            // txtdbconn
+            // 
+            this.txtdbconn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.txtdbconn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
+            this.txtdbconn.BorderRadius = 12;
+            this.txtdbconn.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtdbconn.DefaultText = "";
+            this.txtdbconn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtdbconn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtdbconn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtdbconn.DisabledState.Parent = this.txtdbconn;
+            this.txtdbconn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtdbconn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
+            this.txtdbconn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtdbconn.FocusedState.Parent = this.txtdbconn;
+            this.txtdbconn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.txtdbconn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtdbconn.HoverState.Parent = this.txtdbconn;
+            resources.ApplyResources(this.txtdbconn, "txtdbconn");
+            this.txtdbconn.Name = "txtdbconn";
+            this.txtdbconn.PasswordChar = '\0';
+            this.txtdbconn.PlaceholderText = "%";
+            this.txtdbconn.SelectedText = "";
+            this.txtdbconn.ShadowDecoration.Parent = this.txtdbconn;
+            this.guna2HtmlToolTip1.SetToolTip(this.txtdbconn, resources.GetString("txtdbconn.ToolTip"));
+            // 
+            // txtdbname
+            // 
+            this.txtdbname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(57)))));
+            this.txtdbname.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
+            this.txtdbname.BorderRadius = 12;
+            this.txtdbname.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtdbname.DefaultText = "";
+            this.txtdbname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtdbname.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtdbname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtdbname.DisabledState.Parent = this.txtdbname;
+            this.txtdbname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtdbname.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(65)))));
+            this.txtdbname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtdbname.FocusedState.Parent = this.txtdbname;
+            this.txtdbname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.txtdbname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtdbname.HoverState.Parent = this.txtdbname;
+            resources.ApplyResources(this.txtdbname, "txtdbname");
+            this.txtdbname.Name = "txtdbname";
+            this.txtdbname.PasswordChar = '\0';
+            this.txtdbname.PlaceholderText = "";
+            this.txtdbname.SelectedText = "";
+            this.txtdbname.ShadowDecoration.Parent = this.txtdbname;
+            this.guna2HtmlToolTip1.SetToolTip(this.txtdbname, resources.GetString("txtdbname.ToolTip"));
+            // 
+            // pictureBox6
+            // 
+            resources.ApplyResources(this.pictureBox6, "pictureBox6");
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.TabStop = false;
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.label6.Name = "label6";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.label7.Name = "label7";
+            // 
+            // lblcopy
+            // 
+            resources.ApplyResources(this.lblcopy, "lblcopy");
+            this.lblcopy.BackColor = System.Drawing.Color.Transparent;
+            this.lblcopy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
+            this.lblcopy.Name = "lblcopy";
             // 
             // FrmServerController
             // 
@@ -657,20 +842,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable)).EndInit();
-            this.Pages.ResumeLayout(false);
-            this.PageDB.ResumeLayout(false);
-            this.pageConsole.ResumeLayout(false);
-            this.pnlsvlimits.ResumeLayout(false);
-            this.pnlsvlimits.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcsvimg)).EndInit();
-            this.pnlconsole.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.svstart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svrestart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svshutdown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.psvkill)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable)).EndInit();
+            this.Pages.ResumeLayout(false);
+            this.PageConsole.ResumeLayout(false);
+            this.PageConsole.PerformLayout();
             this.pnlsvinfo.ResumeLayout(false);
             this.pnlsvinfo.PerformLayout();
+            this.pnlconsole.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcsvimg)).EndInit();
+            this.pnlsvlimits.ResumeLayout(false);
+            this.pnlsvlimits.PerformLayout();
+            this.PageDB.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.PageDBCreate.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -703,7 +896,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView dataTable;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Bunifu.UI.WinForms.BunifuPages Pages;
-        private System.Windows.Forms.TabPage pageConsole;
+        private System.Windows.Forms.TabPage PageConsole;
         private System.Windows.Forms.Panel pnlsvinfo;
         private System.Windows.Forms.Label lblsvinfo;
         private System.Windows.Forms.Label svname;
@@ -725,6 +918,21 @@
         private System.Windows.Forms.Label lblsvlimit;
         private System.Windows.Forms.TabPage PageDB;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
+        private System.Windows.Forms.TabPage PageDBCreate;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label lbldbapp;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Button btncreatedb;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2TextBox txtdbconn;
+        private Guna.UI2.WinForms.Guna2TextBox txtdbname;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblcopy;
     }
 }
 
