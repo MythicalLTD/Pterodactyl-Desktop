@@ -47,6 +47,9 @@ No currently the app is still in development, and we don't provide themes yet bu
 ### Im a developer where can i find the BunifUI files?
 Well we are using a cracked version of BunifUI and we wont provide the files on the repo but if you need them dm `NaysKutzu#5375` on discord 
 
+### How can i develop my own plugin?
+Well to make your own plugin for PteroController you will have to have some knowledge of c# and .net and if you alertly know all of that here you can find a the [documentation](https://docs.mythicalsystems.tech/PteroController/HowToMakeAPlugin)
+
 ## Authors
 
 - [@NaysKutzu](https://github.com/NaysKutzu)
