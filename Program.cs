@@ -9,7 +9,6 @@ namespace PteroController
     internal static class Program
     {
         public static string appversion = "0.0.3";
-
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AttachConsole(int dwProcessId);
@@ -21,7 +20,13 @@ namespace PteroController
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            string ptasci = @" 
+  _____  _                  _____            _             _ _           
+ |  __ \| |                / ____|          | |           | | |          
+ | |__) | |_ ___ _ __ ___ | |     ___  _ __ | |_ _ __ ___ | | | ___ _ __ 
+ |  ___/| __/ _ \ '__/ _ \| |    / _ \| '_ \| __| '__/ _ \| | |/ _ \ '__|
+ | |    | ||  __/ | | (_) | |___| (_) | | | | |_| | | (_) | | |  __/ |   
+ |_|     \__\___|_|  \___/ \_____\___/|_| |_|\__|_|  \___/|_|_|\___|_|";
             // EXAMPLE OF A CLI COMMAND
             if (args.Contains("-version"))
             {
@@ -29,9 +34,12 @@ namespace PteroController
                 Console.Title = "PteroController | CLI";
                 Console.WriteLine("@echo off");
                 Console.Clear();
+                Console.WriteLine(ptasci);
+                Console.WriteLine("--------------------------------------------------------------");
                 Console.WriteLine("PteroController version " + appversion + " by MythicalSystems");
-                Console.WriteLine("");
+                Console.WriteLine("--------------------------------------------------------------");
                 Console.WriteLine("Press any key to exit");
+                return;
             }
 
             if(args.Contains("-debug"))
@@ -40,10 +48,11 @@ namespace PteroController
                 Console.Title = "PteroController | CLI";
                 Console.WriteLine("@echo off");
                 Console.Clear();
-                Console.WriteLine("PteroController version " + appversion + " by MythicalSystems");
-                Console.WriteLine("");
+                Console.WriteLine(ptasci);
+                Console.WriteLine("--------------------------------------------------------------");
                 Console.WriteLine("DEBUG MODE ACTIVE");
                 Console.WriteLine("Please do not use this mode if you are not a developer");
+                Console.WriteLine("--------------------------------------------------------------");
                 try
                 {
                     PteroControllerLoader pluginLoader = new PteroControllerLoader();
