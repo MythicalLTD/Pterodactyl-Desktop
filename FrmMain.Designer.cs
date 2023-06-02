@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.serverListBox = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.navbar = new System.Windows.Forms.Panel();
             this.lblappname = new System.Windows.Forms.Label();
             this.appicon = new System.Windows.Forms.PictureBox();
@@ -71,17 +70,9 @@
             this.serverListBox.Name = "serverListBox";
             this.serverListBox.Size = new System.Drawing.Size(686, 432);
             this.serverListBox.TabIndex = 0;
+            this.serverListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.serverListBox_MouseClick);
             this.serverListBox.SelectedIndexChanged += new System.EventHandler(this.serverListBox_SelectedIndexChanged);
             this.serverListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.serverListBox_KeyDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(224, 524);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
             // 
             // navbar
             // 
@@ -331,7 +322,6 @@
             this.ClientSize = new System.Drawing.Size(942, 546);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.sidenav);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.navbar);
             this.Controls.Add(this.serverListBox);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
@@ -358,7 +348,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox serverListBox;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel navbar;
         private System.Windows.Forms.Label lblappname;
         private System.Windows.Forms.PictureBox appicon;
