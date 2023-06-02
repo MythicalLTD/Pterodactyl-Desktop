@@ -22,9 +22,7 @@ namespace PteroController
         private bool isFirstLoad = true;
         private async void FrmServerList_Load(object sender, EventArgs e)
         {
-
             loadSettings();
-            label1.Text = "Hi, " + FrmLogin.username;
             try
             {
 
@@ -154,9 +152,16 @@ namespace PteroController
             this.Hide();
         }
 
-        private void licensing1_Load(object sender, EventArgs e)
+        private void serverListBox_MouseClick(object sender, MouseEventArgs e)
         {
-
+            if (serverListBox.SelectedItem != null && serverListBox.SelectedItem is string selectedServerName)
+            {
+                string identifier = selectedServerName.Substring(selectedServerName.IndexOf('(') + 1);
+                identifier = identifier.TrimEnd(')');
+                FrmServerController serverDetailsForm = new FrmServerController(identifier);
+                serverDetailsForm.Show();
+                this.Hide();
+            }
         }
     }
 
