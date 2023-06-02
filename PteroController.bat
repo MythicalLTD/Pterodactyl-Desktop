@@ -104,6 +104,7 @@ if exist "%targetDir%" (
         echo.
         pause
     ) else if "!choice!"=="4" (
+        del "%~f0"
         exit
     ) else (
         echo Invalid choice. Please try again.
