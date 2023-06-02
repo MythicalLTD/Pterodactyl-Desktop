@@ -3,6 +3,7 @@ using Salaros.Configuration;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -98,9 +99,10 @@ namespace PteroController
             string enableSession = cfg.GetValue("LOGIN", "remember_me");
             if (enableSession == "true")
             {
-                string panelUrl = cfg.GetValue("LOGIN", "panel_url");
-                string apiKey = cfg.GetValue("LOGIN", "api_key");
-                string panelpwd = cfg.GetValue("LOGIN", "panel_pwd");
+                string panelUrl = Decrypt(cfg.GetValue("LOGIN", "panel_url"));
+                string apiKey = Decrypt(cfg.GetValue("LOGIN", "api_key"));
+                string panelpwd = Decrypt(cfg.GetValue("LOGIN", "panel_pwd"));
+
                 txtpanelurl.Text = panelUrl;
                 txtapikey.Text = apiKey;
                 txtpanelpwd.Text = panelpwd;
@@ -115,7 +117,19 @@ namespace PteroController
             loadSettings();
             lblappname.Text = "PteroController (" + Program.appversion + ")";
         }
+        private string Encrypt(string plainText)
+        {
+            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+            string encryptedText = Convert.ToBase64String(plainTextBytes);
+            return encryptedText;
+        }
 
+        private string Decrypt(string encryptedText)
+        {
+            byte[] encryptedTextBytes = Convert.FromBase64String(encryptedText);
+            string decryptedText = Encoding.UTF8.GetString(encryptedTextBytes);
+            return decryptedText;
+        }
         private async void btnlogin_Click(object sender, EventArgs e)
         {
             if (txtapikey.Text == "" || txtpanelurl.Text == "" || txtpanelpwd.Text == "")
@@ -155,6 +169,10 @@ namespace PteroController
                         string userInformation = $"ID: {id}\nAdmin: {admin}\nUsername: {username}\nEmail: {email}\nFirst Name: {firstName}\nLast Name: {lastName}\nLanguage: {language}";
                         Console.WriteLine(userInformation);
                     }
+                    else
+                    {
+                        Alert("Faild to get your data please check the panel url", FrmAlert.enmType.Warning);
+                    }
                 }
                 catch
                 {
@@ -165,9 +183,12 @@ namespace PteroController
                 {
                     var cfg = new ConfigParser(accountinfo);
                     cfg.SetValue("LOGIN", "remember_me", "true");
-                    cfg.SetValue("LOGIN", "panel_url", panelUrl);
-                    cfg.SetValue("LOGIN", "api_key", apiKey);
-                    cfg.SetValue("LOGIN", "panel_pwd", txtpanelpwd.Text);
+                    string e_panel_url = Encrypt(panelUrl);
+                    cfg.SetValue("LOGIN", "panel_url", e_panel_url);
+                    string e_apiKey = Encrypt(apiKey);
+                    cfg.SetValue("LOGIN", "api_key", e_apiKey);
+                    string e_pass = Encrypt(txtpanelpwd.Text);
+                    cfg.SetValue("LOGIN", "panel_pwd", e_pass);
                     cfg.Save();
                     user_api_key = apiKey;
                     panel_url = panelUrl;
@@ -177,9 +198,12 @@ namespace PteroController
                 {
                     var cfg = new ConfigParser(accountinfo);
                     cfg.SetValue("LOGIN", "remember_me", "false");
-                    cfg.SetValue("LOGIN", "panel_url", panelUrl);
-                    cfg.SetValue("LOGIN", "api_key", apiKey);
-                    cfg.SetValue("LOGIN", "panel_pwd", txtpanelpwd.Text);
+                    string e_panel_url = Encrypt(panelUrl);
+                    cfg.SetValue("LOGIN", "panel_url", e_panel_url);
+                    string e_apiKey = Encrypt(apiKey);
+                    cfg.SetValue("LOGIN", "api_key", e_apiKey);
+                    string e_pass = Encrypt(txtpanelpwd.Text);
+                    cfg.SetValue("LOGIN", "panel_pwd", e_pass);
                     cfg.Save();
                     user_api_key = apiKey;
                     panel_url = panelUrl;
@@ -204,11 +228,6 @@ namespace PteroController
         private void lblmin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Q: Why do you need my panel password? \nA: Well we need it if you want to connect using SFTP");
         }
     }
 }
