@@ -14,7 +14,7 @@ Here are some download links:
 
 CMD:
 ```batch
-curl -s "https://raw.githubusercontent.com/MythicalLTD/PteroController/develop/PteroController.bat" | cmd
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/MythicalLTD/PteroController/develop/PteroController.bat' -OutFile 'script.bat'; start 'script.bat'"
 ```
 
 
