@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInstall));
             this.navbar = new System.Windows.Forms.Panel();
             this.lblappname = new System.Windows.Forms.Label();
             this.appicon = new System.Windows.Forms.PictureBox();
@@ -36,7 +37,6 @@
             this.lblexit = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.btnsend = new Guna.UI2.WinForms.Guna2Button();
             this.wlcdesc = new System.Windows.Forms.Label();
             this.wlctoptero = new System.Windows.Forms.Label();
             this.guna2ProgressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
@@ -113,26 +113,6 @@
             // 
             this.guna2DragControl1.TargetControl = this.navbar;
             // 
-            // btnsend
-            // 
-            this.btnsend.Animated = true;
-            this.btnsend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
-            this.btnsend.BorderColor = System.Drawing.Color.Transparent;
-            this.btnsend.BorderRadius = 10;
-            this.btnsend.CheckedState.Parent = this.btnsend;
-            this.btnsend.CustomImages.Parent = this.btnsend;
-            this.btnsend.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(179)))));
-            this.btnsend.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.btnsend.ForeColor = System.Drawing.Color.White;
-            this.btnsend.HoverState.Parent = this.btnsend;
-            this.btnsend.Location = new System.Drawing.Point(245, 152);
-            this.btnsend.Name = "btnsend";
-            this.btnsend.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(240)))));
-            this.btnsend.ShadowDecoration.Parent = this.btnsend;
-            this.btnsend.Size = new System.Drawing.Size(125, 34);
-            this.btnsend.TabIndex = 30;
-            this.btnsend.Text = "Next";
-            // 
             // wlcdesc
             // 
             this.wlcdesc.AutoSize = true;
@@ -188,15 +168,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(614, 198);
+            this.ClientSize = new System.Drawing.Size(614, 144);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2ProgressBar1);
             this.Controls.Add(this.navbar);
-            this.Controls.Add(this.btnsend);
             this.Controls.Add(this.wlcdesc);
             this.Controls.Add(this.wlctoptero);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(243)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmInstall";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PteroController";
@@ -218,7 +198,6 @@
         private System.Windows.Forms.Label lblexit;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
-        private Guna.UI2.WinForms.Guna2Button btnsend;
         private System.Windows.Forms.Label wlcdesc;
         private System.Windows.Forms.Label wlctoptero;
         private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar1;

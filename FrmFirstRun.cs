@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PteroController
@@ -29,7 +22,7 @@ namespace PteroController
 
         private void FrmFirstRun_Load(object sender, EventArgs e)
         {
-            
+
         }
         private void Alert(string msg, FrmAlert.enmType type)
         {
@@ -38,7 +31,8 @@ namespace PteroController
         }
         private void btnsend_Click(object sender, EventArgs e)
         {
-            if (cbagreeeula.Checked == false) {
+            if (cbagreeeula.Checked == false)
+            {
                 Alert("Please agree with our EULA", FrmAlert.enmType.Warning);
             }
             else
