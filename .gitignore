@@ -1,6 +1,5 @@
 .vs/
-bin/debug/
-bin/Release/account.ini
+bin/
 obj/
 packages/
 bunifu/
