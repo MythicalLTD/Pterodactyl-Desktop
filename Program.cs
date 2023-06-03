@@ -69,7 +69,7 @@ namespace PteroController
                     Console.WriteLine("--------------------------------------------------------------");
                     try
                     {
-                        PteroControllerLoader pluginLoader = new PteroControllerLoader();
+                        PteroControllerPluginLoader pluginLoader = new PteroControllerPluginLoader();
                         pluginLoader.LoadPlugins();
                         Application.Run(new FrmLogin());
                     }
@@ -82,7 +82,7 @@ namespace PteroController
                 }
                 else
                 {
-                    PteroControllerLoader pluginLoader = new PteroControllerLoader();
+                    PteroControllerPluginLoader pluginLoader = new PteroControllerPluginLoader();
                     pluginLoader.LoadPlugins();
                     Application.Run(new FrmLogin());
                     mutex.ReleaseMutex();

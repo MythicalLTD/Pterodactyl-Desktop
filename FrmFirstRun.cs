@@ -26,5 +26,28 @@ namespace PteroController
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void FrmFirstRun_Load(object sender, EventArgs e)
+        {
+            
+        }
+        private void Alert(string msg, FrmAlert.enmType type)
+        {
+            FrmAlert frm = new FrmAlert();
+            frm.showAlert(msg, type);
+        }
+        private void btnsend_Click(object sender, EventArgs e)
+        {
+            if (cbagreeeula.Checked == false) {
+                Alert("Please agree with our EULA", FrmAlert.enmType.Warning);
+            }
+            else
+            {
+                Alert("Please wait while we install PteroController", FrmAlert.enmType.Succes);
+                FrmInstall x = new FrmInstall();
+                x.Show();
+                this.Hide();
+            }
+        }
     }
 }
