@@ -4,12 +4,17 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using PteroController;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace PteroController
 {
     internal static class Program
     {
-        public static string appversion = "0.0.3";
+        static Assembly assembly = Assembly.GetExecutingAssembly();
+        static FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+        public static string appversion = fileVersionInfo.ProductVersion;
         private static Mutex mutex = new Mutex(true, "LockApp");
 
         [DllImport("kernel32.dll", SetLastError = true)]
@@ -19,7 +24,6 @@ namespace PteroController
         private const int ATTACH_PARENT_PROCESS = -1;
 
         [STAThread]
-
         static void Main(string[] args)
         {
             Application.EnableVisualStyles();
@@ -71,7 +75,7 @@ namespace PteroController
                     {
                         PteroControllerPluginLoader pluginLoader = new PteroControllerPluginLoader();
                         pluginLoader.LoadPlugins();
-                        Application.Run(new FrmLogin());
+                        Application.Run(new FrmLoading());
                     }
                     catch (Exception ex)
                     {
@@ -80,11 +84,25 @@ namespace PteroController
                     mutex.ReleaseMutex();
                     return;
                 }
+                else if (args.Length > 0)
+                {
+                    AttachConsole(ATTACH_PARENT_PROCESS);
+                    Console.Title = "PteroController | CLI";
+                    Console.WriteLine("@echo off");
+                    Console.Clear();
+                    Console.WriteLine(ptasci);
+                    Console.WriteLine("--------------------------------------------------------------");
+                    Console.WriteLine("Invalid argument! Type \"-help\" to view available arguments.");
+                    Console.WriteLine("--------------------------------------------------------------");
+                    Console.WriteLine("Press any key to exit");
+                    mutex.ReleaseMutex();
+                    return;
+                }
                 else
                 {
                     PteroControllerPluginLoader pluginLoader = new PteroControllerPluginLoader();
                     pluginLoader.LoadPlugins();
-                    Application.Run(new FrmLogin());
+                    Application.Run(new FrmLoading());
                     mutex.ReleaseMutex();
                 }
             }
@@ -94,6 +112,7 @@ namespace PteroController
                 SetFirstRunFlag();
             }
         }
+
         private static bool IsFirstRun()
         {
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\PteroController"))
@@ -122,8 +141,6 @@ namespace PteroController
             {
                 MessageBox.Show("An error occurred while creating the registry key: " + ex.Message);
             }
-
         }
-
     }
 }
