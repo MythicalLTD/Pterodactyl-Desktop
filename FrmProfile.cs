@@ -40,11 +40,18 @@ namespace PteroController
         }
         private void LoadSettings()
         {
-            var cfg = new ConfigParser(settings);
-            string allontop = cfg.GetValue("CONFIG", "always_on_top");
-            if (allontop == "true")
+            try
             {
-                this.TopMost = true;
+                var cfg = new ConfigParser(settings);
+                string allontop = cfg.GetValue("CONFIG", "always_on_top");
+                if (allontop == "true")
+                {
+                    this.TopMost = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[{0:HH:mm:ss}] (SETTINGS) An error occurred: " + ex.Message, DateTime.Now);
             }
         }
 
@@ -64,9 +71,16 @@ namespace PteroController
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            var cfg = new ConfigParser(accountinfo);
-            cfg.SetValue("LOGIN", "remember_me", "false");
-            cfg.Save();
+            try
+            {
+                var cfg = new ConfigParser(accountinfo);
+                cfg.SetValue("LOGIN", "remember_me", "false");
+                cfg.Save();
+            }
+            catch (Exception ex)
+            {
+                Console.Write("[{0:HH:mm:ss}] (SESSIONS) An error occurred: " + ex.Message, DateTime.Now);
+            }
             FrmLogin x = new FrmLogin();
             x.Show();
             this.Hide();

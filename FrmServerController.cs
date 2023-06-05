@@ -37,7 +37,7 @@ namespace PteroController
         private string serverIdentifier;
         private HttpClient httpClient;
         private DataTable datatable;
-
+        private static string svonline;
 
         public FrmServerController(string serverIdentifier)
         {
@@ -77,7 +77,8 @@ namespace PteroController
                 }
                 else
                 {
-                    MessageBox.Show($"Failed to fetch server information. Error: {response.Content}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Alert("Failed to connect to the server", FrmAlert.enmType.Error);
+                    Console.WriteLine("[{0:HH:mm:ss}] (Server) An error occurred: " + response.Content, DateTime.Now);
                 }
                 webSocket = new ClientWebSocket();
                 webSocket.Options.SetRequestHeader("Origin", FrmLogin.panel_url);
@@ -92,17 +93,25 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                MessageBox.Show("[WEBSOCKET LOADER] Failed to connect to the websocket: " + ex.Message);
-                Console.WriteLine("[WEBSOCKET LOADER] Failed to connect to the websocket: " + ex.Message);
+                Alert("Failed to connect to the server", FrmAlert.enmType.Error);
+                Console.WriteLine("[{0:HH:mm:ss}] (Server) Failed to connect to the websocket: " + ex.Message);
+                
             }
         }
         private void loadSettings()
         {
-            var cfg = new ConfigParser(settings);
-            string allontop = cfg.GetValue("CONFIG", "always_on_top");
-            if (allontop == "true")
+            try
             {
-                this.TopMost = true;
+                var cfg = new ConfigParser(settings);
+                string allontop = cfg.GetValue("CONFIG", "always_on_top");
+                if (allontop == "true")
+                {
+                    this.TopMost = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[{0:HH:mm:ss}] (SETTINGS) An error occurred: " + ex.Message, DateTime.Now);
             }
         }
         private void isMcSv()
@@ -197,12 +206,14 @@ namespace PteroController
                 }
                 else
                 {
-                    MessageBox.Show($"Failed to fetch server information. Error: {response.Content}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Alert("An error occurred while fetching server information", FrmAlert.enmType.Warning);
+                    Console.WriteLine("[{0:HH:mm:ss}] (SERVER) An error occurred: " + response.Content, DateTime.Now);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while fetching server information. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Alert("An error occurred while fetching server information",FrmAlert.enmType.Warning);
+                Console.WriteLine("[{0:HH:mm:ss}] (SERVER) An error occurred: " + ex.Message, DateTime.Now);
             }
         }
         private async void FrmMain_Load(object sender, EventArgs e)
@@ -216,6 +227,7 @@ namespace PteroController
             loadServerInfo();
             isMcSv();
             await LoadDatabases();
+            UpdateServerStatus();
         }
         private void AddColumnsToDataTable()
         {
@@ -273,7 +285,6 @@ namespace PteroController
                         {
                             var attributes = database["attributes"];
                             var passwordAttributes = attributes["relationships"]["password"]["attributes"];
-
                             string id = attributes["connections_from"]?.ToString();
                             string name = attributes["name"]?.ToString();
                             string username = attributes["username"]?.ToString();
@@ -286,20 +297,20 @@ namespace PteroController
                     }
                     else
                     {
-                        MessageBox.Show("Failed to parse JSON from response.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Alert("Failed to parse JSON from response.",FrmAlert.enmType.Warning);
                     }
                 }
                 else
                 {
                     var errorResponse = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show($"Failed to load databases. Response: {errorResponse}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Console.WriteLine(errorResponse);
+                    Console.WriteLine("[{0:HH:mm:ss}] (Database) Failed to load databases. Response: " + errorResponse,DateTime.Now);
+                    Alert("Sowy we can't get your database list", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("[{0:HH:mm:ss}] (Database) An error occurred: " + ex.Message, DateTime.Now);
+                Alert("Sowy we can't get your database list",FrmAlert.enmType.Warning);
             }
         }
 
@@ -367,8 +378,8 @@ namespace PteroController
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
-                    MessageBox.Show("Sorry we can't handle this console output please do not use this command or please wait for a bug fix");
+                    Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + ex.Message,DateTime.Now);
+                    Alert("Can't display the console there was a error", FrmAlert.enmType.Warning);
                     FrmServerController x = new FrmServerController(ServerId);
                     x.Show();
                     this.Hide();
@@ -450,7 +461,7 @@ namespace PteroController
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                MessageBox.Show("This thing dose not work yet so please click on the button to send the cmd to the server console!");
+                btnsend_Click(sender , e);
             }
         }
 
@@ -494,9 +505,16 @@ namespace PteroController
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            var cfg = new ConfigParser(accountinfo);
-            cfg.SetValue("LOGIN", "remember_me", "false");
-            cfg.Save();
+            try
+            {
+                var cfg = new ConfigParser(accountinfo);
+                cfg.SetValue("LOGIN", "remember_me", "false");
+                cfg.Save();
+            }
+            catch (Exception ex)
+            {
+                Console.Write("[{0:HH:mm:ss}] (SESSIONS) An error occurred: " + ex.Message, DateTime.Now);
+            }
             FrmLogin x = new FrmLogin();
             x.Show();
             this.Hide();
@@ -514,29 +532,64 @@ namespace PteroController
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            bool isWinSCPInstalled = IsWinSCPInstalled();
-            if (isWinSCPInstalled)
+            try
             {
-                string command = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "WinSCP", "WinSCP.exe");
-                string arguments = @"sftp://" + FrmLogin.username + "." + ServerId + ":" + FrmLogin.panel_pwd + "@" + sftp_ip + ":" + sftp_port + "";
-                ProcessStartInfo processInfo = new ProcessStartInfo(command, arguments);
-                processInfo.RedirectStandardOutput = true;
-                processInfo.UseShellExecute = false;
+                bool isWinSCPInstalled = IsWinSCPInstalled();
+                if (isWinSCPInstalled)
+                {
+                    string command = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "WinSCP", "WinSCP.exe");
+                    string arguments = @"sftp://" + FrmLogin.username + "." + ServerId + ":" + FrmLogin.panel_pwd + "@" + sftp_ip + ":" + sftp_port + "";
+                    ProcessStartInfo processInfo = new ProcessStartInfo(command, arguments);
+                    processInfo.RedirectStandardOutput = true;
+                    processInfo.UseShellExecute = false;
 
-                Process process = Process.Start(processInfo);
+                    Process process = Process.Start(processInfo);
+                }
+                else
+                {
+                    Alert("WinSCP is not installed please install it to use this", FrmAlert.enmType.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Alert("WinSCP is not installed please install it to use this", FrmAlert.enmType.Warning);
+                Console.WriteLine("[{0:HH:mm:ss}] (WINSCP) An error occurred: " + ex.Message, DateTime.Now);
             }
         }
 
+        private async Task<bool> IsServerOnline()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {FrmLogin.user_api_key}");
+
+                HttpResponseMessage response = await client.GetAsync($"{FrmLogin.panel_url}/api/application/servers/{ServerId}/resources");
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    return responseBody.Contains("\"current_state\":\"running\"");
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        private async void UpdateServerStatus()
+        {
+            bool isOnline = await IsServerOnline();
+            svonline = isOnline ? "Online" : "Offline";
+        }
 
         private void btnsend_Click(object sender, EventArgs e)
         {
+            UpdateServerStatus();
             if (commandTextBox.Text == "")
             {
-                MessageBox.Show("What cmd do you want to execute?");
+                Alert("What command do you want to send?", FrmAlert.enmType.Warning);
+            }
+            else if (svonline == "Offline") {
+                Alert("Your server is offline",FrmAlert.enmType.Warning);
             }
             try
             {
@@ -550,12 +603,14 @@ namespace PteroController
 
                 if (!response.IsSuccessful)
                 {
-                    MessageBox.Show($"Failed to send command. Error: {response.Content}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + response.Content, DateTime.Now);
+                    Alert("I couldn't send the command to the server console!", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while sending the command. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + ex.Message, DateTime.Now);
+                Alert("I couldn't send the command to the server console!", FrmAlert.enmType.Warning);
             }
             commandTextBox.Text = string.Empty;
         }
@@ -582,18 +637,18 @@ namespace PteroController
 
                 if (response.IsSuccessful)
                 {
-                    MessageBox.Show("Server shutdown request sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Alert("Server shutdown request sent successfully", FrmAlert.enmType.Info);
                 }
                 else
                 {
-                    MessageBox.Show($"Failed to send server shutdown request. Error: {response.Content}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Console.WriteLine($"{response.Content}");
+                    Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + response.Content, DateTime.Now);
+                    Alert("There was a problem while sending the shutdown request", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while sending the server shutdown request. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine($"An error occurred while sending the server shutdown request. Error: {ex.Message}");
+                Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred while sending the server shutdown request. Error: "+ex.Message,DateTime.Now);
+                Alert("There was a problem while sending the shutdown request", FrmAlert.enmType.Warning);
             }
         }
 
@@ -612,18 +667,18 @@ namespace PteroController
 
                 if (response.IsSuccessful)
                 {
-                    MessageBox.Show("Server start request sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Alert("Server start request sent successfully", FrmAlert.enmType.Info);
                 }
                 else
                 {
-                    MessageBox.Show($"Failed to send server start request. Error: {response.Content}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Console.WriteLine($"{response.Content}");
+                    Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + response.Content, DateTime.Now);
+                    Alert("There was a problem while sending the start request", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while sending the server start request. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine($"An error occurred while sending the server start request. Error: {ex.Message}");
+                Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred while sending the server start request. Error: " + ex.Message, DateTime.Now);
+                Alert("There was a problem while sending the start request", FrmAlert.enmType.Warning);
             }
         }
 
@@ -642,18 +697,18 @@ namespace PteroController
 
                 if (response.IsSuccessful)
                 {
-                    MessageBox.Show("Server restart request sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Alert("Server restart request sent successfully", FrmAlert.enmType.Info);
                 }
                 else
                 {
-                    MessageBox.Show($"Failed to send server restart request. Error: {response.Content}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Console.WriteLine($"{response.Content}");
+                    Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + response.Content, DateTime.Now);
+                    Alert("There was a problem while sending the restart request", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while sending the server restart request. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine($"An error occurred while sending the server restart request. Error: {ex.Message}");
+                Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred while sending the server restart request. Error: " + ex.Message, DateTime.Now);
+                Alert("There was a problem while sending the restart request", FrmAlert.enmType.Warning);
             }
         }
 
@@ -672,18 +727,18 @@ namespace PteroController
 
                 if (response.IsSuccessful)
                 {
-                    MessageBox.Show("Server kill request sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Alert("Server kill request sent successfully", FrmAlert.enmType.Info);
                 }
                 else
                 {
-                    MessageBox.Show($"Failed to send server kill request. Error: {response.Content}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Console.WriteLine($"{response.Content}");
+                    Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + response.Content, DateTime.Now);
+                    Alert("There was a problem while sending the kill request", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while sending the server kill request. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine($"An error occurred while sending the server kill request. Error: {ex.Message}");
+                Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred while sending the server kill request. Error: " + ex.Message, DateTime.Now);
+                Alert("There was a problem while sending the kill request", FrmAlert.enmType.Warning);
             }
         }
 
@@ -702,16 +757,6 @@ namespace PteroController
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataTable_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
         private void dataTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -726,28 +771,35 @@ namespace PteroController
 
         private async void guna2Button3_Click_1(object sender, EventArgs e)
         {
-            var client = new RestClient(FrmLogin.panel_url);
-            var request = new RestRequest($"/api/client/servers/" + ServerId + "/databases", Method.Post);
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Authorization", $"Bearer {FrmLogin.user_api_key}");
-            string requestBody = $"{{\"database\":\"{txtdbname.Text}\",\"remote\":\"{txtdbconn.Text}\"}}";
-
-            request.AddParameter("application/json", requestBody, ParameterType.RequestBody);
-
-            var response = client.Execute(request);
-
-            if (response.StatusCode == HttpStatusCode.OK)
+            try
             {
-                Alert("Database created successfully!", FrmAlert.enmType.Succes);
-                Pages.SetPage(PageDB);
-                await LoadDatabases();
+                var client = new RestClient(FrmLogin.panel_url);
+                var request = new RestRequest($"/api/client/servers/" + ServerId + "/databases", Method.Post);
+                request.AddHeader("Accept", "application/json");
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Authorization", $"Bearer {FrmLogin.user_api_key}");
+                string requestBody = $"{{\"database\":\"{txtdbname.Text}\",\"remote\":\"{txtdbconn.Text}\"}}";
+
+                request.AddParameter("application/json", requestBody, ParameterType.RequestBody);
+
+                var response = client.Execute(request);
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    Alert("Database created successfully!", FrmAlert.enmType.Succes);
+                    Pages.SetPage(PageDB);
+                    await LoadDatabases();
+                }
+                else
+                {
+                    Alert("Error while creating your database!", FrmAlert.enmType.Error);
+                    Pages.SetPage(PageDB);
+                    Console.WriteLine("[{0:HH:mm:ss}] (Database) An error occurred: " + response.ErrorMessage, DateTime.Now);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Alert("Error while creating your database!", FrmAlert.enmType.Error);
-                Pages.SetPage(PageDB);
-                Console.WriteLine(response.ErrorMessage);
+                Console.WriteLine("[{0:HH:mm:ss}] (Database) An error occurred: " + ex.Message, DateTime.Now);
             }
         }
 

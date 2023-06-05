@@ -509,7 +509,6 @@
             this.dataTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
             this.dataTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dataTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTable_CellDoubleClick);
-            this.dataTable.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataTable_CellMouseClick);
             // 
             // Pages
             // 
@@ -596,7 +595,6 @@
             this.pnlconsole.Controls.Add(this.svstart);
             resources.ApplyResources(this.pnlconsole, "pnlconsole");
             this.pnlconsole.Name = "pnlconsole";
-            this.pnlconsole.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // consoleTextBox
             // 

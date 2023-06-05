@@ -43,8 +43,13 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred: "+ex.Message+"",DateTime.Now);
             }
+        }
+        private void Alert(string msg, FrmAlert.enmType type)
+        {
+            FrmAlert frm = new FrmAlert();
+            frm.showAlert(msg, type);
         }
         public class PterodactylApiResponse
         {
@@ -52,11 +57,17 @@ namespace PteroController
         }
         private void loadSettings()
         {
-            var cfg = new ConfigParser(settings);
-            string allontop = cfg.GetValue("CONFIG", "always_on_top");
-            if (allontop == "true")
+            try { 
+                var cfg = new ConfigParser(settings);
+                string allontop = cfg.GetValue("CONFIG", "always_on_top");
+                if (allontop == "true")
+                {
+                    this.TopMost = true;
+                }
+            }
+            catch (Exception ex)
             {
-                this.TopMost = true;
+                Console.WriteLine("[{0:HH:mm:ss}] (SETTINGS) An error occurred: " + ex.Message, DateTime.Now);
             }
         }
 
@@ -67,27 +78,32 @@ namespace PteroController
 
         public class ServerAttributes
         {
-
             public string Identifier { get; set; }
             public string Name { get; set; }
         }
 
         private void serverListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (isFirstLoad)
-            {
-                isFirstLoad = false;
-                return;
-            }
+            try {
+                if (isFirstLoad)
+                {
+                    isFirstLoad = false;
+                    return;
+                }
 
-            if (serverListBox.SelectedItem != null && serverListBox.SelectedItem is string selectedServerName)
-            {
-                string identifier = selectedServerName.Substring(selectedServerName.IndexOf('(') + 1);
-                identifier = identifier.TrimEnd(')');
-                FrmServerController serverDetailsForm = new FrmServerController(identifier);
-                serverDetailsForm.Show();
-                this.Hide();
+                if (serverListBox.SelectedItem != null && serverListBox.SelectedItem is string selectedServerName)
+                {
+                    string identifier = selectedServerName.Substring(selectedServerName.IndexOf('(') + 1);
+                    identifier = identifier.TrimEnd(')');
+                    FrmServerController serverDetailsForm = new FrmServerController(identifier);
+                    serverDetailsForm.Show();
+                    this.Hide();
+                }
+            } catch (Exception ex) { 
+                Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred: "+ex.Message, DateTime.Now);
+                Alert("We are sorry but we can't load the servers", FrmAlert.enmType.Error);
             }
+            
         }
 
         private void lblexit_Click(object sender, EventArgs e)
@@ -102,9 +118,16 @@ namespace PteroController
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            var cfg = new ConfigParser(accountinfo);
-            cfg.SetValue("LOGIN", "remember_me", "false");
-            cfg.Save();
+            try
+            {
+                var cfg = new ConfigParser(accountinfo);
+                cfg.SetValue("LOGIN", "remember_me", "false");
+                cfg.Save();
+            }
+            catch (Exception ex)
+            {
+                Console.Write("[{0:HH:mm:ss}] (SESSIONS) An error occurred: " + ex.Message,DateTime.Now);
+            }
             FrmLogin x = new FrmLogin();
             x.Show();
             this.Hide();
@@ -154,14 +177,21 @@ namespace PteroController
 
         private void serverListBox_MouseClick(object sender, MouseEventArgs e)
         {
-            if (serverListBox.SelectedItem != null && serverListBox.SelectedItem is string selectedServerName)
+            try
             {
-                string identifier = selectedServerName.Substring(selectedServerName.IndexOf('(') + 1);
-                identifier = identifier.TrimEnd(')');
-                FrmServerController serverDetailsForm = new FrmServerController(identifier);
-                serverDetailsForm.Show();
-                this.Hide();
+                if (serverListBox.SelectedItem != null && serverListBox.SelectedItem is string selectedServerName)
+                {
+                    string identifier = selectedServerName.Substring(selectedServerName.IndexOf('(') + 1);
+                    identifier = identifier.TrimEnd(')');
+                    FrmServerController serverDetailsForm = new FrmServerController(identifier);
+                    serverDetailsForm.Show();
+                    this.Hide();
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred:" + ex.Message,DateTime.Now);
             }
+            
         }
     }
 

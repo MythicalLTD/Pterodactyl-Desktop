@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using PteroController;
 using System.Diagnostics;
 using System.Reflection;
+using Salaros.Configuration;
 
 namespace PteroController
 {
@@ -16,6 +17,7 @@ namespace PteroController
         static FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
         public static string appversion = fileVersionInfo.ProductVersion;
         private static Mutex mutex = new Mutex(true, "LockApp");
+        private static string settings = Application.StartupPath + @"\settings.ini";
 
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -31,6 +33,7 @@ namespace PteroController
             if (!mutex.WaitOne(TimeSpan.Zero, true))
             {
                 MessageBox.Show("Another instance of the application is already running.");
+                Console.WriteLine("[{0:HH:mm:ss}] (Program) Another instance of the application is already running.", DateTime.Now);
                 return;
             }
             if (!IsFirstRun())
@@ -100,10 +103,23 @@ namespace PteroController
                 }
                 else
                 {
-                    PteroControllerPluginLoader pluginLoader = new PteroControllerPluginLoader();
-                    pluginLoader.LoadPlugins();
-                    Application.Run(new FrmLoading());
-                    mutex.ReleaseMutex();
+                    var cfg = new ConfigParser(settings);
+                    string devmode = cfg.GetValue("CONFIG", "devmode");
+                    if (devmode == "true")
+                    {
+                        MessageBox.Show("Hi if you are a developer please use the -debug arg when you start the application to show the console!");
+                        PteroControllerPluginLoader pluginLoader = new PteroControllerPluginLoader();
+                        pluginLoader.LoadPlugins();
+                        Application.Run(new FrmLoading());
+                        mutex.ReleaseMutex();
+                    }
+                    else
+                    {
+                        PteroControllerPluginLoader pluginLoader = new PteroControllerPluginLoader();
+                        pluginLoader.LoadPlugins();
+                        Application.Run(new FrmLoading());
+                        mutex.ReleaseMutex();
+                    }
                 }
             }
             else
@@ -139,7 +155,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while creating the registry key: " + ex.Message);
+                Console.WriteLine("[{0:HH:mm:ss}] (Program) An error occurred while creating the registry key: " + ex.Message, DateTime.Now);
             }
         }
     }

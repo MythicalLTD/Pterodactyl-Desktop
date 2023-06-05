@@ -34,6 +34,7 @@ namespace PteroController
             if (cbagreeeula.Checked == false)
             {
                 Alert("Please agree with our EULA", FrmAlert.enmType.Warning);
+                Console.WriteLine("[{0:HH:mm:ss}] (FIRST TIME) User did not agree with our eula!", DateTime.Now);
             }
             else
             {
