@@ -97,19 +97,26 @@ namespace PteroController
         }
         private void CheckSession()
         {
-            var cfg = new ConfigParser(accountinfo);
-            string enableSession = cfg.GetValue("LOGIN", "remember_me");
-            if (enableSession == "true")
+           try
             {
-                string panelUrl = Decrypt(cfg.GetValue("LOGIN", "panel_url"));
-                string apiKey = Decrypt(cfg.GetValue("LOGIN", "api_key"));
-                string panelpwd = Decrypt(cfg.GetValue("LOGIN", "panel_pwd"));
+                var cfg = new ConfigParser(accountinfo);
+                string enableSession = cfg.GetValue("LOGIN", "remember_me");
+                if (enableSession == "true")
+                {
+                    string panelUrl = Decrypt(cfg.GetValue("LOGIN", "panel_url"));
+                    string apiKey = Decrypt(cfg.GetValue("LOGIN", "api_key"));
+                    string panelpwd = Decrypt(cfg.GetValue("LOGIN", "panel_pwd"));
 
-                txtpanelurl.Text = panelUrl;
-                txtapikey.Text = apiKey;
-                txtpanelpwd.Text = panelpwd;
-                cbsavelogin.Checked = true;
-                btnlogin.PerformClick();
+                    txtpanelurl.Text = panelUrl;
+                    txtapikey.Text = apiKey;
+                    txtpanelpwd.Text = panelpwd;
+                    cbsavelogin.Checked = true;
+                    btnlogin.PerformClick();
+                }
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine("[{0:HH:mm:ss}] (SESSIONS) Faild to load account data: ",ex.Message,DateTime.Now);
             }
         }
 
@@ -169,47 +176,62 @@ namespace PteroController
                         language = attributes["language"].ToString();
 
                         string userInformation = $"ID: {id}\nAdmin: {admin}\nUsername: {username}\nEmail: {email}\nFirst Name: {firstName}\nLast Name: {lastName}\nLanguage: {language}";
-                        Console.WriteLine(userInformation);
+                        Console.WriteLine("[{0:HH:mm:ss}] (LOGIN) \nSure logged you in here is you panel info: {\n" + userInformation+"\n}");
                     }
                     else
                     {
                         Alert("Faild to get your data please check the panel url", FrmAlert.enmType.Warning);
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
                     Alert("Faild to get your data please check the panel url", FrmAlert.enmType.Warning);
+                    Console.WriteLine("[{0:HH:mm:ss}] (LOGIN) Faild to connect:", ex.Message, DateTime.Now);
                 }
 
                 if (cbsavelogin.Checked)
                 {
-                    var cfg = new ConfigParser(accountinfo);
-                    cfg.SetValue("LOGIN", "remember_me", "true");
-                    string e_panel_url = Encrypt(panelUrl);
-                    cfg.SetValue("LOGIN", "panel_url", e_panel_url);
-                    string e_apiKey = Encrypt(apiKey);
-                    cfg.SetValue("LOGIN", "api_key", e_apiKey);
-                    string e_pass = Encrypt(txtpanelpwd.Text);
-                    cfg.SetValue("LOGIN", "panel_pwd", e_pass);
-                    cfg.Save();
-                    user_api_key = apiKey;
-                    panel_url = panelUrl;
-                    panel_pwd = txtpanelpwd.Text;
+                    try
+                    {
+                        var cfg = new ConfigParser(accountinfo);
+                        cfg.SetValue("LOGIN", "remember_me", "true");
+                        string e_panel_url = Encrypt(panelUrl);
+                        cfg.SetValue("LOGIN", "panel_url", e_panel_url);
+                        string e_apiKey = Encrypt(apiKey);
+                        cfg.SetValue("LOGIN", "api_key", e_apiKey);
+                        string e_pass = Encrypt(txtpanelpwd.Text);
+                        cfg.SetValue("LOGIN", "panel_pwd", e_pass);
+                        cfg.Save();
+                        user_api_key = apiKey;
+                        panel_url = panelUrl;
+                        panel_pwd = txtpanelpwd.Text;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("[{0:HH:mm:ss}] (SESSIONS) Faild to load account data: ", ex.Message, DateTime.Now);
+                    }
                 }
                 else
                 {
-                    var cfg = new ConfigParser(accountinfo);
-                    cfg.SetValue("LOGIN", "remember_me", "false");
-                    string e_panel_url = Encrypt(panelUrl);
-                    cfg.SetValue("LOGIN", "panel_url", e_panel_url);
-                    string e_apiKey = Encrypt(apiKey);
-                    cfg.SetValue("LOGIN", "api_key", e_apiKey);
-                    string e_pass = Encrypt(txtpanelpwd.Text);
-                    cfg.SetValue("LOGIN", "panel_pwd", e_pass);
-                    cfg.Save();
-                    user_api_key = apiKey;
-                    panel_url = panelUrl;
-                    panel_pwd = txtpanelpwd.Text;
+                    try
+                    {
+                        var cfg = new ConfigParser(accountinfo);
+                        cfg.SetValue("LOGIN", "remember_me", "false");
+                        string e_panel_url = Encrypt(panelUrl);
+                        cfg.SetValue("LOGIN", "panel_url", e_panel_url);
+                        string e_apiKey = Encrypt(apiKey);
+                        cfg.SetValue("LOGIN", "api_key", e_apiKey);
+                        string e_pass = Encrypt(txtpanelpwd.Text);
+                        cfg.SetValue("LOGIN", "panel_pwd", e_pass);
+                        cfg.Save();
+                        user_api_key = apiKey;
+                        panel_url = panelUrl;
+                        panel_pwd = txtpanelpwd.Text;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("[{0:HH:mm:ss}] (SESSIONS) Faild to load account data: ", ex.Message, DateTime.Now);
+                    }
                 }
 
                 FrmMain x = new FrmMain();

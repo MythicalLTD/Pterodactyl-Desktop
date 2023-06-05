@@ -66,7 +66,7 @@ namespace PteroController
             if (!Directory.Exists(FolderPath))
             {
                 Directory.CreateDirectory(FolderPath);
-                Console.WriteLine("Plugin folder created successfully.");
+                Console.WriteLine("[{0:HH:mm:ss}] (PluginLoader) Plugin folder created successfully.", DateTime.Now);
             }
         }
         public void LoadPlugins()
@@ -87,12 +87,12 @@ namespace PteroController
                 {
                     foreach (CompilerError error in compilerResults.Errors)
                     {
-                        Console.WriteLine($"Error in file {Path.GetFileName(file)} at line {error.Line}: {error.ErrorText}");
+                        Console.WriteLine($"[{{0:HH:mm:ss}}] (PluginLoader) Error in file {Path.GetFileName(file)} at line {error.Line}: {error.ErrorText}",DateTime.Now);
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"File {Path.GetFileName(file)} compiled successfully.");
+                    Console.WriteLine($"[{{0:HH:mm:ss}}] (PluginLoader) File {Path.GetFileName(file)} compiled successfully.", DateTime.Now);
                     Assembly compiledAssembly = compilerResults.CompiledAssembly;
                     Type pluginType = compiledAssembly.GetType("PteroControllerPlugin.PluginInit");
                     object pluginInstance = Activator.CreateInstance(pluginType);

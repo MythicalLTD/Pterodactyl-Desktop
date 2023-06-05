@@ -30,7 +30,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Console.WriteLine("[{0:HH:mm:ss}] (INSTALL) An error occurred: "+ex.Message,DateTime.Now);             
             }
         }
 
@@ -58,7 +58,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Console.WriteLine("[{0:HH:mm:ss}] (INSTALL) An error occurred: "+ex.Message,DateTime.Now);
             }
         }
 
