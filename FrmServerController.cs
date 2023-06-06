@@ -380,7 +380,9 @@ namespace PteroController
                 {
                     Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + ex.Message,DateTime.Now);
                     Alert("Can't display the console there was a error", FrmAlert.enmType.Warning);
-                    FrmServerController x = new FrmServerController(ServerId);
+                    cancellationTokenSource?.Cancel();
+                    webSocket?.Dispose();
+                    FrmMain x = new FrmMain();
                     x.Show();
                     this.Hide();
                 }
