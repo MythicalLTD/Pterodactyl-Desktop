@@ -30,6 +30,8 @@ namespace PteroController
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            PteroControllerWebServer.StartWebServer("http://localhost:5914/");
+
             if (!mutex.WaitOne(TimeSpan.Zero, true))
             {
                 MessageBox.Show("Another instance of the application is already running.");
