@@ -579,8 +579,8 @@ namespace PteroController
 
         private async void UpdateServerStatus()
         {
-            bool isOnline = await IsServerOnline();
-            svonline = isOnline ? "Online" : "Offline";
+            bool issvOnline = await IsServerOnline();
+            svonline = issvOnline ? "Online" : "Offline";
         }
 
         private void btnsend_Click(object sender, EventArgs e)
@@ -590,7 +590,7 @@ namespace PteroController
             {
                 Alert("What command do you want to send?", FrmAlert.enmType.Warning);
             }
-            else if (svonline == "Offline") {
+            else if (svonline == "offline") {
                 Alert("Your server is offline",FrmAlert.enmType.Warning);
             }
             try
