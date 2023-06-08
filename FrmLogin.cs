@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Salaros.Configuration;
 using System;
+using System.Drawing;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -119,11 +120,25 @@ namespace PteroController
                 Console.WriteLine("[{0:HH:mm:ss}] (SESSIONS) Faild to load account data: ", ex.Message, DateTime.Now);
             }
         }
-
+        private void LoadTheme()
+        {
+            this.BackColor = Color.FromArgb(PteroControllerThemeLoader.background_r, PteroControllerThemeLoader.background_g, PteroControllerThemeLoader.background_b);
+            lblappname.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+            lblexit.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+            lblloginto.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+            lblpanelpwd.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+            lblpanelurl.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+            lblapi_key.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+            lblhowtolg.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+            lblmin.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+            navbar.ForeColor = Color.FromArgb(PteroControllerThemeLoader.navbar_r, PteroControllerThemeLoader.navbar_g, PteroControllerThemeLoader.navbar_b);
+            cbsavelogin.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+        }
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             CheckSession();
             loadSettings();
+            LoadTheme();
             lblappname.Text = "PteroController (" + Program.appversion + ")";
         }
         private string Encrypt(string plainText)

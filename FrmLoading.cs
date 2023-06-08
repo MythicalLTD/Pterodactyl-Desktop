@@ -1,6 +1,7 @@
 ﻿using DiscordRPC;
 using DiscordRPC.Logging;
 using System;
+using System.Drawing;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -22,6 +23,15 @@ namespace PteroController
             WebServer.StopServer();
             Application.Exit();
         }
+
+        private void LoadTheme()
+        {
+            this.BackColor = Color.FromArgb(PteroControllerThemeLoader.background_r, PteroControllerThemeLoader.background_g, PteroControllerThemeLoader.background_b);
+            lblappname.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+            lblexit.ForeColor = Color.FromArgb(PteroControllerThemeLoader.text_r, PteroControllerThemeLoader.text_g, PteroControllerThemeLoader.text_b);
+        }
+
+
         private async void CheckForUpdate()
         {
             string url = "https://raw.githubusercontent.com/MythicalLTD/PteroController/develop/Properties/AssemblyInfo.cs";
@@ -70,6 +80,7 @@ namespace PteroController
         private void FrmLoading_Load(object sender, EventArgs e)
         {
             CheckForUpdate();
+            LoadTheme();
         }
 
         void InitializeRPC()

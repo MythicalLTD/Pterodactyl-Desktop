@@ -20,6 +20,7 @@ namespace PteroController
         public static string appversion = fileVersionInfo.ProductVersion;
         private static Mutex mutex = new Mutex(true, "LockApp");
         private static string settings = Application.StartupPath + @"\settings.ini";
+        public static string themes = Application.StartupPath + @"\themes\theme.ini";
         public static string ptasci = @" 
   _____  _                  _____            _             _ _           
  |  __ \| |                / ____|          | |           | | |          
@@ -41,6 +42,10 @@ namespace PteroController
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             WebServer.StartWebServer("http://localhost:5914/");
+            PluginLoader pluginLoader = new PluginLoader();
+            pluginLoader.LoadPlugins();
+            PteroControllerThemeLoader themeLoader = new PteroControllerThemeLoader();
+            themeLoader.initThemes();
             if (!mutex.WaitOne(TimeSpan.Zero, true))
             {
                 MessageBox.Show("Another instance of the application is already running.");
@@ -79,8 +84,7 @@ namespace PteroController
                     Console.WriteLine("--------------------------------------------------------------");
                     try
                     {
-                        PluginLoader pluginLoader = new PluginLoader();
-                        pluginLoader.LoadPlugins();
+                        
                         Application.Run(new FrmLoading());
                     }
                     catch (Exception ex)
@@ -111,15 +115,11 @@ namespace PteroController
                     if (devmode == "true")
                     {
                         MessageBox.Show("Hi if you are a developer please use the -debug arg when you start the application to show the console!");
-                        PluginLoader pluginLoader = new PluginLoader();
-                        pluginLoader.LoadPlugins();
                         Application.Run(new FrmLoading());
                         mutex.ReleaseMutex();
                     }
                     else
                     {
-                        PluginLoader pluginLoader = new PluginLoader();
-                        pluginLoader.LoadPlugins();
                         Application.Run(new FrmLoading());
                         mutex.ReleaseMutex();
                     }

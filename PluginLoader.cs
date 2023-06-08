@@ -47,6 +47,7 @@ using System;
 using System.CodeDom.Compiler;
 using System.IO;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace PteroController
 {
@@ -67,8 +68,71 @@ namespace PteroController
             {
                 Directory.CreateDirectory(FolderPath);
                 Console.WriteLine("[{0:HH:mm:ss}] (PluginLoader) Plugin folder created successfully.", DateTime.Now);
+                CreatePluginDefault();
             }
         }
+
+        private void CreatePluginDefault()
+        {
+            string folderPath = Path.Combine(Application.StartupPath, FolderPath);
+            string filePath = Path.Combine(folderPath, "ExamplePlugin.cs");
+            string filename = "ExamplePlugin.cs";
+            string code = @"
+using System;
+
+namespace PteroControllerPlugin
+{
+    public class PluginInit
+    {
+        private string _name = ""ExamplePlugin"";
+        private string _version = ""1.0.0"";
+        private string _author = ""NaysKutzu"";
+
+        public string Name
+        {
+            get { return _name; }
+        }
+
+        public string Version
+        {
+            get { return _version; }
+        }
+
+        public string Author
+        {
+            get { return _author; }
+        }
+
+        public PluginInit()
+        {
+            sayhello();
+        }
+
+        private void sayhello()
+        {
+            Console.WriteLine(""Hello, World from plugin!"");
+        }
+    }
+}
+// WARNING: DO NOT EDIT THE NAMESPACE OR THE PluginInit name this will not load on another pc!
+";
+            if (File.Exists(filePath))
+            {
+                return;
+            }
+
+            try
+            {
+                Directory.CreateDirectory(folderPath);
+                File.WriteAllText(filePath, code);
+                Console.WriteLine("[{0:HH:mm:ss}] (PluginLoader) Default plugin created successfully.", DateTime.Now);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[{0:HH:mm:ss}] (PluginLoader) An error occurred: {1}", DateTime.Now, e.Message);
+            }
+        }
+
         public void LoadPlugins()
         {
             CheckAndCreatePluginFolder();
@@ -101,7 +165,6 @@ namespace PteroController
                 }
             }
         }
-
         private PluginInfo GetPluginInfo(object pluginInstance)
         {
             Type pluginType = pluginInstance.GetType();

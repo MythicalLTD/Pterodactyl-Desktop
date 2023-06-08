@@ -60,7 +60,8 @@ namespace PteroController
 
                 using (StreamWriter writer = File.CreateText(logFilePath))
                 {
-                    writer.WriteLine("Welcome");
+                    writer.WriteLine(Program.ptasci);
+                    writer.WriteLine("This is the log file of PteroController version: " + Program.appversion);
                 }
             }
         }
