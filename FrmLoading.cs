@@ -19,6 +19,7 @@ namespace PteroController
 
         private void lblexit_Click(object sender, EventArgs e)
         {
+            PteroControllerWebServer.StopServer();
             Application.Exit();
         }
         private async void CheckForUpdate()

@@ -32,16 +32,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFirstRun));
             this.navbar = new System.Windows.Forms.Panel();
             this.lblappname = new System.Windows.Forms.Label();
+            this.appicon = new System.Windows.Forms.PictureBox();
             this.lblmin = new System.Windows.Forms.Label();
             this.lblexit = new System.Windows.Forms.Label();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.txtagree = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbagreeeula = new Guna.UI2.WinForms.Guna2CheckBox();
             this.btnsend = new Guna.UI2.WinForms.Guna2Button();
-            this.appicon = new System.Windows.Forms.PictureBox();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,16 @@
             this.lblappname.TabIndex = 9;
             this.lblappname.Text = "PteroController";
             // 
+            // appicon
+            // 
+            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
+            this.appicon.Location = new System.Drawing.Point(3, 4);
+            this.appicon.Name = "appicon";
+            this.appicon.Size = new System.Drawing.Size(20, 20);
+            this.appicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.appicon.TabIndex = 8;
+            this.appicon.TabStop = false;
+            // 
             // lblmin
             // 
             this.lblmin.AutoSize = true;
@@ -96,11 +106,6 @@
             this.lblexit.TabIndex = 7;
             this.lblexit.Text = "X";
             this.lblexit.Click += new System.EventHandler(this.lblexit_Click);
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this;
             // 
             // guna2DragControl1
             // 
@@ -185,15 +190,10 @@
             this.btnsend.Text = "Next";
             this.btnsend.Click += new System.EventHandler(this.btnsend_Click);
             // 
-            // appicon
+            // bunifuElipse1
             // 
-            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
-            this.appicon.Location = new System.Drawing.Point(3, 4);
-            this.appicon.Name = "appicon";
-            this.appicon.Size = new System.Drawing.Size(20, 20);
-            this.appicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.appicon.TabIndex = 8;
-            this.appicon.TabStop = false;
+            this.bunifuElipse1.ElipseRadius = 20;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // FrmFirstRun
             // 
@@ -228,12 +228,12 @@
         private System.Windows.Forms.PictureBox appicon;
         private System.Windows.Forms.Label lblmin;
         private System.Windows.Forms.Label lblexit;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private System.Windows.Forms.RichTextBox txtagree;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2CheckBox cbagreeeula;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnsend;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

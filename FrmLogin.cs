@@ -174,9 +174,7 @@ namespace PteroController
                         firstName = attributes["first_name"].ToString();
                         lastName = attributes["last_name"].ToString();
                         language = attributes["language"].ToString();
-
-                        string userInformation = $"ID: {id}\nAdmin: {admin}\nUsername: {username}\nEmail: {email}\nFirst Name: {firstName}\nLast Name: {lastName}\nLanguage: {language}";
-                        Console.WriteLine("[{0:HH:mm:ss}] (LOGIN) \nSure logged you in here is you panel info: {\n" + userInformation+"\n}");
+                        Console.WriteLine("[{0:HH:mm:ss}] (LOGIN) Logged in!",DateTime.Now);
                     }
                     else
                     {
@@ -246,6 +244,7 @@ namespace PteroController
 
         private void lblexit_Click(object sender, EventArgs e)
         {
+            PteroControllerWebServer.StopServer();
             Application.Exit();
         }
 

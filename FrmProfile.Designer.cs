@@ -35,7 +35,6 @@
             this.appicon = new System.Windows.Forms.PictureBox();
             this.lblmin = new System.Windows.Forms.Label();
             this.lblexit = new System.Windows.Forms.Label();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbllastname = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.panel1.SuspendLayout();
@@ -124,11 +124,6 @@
             this.lblexit.TabIndex = 7;
             this.lblexit.Text = "X";
             this.lblexit.Click += new System.EventHandler(this.lblexit_Click);
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this;
             // 
             // guna2DragControl1
             // 
@@ -361,6 +356,11 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 20;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // FrmProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,7 +399,6 @@
         private System.Windows.Forms.PictureBox appicon;
         private System.Windows.Forms.Label lblmin;
         private System.Windows.Forms.Label lblexit;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox5;
@@ -417,5 +416,6 @@
         private System.Windows.Forms.Label lbllastname;
         private System.Windows.Forms.Label lblfirstname;
         private Guna.UI2.WinForms.Guna2Button btnsettings;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

@@ -40,7 +40,6 @@
             this.txtpanelurl = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtapikey = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnlogin = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.navbar = new System.Windows.Forms.Panel();
             this.lblappname = new System.Windows.Forms.Label();
             this.appicon = new System.Windows.Forms.PictureBox();
@@ -48,6 +47,7 @@
             this.lblexit = new System.Windows.Forms.Label();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.lblloginto = new System.Windows.Forms.Label();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2GradientPanel1.SuspendLayout();
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
@@ -249,11 +249,6 @@
             this.btnlogin.Text = "Login";
             this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click);
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this;
-            // 
             // navbar
             // 
             this.navbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(21)))), ((int)(((byte)(44)))));
@@ -331,6 +326,11 @@
             this.lblloginto.TabIndex = 10;
             this.lblloginto.Text = "Login to Continue";
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 20;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,7 +359,6 @@
         #endregion
         private System.Windows.Forms.Label lblapi_key;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Button btnlogin;
         private System.Windows.Forms.Panel navbar;
         private System.Windows.Forms.Label lblmin;
@@ -375,5 +374,6 @@
         private System.Windows.Forms.Label lblhowtolg;
         private Guna.UI2.WinForms.Guna2TextBox txtpanelpwd;
         private System.Windows.Forms.Label lblpanelpwd;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

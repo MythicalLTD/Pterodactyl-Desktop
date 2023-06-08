@@ -414,16 +414,18 @@ namespace PteroController
 
         private void label3_Click(object sender, EventArgs e)
         {
+            PteroControllerWebServer.StopServer();
             cancellationTokenSource?.Cancel();
             webSocket?.Dispose();
-            Environment.Exit(0x0);
+            Application.Exit();
         }
 
         private void lblexit_Click(object sender, EventArgs e)
         {
+            PteroControllerWebServer.StopServer();
             cancellationTokenSource?.Cancel();
             webSocket?.Dispose();
-            Environment.Exit(0x0);
+            Application.Exit();
         }
 
         private void lblmin_Click(object sender, EventArgs e)

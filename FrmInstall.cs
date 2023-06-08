@@ -70,5 +70,11 @@ namespace PteroController
             double num = Math.Round(bytes / Math.Pow(1024, place), 1);
             return (Math.Sign(bytes) * num).ToString() + suf[place];
         }
+
+        private void lblexit_Click(object sender, EventArgs e)
+        {
+            PteroControllerWebServer.StopServer();
+            Application.Exit();
+        }
     }
 }

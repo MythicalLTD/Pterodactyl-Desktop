@@ -8,7 +8,7 @@ public class PteroControllerWebServer
     private static HttpListener listener;
     private static Thread serverThread;
     private static string webserverDirectory;
-    private const string DefaultHtmlContent = "<html><body><h1>Welcome to the Web Server!</h1></body></html>";
+    private const string DefaultHtmlContent = "<html><body><h1>How did you find me?</h1></body></html>";
 
     public static void StartWebServer(string url)
     {
@@ -25,7 +25,12 @@ public class PteroControllerWebServer
 
         serverThread.Start();
     }
-
+    public static void StopServer()
+    {
+        listener.Stop();
+        listener.Close();
+        serverThread.Abort();
+    }
     private static void StartServer()
     {
         listener.Start();
