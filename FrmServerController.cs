@@ -348,6 +348,7 @@ namespace PteroController
             }
 
         }
+
         private void UpdateConsoleOutput(string consoleOutput)
         {
             if (consoleTextBox.InvokeRequired)
@@ -358,8 +359,10 @@ namespace PteroController
             {
                 try
                 {
-                    string result = Regex.Replace(consoleOutput, @"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])", "");
-                    Console.WriteLine(consoleOutput);
+                    Regex ansiEscape = new Regex(@"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])");
+                    string result = ansiEscape.Replace(consoleOutput, "");
+                    Console.WriteLine(result);
+
                     //var payload = JObject.Parse(consoleOutput);
                     //if (payload.ContainsKey("event") && payload["event"].ToString() == "console output")
                     //{
@@ -383,7 +386,6 @@ namespace PteroController
                     x.Show();
                     this.Hide();
                 }
-
             }
         }
 
@@ -412,14 +414,16 @@ namespace PteroController
 
         private void label3_Click(object sender, EventArgs e)
         {
-            OnFormClosing(null);
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             Environment.Exit(0x0);
-            Application.Exit();
         }
 
         private void lblexit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
+            Environment.Exit(0x0);
         }
 
         private void lblmin_Click(object sender, EventArgs e)
@@ -429,6 +433,8 @@ namespace PteroController
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             FrmProfile x = new FrmProfile();
             x.Show();
             this.Hide();
@@ -436,6 +442,8 @@ namespace PteroController
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             FrmProfile x = new FrmProfile();
             x.Show();
             this.Hide();
@@ -443,6 +451,8 @@ namespace PteroController
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             FrmSettings x = new FrmSettings();
             x.Show();
             this.Hide();
@@ -460,6 +470,8 @@ namespace PteroController
             {
                 Console.Write("[{0:HH:mm:ss}] (SESSIONS) An error occurred: " + ex.Message, DateTime.Now);
             }
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             FrmLogin x = new FrmLogin();
             x.Show();
             this.Hide();
@@ -563,6 +575,8 @@ namespace PteroController
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             FrmMain x = new FrmMain();
             x.Show();
             this.Hide();
