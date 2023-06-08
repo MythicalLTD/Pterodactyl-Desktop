@@ -112,7 +112,7 @@ namespace PteroController
 
         private void lblexit_Click(object sender, EventArgs e)
         {
-            PteroControllerWebServer.StopServer();
+            WebServer.StopServer();
             Application.Exit();
         }
 

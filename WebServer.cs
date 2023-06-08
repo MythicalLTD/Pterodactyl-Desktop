@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 
-public class PteroControllerWebServer
+public class WebServer
 {
     private static HttpListener listener;
     private static Thread serverThread;

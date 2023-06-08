@@ -57,7 +57,7 @@ namespace PteroController
         public string Author { get; set; }
     }
 
-    public class PteroControllerPluginLoader
+    public class PluginLoader
     {
         private const string FolderPath = "plugins";
 

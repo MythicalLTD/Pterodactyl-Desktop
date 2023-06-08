@@ -36,11 +36,11 @@ namespace PteroController
         [STAThread]
         static void Main(string[] args)
         {
-            PteroControllerLogger xlogger = new PteroControllerLogger();
+            Logger xlogger = new Logger();
             xlogger.InitLoader();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            PteroControllerWebServer.StartWebServer("http://localhost:5914/");
+            WebServer.StartWebServer("http://localhost:5914/");
             if (!mutex.WaitOne(TimeSpan.Zero, true))
             {
                 MessageBox.Show("Another instance of the application is already running.");
@@ -79,7 +79,7 @@ namespace PteroController
                     Console.WriteLine("--------------------------------------------------------------");
                     try
                     {
-                        PteroControllerPluginLoader pluginLoader = new PteroControllerPluginLoader();
+                        PluginLoader pluginLoader = new PluginLoader();
                         pluginLoader.LoadPlugins();
                         Application.Run(new FrmLoading());
                     }
@@ -111,14 +111,14 @@ namespace PteroController
                     if (devmode == "true")
                     {
                         MessageBox.Show("Hi if you are a developer please use the -debug arg when you start the application to show the console!");
-                        PteroControllerPluginLoader pluginLoader = new PteroControllerPluginLoader();
+                        PluginLoader pluginLoader = new PluginLoader();
                         pluginLoader.LoadPlugins();
                         Application.Run(new FrmLoading());
                         mutex.ReleaseMutex();
                     }
                     else
                     {
-                        PteroControllerPluginLoader pluginLoader = new PteroControllerPluginLoader();
+                        PluginLoader pluginLoader = new PluginLoader();
                         pluginLoader.LoadPlugins();
                         Application.Run(new FrmLoading());
                         mutex.ReleaseMutex();
@@ -131,7 +131,6 @@ namespace PteroController
                 SetFirstRunFlag();
             }
         }
-
         private static bool IsFirstRun()
         {
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\PteroController"))

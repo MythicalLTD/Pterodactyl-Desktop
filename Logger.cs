@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace PteroController
 {
-    public class PteroControllerLogger
+    public class Logger
     {
         private string logPath;
         private string logFileName;
         private StreamWriter logWriter;
         private TextWriter originalOutput;
 
-        public PteroControllerLogger()
+        public Logger()
         {
             logPath = Path.Combine(Application.StartupPath, "logs");
             logFileName = "log.txt";
