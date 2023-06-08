@@ -360,6 +360,8 @@ namespace PteroController
             {
                 try
                 {
+                    //TO TRY: 
+                    //MAKE THE OUPUT BE ONLY 1 LINE FORCE IT
                     Regex ansiEscape = new Regex(@"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])");
                     string result = ansiEscape.Replace(consoleOutput, "");
 

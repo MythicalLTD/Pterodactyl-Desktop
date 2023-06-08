@@ -21,7 +21,6 @@ namespace PteroController
         public void InitLoader()
         {
             CheckDir();
-            RedirectConsoleOutput();
         }
 
         private void CheckDir()
@@ -62,55 +61,6 @@ namespace PteroController
                 {
                     writer.WriteLine(Program.ptasci);
                     writer.WriteLine("This is the log file of PteroController version: " + Program.appversion);
-                }
-            }
-        }
-
-
-        private void RedirectConsoleOutput()
-        {
-            string logFilePath = Path.Combine(logPath, logFileName);
-            logWriter = new StreamWriter(logFilePath, true);
-            logWriter.AutoFlush = true;
-
-            originalOutput = Console.Out;
-            TeeTextWriter teeWriter = new TeeTextWriter(logWriter, originalOutput);
-            Console.SetOut(teeWriter);
-        }
-
-        public void WriteLog(string msg)
-        {
-            Console.WriteLine(msg);
-        }
-        public void Close()
-        {
-            logWriter?.Dispose();
-            Console.SetOut(originalOutput); 
-        }
-        private class TeeTextWriter : TextWriter
-        {
-            private TextWriter[] writers;
-
-            public TeeTextWriter(params TextWriter[] writers)
-            {
-                this.writers = writers;
-            }
-
-            public override Encoding Encoding => writers[0].Encoding;
-
-            public override void Write(char value)
-            {
-                foreach (var writer in writers)
-                {
-                    writer.Write(value);
-                }
-            }
-
-            public override void Write(string value)
-            {
-                foreach (var writer in writers)
-                {
-                    writer.Write(value);
                 }
             }
         }

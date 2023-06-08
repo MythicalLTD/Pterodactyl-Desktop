@@ -76,7 +76,6 @@ namespace PteroController
         {
             string folderPath = Path.Combine(Application.StartupPath, FolderPath);
             string filePath = Path.Combine(folderPath, "ExamplePlugin.cs");
-            string filename = "ExamplePlugin.cs";
             string code = @"
 using System;
 
@@ -161,7 +160,7 @@ namespace PteroControllerPlugin
                     Type pluginType = compiledAssembly.GetType("PteroControllerPlugin.PluginInit");
                     object pluginInstance = Activator.CreateInstance(pluginType);
                     PluginInfo pluginInfo = GetPluginInfo(pluginInstance);
-                    Console.WriteLine($"Loaded plugin: {pluginInfo.Name} (Version: {pluginInfo.Version}, Author: {pluginInfo.Author})");
+                    Console.WriteLine($"[{0:HH:mm:ss}] (PluginLoader) Loaded plugin: {pluginInfo.Name} (Version: {pluginInfo.Version}, Author: {pluginInfo.Author})",DateTime.Now);
                 }
             }
         }
