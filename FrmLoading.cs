@@ -43,7 +43,7 @@ namespace PteroController
                             {
                                 FrmInstall x = new FrmInstall();
                                 x.Show();
-                                
+
                                 this.Hide();
                             }
                             else
@@ -58,7 +58,7 @@ namespace PteroController
                     }
                     else
                     {
-                        Console.WriteLine("[{0:HH:mm:ss}] Version not found in AssemblyInfo.cs",DateTime.Now);
+                        Console.WriteLine("[{0:HH:mm:ss}] Version not found in AssemblyInfo.cs", DateTime.Now);
                     }
                 }
                 catch (Exception ex)
@@ -69,7 +69,7 @@ namespace PteroController
         }
         private void FrmLoading_Load(object sender, EventArgs e)
         {
-           CheckForUpdate();
+            CheckForUpdate();
         }
 
         void InitializeRPC()
@@ -108,11 +108,12 @@ namespace PteroController
                     btns2
                     },
                 });
-            }catch (Exception ex)
-            {
-                Console.WriteLine("[{0:HH:mm:ss}] Faild to load discord rpc: "+ex.Message, DateTime.Now);
             }
-           
+            catch (Exception ex)
+            {
+                Console.WriteLine("[{0:HH:mm:ss}] Faild to load discord rpc: " + ex.Message, DateTime.Now);
+            }
+
         }
 
         private void tm_Tick(object sender, EventArgs e)

@@ -97,7 +97,7 @@ namespace PteroController
         }
         private void CheckSession()
         {
-           try
+            try
             {
                 var cfg = new ConfigParser(accountinfo);
                 string enableSession = cfg.GetValue("LOGIN", "remember_me");
@@ -114,9 +114,9 @@ namespace PteroController
                     btnlogin.PerformClick();
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
-                Console.WriteLine("[{0:HH:mm:ss}] (SESSIONS) Faild to load account data: ",ex.Message,DateTime.Now);
+                Console.WriteLine("[{0:HH:mm:ss}] (SESSIONS) Faild to load account data: ", ex.Message, DateTime.Now);
             }
         }
 
@@ -174,7 +174,7 @@ namespace PteroController
                         firstName = attributes["first_name"].ToString();
                         lastName = attributes["last_name"].ToString();
                         language = attributes["language"].ToString();
-                        Console.WriteLine("[{0:HH:mm:ss}] (LOGIN) Logged in!",DateTime.Now);
+                        Console.WriteLine("[{0:HH:mm:ss}] (LOGIN) Logged in!", DateTime.Now);
                     }
                     else
                     {

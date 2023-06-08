@@ -42,11 +42,11 @@ namespace PteroControllerPlugin
 }
 */
 // WARNING: DO NOT EDIT THE NAMESPACE OR THE PluginInit name this will not load on another pc!
+using Microsoft.CSharp;
 using System;
 using System.CodeDom.Compiler;
 using System.IO;
 using System.Reflection;
-using Microsoft.CSharp;
 
 namespace PteroController
 {
@@ -87,7 +87,7 @@ namespace PteroController
                 {
                     foreach (CompilerError error in compilerResults.Errors)
                     {
-                        Console.WriteLine($"[{{0:HH:mm:ss}}] (PluginLoader) Error in file {Path.GetFileName(file)} at line {error.Line}: {error.ErrorText}",DateTime.Now);
+                        Console.WriteLine($"[{{0:HH:mm:ss}}] (PluginLoader) Error in file {Path.GetFileName(file)} at line {error.Line}: {error.ErrorText}", DateTime.Now);
                     }
                 }
                 else

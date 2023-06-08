@@ -27,6 +27,7 @@ public class PteroControllerWebServer
     }
     public static void StopServer()
     {
+        Console.WriteLine("[{0:HH:mm:ss}] (WebServer) Web server killed",DateTime.Now);
         listener.Stop();
         listener.Close();
         serverThread.Abort();
@@ -34,8 +35,8 @@ public class PteroControllerWebServer
     private static void StartServer()
     {
         listener.Start();
-        Console.WriteLine("Web server started.");
-        Console.WriteLine("Listening on " + listener.Prefixes);
+        Console.WriteLine("[{0:HH:mm:ss}] (WebServer) Web server started.",DateTime.Now);
+        Console.WriteLine("[{0:HH:mm:ss}] (WebServer) Listening on " + listener.Prefixes,DateTime.Now);
 
         try
         {
@@ -47,11 +48,11 @@ public class PteroControllerWebServer
         }
         catch (Exception ex)
         {
-            Console.WriteLine("An error occurred: " + ex.Message);
+            Console.WriteLine("[{0:HH:mm:ss}] (WebServer) An error occurred: " + ex.Message,DateTime.Now);
         }
 
         listener.Close();
-        Console.WriteLine("Web server stopped.");
+        Console.WriteLine("[{0:HH:mm:ss}] (WebServer) Web server stopped.",DateTime.Now);
     }
 
     private static void ProcessRequest(HttpListenerContext context)
