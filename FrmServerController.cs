@@ -7,6 +7,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.WebSockets;
@@ -363,22 +364,22 @@ namespace PteroController
                     string result = ansiEscape.Replace(consoleOutput, "");
 
                     string filePath = "output.txt"; 
-                    File.WriteAllText(filePath, result); 
+                    File.AppendAllText(filePath, result); 
 
                     Console.WriteLine("Results have been written to the file: " + filePath);
 
-                    //var payload = JObject.Parse(consoleOutput);
-                    //if (payload.ContainsKey("event") && payload["event"].ToString() == "console output")
-                    //{
-                    //    var args = payload["args"];
-                    //    if (args != null && args.Count() > 0)
-                    //    {
-                    //        var output = args[0].ToString();
-                    //        consoleTextBox.AppendText(consoleOutput + Environment.NewLine);
-                    //        consoleTextBox.SelectionStart = consoleTextBox.Text.Length;
-                    //        consoleTextBox.ScrollToCaret();
-                    //    }
-                    //}
+                    var payload = JObject.Parse(result);
+                    if (payload.ContainsKey("event") && payload["event"].ToString() == "console output")
+                    {
+                        var args = payload["args"];
+                        if (args != null && args.Count() > 0)
+                        {
+                            var output = args[0].ToString();
+                            consoleTextBox.AppendText(result + Environment.NewLine);
+                            consoleTextBox.SelectionStart = consoleTextBox.Text.Length;
+                            consoleTextBox.ScrollToCaret();
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {

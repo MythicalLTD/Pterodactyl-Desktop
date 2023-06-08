@@ -58,7 +58,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>pterry %281%29.ico</ApplicationIcon>
+    <ApplicationIcon>pterry.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b" />
@@ -360,6 +360,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PteroControllerLogger.cs" />
     <Compile Include="PteroControllerPluginLoader.cs" />
     <Compile Include="PteroControllerWebServer.cs" />
     <EmbeddedResource Include="FrmAlert.resx">
@@ -457,7 +458,7 @@
     <Content Include="Guna.UI2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="pterry %281%29.ico" />
+    <Content Include="pterry.ico" />
     <None Include="Resources\warning.png" />
     <None Include="Resources\info.png" />
     <None Include="Resources\happycloud.png" />

@@ -8,17 +8,25 @@ using PteroController;
 using System.Diagnostics;
 using System.Reflection;
 using Salaros.Configuration;
+using Salaros.Configuration.Logging;
 
 namespace PteroController
 {
     internal static class Program
     {
+
         static Assembly assembly = Assembly.GetExecutingAssembly();
         static FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
         public static string appversion = fileVersionInfo.ProductVersion;
         private static Mutex mutex = new Mutex(true, "LockApp");
         private static string settings = Application.StartupPath + @"\settings.ini";
-
+        public static string ptasci = @" 
+  _____  _                  _____            _             _ _           
+ |  __ \| |                / ____|          | |           | | |          
+ | |__) | |_ ___ _ __ ___ | |     ___  _ __ | |_ _ __ ___ | | | ___ _ __ 
+ |  ___/| __/ _ \ '__/ _ \| |    / _ \| '_ \| __| '__/ _ \| | |/ _ \ '__|
+ | |    | ||  __/ | | (_) | |___| (_) | | | | |_| | | (_) | | |  __/ |   
+ |_|     \__\___|_|  \___/ \_____\___/|_| |_|\__|_|  \___/|_|_|\___|_|";
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AttachConsole(int dwProcessId);
@@ -28,10 +36,11 @@ namespace PteroController
         [STAThread]
         static void Main(string[] args)
         {
+            PteroControllerLogger xlogger = new PteroControllerLogger();
+            xlogger.InitLoader();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             PteroControllerWebServer.StartWebServer("http://localhost:5914/");
-
             if (!mutex.WaitOne(TimeSpan.Zero, true))
             {
                 MessageBox.Show("Another instance of the application is already running.");
@@ -40,14 +49,6 @@ namespace PteroController
             }
             if (!IsFirstRun())
             {
-                string ptasci = @" 
-  _____  _                  _____            _             _ _           
- |  __ \| |                / ____|          | |           | | |          
- | |__) | |_ ___ _ __ ___ | |     ___  _ __ | |_ _ __ ___ | | | ___ _ __ 
- |  ___/| __/ _ \ '__/ _ \| |    / _ \| '_ \| __| '__/ _ \| | |/ _ \ '__|
- | |    | ||  __/ | | (_) | |___| (_) | | | | |_| | | (_) | | |  __/ |   
- |_|     \__\___|_|  \___/ \_____\___/|_| |_|\__|_|  \___/|_|_|\___|_|";
-
                 // EXAMPLE OF A CLI COMMAND
                 if (args.Contains("-version"))
                 {
