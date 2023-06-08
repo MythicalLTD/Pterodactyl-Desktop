@@ -123,10 +123,13 @@
             this.Controls.Add(this.lblappname);
             this.Controls.Add(this.lblexit);
             this.Controls.Add(this.appicon);
+            this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLoading";
-            this.Opacity = 0.7D;
+            this.Opacity = 0.9D;
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PteroController";
             this.Load += new System.EventHandler(this.FrmLoading_Load);

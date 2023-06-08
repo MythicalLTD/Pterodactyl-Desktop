@@ -361,7 +361,11 @@ namespace PteroController
                 {
                     Regex ansiEscape = new Regex(@"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])");
                     string result = ansiEscape.Replace(consoleOutput, "");
-                    Console.WriteLine(result);
+
+                    string filePath = "output.txt"; 
+                    File.WriteAllText(filePath, result); 
+
+                    Console.WriteLine("Results have been written to the file: " + filePath);
 
                     //var payload = JObject.Parse(consoleOutput);
                     //if (payload.ContainsKey("event") && payload["event"].ToString() == "console output")
