@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 using Salaros.Configuration;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -11,8 +12,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.WebSockets;
+using System.Runtime.InteropServices;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,8 +21,11 @@ using System.Windows.Forms;
 
 namespace PteroController
 {
+
     public partial class FrmServerController : Form
     {
+        [DllImport("AnsiEscapeRemover.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void RemoveAnsiEscapeSequences(string input, [MarshalAs(UnmanagedType.LPStr)] StringBuilder output, int outputSize);
         public static string ServerId;
         public static string authToken;
         public static string wsuri;
@@ -360,28 +364,25 @@ namespace PteroController
             {
                 try
                 {
-                    //TO TRY: 
-                    //MAKE THE OUPUT BE ONLY 1 LINE FORCE IT
-                    Regex ansiEscape = new Regex(@"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])");
-                    string result = ansiEscape.Replace(consoleOutput, "");
 
-                    string filePath = "output.txt"; 
-                    File.AppendAllText(filePath, result); 
-
-                    Console.WriteLine("Results have been written to the file: " + filePath);
-
-                    var payload = JObject.Parse(result);
-                    if (payload.ContainsKey("event") && payload["event"].ToString() == "console output")
-                    {
-                        var args = payload["args"];
-                        if (args != null && args.Count() > 0)
-                        {
-                            var output = args[0].ToString();
-                            consoleTextBox.AppendText(result + Environment.NewLine);
-                            consoleTextBox.SelectionStart = consoleTextBox.Text.Length;
-                            consoleTextBox.ScrollToCaret();
-                        }
-                    }
+                    string input = consoleOutput;
+                    int outputSize = input.Length + 1;
+                    StringBuilder output = new StringBuilder(outputSize);
+                    RemoveAnsiEscapeSequences(input, output, outputSize);
+                    string result = output.ToString();
+                    Console.WriteLine(result);
+                    //var payload = JObject.Parse(cleanText);
+                    //if (payload.ContainsKey("event") && payload["event"].ToString() == "console output")
+                    //{
+                    //    var args = payload["args"];
+                    //    if (args != null && args.Count() > 0)
+                    //    {
+                    //        var output = args[0].ToString();
+                    //        consoleTextBox.AppendText(cleanText + Environment.NewLine);
+                    //        consoleTextBox.SelectionStart = consoleTextBox.Text.Length;
+                    //        consoleTextBox.ScrollToCaret();
+                    //    }
+                    //}
                 }
                 catch (Exception ex)
                 {

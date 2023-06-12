@@ -4,14 +4,13 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-using PteroController;
 using System.Diagnostics;
 using System.Reflection;
 using Salaros.Configuration;
-using Salaros.Configuration.Logging;
 
 namespace PteroController
 {
+
     internal static class Program
     {
 
@@ -28,6 +27,7 @@ namespace PteroController
  |  ___/| __/ _ \ '__/ _ \| |    / _ \| '_ \| __| '__/ _ \| | |/ _ \ '__|
  | |    | ||  __/ | | (_) | |___| (_) | | | | |_| | | (_) | | |  __/ |   
  |_|     \__\___|_|  \___/ \_____\___/|_| |_|\__|_|  \___/|_|_|\___|_|";
+        
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AttachConsole(int dwProcessId);
