@@ -43,7 +43,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred: "+ex.Message+"",DateTime.Now);
+                Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred: " + ex.Message + "", DateTime.Now);
             }
         }
         private void Alert(string msg, FrmAlert.enmType type)
@@ -57,7 +57,8 @@ namespace PteroController
         }
         private void loadSettings()
         {
-            try { 
+            try
+            {
                 var cfg = new ConfigParser(settings);
                 string allontop = cfg.GetValue("CONFIG", "always_on_top");
                 if (allontop == "true")
@@ -84,7 +85,8 @@ namespace PteroController
 
         private void serverListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 if (isFirstLoad)
                 {
                     isFirstLoad = false;
@@ -99,15 +101,18 @@ namespace PteroController
                     serverDetailsForm.Show();
                     this.Hide();
                 }
-            } catch (Exception ex) { 
-                Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred: "+ex.Message, DateTime.Now);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred: " + ex.Message, DateTime.Now);
                 Alert("We are sorry but we can't load the servers", FrmAlert.enmType.Error);
             }
-            
+
         }
 
         private void lblexit_Click(object sender, EventArgs e)
         {
+            WebServer.StopServer();
             Application.Exit();
         }
 
@@ -126,7 +131,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                Console.Write("[{0:HH:mm:ss}] (SESSIONS) An error occurred: " + ex.Message,DateTime.Now);
+                Console.Write("[{0:HH:mm:ss}] (SESSIONS) An error occurred: " + ex.Message, DateTime.Now);
             }
             FrmLogin x = new FrmLogin();
             x.Show();
@@ -187,11 +192,12 @@ namespace PteroController
                     serverDetailsForm.Show();
                     this.Hide();
                 }
-            } catch (Exception ex)
-            {
-                Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred:" + ex.Message,DateTime.Now);
             }
-            
+            catch (Exception ex)
+            {
+                Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred:" + ex.Message, DateTime.Now);
+            }
+
         }
     }
 

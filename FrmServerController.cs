@@ -12,8 +12,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.WebSockets;
+using System.Runtime.InteropServices;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,8 +21,11 @@ using System.Windows.Forms;
 
 namespace PteroController
 {
+
     public partial class FrmServerController : Form
     {
+        [DllImport("AnsiEscapeRemover.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void RemoveAnsiEscapeSequences(string input, [MarshalAs(UnmanagedType.LPStr)] StringBuilder output, int outputSize);
         public static string ServerId;
         public static string authToken;
         public static string wsuri;
@@ -95,7 +98,7 @@ namespace PteroController
             {
                 Alert("Failed to connect to the server", FrmAlert.enmType.Error);
                 Console.WriteLine("[{0:HH:mm:ss}] (Server) Failed to connect to the websocket: " + ex.Message);
-                
+
             }
         }
         private void loadSettings()
@@ -212,7 +215,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                Alert("An error occurred while fetching server information",FrmAlert.enmType.Warning);
+                Alert("An error occurred while fetching server information", FrmAlert.enmType.Warning);
                 Console.WriteLine("[{0:HH:mm:ss}] (SERVER) An error occurred: " + ex.Message, DateTime.Now);
             }
         }
@@ -297,20 +300,20 @@ namespace PteroController
                     }
                     else
                     {
-                        Alert("Failed to parse JSON from response.",FrmAlert.enmType.Warning);
+                        Alert("Failed to parse JSON from response.", FrmAlert.enmType.Warning);
                     }
                 }
                 else
                 {
                     var errorResponse = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine("[{0:HH:mm:ss}] (Database) Failed to load databases. Response: " + errorResponse,DateTime.Now);
+                    Console.WriteLine("[{0:HH:mm:ss}] (Database) Failed to load databases. Response: " + errorResponse, DateTime.Now);
                     Alert("Sowy we can't get your database list", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("[{0:HH:mm:ss}] (Database) An error occurred: " + ex.Message, DateTime.Now);
-                Alert("Sowy we can't get your database list",FrmAlert.enmType.Warning);
+                Alert("Sowy we can't get your database list", FrmAlert.enmType.Warning);
             }
         }
 
@@ -350,6 +353,7 @@ namespace PteroController
             }
 
         }
+
         private void UpdateConsoleOutput(string consoleOutput)
         {
             if (consoleTextBox.InvokeRequired)
@@ -358,88 +362,39 @@ namespace PteroController
             }
             else
             {
-
                 try
                 {
-                    var cleanOutput = RemoveEscapeSequences(consoleOutput);
-                    var payload = JObject.Parse(cleanOutput);
-                    if (payload.ContainsKey("event") && payload["event"].ToString() == "console output")
-                    {
-                        var args = payload["args"];
-                        if (args != null && args.Count() > 0)
-                        {
-                            var output = args[0].ToString();
-                            var cleanedOutput = RemoveEscapeSequences(output);
-                            consoleTextBox.AppendText(cleanedOutput + Environment.NewLine);
-                            consoleTextBox.SelectionStart = consoleTextBox.Text.Length;
-                            consoleTextBox.ScrollToCaret();
-                        }
-                    }
+
+                    string input = consoleOutput;
+                    int outputSize = input.Length + 1;
+                    StringBuilder output = new StringBuilder(outputSize);
+                    RemoveAnsiEscapeSequences(input, output, outputSize);
+                    string result = output.ToString();
+                    Console.WriteLine(result);
+                    //var payload = JObject.Parse(cleanText);
+                    //if (payload.ContainsKey("event") && payload["event"].ToString() == "console output")
+                    //{
+                    //    var args = payload["args"];
+                    //    if (args != null && args.Count() > 0)
+                    //    {
+                    //        var output = args[0].ToString();
+                    //        consoleTextBox.AppendText(cleanText + Environment.NewLine);
+                    //        consoleTextBox.SelectionStart = consoleTextBox.Text.Length;
+                    //        consoleTextBox.ScrollToCaret();
+                    //    }
+                    //}
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + ex.Message,DateTime.Now);
+                    Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + ex.Message, DateTime.Now);
                     Alert("Can't display the console there was a error", FrmAlert.enmType.Warning);
-                    FrmServerController x = new FrmServerController(ServerId);
+                    cancellationTokenSource?.Cancel();
+                    webSocket?.Dispose();
+                    FrmMain x = new FrmMain();
                     x.Show();
                     this.Hide();
                 }
-
             }
-        }
-        private string RemoveEscapeSequences(string input)
-        {
-            var excludedPatterns = new List<string>
-    {
-        @"[m",
-        @"[38;2;255;255;255m",
-        @"[38;2;255;170;0m",
-        @"[38;2;255;255;85m",
-        @"[38;2;170;170;170m",
-        @"[[0;34;22m",
-        @">[2K",
-        @"[0;30;22m",
-        @"[0;31;22m[21m[4m",
-        @"[0;37;22m",
-        @"[0;31;1m",
-        @"[0;31;1m[21m",
-        @"[2K",
-        @"[0;37;1m",
-        @"[21m",
-        @"[",
-        @"1m33mcontainer@pterodactyl~ 0mjava -version",
-        @"1m33m",
-        @"0m",
-        @"33m1m",
-        @"39m",
-        @"38;2;255;170;",
-        @"38;2;170;170;17",
-        @"33m",
-        @"0;33;1m",
-        @"0;33;22m",
-        @"0;32;1m",
-        @"0;32;22m",
-        @"0;30;1m",
-        @"0;36;1m",
-        @"0;36;22m",
-        @"39;",
-        @"0;31;22m",
-        @";8eeab68",
-        @"32;22m",
-        @"33;1m",
-        @"1m",
-        @"38;2;85;255;255m",
-        @"38;2;85;255;85m",
-        @"*",
-        @"0;31;"
-    };
-
-            foreach (var pattern in excludedPatterns)
-            {
-                input = Regex.Replace(input, Regex.Escape(pattern), string.Empty);
-            }
-
-            return input;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -461,19 +416,23 @@ namespace PteroController
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                btnsend_Click(sender , e);
+                btnsend_Click(sender, e);
             }
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            OnFormClosing(null);
-            Environment.Exit(0x0);
+            WebServer.StopServer();
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             Application.Exit();
         }
 
         private void lblexit_Click(object sender, EventArgs e)
         {
+            WebServer.StopServer();
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             Application.Exit();
         }
 
@@ -484,6 +443,8 @@ namespace PteroController
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             FrmProfile x = new FrmProfile();
             x.Show();
             this.Hide();
@@ -491,6 +452,8 @@ namespace PteroController
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             FrmProfile x = new FrmProfile();
             x.Show();
             this.Hide();
@@ -498,6 +461,8 @@ namespace PteroController
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             FrmSettings x = new FrmSettings();
             x.Show();
             this.Hide();
@@ -515,6 +480,8 @@ namespace PteroController
             {
                 Console.Write("[{0:HH:mm:ss}] (SESSIONS) An error occurred: " + ex.Message, DateTime.Now);
             }
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             FrmLogin x = new FrmLogin();
             x.Show();
             this.Hide();
@@ -577,8 +544,8 @@ namespace PteroController
 
         private async void UpdateServerStatus()
         {
-            bool isOnline = await IsServerOnline();
-            svonline = isOnline ? "Online" : "Offline";
+            bool issvOnline = await IsServerOnline();
+            svonline = issvOnline ? "Online" : "Offline";
         }
 
         private void btnsend_Click(object sender, EventArgs e)
@@ -588,8 +555,9 @@ namespace PteroController
             {
                 Alert("What command do you want to send?", FrmAlert.enmType.Warning);
             }
-            else if (svonline == "Offline") {
-                Alert("Your server is offline",FrmAlert.enmType.Warning);
+            else if (svonline == "offline")
+            {
+                Alert("Your server is offline", FrmAlert.enmType.Warning);
             }
             try
             {
@@ -617,6 +585,8 @@ namespace PteroController
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            cancellationTokenSource?.Cancel();
+            webSocket?.Dispose();
             FrmMain x = new FrmMain();
             x.Show();
             this.Hide();
@@ -647,7 +617,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred while sending the server shutdown request. Error: "+ex.Message,DateTime.Now);
+                Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred while sending the server shutdown request. Error: " + ex.Message, DateTime.Now);
                 Alert("There was a problem while sending the shutdown request", FrmAlert.enmType.Warning);
             }
         }

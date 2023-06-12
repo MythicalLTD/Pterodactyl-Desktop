@@ -46,12 +46,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbdevmode = new Guna.UI2.WinForms.Guna2CheckBox();
             this.cballontop = new Guna.UI2.WinForms.Guna2CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.cbdevmode = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.sidenav.SuspendLayout();
@@ -294,6 +294,26 @@
             this.panel1.Size = new System.Drawing.Size(691, 476);
             this.panel1.TabIndex = 12;
             // 
+            // cbdevmode
+            // 
+            this.cbdevmode.AutoSize = true;
+            this.cbdevmode.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbdevmode.CheckedState.BorderRadius = 2;
+            this.cbdevmode.CheckedState.BorderThickness = 0;
+            this.cbdevmode.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbdevmode.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.cbdevmode.ForeColor = System.Drawing.Color.White;
+            this.cbdevmode.Location = new System.Drawing.Point(19, 68);
+            this.cbdevmode.Name = "cbdevmode";
+            this.cbdevmode.Size = new System.Drawing.Size(221, 19);
+            this.cbdevmode.TabIndex = 20;
+            this.cbdevmode.Text = "Development Mode (DEBUG MODE)";
+            this.cbdevmode.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbdevmode.UncheckedState.BorderRadius = 2;
+            this.cbdevmode.UncheckedState.BorderThickness = 0;
+            this.cbdevmode.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbdevmode.UseVisualStyleBackColor = true;
+            // 
             // cballontop
             // 
             this.cballontop.AutoSize = true;
@@ -351,30 +371,10 @@
             // 
             this.guna2DragControl1.TargetControl = this.navbar;
             // 
-            // guna2Elipse1
+            // bunifuElipse1
             // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this;
-            // 
-            // cbdevmode
-            // 
-            this.cbdevmode.AutoSize = true;
-            this.cbdevmode.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbdevmode.CheckedState.BorderRadius = 2;
-            this.cbdevmode.CheckedState.BorderThickness = 0;
-            this.cbdevmode.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbdevmode.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.cbdevmode.ForeColor = System.Drawing.Color.White;
-            this.cbdevmode.Location = new System.Drawing.Point(19, 68);
-            this.cbdevmode.Name = "cbdevmode";
-            this.cbdevmode.Size = new System.Drawing.Size(221, 19);
-            this.cbdevmode.TabIndex = 20;
-            this.cbdevmode.Text = "Development Mode (DEBUG MODE)";
-            this.cbdevmode.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cbdevmode.UncheckedState.BorderRadius = 2;
-            this.cbdevmode.UncheckedState.BorderThickness = 0;
-            this.cbdevmode.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cbdevmode.UseVisualStyleBackColor = true;
+            this.bunifuElipse1.ElipseRadius = 20;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // FrmSettings
             // 
@@ -425,10 +425,10 @@
         private Guna.UI2.WinForms.Guna2Button btnsettings;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2CheckBox cballontop;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2CheckBox cbdevmode;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

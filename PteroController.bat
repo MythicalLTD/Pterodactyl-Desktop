@@ -10,7 +10,6 @@ set "homeDir=%USERPROFILE%\PteroController"
 if exist "%targetDir%" (
     echo The app is already installed.
     echo.
-
     :homeMenu
     echo Home Directory:
     echo 1 Start the app
@@ -26,19 +25,16 @@ if exist "%targetDir%" (
     set "choice=!choice:~0,1!"
     set "choice=!choice:~0,1!"
     set "choice=!choice:~0,1!"
-
+    
     if "!choice!"=="1" (
         echo Starting the app...
         echo.
-        
         start "" "%targetDir%\PteroController.exe"
         exit
     ) else if "!choice!"=="2" (
         echo Updating the app...
         echo.
-
         set "backupDir=%TEMP%\PteroControllerBackup"
-
         if exist "%homeDir%\accounts.ini" (
             echo Backing up accounts.ini...
             echo.
@@ -53,19 +49,15 @@ if exist "%targetDir%" (
 
             move "%homeDir%\settings.ini" "%backupDir%\settings.ini"
         )
-
         echo Uninstalling the existing app...
         echo.
-        
         rmdir /s /q "%targetDir%"
         del /f /q "%shortcutPath%\%shortcutName%.lnk"
-
         pushd "%targetDir%"
         curl -Lo files.zip "%downloadUrl%"
         powershell -command "Expand-Archive -Path \"files.zip\" -DestinationPath \"%targetDir%\" -Force"
         del "files.zip"
         powershell -command "$shell = New-Object -ComObject WScript.Shell; $shortcut = $shell.CreateShortcut(\"%shortcutPath%\%shortcutName%.lnk\"); $shortcut.TargetPath = \"%targetDir%\PteroController.exe\"; $shortcut.Save()"
-
         if exist "%backupDir%\accounts.ini" (
             echo Restoring accounts.ini...
             echo.
@@ -76,7 +68,6 @@ if exist "%targetDir%" (
             echo No backup found for accounts.ini. Skipping restore.
             echo.
         )
-
         if exist "%backupDir%\settings.ini" (
             echo Restoring settings.ini...
             echo.
@@ -87,7 +78,6 @@ if exist "%targetDir%" (
             echo No backup found for settings.ini. Skipping restore.
             echo.
         )
-
         echo The app has been updated successfully.
         echo.
         pause
@@ -95,11 +85,9 @@ if exist "%targetDir%" (
         goto homeMenu
     ) else if "!choice!"=="3" (
         echo Uninstalling the app...
-        echo.
-        
+        echo.  
         rmdir /s /q "%targetDir%"
         del /f /q "%shortcutPath%\%shortcutName%.lnk"
-
         echo The app has been uninstalled successfully.
         echo.
         pause
@@ -116,9 +104,7 @@ if exist "%targetDir%" (
 ) else (
     echo The app is not installed.
     echo.
-
     mkdir "%targetDir%"
-
     pushd "%targetDir%"
     curl -Lo files.zip "%downloadUrl%"
     powershell -command "Expand-Archive -Path \"files.zip\" -DestinationPath \"%targetDir%\" -Force"
@@ -129,8 +115,6 @@ if exist "%targetDir%" (
     echo.
     cls
     goto homeMenu
-    
 )
-
 popd
 endlocal

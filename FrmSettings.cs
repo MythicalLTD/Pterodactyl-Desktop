@@ -1,12 +1,5 @@
 ﻿using Salaros.Configuration;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PteroController
@@ -22,6 +15,7 @@ namespace PteroController
 
         private void lblexit_Click(object sender, EventArgs e)
         {
+            WebServer.StopServer();
             Application.Exit();
         }
 
@@ -70,7 +64,8 @@ namespace PteroController
                     cfg.Save();
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine("[{0:HH:mm:ss}] (SETTINGS) An error occurred: " + ex.Message, DateTime.Now);
             }
 

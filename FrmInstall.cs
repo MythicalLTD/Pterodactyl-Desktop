@@ -30,7 +30,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[{0:HH:mm:ss}] (INSTALL) An error occurred: "+ex.Message,DateTime.Now);             
+                Console.WriteLine("[{0:HH:mm:ss}] (INSTALL) An error occurred: " + ex.Message, DateTime.Now);
             }
         }
 
@@ -58,7 +58,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[{0:HH:mm:ss}] (INSTALL) An error occurred: "+ex.Message,DateTime.Now);
+                Console.WriteLine("[{0:HH:mm:ss}] (INSTALL) An error occurred: " + ex.Message, DateTime.Now);
             }
         }
 
@@ -69,6 +69,12 @@ namespace PteroController
             int place = Convert.ToInt32(Math.Floor(Math.Log(bytes, 1024)));
             double num = Math.Round(bytes / Math.Pow(1024, place), 1);
             return (Math.Sign(bytes) * num).ToString() + suf[place];
+        }
+
+        private void lblexit_Click(object sender, EventArgs e)
+        {
+            WebServer.StopServer();
+            Application.Exit();
         }
     }
 }

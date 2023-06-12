@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoading));
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.appicon = new System.Windows.Forms.PictureBox();
             this.lblexit = new System.Windows.Forms.Label();
             this.lblappname = new System.Windows.Forms.Label();
@@ -38,15 +37,11 @@
             this.tm = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.appicon)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 40;
-            this.guna2Elipse1.TargetControl = this;
             // 
             // appicon
             // 
@@ -108,10 +103,15 @@
             this.panel2.Size = new System.Drawing.Size(1, 25);
             this.panel2.TabIndex = 14;
             // 
-            // guna2Elipse2
+            // bunifuElipse1
             // 
-            this.guna2Elipse2.BorderRadius = 16;
-            this.guna2Elipse2.TargetControl = this.panel2;
+            this.bunifuElipse1.ElipseRadius = 40;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 16;
+            this.bunifuElipse2.TargetControl = this.panel2;
             // 
             // FrmLoading
             // 
@@ -123,10 +123,13 @@
             this.Controls.Add(this.lblappname);
             this.Controls.Add(this.lblexit);
             this.Controls.Add(this.appicon);
+            this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLoading";
-            this.Opacity = 0.7D;
+            this.Opacity = 0.9D;
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PteroController";
             this.Load += new System.EventHandler(this.FrmLoading_Load);
@@ -138,8 +141,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private System.Windows.Forms.PictureBox appicon;
         private System.Windows.Forms.Label lblexit;
         private System.Windows.Forms.Label lblappname;
@@ -147,6 +148,7 @@
         private System.Windows.Forms.Timer tm;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
     }
 }
