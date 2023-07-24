@@ -1,8 +1,7 @@
 
 ![Logo](https://i.imgur.com/xI3GLFc.jpeg)
 
-# PteroController (0.0.0.6)
-## DO NOT USE THIS VERSION ITS EOL and the app its getting a rewrite
+# PteroController
 A Pterodactyl Panel desktop app that uses the Client API!
 
 
