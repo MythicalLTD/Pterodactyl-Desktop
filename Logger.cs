@@ -9,8 +9,8 @@ namespace PteroController
     {
         private string logPath;
         private string logFileName;
-        private StreamWriter logWriter;
-        private TextWriter originalOutput;
+        //private StreamWriter logWriter;
+        //private TextWriter originalOutput;
 
         public Logger()
         {

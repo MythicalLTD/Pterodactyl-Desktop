@@ -45,7 +45,7 @@
             // 
             // appicon
             // 
-            this.appicon.Image = global::PteroController.Properties.Resources.pterry;
+            this.appicon.Image = ((System.Drawing.Image)(resources.GetObject("appicon.Image")));
             this.appicon.Location = new System.Drawing.Point(271, 12);
             this.appicon.Name = "appicon";
             this.appicon.Size = new System.Drawing.Size(110, 113);
