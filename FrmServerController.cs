@@ -231,6 +231,68 @@ namespace PteroController
             isMcSv();
             await LoadDatabases();
             UpdateServerStatus();
+            loadTest();
+        }
+        private async void loadTest()
+        {
+            var mypanelUrl = FrmLogin.panel_url;
+            var myclientKey = FrmLogin.user_api_key;
+            var serverUuid = ServerId;
+            var console = new PteroConsole();
+
+            //console.OnConnectionStateUpdated += (sender, state) =>
+            //{
+            //    Console.WriteLine($"Console status: {state}");
+            //};
+
+            //console.OnServerResourceUpdated += (sender, resource) =>
+            //{
+            //    Console.WriteLine($"Stats: {resource.Uptime}, State: {resource.State}");
+            //};
+
+            //console.OnServerStateUpdated += (sender, state) =>
+            //{
+            //    Console.WriteLine($"State: {state}");
+            //};
+
+            console.RequestToken += pteroConsole =>
+            {
+                Console.WriteLine("Revoking token");
+                var wcToken = new WebClient();
+                wcToken.Headers.Add("Authorization", "Bearer " + myclientKey);
+                var rawToken = wcToken.DownloadString($"{mypanelUrl}/api/client/servers/{serverUuid}/websocket");
+                var dataToken = JsonConvert.DeserializeObject<WebsocketDataResource>(rawToken).Data;
+                return dataToken.Token;
+            };
+
+            console.OnMessage += (sender, s) =>
+            {
+                Console.WriteLine("Output: " + s);
+                //UpdateConsoleOutput(s);
+            };
+
+            var wc = new WebClient();
+            wc.Headers.Add("Authorization", "Bearer " + myclientKey);
+            var raw = wc.DownloadString($"{mypanelUrl}/api/client/servers/{serverUuid}/websocket");
+            var data = JsonConvert.DeserializeObject<WebsocketDataResource>(raw).Data;
+
+            await console.Connect(mypanelUrl, data.Socket, data.Token);
+
+            Console.ReadLine();
+
+            await console.SetPowerState("start");
+
+            Console.ReadLine();
+
+            await console.EnterCommand("list");
+
+            Console.ReadLine();
+
+            await console.Disconnect();
+
+            Console.ReadLine();
+
+
         }
         private void AddColumnsToDataTable()
         {
@@ -343,7 +405,7 @@ namespace PteroController
                     if (receiveResult.MessageType == WebSocketMessageType.Text)
                     {
                         var consoleOutput = Encoding.UTF8.GetString(buffer, 0, receiveResult.Count);
-                        UpdateConsoleOutput(consoleOutput);
+                        //UpdateConsoleOutput(consoleOutput);
                     }
                 }
             }
@@ -354,35 +416,29 @@ namespace PteroController
 
         }
 
-        private void UpdateConsoleOutput(string consoleOutput)
+        private void UpdateConsoleOutput(string s)
         {
             if (consoleTextBox.InvokeRequired)
             {
-                consoleTextBox.Invoke(new Action<string>(UpdateConsoleOutput), consoleOutput);
+                consoleTextBox.Invoke(new Action<string>(UpdateConsoleOutput), s);
             }
             else
             {
                 try
                 {
-
-                    string input = consoleOutput;
-                    int outputSize = input.Length + 1;
-                    StringBuilder output = new StringBuilder(outputSize);
-                    RemoveAnsiEscapeSequences(input, output, outputSize);
-                    string result = output.ToString();
-                    Console.WriteLine(result);
-                    //var payload = JObject.Parse(cleanText);
+                    //var payload = JObject.Parse(s);
                     //if (payload.ContainsKey("event") && payload["event"].ToString() == "console output")
                     //{
                     //    var args = payload["args"];
                     //    if (args != null && args.Count() > 0)
                     //    {
                     //        var output = args[0].ToString();
-                    //        consoleTextBox.AppendText(cleanText + Environment.NewLine);
-                    //        consoleTextBox.SelectionStart = consoleTextBox.Text.Length;
-                    //        consoleTextBox.ScrollToCaret();
+
                     //    }
                     //}
+                    consoleTextBox.AppendText(s + Environment.NewLine);
+                    consoleTextBox.SelectionStart = consoleTextBox.Text.Length;
+                    consoleTextBox.ScrollToCaret();
                 }
                 catch (Exception ex)
                 {
