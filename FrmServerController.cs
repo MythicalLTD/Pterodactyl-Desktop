@@ -426,16 +426,6 @@ namespace PteroController
             {
                 try
                 {
-                    //var payload = JObject.Parse(s);
-                    //if (payload.ContainsKey("event") && payload["event"].ToString() == "console output")
-                    //{
-                    //    var args = payload["args"];
-                    //    if (args != null && args.Count() > 0)
-                    //    {
-                    //        var output = args[0].ToString();
-
-                    //    }
-                    //}
                     consoleTextBox.AppendText(s + Environment.NewLine);
                     consoleTextBox.SelectionStart = consoleTextBox.Text.Length;
                     consoleTextBox.ScrollToCaret();
@@ -443,7 +433,7 @@ namespace PteroController
                 catch (Exception ex)
                 {
                     Console.WriteLine("[{0:HH:mm:ss}] (CONSOLE) An error occurred: " + ex.Message, DateTime.Now);
-                    Alert("Can't display the console there was a error", FrmAlert.enmType.Warning);
+                    Alert("Can't display the console there was an error", FrmAlert.enmType.Warning);
                     cancellationTokenSource?.Cancel();
                     webSocket?.Dispose();
                     FrmMain x = new FrmMain();
@@ -452,6 +442,7 @@ namespace PteroController
                 }
             }
         }
+
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
