@@ -6,8 +6,17 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+<<<<<<< Updated upstream
     <ApplicationIcon>pterry.ico</ApplicationIcon>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+=======
+    <StartupObject>PteroController.Program</StartupObject>
+    <ApplicationIcon>pterry.ico</ApplicationIcon>
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
+>>>>>>> Stashed changes
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
@@ -19,4 +28,20 @@
     <Content Include="pterry.ico" />
   </ItemGroup>
 
+<<<<<<< Updated upstream
+=======
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Salaros.ConfigParser" Version="0.3.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pterodactyl\" />
+  </ItemGroup>
+
+>>>>>>> Stashed changes
 </Project>
