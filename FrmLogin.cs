@@ -11,4 +11,9 @@ public partial class FrmLogin : Form
     {
 
     }
+
+    private void btnlogin_Click(object sender, EventArgs e)
+    {
+
+    }
 }
