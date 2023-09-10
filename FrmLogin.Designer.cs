@@ -114,6 +114,7 @@
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PteroController";
+            Load += FrmLogin_Load;
             ResumeLayout(false);
             PerformLayout();
         }
