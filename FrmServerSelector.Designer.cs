@@ -28,25 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServerSelector));
+            lblwlc = new Label();
+            serverListBox = new ListBox();
             SuspendLayout();
             // 
-            // label1
+            // lblwlc
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(439, 212);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            lblwlc.AutoSize = true;
+            lblwlc.Location = new Point(12, 9);
+            lblwlc.Name = "lblwlc";
+            lblwlc.Size = new Size(129, 15);
+            lblwlc.TabIndex = 0;
+            lblwlc.Text = "Hello <dummyname>.";
+            // 
+            // serverListBox
+            // 
+            serverListBox.FormattingEnabled = true;
+            serverListBox.ItemHeight = 15;
+            serverListBox.Location = new Point(12, 27);
+            serverListBox.Name = "serverListBox";
+            serverListBox.Size = new Size(776, 409);
+            serverListBox.TabIndex = 1;
+            serverListBox.SelectedIndexChanged += serverListBox_SelectedIndexChanged;
+            serverListBox.KeyDown += serverListBox_KeyDown;
             // 
             // FrmServerSelector
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label1);
+            Controls.Add(serverListBox);
+            Controls.Add(lblwlc);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmServerSelector";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmServerSelector";
             Load += FrmServerSelector_Load;
             ResumeLayout(false);
@@ -55,6 +71,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label lblwlc;
+        private ListBox serverListBox;
     }
 }

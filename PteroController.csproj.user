@@ -4,6 +4,9 @@
     <Compile Update="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmServerController.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmServerSelector.cs">
       <SubType>Form</SubType>
     </Compile>
