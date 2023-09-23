@@ -12,6 +12,6 @@ public partial class FrmServerController : Form
 
     private void FrmServerController_Load(object sender, EventArgs e)
     {
-
+        ConsoleManager.ConsoleManager.CheckInstall();
     }
 }

@@ -17,6 +17,7 @@ public partial class FrmServerSelector : Form
 
     private async void FrmServerSelector_Load(object sender, EventArgs e)
     {
+        lblwlc.Text = "Welcome, " + FrmLogin.panel_username;
         try
         {
 
