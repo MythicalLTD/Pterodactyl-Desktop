@@ -13,6 +13,16 @@
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/MythicalLTD/PteroController</PackageProjectUrl>
+    <PackageIcon>pterry.png</PackageIcon>
+    <PackageIconUrl />
+    <RepositoryUrl>https://github.com/MythicalLTD/PteroController</RepositoryUrl>
+    <PackageTags>Pterodactyl</PackageTags>
+    <Copyright>2023</Copyright>
+    <Company>MythicalSystems LTD</Company>
+    <Authors>MythicalSystems LTD</Authors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -47,6 +57,10 @@
     </None>
     <None Update="PteroConsole.runtimeconfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\pterry.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 

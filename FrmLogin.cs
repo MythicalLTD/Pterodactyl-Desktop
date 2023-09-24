@@ -86,7 +86,7 @@ public partial class FrmLogin : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Failed to check for sessions: \n'" + ex.Message+"'");
+            MessageBox.Show("Failed to check for sessions: \n'" + ex.Message + "'");
         }
     }
 
