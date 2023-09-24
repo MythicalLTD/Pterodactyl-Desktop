@@ -66,17 +66,27 @@ public partial class FrmLogin : Form
         try
         {
             var account = new ConfigParser(Program.AppAccountInfo);
-            string panelUrl = Decrypt(account.GetValue("LOGIN", "panel_url"));
-            string panelAPI = Decrypt(account.GetValue("LOGIN", "api_key"));
-            string panelPass = Decrypt(account.GetValue("LOGIN", "panel_pwd"));
-            txtpanelurl.Text = panelUrl;
-            txtpanelapikey.Text = panelAPI;
-            txtpanelpwd.Text = panelPass;
-            btnlogin.PerformClick();
+            var EpanelUrl = account.GetValue("LOGIN", "panel_url");
+            var EpanelApi = account.GetValue("LOGIN", "api_key");
+            var EpanelPass = account.GetValue("LOGIN", "panel_pwd");
+            if (EpanelApi == null || EpanelPass == null || EpanelApi == null)
+            {
+
+            }
+            else
+            {
+                string panelUrl = Decrypt(EpanelUrl);
+                string panelAPI = Decrypt(EpanelApi);
+                string panelPass = Decrypt(EpanelPass);
+                txtpanelurl.Text = panelUrl;
+                txtpanelapikey.Text = panelAPI;
+                txtpanelpwd.Text = panelPass;
+                btnlogin.PerformClick();
+            }
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message);
+            MessageBox.Show("Failed to check for sessions: \n'" + ex.Message+"'");
         }
     }
 
@@ -118,6 +128,10 @@ public partial class FrmLogin : Form
         {
             string apiKey = txtpanelapikey.Text;
             string panelUrl = txtpanelurl.Text;
+            if (txtpanelpwd.Text == "")
+            {
+                MessageBox.Show("You did not provide any password for the connection! The SFTP module will be disabled");
+            }
 #pragma warning disable
             if (!Uri.TryCreate(panelUrl, UriKind.Absolute, out Uri panelUri))
             {
@@ -143,7 +157,7 @@ public partial class FrmLogin : Form
                     }
                     else
                     {
-                        MessageBox.Show("Faild to get your data please check the panel url");
+                        MessageBox.Show("Failed to get your data please check the panel url");
                     }
                 }
 #pragma warning restore

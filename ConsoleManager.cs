@@ -6,7 +6,10 @@ public class ConsoleManager
     {
         if (!File.Exists(Application.StartupPath+ @"\PteroConsole.exe"))
         {
-            MessageBox.Show("Sorry but it looks like the app is missing");
+            
+        } else
+        {
+
         }
     }
 }
