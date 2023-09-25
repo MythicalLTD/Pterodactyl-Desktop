@@ -63,7 +63,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmServerSelector";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmServerSelector";
+            Text = "PteroController";
             Load += FrmServerSelector_Load;
             ResumeLayout(false);
             PerformLayout();

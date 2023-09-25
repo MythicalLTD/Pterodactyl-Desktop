@@ -85,7 +85,7 @@ public partial class FrmServerSelector : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show("We are sorry but we can't load the servers:\n"+ex.Message);
+            MessageBox.Show("We are sorry but we can't load the servers:\n" + ex.Message);
         }
     }
 }
