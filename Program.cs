@@ -8,10 +8,15 @@ namespace PteroController
         public static string AppSettings = Application.StartupPath + @"\settings.ini";
         public static string AppAccountInfo = Application.StartupPath + @"\account.ini";
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmLoader());
+        }
+        public static void Alert(string msg, FrmAlert.enmType type)
+        {
+            FrmAlert frm = new FrmAlert();
+            frm.showAlert(msg, type);
         }
     }
 }
