@@ -41,12 +41,22 @@
             lblexit = new Label();
             pbappicon = new PictureBox();
             subnavbar = new Panel();
+            txtpanelname = new Label();
+            btnservers = new PictureBox();
+            btnlogout = new PictureBox();
+            pbavatar = new PictureBox();
             DragController = new Guna.UI2.WinForms.Guna2DragControl(components);
             AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
+            pblblpanellogo = new PictureBox();
             Pages.SuspendLayout();
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).BeginInit();
+            subnavbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnservers).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnlogout).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbavatar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pblblpanellogo).BeginInit();
             SuspendLayout();
             // 
             // Pages
@@ -181,11 +191,57 @@
             // subnavbar
             // 
             subnavbar.BackColor = Color.FromArgb(33, 42, 57);
+            subnavbar.Controls.Add(pblblpanellogo);
+            subnavbar.Controls.Add(txtpanelname);
+            subnavbar.Controls.Add(btnservers);
+            subnavbar.Controls.Add(btnlogout);
+            subnavbar.Controls.Add(pbavatar);
             subnavbar.Dock = DockStyle.Bottom;
             subnavbar.Location = new Point(0, 24);
             subnavbar.Name = "subnavbar";
             subnavbar.Size = new Size(1018, 38);
             subnavbar.TabIndex = 0;
+            // 
+            // txtpanelname
+            // 
+            txtpanelname.AutoSize = true;
+            txtpanelname.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            txtpanelname.ForeColor = Color.WhiteSmoke;
+            txtpanelname.Location = new Point(46, 3);
+            txtpanelname.Name = "txtpanelname";
+            txtpanelname.Size = new Size(179, 28);
+            txtpanelname.TabIndex = 5;
+            txtpanelname.Text = "Pterodactyl Panel";
+            // 
+            // btnservers
+            // 
+            btnservers.Image = (Image)resources.GetObject("btnservers.Image");
+            btnservers.Location = new Point(898, 4);
+            btnservers.Name = "btnservers";
+            btnservers.Size = new Size(32, 32);
+            btnservers.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnservers.TabIndex = 2;
+            btnservers.TabStop = false;
+            // 
+            // btnlogout
+            // 
+            btnlogout.Image = (Image)resources.GetObject("btnlogout.Image");
+            btnlogout.Location = new Point(974, 4);
+            btnlogout.Name = "btnlogout";
+            btnlogout.Size = new Size(32, 32);
+            btnlogout.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnlogout.TabIndex = 1;
+            btnlogout.TabStop = false;
+            // 
+            // pbavatar
+            // 
+            pbavatar.Image = Properties.Resources.test;
+            pbavatar.Location = new Point(936, 4);
+            pbavatar.Name = "pbavatar";
+            pbavatar.Size = new Size(32, 32);
+            pbavatar.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbavatar.TabIndex = 0;
+            pbavatar.TabStop = false;
             // 
             // DragController
             // 
@@ -202,6 +258,16 @@
             // 
             Elipse.BorderRadius = 20;
             Elipse.TargetControl = this;
+            // 
+            // pblblpanellogo
+            // 
+            pblblpanellogo.Image = Properties.Resources.pterry1;
+            pblblpanellogo.Location = new Point(8, 3);
+            pblblpanellogo.Name = "pblblpanellogo";
+            pblblpanellogo.Size = new Size(32, 32);
+            pblblpanellogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pblblpanellogo.TabIndex = 6;
+            pblblpanellogo.TabStop = false;
             // 
             // FrmServerController
             // 
@@ -220,6 +286,12 @@
             navbar.ResumeLayout(false);
             navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).EndInit();
+            subnavbar.ResumeLayout(false);
+            subnavbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnservers).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnlogout).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbavatar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pblblpanellogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -239,5 +311,10 @@
         private TabPage PageBackups;
         private Guna.UI2.WinForms.Guna2AnimateWindow AnimateWindow;
         private Guna.UI2.WinForms.Guna2Elipse Elipse;
+        private PictureBox pbavatar;
+        private PictureBox btnlogout;
+        private PictureBox btnservers;
+        private Label txtpanelname;
+        private PictureBox pblblpanellogo;
     }
 }

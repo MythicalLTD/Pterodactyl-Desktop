@@ -7,6 +7,7 @@ namespace PteroController
         /// </summary>
         public static string AppSettings = Application.StartupPath + @"\settings.ini";
         public static string AppAccountInfo = Application.StartupPath + @"\account.ini";
+        public static string AppVersion = "1.0.0";
         [STAThread]
         public static void Main()
         {

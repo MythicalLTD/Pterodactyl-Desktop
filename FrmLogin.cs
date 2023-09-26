@@ -15,6 +15,7 @@ namespace PteroController
         public static string? panel_first_name;
         public static string? panel_last_name;
         public static string? panel_admin;
+        public static string? panel_avatar;
         public static string panel_language = "en";
 
 
@@ -24,22 +25,30 @@ namespace PteroController
         }
         private async Task<bool> Login(string apiKey, Uri panelUri)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                client.BaseAddress = panelUri;
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                try
+                using (HttpClient client = new HttpClient())
                 {
-                    HttpResponseMessage response = await client.GetAsync("/api/client/account");
+                    client.BaseAddress = panelUri;
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    return response.IsSuccessStatusCode;
+                    try
+                    {
+                        HttpResponseMessage response = await client.GetAsync("/api/client/account");
+
+                        return response.IsSuccessStatusCode;
+                    }
+                    catch (HttpRequestException)
+                    {
+                        return false;
+                    }
                 }
-                catch (HttpRequestException)
-                {
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Login Error: " + ex.Message);
+                return false;
             }
         }
 
@@ -74,6 +83,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Session Error: " + ex.Message);
                 Program.Alert("Failed to get session", FrmAlert.enmType.Error);
             }
         }
@@ -144,6 +154,7 @@ namespace PteroController
                             panel_first_name = attributes["first_name"].ToString();
                             panel_last_name = attributes["last_name"].ToString();
                             panel_language = attributes["language"].ToString();
+                            
                         }
                         else
                         {
