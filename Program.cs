@@ -12,7 +12,19 @@ namespace PteroController
         public static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmLoader());
+            if (!OperatingSystem.IsWindows())
+            {
+                Console.WriteLine("We are sorry, but we blocked this app from running on any other OS than Windows!");
+                Application.Exit();
+            }
+            if (!File.Exists(Application.StartupPath + @"\PteroConsole.exe"))
+            {
+                Application.Run(new FrmInstallTools());
+            } else
+            {
+                Application.Run(new FrmLoader());
+            }
+            
         }
         public static void Alert(string msg, FrmAlert.enmType type)
         {

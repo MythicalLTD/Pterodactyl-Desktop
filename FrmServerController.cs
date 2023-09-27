@@ -12,7 +12,6 @@
 
         private void FrmServerController_Load(object sender, EventArgs e)
         {
-            ConsoleManager.ConsoleManager.CheckInstall();
             if (FrmLoader.unstableMode == true)
             {
                 lblappname.Text = $"PteroController ({Program.AppVersion} DEV)";

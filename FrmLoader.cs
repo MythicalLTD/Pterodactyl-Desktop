@@ -27,7 +27,7 @@ namespace PteroController
                 MessageBox.Show("Unstable mode is turned on. Make sure you don't complain about problems. This is an unstable mode, and those extra features are still in development and are not finished. If you find a bug, open an issue on our GitHub.", "PteroController", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 unstableMode = true;
             }
-            FrmLogin x = new FrmLogin();
+            FrmSessions x = new FrmSessions();
             x.Show();
             this.Hide();
         }

@@ -11,17 +11,17 @@ public partial class FrmServerSelector : Form
         InitializeComponent();
         serverListBox.SelectedIndex = -1;
         httpClient = new HttpClient();
-        httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {FrmLogin.panel_api_key}");
+        httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
     }
     private bool isFirstLoad = true;
 
     private async void FrmServerSelector_Load(object sender, EventArgs e)
     {
-        lblwlc.Text = "Welcome, " + FrmLogin.panel_username;
+        lblwlc.Text = "Welcome, " + Pterodactyl.User.Info.panel_username;
         try
         {
-
-            HttpResponseMessage response = await httpClient.GetAsync(FrmLogin.panel_url + "/api/client");
+            #pragma warning disable
+            HttpResponseMessage response = await httpClient.GetAsync(Pterodactyl.User.Info.panel_url + "/api/client");
             response.EnsureSuccessStatusCode();
             string jsonResponse = await response.Content.ReadAsStringAsync();
             PterodactylApiResponse apiResponse = JsonConvert.DeserializeObject<PterodactylApiResponse>(jsonResponse);
@@ -35,6 +35,7 @@ public partial class FrmServerSelector : Form
             serverListBox.DataSource = serverNames;
             serverListBox.ClearSelected();
             isFirstLoad = true;
+            #pragma warning restore
         }
         catch (Exception ex)
         {

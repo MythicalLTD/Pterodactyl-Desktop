@@ -5,7 +5,7 @@ namespace PteroController
 {
     public class RPC
     {
-        public DiscordRpcClient client;
+        public DiscordRpcClient? client;
 
         public void InitializeRPC()
         {

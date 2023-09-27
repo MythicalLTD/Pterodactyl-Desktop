@@ -41,6 +41,7 @@
             lblexit = new Label();
             pbappicon = new PictureBox();
             subnavbar = new Panel();
+            pblblpanellogo = new PictureBox();
             txtpanelname = new Label();
             btnservers = new PictureBox();
             btnlogout = new PictureBox();
@@ -48,15 +49,14 @@
             DragController = new Guna.UI2.WinForms.Guna2DragControl(components);
             AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
-            pblblpanellogo = new PictureBox();
             Pages.SuspendLayout();
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).BeginInit();
             subnavbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pblblpanellogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnservers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnlogout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbavatar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pblblpanellogo).BeginInit();
             SuspendLayout();
             // 
             // Pages
@@ -71,7 +71,7 @@
             Pages.Location = new Point(0, 62);
             Pages.Name = "Pages";
             Pages.SelectedIndex = 0;
-            Pages.Size = new Size(1018, 589);
+            Pages.Size = new Size(1018, 590);
             Pages.TabButtonHoverState.BorderColor = Color.Empty;
             Pages.TabButtonHoverState.FillColor = Color.FromArgb(40, 52, 70);
             Pages.TabButtonHoverState.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Regular, GraphicsUnit.Point);
@@ -93,20 +93,20 @@
             // 
             // PageHome
             // 
+            PageHome.BackColor = Color.FromArgb(30, 45, 59);
             PageHome.Location = new Point(184, 4);
             PageHome.Name = "PageHome";
             PageHome.Padding = new Padding(3);
-            PageHome.Size = new Size(830, 581);
+            PageHome.Size = new Size(830, 582);
             PageHome.TabIndex = 0;
             PageHome.Text = "Home";
-            PageHome.UseVisualStyleBackColor = true;
             // 
             // PageFiles
             // 
             PageFiles.Location = new Point(184, 4);
             PageFiles.Name = "PageFiles";
             PageFiles.Padding = new Padding(3);
-            PageFiles.Size = new Size(830, 581);
+            PageFiles.Size = new Size(830, 582);
             PageFiles.TabIndex = 1;
             PageFiles.Text = "Files";
             PageFiles.UseVisualStyleBackColor = true;
@@ -202,6 +202,16 @@
             subnavbar.Size = new Size(1018, 38);
             subnavbar.TabIndex = 0;
             // 
+            // pblblpanellogo
+            // 
+            pblblpanellogo.Image = Properties.Resources.pterry1;
+            pblblpanellogo.Location = new Point(8, 3);
+            pblblpanellogo.Name = "pblblpanellogo";
+            pblblpanellogo.Size = new Size(32, 32);
+            pblblpanellogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pblblpanellogo.TabIndex = 6;
+            pblblpanellogo.TabStop = false;
+            // 
             // txtpanelname
             // 
             txtpanelname.AutoSize = true;
@@ -259,21 +269,11 @@
             Elipse.BorderRadius = 20;
             Elipse.TargetControl = this;
             // 
-            // pblblpanellogo
-            // 
-            pblblpanellogo.Image = Properties.Resources.pterry1;
-            pblblpanellogo.Location = new Point(8, 3);
-            pblblpanellogo.Name = "pblblpanellogo";
-            pblblpanellogo.Size = new Size(32, 32);
-            pblblpanellogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            pblblpanellogo.TabIndex = 6;
-            pblblpanellogo.TabStop = false;
-            // 
             // FrmServerController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1018, 651);
+            ClientSize = new Size(1018, 652);
             Controls.Add(Pages);
             Controls.Add(navbar);
             FormBorderStyle = FormBorderStyle.None;
@@ -288,10 +288,10 @@
             ((System.ComponentModel.ISupportInitialize)pbappicon).EndInit();
             subnavbar.ResumeLayout(false);
             subnavbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pblblpanellogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnservers).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnlogout).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbavatar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pblblpanellogo).EndInit();
             ResumeLayout(false);
         }
 

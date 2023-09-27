@@ -1,9 +1,6 @@
 ﻿
 using PteroController.Properties;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-
+# pragma warning disable
 
 namespace PteroController
 {
@@ -129,7 +126,7 @@ namespace PteroController
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[{0:HH:mm:ss}] (Alert) An error occurred: "+ex.Message,DateTime.Now);
+                Console.WriteLine("[{0:HH:mm:ss}] (Alert) An error occurred: " + ex.Message, DateTime.Now);
             }
         }
     }
