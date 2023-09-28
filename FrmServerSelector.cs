@@ -20,7 +20,7 @@ public partial class FrmServerSelector : Form
         lblwlc.Text = "Welcome, " + Pterodactyl.User.Info.panel_username;
         try
         {
-            #pragma warning disable
+#pragma warning disable
             HttpResponseMessage response = await httpClient.GetAsync(Pterodactyl.User.Info.panel_url + "/api/client");
             response.EnsureSuccessStatusCode();
             string jsonResponse = await response.Content.ReadAsStringAsync();
@@ -35,7 +35,7 @@ public partial class FrmServerSelector : Form
             serverListBox.DataSource = serverNames;
             serverListBox.ClearSelected();
             isFirstLoad = true;
-            #pragma warning restore
+#pragma warning restore
         }
         catch (Exception ex)
         {
@@ -88,5 +88,32 @@ public partial class FrmServerSelector : Form
         {
             MessageBox.Show("We are sorry but we can't load the servers:\n" + ex.Message);
         }
+    }
+
+    private void lblwlc_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void lblexit_Click(object sender, EventArgs e)
+    {
+        Application.Exit();
+    }
+
+    private void lblminimize_Click(object sender, EventArgs e)
+    {
+        this.WindowState = FormWindowState.Minimized;
+    }
+
+    private void btnlogout_Click(object sender, EventArgs e)
+    {
+        FrmSessions x = new FrmSessions();
+        x.Show();
+        this.Hide();
+    }
+
+    private void pbavatar_Click(object sender, EventArgs e)
+    {
+
     }
 }

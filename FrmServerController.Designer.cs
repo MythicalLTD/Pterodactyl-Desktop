@@ -37,15 +37,16 @@
             PageBackups = new TabPage();
             navbar = new Panel();
             lblappname = new Label();
+            pbappicon = new PictureBox();
+            separator = new Guna.UI2.WinForms.Guna2Separator();
             lblminimize = new Label();
             lblexit = new Label();
-            pbappicon = new PictureBox();
             subnavbar = new Panel();
-            pblblpanellogo = new PictureBox();
-            txtpanelname = new Label();
             btnservers = new PictureBox();
             btnlogout = new PictureBox();
             pbavatar = new PictureBox();
+            txtpanelname = new Label();
+            pblblpanellogo = new PictureBox();
             DragController = new Guna.UI2.WinForms.Guna2DragControl(components);
             AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
@@ -53,10 +54,10 @@
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).BeginInit();
             subnavbar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pblblpanellogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnservers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnlogout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbavatar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pblblpanellogo).BeginInit();
             SuspendLayout();
             // 
             // Pages
@@ -115,7 +116,7 @@
             // 
             PageDatabases.Location = new Point(184, 4);
             PageDatabases.Name = "PageDatabases";
-            PageDatabases.Size = new Size(830, 581);
+            PageDatabases.Size = new Size(830, 582);
             PageDatabases.TabIndex = 2;
             PageDatabases.Text = "Databases";
             PageDatabases.UseVisualStyleBackColor = true;
@@ -124,7 +125,7 @@
             // 
             PageBackups.Location = new Point(184, 4);
             PageBackups.Name = "PageBackups";
-            PageBackups.Size = new Size(830, 581);
+            PageBackups.Size = new Size(830, 582);
             PageBackups.TabIndex = 3;
             PageBackups.Text = "Backups";
             PageBackups.UseVisualStyleBackColor = true;
@@ -133,9 +134,10 @@
             // 
             navbar.BackColor = Color.FromArgb(29, 37, 49);
             navbar.Controls.Add(lblappname);
+            navbar.Controls.Add(pbappicon);
+            navbar.Controls.Add(separator);
             navbar.Controls.Add(lblminimize);
             navbar.Controls.Add(lblexit);
-            navbar.Controls.Add(pbappicon);
             navbar.Controls.Add(subnavbar);
             navbar.Dock = DockStyle.Top;
             navbar.Location = new Point(0, 0);
@@ -153,6 +155,24 @@
             lblappname.Size = new Size(160, 19);
             lblappname.TabIndex = 4;
             lblappname.Text = "PteroController (1.0.0)";
+            // 
+            // pbappicon
+            // 
+            pbappicon.Image = Properties.Resources.pterry1;
+            pbappicon.Location = new Point(3, 3);
+            pbappicon.Name = "pbappicon";
+            pbappicon.Size = new Size(20, 20);
+            pbappicon.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbappicon.TabIndex = 1;
+            pbappicon.TabStop = false;
+            // 
+            // separator
+            // 
+            separator.BackColor = Color.Transparent;
+            separator.Location = new Point(-79, 20);
+            separator.Name = "separator";
+            separator.Size = new Size(1180, 10);
+            separator.TabIndex = 9;
             // 
             // lblminimize
             // 
@@ -178,39 +198,51 @@
             lblexit.Text = "X";
             lblexit.Click += lblexit_Click;
             // 
-            // pbappicon
-            // 
-            pbappicon.Image = Properties.Resources.pterry1;
-            pbappicon.Location = new Point(3, 3);
-            pbappicon.Name = "pbappicon";
-            pbappicon.Size = new Size(20, 20);
-            pbappicon.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbappicon.TabIndex = 1;
-            pbappicon.TabStop = false;
-            // 
             // subnavbar
             // 
             subnavbar.BackColor = Color.FromArgb(33, 42, 57);
-            subnavbar.Controls.Add(pblblpanellogo);
-            subnavbar.Controls.Add(txtpanelname);
             subnavbar.Controls.Add(btnservers);
             subnavbar.Controls.Add(btnlogout);
             subnavbar.Controls.Add(pbavatar);
+            subnavbar.Controls.Add(txtpanelname);
+            subnavbar.Controls.Add(pblblpanellogo);
             subnavbar.Dock = DockStyle.Bottom;
             subnavbar.Location = new Point(0, 24);
             subnavbar.Name = "subnavbar";
             subnavbar.Size = new Size(1018, 38);
             subnavbar.TabIndex = 0;
             // 
-            // pblblpanellogo
+            // btnservers
             // 
-            pblblpanellogo.Image = Properties.Resources.pterry1;
-            pblblpanellogo.Location = new Point(8, 3);
-            pblblpanellogo.Name = "pblblpanellogo";
-            pblblpanellogo.Size = new Size(32, 32);
-            pblblpanellogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            pblblpanellogo.TabIndex = 6;
-            pblblpanellogo.TabStop = false;
+            btnservers.Image = (Image)resources.GetObject("btnservers.Image");
+            btnservers.Location = new Point(898, 4);
+            btnservers.Name = "btnservers";
+            btnservers.Size = new Size(32, 32);
+            btnservers.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnservers.TabIndex = 2;
+            btnservers.TabStop = false;
+            btnservers.Click += btnservers_Click;
+            // 
+            // btnlogout
+            // 
+            btnlogout.Image = (Image)resources.GetObject("btnlogout.Image");
+            btnlogout.Location = new Point(974, 4);
+            btnlogout.Name = "btnlogout";
+            btnlogout.Size = new Size(32, 32);
+            btnlogout.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnlogout.TabIndex = 1;
+            btnlogout.TabStop = false;
+            btnlogout.Click += btnlogout_Click;
+            // 
+            // pbavatar
+            // 
+            pbavatar.Image = Properties.Resources.test;
+            pbavatar.Location = new Point(936, 4);
+            pbavatar.Name = "pbavatar";
+            pbavatar.Size = new Size(32, 32);
+            pbavatar.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbavatar.TabIndex = 0;
+            pbavatar.TabStop = false;
             // 
             // txtpanelname
             // 
@@ -223,35 +255,15 @@
             txtpanelname.TabIndex = 5;
             txtpanelname.Text = "Pterodactyl Panel";
             // 
-            // btnservers
+            // pblblpanellogo
             // 
-            btnservers.Image = (Image)resources.GetObject("btnservers.Image");
-            btnservers.Location = new Point(898, 4);
-            btnservers.Name = "btnservers";
-            btnservers.Size = new Size(32, 32);
-            btnservers.SizeMode = PictureBoxSizeMode.StretchImage;
-            btnservers.TabIndex = 2;
-            btnservers.TabStop = false;
-            // 
-            // btnlogout
-            // 
-            btnlogout.Image = (Image)resources.GetObject("btnlogout.Image");
-            btnlogout.Location = new Point(974, 4);
-            btnlogout.Name = "btnlogout";
-            btnlogout.Size = new Size(32, 32);
-            btnlogout.SizeMode = PictureBoxSizeMode.StretchImage;
-            btnlogout.TabIndex = 1;
-            btnlogout.TabStop = false;
-            // 
-            // pbavatar
-            // 
-            pbavatar.Image = Properties.Resources.test;
-            pbavatar.Location = new Point(936, 4);
-            pbavatar.Name = "pbavatar";
-            pbavatar.Size = new Size(32, 32);
-            pbavatar.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbavatar.TabIndex = 0;
-            pbavatar.TabStop = false;
+            pblblpanellogo.Image = Properties.Resources.pterry1;
+            pblblpanellogo.Location = new Point(8, 3);
+            pblblpanellogo.Name = "pblblpanellogo";
+            pblblpanellogo.Size = new Size(32, 32);
+            pblblpanellogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pblblpanellogo.TabIndex = 6;
+            pblblpanellogo.TabStop = false;
             // 
             // DragController
             // 
@@ -288,10 +300,10 @@
             ((System.ComponentModel.ISupportInitialize)pbappicon).EndInit();
             subnavbar.ResumeLayout(false);
             subnavbar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pblblpanellogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnservers).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnlogout).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbavatar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pblblpanellogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -316,5 +328,6 @@
         private PictureBox btnservers;
         private Label txtpanelname;
         private PictureBox pblblpanellogo;
+        private Guna.UI2.WinForms.Guna2Separator separator;
     }
 }

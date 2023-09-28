@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSessions));
             navbar = new Panel();
             lblappname = new Label();
@@ -39,7 +43,9 @@
             DragController = new Guna.UI2.WinForms.Guna2DragControl(components);
             AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             SessionListBox = new ListBox();
-            button1 = new Button();
+            lblwlc = new Label();
+            btnaddsession = new Guna.UI2.WinForms.Guna2Button();
+            btnsession = new Guna.UI2.WinForms.Guna2Button();
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).BeginInit();
             SuspendLayout();
@@ -54,7 +60,7 @@
             navbar.Dock = DockStyle.Top;
             navbar.Location = new Point(0, 0);
             navbar.Name = "navbar";
-            navbar.Size = new Size(1016, 28);
+            navbar.Size = new Size(671, 28);
             navbar.TabIndex = 3;
             // 
             // lblappname
@@ -73,7 +79,7 @@
             lblminimize.AutoSize = true;
             lblminimize.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblminimize.ForeColor = Color.WhiteSmoke;
-            lblminimize.Location = new Point(980, 0);
+            lblminimize.Location = new Point(624, 1);
             lblminimize.Name = "lblminimize";
             lblminimize.Size = new Size(15, 19);
             lblminimize.TabIndex = 3;
@@ -85,7 +91,7 @@
             lblexit.AutoSize = true;
             lblexit.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblexit.ForeColor = Color.WhiteSmoke;
-            lblexit.Location = new Point(996, 2);
+            lblexit.Location = new Point(640, 3);
             lblexit.Name = "lblexit";
             lblexit.Size = new Size(18, 19);
             lblexit.TabIndex = 2;
@@ -121,35 +127,82 @@
             // SessionListBox
             // 
             SessionListBox.BackColor = Color.FromArgb(30, 49, 65);
-            SessionListBox.BorderStyle = BorderStyle.None;
+            SessionListBox.BorderStyle = BorderStyle.FixedSingle;
             SessionListBox.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             SessionListBox.ForeColor = Color.White;
             SessionListBox.FormattingEnabled = true;
             SessionListBox.ItemHeight = 17;
-            SessionListBox.Location = new Point(12, 46);
+            SessionListBox.Location = new Point(29, 84);
             SessionListBox.Name = "SessionListBox";
-            SessionListBox.Size = new Size(992, 357);
+            SessionListBox.Size = new Size(620, 257);
             SessionListBox.TabIndex = 4;
             SessionListBox.SelectedIndexChanged += SessionListBox_SelectedIndexChanged;
             SessionListBox.KeyDown += SessionListBox_KeyDown;
             // 
-            // button1
+            // lblwlc
             // 
-            button1.Location = new Point(453, 415);
-            button1.Name = "button1";
-            button1.Size = new Size(123, 23);
-            button1.TabIndex = 5;
-            button1.Text = "Add session";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            lblwlc.AutoSize = true;
+            lblwlc.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblwlc.ForeColor = Color.WhiteSmoke;
+            lblwlc.Location = new Point(41, 49);
+            lblwlc.Name = "lblwlc";
+            lblwlc.Size = new Size(588, 21);
+            lblwlc.TabIndex = 5;
+            lblwlc.Text = "Welcome to PteroController! Please select your panel to start using our app!";
+            // 
+            // btnaddsession
+            // 
+            btnaddsession.BorderColor = Color.Transparent;
+            btnaddsession.BorderRadius = 12;
+            btnaddsession.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            btnaddsession.BorderThickness = 2;
+            btnaddsession.CustomizableEdges = customizableEdges3;
+            btnaddsession.DisabledState.BorderColor = Color.DarkGray;
+            btnaddsession.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnaddsession.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnaddsession.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnaddsession.FillColor = Color.FromArgb(59, 130, 246);
+            btnaddsession.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnaddsession.ForeColor = Color.White;
+            btnaddsession.Location = new Point(41, 359);
+            btnaddsession.Name = "btnaddsession";
+            btnaddsession.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnaddsession.Size = new Size(160, 30);
+            btnaddsession.TabIndex = 8;
+            btnaddsession.Text = "Add a new session";
+            btnaddsession.Click += btnaddsession_Click;
+            // 
+            // btnsession
+            // 
+            btnsession.BorderColor = Color.Transparent;
+            btnsession.BorderRadius = 12;
+            btnsession.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            btnsession.BorderThickness = 2;
+            btnsession.CustomizableEdges = customizableEdges1;
+            btnsession.DisabledState.BorderColor = Color.DarkGray;
+            btnsession.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnsession.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnsession.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnsession.FillColor = Color.FromArgb(59, 130, 246);
+            btnsession.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnsession.ForeColor = Color.White;
+            btnsession.Location = new Point(479, 359);
+            btnsession.Name = "btnsession";
+            btnsession.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnsession.Size = new Size(160, 30);
+            btnsession.TabIndex = 9;
+            btnsession.Text = "Direct Session";
+            btnsession.Click += btnsession_Click;
             // 
             // FrmSessions
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 45, 59);
-            ClientSize = new Size(1016, 450);
-            Controls.Add(button1);
+            ClientSize = new Size(671, 410);
+            Controls.Add(btnsession);
+            Controls.Add(btnaddsession);
+            Controls.Add(lblwlc);
             Controls.Add(SessionListBox);
             Controls.Add(navbar);
             FormBorderStyle = FormBorderStyle.None;
@@ -162,6 +215,7 @@
             navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -175,6 +229,8 @@
         private Guna.UI2.WinForms.Guna2DragControl DragController;
         private Guna.UI2.WinForms.Guna2AnimateWindow AnimateWindow;
         private ListBox SessionListBox;
-        private Button button1;
+        private Label lblwlc;
+        private Guna.UI2.WinForms.Guna2Button btnsession;
+        private Guna.UI2.WinForms.Guna2Button btnaddsession;
     }
 }

@@ -83,18 +83,6 @@ Get(string panelUrl, string apiKey, string password)
                 }
                 panel_url = panelUrl;
                 panel_api_key = apiKey;
-                try
-                {
-                    var account = new ConfigParser(Program.AppAccountInfo);
-                    account.SetValue("LOGIN", "panel_url", Base64Encryption.Encrypt(panelUrl));
-                    account.SetValue("LOGIN", "api_key", Base64Encryption.Encrypt(apiKey));
-                    account.SetValue("LOGIN", "panel_pwd", Base64Encryption.Encrypt(password));
-                    account.Save();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
             }
         }
     }

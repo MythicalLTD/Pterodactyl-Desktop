@@ -32,6 +32,20 @@
         {
             Application.Exit();
         }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            FrmSessions x = new FrmSessions();
+            x.Show();
+            this.Hide();
+        }
+
+        private void btnservers_Click(object sender, EventArgs e)
+        {
+            FrmServerSelector x = new FrmServerSelector();
+            x.Show();
+            this.Hide();
+        }
     }
 
 }

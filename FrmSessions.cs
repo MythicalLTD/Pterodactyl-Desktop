@@ -1,6 +1,5 @@
 ﻿using PteroController.Pterodactyl;
-using System.Windows.Forms;
-
+#pragma warning disable
 namespace PteroController
 {
     public partial class FrmSessions : Form
@@ -28,7 +27,8 @@ namespace PteroController
         }
         private void FrmSessions_Load(object sender, EventArgs e)
         {
-
+            RPC discordRPC = new RPC();
+            discordRPC.InitializeRPC();
         }
 
         private void lblexit_Click(object sender, EventArgs e)
@@ -43,9 +43,7 @@ namespace PteroController
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmAddSession x = new FrmAddSession();
-            x.Show();
-            this.Hide();
+
         }
 
         private void SessionListBox_KeyDown(object sender, KeyEventArgs e)
@@ -99,6 +97,20 @@ namespace PteroController
             {
                 MessageBox.Show("We are sorry but we can't load the sessions:\n" + ex.Message);
             }
+        }
+
+        private void btnaddsession_Click(object sender, EventArgs e)
+        {
+            FrmAddSession x = new FrmAddSession();
+            x.Show();
+            this.Hide();
+        }
+
+        private void btnsession_Click(object sender, EventArgs e)
+        {
+            FrmLogin x = new FrmLogin();
+            x.Show();
+            this.Hide();
         }
     }
 }
