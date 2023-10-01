@@ -1,8 +1,8 @@
-﻿namespace PteroController
+﻿namespace PteroController.Forms
 {
     public partial class FrmServerController : Form
     {
-        private string serverIdentifier;
+        private string? serverIdentifier;
 
         public FrmServerController(string serverIdentifier)
         {
@@ -12,15 +12,7 @@
 
         private void FrmServerController_Load(object sender, EventArgs e)
         {
-            if (FrmLoader.unstableMode == true)
-            {
-                lblappname.Text = $"PteroController ({Program.AppVersion} DEV)";
-            }
-            else
-            {
-                lblappname.Text = $"PteroController ({Program.AppVersion})";
-
-            }
+            
         }
 
         private void lblminimize_Click(object sender, EventArgs e)

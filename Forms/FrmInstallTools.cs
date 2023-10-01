@@ -2,7 +2,7 @@
 using System.IO.Compression;
 using System.Net.Http;
 
-namespace PteroController
+namespace PteroController.Forms
 {
     public partial class FrmInstallTools : Form
     {
@@ -91,6 +91,8 @@ namespace PteroController
                 else
                 {
                     Console.WriteLine("Failed to download Addons: {0}", response.StatusCode);
+                    MessageBox.Show("Failed to download update \nTry again later");
+                    Application.Exit();
                 }
             }
         }

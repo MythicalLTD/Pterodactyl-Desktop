@@ -50,7 +50,7 @@ Get(string panelUrl, string apiKey, string password)
         {
             if (!Uri.TryCreate(panelUrl, UriKind.Absolute, out Uri panelUri))
             {
-                Program.Alert("Invalid Pterodactyl Panel URL", FrmAlert.enmType.Error);
+                Program.Alert("Invalid Pterodactyl Panel URL", Forms.FrmAlert.enmType.Error);
 
             }
             bool loginSuccess = await Login.Check(apiKey, panelUri);
@@ -74,7 +74,7 @@ Get(string panelUrl, string apiKey, string password)
                     }
                     else
                     {
-                        Program.Alert("Login failed", FrmAlert.enmType.Error);
+                        Program.Alert("Login failed", Forms.FrmAlert.enmType.Error);
                     }
                 }
                 catch (Exception ex)

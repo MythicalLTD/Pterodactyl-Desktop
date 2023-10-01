@@ -2,7 +2,7 @@
 using PteroController.Properties;
 # pragma warning disable
 
-namespace PteroController
+namespace PteroController.Forms
 {
     public partial class FrmAlert : Form
     {

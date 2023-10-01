@@ -1,4 +1,4 @@
-﻿namespace PteroController
+﻿namespace PteroController.Forms
 {
     partial class FrmServerController
     {

@@ -1,7 +1,7 @@
 ﻿using PteroController.Handlers;
 using PteroController.Pterodactyl;
 #pragma warning disable
-namespace PteroController
+namespace PteroController.Forms
 {
     public partial class FrmSessions : Form
     {
@@ -102,14 +102,14 @@ namespace PteroController
 
         private void btnaddsession_Click(object sender, EventArgs e)
         {
-            FrmAddSession x = new FrmAddSession();
+            FrmLogin x = new FrmLogin(DirectLogin: false);
             x.Show();
             this.Hide();
         }
 
         private void btnsession_Click(object sender, EventArgs e)
         {
-            FrmLogin x = new FrmLogin();
+            FrmLogin x = new FrmLogin(DirectLogin: true);
             x.Show();
             this.Hide();
         }

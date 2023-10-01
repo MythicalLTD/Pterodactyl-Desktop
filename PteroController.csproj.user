@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Forms\FrmAddSession.cs">
+    <Compile Update="Forms\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\FrmAlert.cs">
@@ -10,10 +10,7 @@
     <Compile Update="Forms\FrmInstallTools.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\FrmLoader.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\FrmLogin.cs">
+    <Compile Update="Forms\FrmLoading.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\FrmServerController.cs">

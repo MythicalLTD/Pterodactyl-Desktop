@@ -1,3 +1,4 @@
+using PteroController.Forms;
 using System.IO;
 
 namespace PteroController
@@ -22,7 +23,7 @@ namespace PteroController
                 Application.Run(new FrmInstallTools());
             } else
             {
-                Application.Run(new FrmLoader());
+                Application.Run(new FrmLoading());
             }
             
         }
