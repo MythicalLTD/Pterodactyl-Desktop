@@ -40,7 +40,7 @@ jobs:
       run: dotnet test PteroController.csproj
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the application
-      run: dotnet build
+    - name: Restore and build the application
+      run: dotnet build PteroController.csproj
       env:
         Configuration: ${{ matrix.configuration }}
