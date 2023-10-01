@@ -40,6 +40,27 @@ Because the app is not signed by Microsoft yet.
 #### Is this really free?
 Yes it's totally free forever
 
+#### "Login failed." What does that mean?
+Well this can mean a some things, here is a list:
+→ The host is using CloudFlare, but it is not configured correctly.
+→ The panel URL is wrong, or it is not a panel.
+→ Some of the credentials you provided are wrong.
+→ You are not connected to the internet.
+
+#### The app is slow, and the rendering is sh*t.
+Yeah, we can't do anything about that if you have a sh*t PC.
+
+#### The app is closing instantly and does not even show
+This can mean a multitude of things. Why it would do that:
+→ You are not running Windows (Linux is blocked by the code itself).
+→ You are missing some files. 
+→ You have broken files.
+→ Your Windows is broken!
+
+#### I'm a developer, and I don't have a GunaUI license!
+→ Well, you can use their trial for 14 days.
+→ Close the popup every time.
+
 ## Authors
 
 - [@NaysKutzu](https://github.com/NaysKutzu)
