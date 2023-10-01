@@ -89,3 +89,8 @@ This project is used by the following companies:
 **Packages**: [discord-rpc-csharp](https://github.com/Lachee/discord-rpc-csharp), [GunaUI](https://gunaui.com/), [PteroConsole.NET](https://github.com/Marcel-Baumgartner/PteroConsole.NET), [Json.NET](https://www.newtonsoft.com/json)
 
 **Server:** [Pterodactyl](https://pterodactyl.io/)
+
+## SCode
+
+Serial Code:
+1595296149
