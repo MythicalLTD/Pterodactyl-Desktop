@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
 using PteroController.Pterodactyl;
 
-namespace PteroController
+namespace PteroController.Handlers
 {
     public class RegistryHandler
     {
@@ -9,7 +9,7 @@ namespace PteroController
         private const string RegistrySettingsBasePath = "Software\\MythicalSystems\\PteroController\\Settings";
 
 
-        public void CreateAccountData(string sessionName ,string url, string password, string apiKey)
+        public void CreateAccountData(string sessionName, string url, string password, string apiKey)
         {
             using (RegistryKey key = Registry.CurrentUser.CreateSubKey($"{RegistryAccountBasePath}\\{sessionName}"))
             {
@@ -59,7 +59,7 @@ namespace PteroController
                 }
             }
 
-            return null; 
+            return null;
         }
         public void DeleteAccountData(string sessionName)
         {

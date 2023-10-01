@@ -1,8 +1,8 @@
 ﻿using System.Text;
 
-namespace PteroController
+namespace PteroController.Handlers
 {
-    public class Base64Encryption
+    public class Base64EncryptionHandler
     {
         public static string Encrypt(string plainText)
         {

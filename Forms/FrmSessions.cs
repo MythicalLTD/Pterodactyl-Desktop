@@ -1,4 +1,5 @@
-﻿using PteroController.Pterodactyl;
+﻿using PteroController.Handlers;
+using PteroController.Pterodactyl;
 #pragma warning disable
 namespace PteroController
 {
@@ -27,7 +28,7 @@ namespace PteroController
         }
         private void FrmSessions_Load(object sender, EventArgs e)
         {
-            RPC discordRPC = new RPC();
+            RPCHandler discordRPC = new RPCHandler();
             discordRPC.InitializeRPC();
         }
 

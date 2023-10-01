@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="FrmAddSession.cs">
+    <Compile Update="Forms\FrmAddSession.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmAlert.cs">
+    <Compile Update="Forms\FrmAlert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmInstallTools.cs">
+    <Compile Update="Forms\FrmInstallTools.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmLoader.cs">
+    <Compile Update="Forms\FrmLoader.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmLogin.cs">
+    <Compile Update="Forms\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmServerController.cs">
+    <Compile Update="Forms\FrmServerController.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmServerSelector.cs">
+    <Compile Update="Forms\FrmServerSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmSessions.cs">
+    <Compile Update="Forms\FrmSessions.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

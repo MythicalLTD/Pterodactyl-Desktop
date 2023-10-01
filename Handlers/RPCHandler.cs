@@ -1,9 +1,9 @@
 ﻿using DiscordRPC.Logging;
 using DiscordRPC;
 
-namespace PteroController
+namespace PteroController.Handlers
 {
-    public class RPC
+    public class RPCHandler
     {
         public DiscordRpcClient? client;
 
