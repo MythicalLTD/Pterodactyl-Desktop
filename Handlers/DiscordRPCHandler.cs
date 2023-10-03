@@ -3,7 +3,7 @@ using DiscordRPC;
 
 namespace PteroController.Handlers
 {
-    public class RPCHandler
+    public class DiscordRPCHandler
     {
         public DiscordRpcClient? client;
 
@@ -46,7 +46,7 @@ namespace PteroController.Handlers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Failed to load discord rpc: " + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Handlers.DiscordRPCHandler.cs]: \n" + ex.Message);
             }
         }
     }

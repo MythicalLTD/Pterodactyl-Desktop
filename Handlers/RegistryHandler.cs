@@ -11,55 +11,78 @@ namespace PteroController.Handlers
 
         public void CreateAccountData(string sessionName, string url, string password, string apiKey)
         {
-            using (RegistryKey key = Registry.CurrentUser.CreateSubKey($"{RegistryAccountBasePath}\\{sessionName}"))
+            try
             {
-                key.SetValue("panel_url", url);
-                key.SetValue("panel_pwd", password);
-                key.SetValue("api_key", apiKey);
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey($"{RegistryAccountBasePath}\\{sessionName}"))
+                {
+                    key.SetValue("panel_url", url);
+                    key.SetValue("panel_pwd", password);
+                    key.SetValue("api_key", apiKey);
+                }
+            } catch (Exception ex)
+            {
+                Program.logger.Log(Managers.LogType.Error, "[Handlers.RegistryHandler.cs]: \n" + ex.Message);
             }
         }
         public List<string> ListSessions()
         {
-            List<string> sessionInfo = new List<string>();
 
-            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(RegistryAccountBasePath))
+            try
             {
-                if (key != null)
+                List<string> sessionInfo = new List<string>();
+
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(RegistryAccountBasePath))
                 {
-                    foreach (string sessionName in key.GetSubKeyNames())
+                    if (key != null)
                     {
-                        string panelUrl = key.OpenSubKey(sessionName)?.GetValue("panel_url")?.ToString();
-                        if (!string.IsNullOrEmpty(panelUrl))
+                        foreach (string sessionName in key.GetSubKeyNames())
                         {
-                            string displayText = $"{sessionName} ({panelUrl})";
-                            sessionInfo.Add(displayText);
+                            string panelUrl = key.OpenSubKey(sessionName)?.GetValue("panel_url")?.ToString();
+                            if (!string.IsNullOrEmpty(panelUrl))
+                            {
+                                string displayText = $"{sessionName} ({panelUrl})";
+                                sessionInfo.Add(displayText);
+                            }
                         }
                     }
                 }
-            }
 
-            return sessionInfo;
+                return sessionInfo;
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(Managers.LogType.Error, "[Handlers.RegistryHandler.cs]: \n" + ex.Message);
+                return null;
+            }
         }
         public SessionInfo GetSessionInfo(string sessionName)
         {
-            using (RegistryKey key = Registry.CurrentUser.OpenSubKey($"{RegistryAccountBasePath}\\{sessionName}"))
+            try
             {
-                if (key != null)
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey($"{RegistryAccountBasePath}\\{sessionName}"))
                 {
-                    string panelUrl = key.GetValue("panel_url")?.ToString();
-                    string panelPwd = key.GetValue("panel_pwd")?.ToString();
-                    string apiKey = key.GetValue("api_key")?.ToString();
-
-                    return new SessionInfo
+                    if (key != null)
                     {
-                        PanelUrl = panelUrl,
-                        PanelPwd = panelPwd,
-                        ApiKey = apiKey
-                    };
-                }
-            }
+                        string panelUrl = key.GetValue("panel_url")?.ToString();
+                        string panelPwd = key.GetValue("panel_pwd")?.ToString();
+                        string apiKey = key.GetValue("api_key")?.ToString();
 
-            return null;
+                        return new SessionInfo
+                        {
+                            PanelUrl = panelUrl,
+                            PanelPwd = panelPwd,
+                            ApiKey = apiKey
+                        };
+                    }
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(Managers.LogType.Error, "[Handlers.RegistryHandler.cs]: \n" + ex.Message);
+                return null;
+            }
         }
         public void DeleteAccountData(string sessionName)
         {

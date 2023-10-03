@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 
 namespace PteroController.Pterodactyl.User
 {
@@ -29,7 +30,7 @@ namespace PteroController.Pterodactyl.User
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Login Error: " + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.User.Login.cs]: " + ex.Message);
                 return false;
             }
         }

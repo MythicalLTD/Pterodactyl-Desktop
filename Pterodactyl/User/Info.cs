@@ -39,8 +39,9 @@ namespace PteroController.Pterodactyl.User
                         return null;
                     }
                 }
-                catch (HttpRequestException)
+                catch (Exception ex)
                 {
+                    Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.User.Info.cs]: \n" + ex.Message);
                     return null;
                 }
             }
@@ -51,7 +52,7 @@ Get(string panelUrl, string apiKey, string password)
             if (!Uri.TryCreate(panelUrl, UriKind.Absolute, out Uri panelUri))
             {
                 Program.Alert("Invalid Pterodactyl Panel URL", Forms.FrmAlert.enmType.Error);
-
+                Program.logger.Log(Managers.LogType.Warning, "[Pterodactyl.User.Info.cs] Pterodactyl url is not well formatted");
             }
             bool loginSuccess = await Login.Check(apiKey, panelUri);
             if (loginSuccess)
@@ -75,11 +76,13 @@ Get(string panelUrl, string apiKey, string password)
                     else
                     {
                         Program.Alert("Login failed", Forms.FrmAlert.enmType.Error);
+                        Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.User.Info.cs]: No user info received");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.User.Info.cs]: \n" + ex.Message);
+                    Program.Alert("Login failed", Forms.FrmAlert.enmType.Error);
                 }
                 panel_url = panelUrl;
                 panel_api_key = apiKey;

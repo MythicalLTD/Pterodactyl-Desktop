@@ -264,6 +264,7 @@
             pblblpanellogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pblblpanellogo.TabIndex = 6;
             pblblpanellogo.TabStop = false;
+            pblblpanellogo.Click += pblblpanellogo_Click;
             // 
             // DragController
             // 

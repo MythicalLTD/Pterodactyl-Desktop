@@ -28,7 +28,7 @@ namespace PteroController.Forms
         }
         private void FrmSessions_Load(object sender, EventArgs e)
         {
-            RPCHandler discordRPC = new RPCHandler();
+            DiscordRPCHandler discordRPC = new DiscordRPCHandler();
             discordRPC.InitializeRPC();
         }
 
