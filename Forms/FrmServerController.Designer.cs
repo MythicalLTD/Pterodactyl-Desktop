@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServerController));
             Pages = new Guna.UI2.WinForms.Guna2TabControl();
             PageHome = new TabPage();
+            lblram = new Label();
+            guna2RadialGauge1 = new Guna.UI2.WinForms.Guna2RadialGauge();
+            lblcpu = new Label();
+            cpu = new Guna.UI2.WinForms.Guna2RadialGauge();
             PageFiles = new TabPage();
             PageDatabases = new TabPage();
             PageBackups = new TabPage();
@@ -51,6 +55,7 @@
             AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
             Pages.SuspendLayout();
+            PageHome.SuspendLayout();
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).BeginInit();
             subnavbar.SuspendLayout();
@@ -95,12 +100,60 @@
             // PageHome
             // 
             PageHome.BackColor = Color.FromArgb(30, 45, 59);
+            PageHome.Controls.Add(lblram);
+            PageHome.Controls.Add(guna2RadialGauge1);
+            PageHome.Controls.Add(lblcpu);
+            PageHome.Controls.Add(cpu);
             PageHome.Location = new Point(184, 4);
             PageHome.Name = "PageHome";
             PageHome.Padding = new Padding(3);
             PageHome.Size = new Size(830, 582);
             PageHome.TabIndex = 0;
             PageHome.Text = "Home";
+            // 
+            // lblram
+            // 
+            lblram.AutoSize = true;
+            lblram.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblram.ForeColor = Color.White;
+            lblram.Location = new Point(674, 249);
+            lblram.Name = "lblram";
+            lblram.Size = new Size(45, 19);
+            lblram.TabIndex = 3;
+            lblram.Text = "RAM:";
+            // 
+            // guna2RadialGauge1
+            // 
+            guna2RadialGauge1.BackColor = Color.Transparent;
+            guna2RadialGauge1.Font = new Font("Verdana", 8.2F, FontStyle.Regular, GraphicsUnit.Point);
+            guna2RadialGauge1.ForeColor = Color.FromArgb(139, 152, 166);
+            guna2RadialGauge1.Location = new Point(571, 6);
+            guna2RadialGauge1.MinimumSize = new Size(30, 30);
+            guna2RadialGauge1.Name = "guna2RadialGauge1";
+            guna2RadialGauge1.Size = new Size(240, 240);
+            guna2RadialGauge1.TabIndex = 2;
+            // 
+            // lblcpu
+            // 
+            lblcpu.AutoSize = true;
+            lblcpu.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblcpu.ForeColor = Color.White;
+            lblcpu.Location = new Point(100, 249);
+            lblcpu.Name = "lblcpu";
+            lblcpu.Size = new Size(41, 19);
+            lblcpu.TabIndex = 1;
+            lblcpu.Text = "CPU:";
+            // 
+            // cpu
+            // 
+            cpu.BackColor = Color.Transparent;
+            cpu.Font = new Font("Verdana", 8.2F, FontStyle.Regular, GraphicsUnit.Point);
+            cpu.ForeColor = Color.FromArgb(139, 152, 166);
+            cpu.Location = new Point(6, 6);
+            cpu.MinimumSize = new Size(30, 30);
+            cpu.Name = "cpu";
+            cpu.Size = new Size(240, 240);
+            cpu.TabIndex = 0;
             // 
             // PageFiles
             // 
@@ -264,7 +317,6 @@
             pblblpanellogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pblblpanellogo.TabIndex = 6;
             pblblpanellogo.TabStop = false;
-            pblblpanellogo.Click += pblblpanellogo_Click;
             // 
             // DragController
             // 
@@ -296,6 +348,8 @@
             Text = "FrmServerController";
             Load += FrmServerController_Load;
             Pages.ResumeLayout(false);
+            PageHome.ResumeLayout(false);
+            PageHome.PerformLayout();
             navbar.ResumeLayout(false);
             navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).EndInit();
@@ -330,5 +384,9 @@
         private Label txtpanelname;
         private PictureBox pblblpanellogo;
         private Guna.UI2.WinForms.Guna2Separator separator;
+        private Guna.UI2.WinForms.Guna2RadialGauge cpu;
+        private Label lblcpu;
+        private Label lblram;
+        private Guna.UI2.WinForms.Guna2RadialGauge guna2RadialGauge1;
     }
 }

@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Guna.UI2.WinForms;
+using Newtonsoft.Json;
 using PteroController.PteroConsoleHook;
-using PteroController.Pterodactyl;
 using System.Net;
 
 namespace PteroController.Forms
@@ -12,13 +12,18 @@ namespace PteroController.Forms
         {
             InitializeComponent();
             this.serverIdentifier = serverIdentifier;
-            
+
         }
         private async void initPteroConsole()
         {
             try
             {
                 var console = new PteroConsole.NET.PteroConsole();
+                console.OnServerResourceUpdated += (sender, resource) =>
+                {
+                    Console.WriteLine($"Stats: {resource.Uptime}, State: {resource.State}");
+                    //cpu.Value = resource.State;
+                };
                 console.RequestToken += pteroConsole =>
                 {
                     Console.WriteLine("Revoking token");
@@ -33,7 +38,8 @@ namespace PteroController.Forms
                 var raw = wc.DownloadString($"{Pterodactyl.User.Info.panel_url}/api/client/servers/{serverIdentifier}/websocket");
                 var data = JsonConvert.DeserializeObject<WebsocketDataResource>(raw).Data;
                 await console.Connect(Pterodactyl.User.Info.panel_url, data.Socket, data.Token);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 Program.Alert("We are sorry but we can't launch the stats", FrmAlert.enmType.Warning);
@@ -66,11 +72,6 @@ namespace PteroController.Forms
             FrmServerSelector x = new FrmServerSelector();
             x.Show();
             this.Hide();
-        }
-
-        private void pblblpanellogo_Click(object sender, EventArgs e)
-        {
-
         }
     }
 
