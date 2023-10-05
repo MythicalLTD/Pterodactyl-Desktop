@@ -29,30 +29,40 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServerController));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServerController));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Pages = new Guna.UI2.WinForms.Guna2TabControl();
             PageHome = new TabPage();
+            panelpowers = new Panel();
+            pbkill = new PictureBox();
+            pbrestart = new PictureBox();
+            pbstop = new PictureBox();
+            pbstart = new PictureBox();
+            panelramgr = new Panel();
+            lblram = new Label();
+            statscpu = new Guna.UI2.WinForms.Guna2RadialGauge();
+            panelcpugr = new Panel();
+            statsram = new Guna.UI2.WinForms.Guna2RadialGauge();
+            lblcpu = new Label();
             pcsvimg = new PictureBox();
-            panel1 = new Panel();
+            panellimitations = new Panel();
             lblsvcpu = new Label();
             lblsvdisk = new Label();
             lblsvram = new Label();
             lblsvlimitations = new Label();
             pnlsvinfo = new Panel();
+            lblsvstatus = new Label();
             lblsvnode = new Label();
             lblsvip = new Label();
             lblsvname = new Label();
             lblsvinfo = new Label();
-            lblram = new Label();
-            statsram = new Guna.UI2.WinForms.Guna2RadialGauge();
-            lblcpu = new Label();
-            statscpu = new Guna.UI2.WinForms.Guna2RadialGauge();
             PageFiles = new TabPage();
             PageDatabases = new TabPage();
             PageBackups = new TabPage();
@@ -70,20 +80,23 @@
             btnhome = new Guna.UI2.WinForms.Guna2Button();
             lblpanelname = new Label();
             pbpanellogo = new PictureBox();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            lblsvstatus = new Label();
+            btnstartconsole = new Guna.UI2.WinForms.Guna2Button();
             Pages.SuspendLayout();
             PageHome.SuspendLayout();
+            panelpowers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbkill).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbrestart).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbstop).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbstart).BeginInit();
+            panelramgr.SuspendLayout();
+            panelcpugr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcsvimg).BeginInit();
-            panel1.SuspendLayout();
+            panellimitations.SuspendLayout();
             pnlsvinfo.SuspendLayout();
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).BeginInit();
             sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbpanellogo).BeginInit();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // Pages
@@ -122,10 +135,11 @@
             // PageHome
             // 
             PageHome.BackColor = Color.FromArgb(27, 28, 46);
-            PageHome.Controls.Add(panel3);
-            PageHome.Controls.Add(panel2);
+            PageHome.Controls.Add(panelpowers);
+            PageHome.Controls.Add(panelramgr);
+            PageHome.Controls.Add(panelcpugr);
             PageHome.Controls.Add(pcsvimg);
-            PageHome.Controls.Add(panel1);
+            PageHome.Controls.Add(panellimitations);
             PageHome.Controls.Add(pnlsvinfo);
             PageHome.Location = new Point(4, 5);
             PageHome.Name = "PageHome";
@@ -134,26 +148,162 @@
             PageHome.TabIndex = 0;
             PageHome.Text = "Home";
             // 
+            // panelpowers
+            // 
+            panelpowers.BackColor = Color.FromArgb(34, 39, 57);
+            panelpowers.Controls.Add(btnstartconsole);
+            panelpowers.Controls.Add(pbkill);
+            panelpowers.Controls.Add(pbrestart);
+            panelpowers.Controls.Add(pbstop);
+            panelpowers.Controls.Add(pbstart);
+            panelpowers.ForeColor = Color.FromArgb(236, 240, 243);
+            panelpowers.Location = new Point(357, 665);
+            panelpowers.Name = "panelpowers";
+            panelpowers.Size = new Size(227, 105);
+            panelpowers.TabIndex = 9;
+            // 
+            // pbkill
+            // 
+            pbkill.Image = (Image)resources.GetObject("pbkill.Image");
+            pbkill.Location = new Point(155, 3);
+            pbkill.Name = "pbkill";
+            pbkill.Size = new Size(32, 32);
+            pbkill.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbkill.TabIndex = 3;
+            pbkill.TabStop = false;
+            pbkill.Click += pbkill_Click;
+            // 
+            // pbrestart
+            // 
+            pbrestart.Image = (Image)resources.GetObject("pbrestart.Image");
+            pbrestart.Location = new Point(117, 3);
+            pbrestart.Name = "pbrestart";
+            pbrestart.Size = new Size(32, 32);
+            pbrestart.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbrestart.TabIndex = 2;
+            pbrestart.TabStop = false;
+            pbrestart.Click += pbrestart_Click;
+            // 
+            // pbstop
+            // 
+            pbstop.Image = (Image)resources.GetObject("pbstop.Image");
+            pbstop.Location = new Point(79, 3);
+            pbstop.Name = "pbstop";
+            pbstop.Size = new Size(32, 32);
+            pbstop.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbstop.TabIndex = 1;
+            pbstop.TabStop = false;
+            pbstop.Click += pbstop_Click;
+            // 
+            // pbstart
+            // 
+            pbstart.Image = (Image)resources.GetObject("pbstart.Image");
+            pbstart.Location = new Point(41, 3);
+            pbstart.Name = "pbstart";
+            pbstart.Size = new Size(32, 32);
+            pbstart.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbstart.TabIndex = 0;
+            pbstart.TabStop = false;
+            pbstart.Click += pbstart_Click;
+            // 
+            // panelramgr
+            // 
+            panelramgr.BackColor = Color.FromArgb(34, 39, 57);
+            panelramgr.Controls.Add(lblram);
+            panelramgr.Controls.Add(statscpu);
+            panelramgr.ForeColor = Color.FromArgb(236, 240, 243);
+            panelramgr.Location = new Point(590, 455);
+            panelramgr.Name = "panelramgr";
+            panelramgr.Size = new Size(339, 318);
+            panelramgr.TabIndex = 8;
+            // 
+            // lblram
+            // 
+            lblram.AutoSize = true;
+            lblram.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            lblram.ForeColor = Color.White;
+            lblram.Location = new Point(14, 7);
+            lblram.Name = "lblram";
+            lblram.Size = new Size(162, 28);
+            lblram.TabIndex = 3;
+            lblram.Text = "Memory Status:";
+            // 
+            // statscpu
+            // 
+            statscpu.ArrowThickness = 3;
+            statscpu.BackColor = Color.Transparent;
+            statscpu.Font = new Font("Verdana", 8.2F, FontStyle.Regular, GraphicsUnit.Point);
+            statscpu.ForeColor = Color.FromArgb(139, 152, 166);
+            statscpu.Location = new Point(43, 50);
+            statscpu.MinimumSize = new Size(34, 34);
+            statscpu.Name = "statscpu";
+            statscpu.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
+            statscpu.ProgressEndCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
+            statscpu.ProgressStartCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
+            statscpu.ProgressThickness = 10;
+            statscpu.ShowPercentage = false;
+            statscpu.Size = new Size(265, 265);
+            statscpu.TabIndex = 0;
+            // 
+            // panelcpugr
+            // 
+            panelcpugr.BackColor = Color.FromArgb(34, 39, 57);
+            panelcpugr.Controls.Add(statsram);
+            panelcpugr.Controls.Add(lblcpu);
+            panelcpugr.ForeColor = Color.FromArgb(236, 240, 243);
+            panelcpugr.Location = new Point(12, 455);
+            panelcpugr.Name = "panelcpugr";
+            panelcpugr.Size = new Size(339, 318);
+            panelcpugr.TabIndex = 7;
+            // 
+            // statsram
+            // 
+            statsram.ArrowThickness = 3;
+            statsram.BackColor = Color.Transparent;
+            statsram.Font = new Font("Verdana", 8.2F, FontStyle.Regular, GraphicsUnit.Point);
+            statsram.ForeColor = Color.FromArgb(139, 152, 166);
+            statsram.Location = new Point(43, 50);
+            statsram.MinimumSize = new Size(34, 34);
+            statsram.Name = "statsram";
+            statsram.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
+            statsram.ProgressEndCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
+            statsram.ProgressStartCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
+            statsram.ProgressThickness = 10;
+            statsram.ShowPercentage = false;
+            statsram.Size = new Size(265, 265);
+            statsram.TabIndex = 2;
+            // 
+            // lblcpu
+            // 
+            lblcpu.AutoSize = true;
+            lblcpu.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            lblcpu.ForeColor = Color.White;
+            lblcpu.Location = new Point(14, 7);
+            lblcpu.Name = "lblcpu";
+            lblcpu.Size = new Size(173, 28);
+            lblcpu.TabIndex = 1;
+            lblcpu.Text = "Processor Status:";
+            // 
             // pcsvimg
             // 
-            pcsvimg.Location = new Point(419, 11);
+            pcsvimg.Location = new Point(419, 26);
             pcsvimg.Name = "pcsvimg";
             pcsvimg.Size = new Size(64, 64);
             pcsvimg.TabIndex = 6;
             pcsvimg.TabStop = false;
             // 
-            // panel1
+            // panellimitations
             // 
-            panel1.BackColor = Color.FromArgb(34, 39, 57);
-            panel1.Controls.Add(lblsvcpu);
-            panel1.Controls.Add(lblsvdisk);
-            panel1.Controls.Add(lblsvram);
-            panel1.Controls.Add(lblsvlimitations);
-            panel1.ForeColor = Color.FromArgb(236, 240, 243);
-            panel1.Location = new Point(684, 6);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(245, 105);
-            panel1.TabIndex = 5;
+            panellimitations.BackColor = Color.FromArgb(34, 39, 57);
+            panellimitations.Controls.Add(lblsvcpu);
+            panellimitations.Controls.Add(lblsvdisk);
+            panellimitations.Controls.Add(lblsvram);
+            panellimitations.Controls.Add(lblsvlimitations);
+            panellimitations.ForeColor = Color.FromArgb(236, 240, 243);
+            panellimitations.Location = new Point(489, 11);
+            panellimitations.Name = "panellimitations";
+            panellimitations.Size = new Size(440, 105);
+            panellimitations.TabIndex = 5;
             // 
             // lblsvcpu
             // 
@@ -178,7 +328,6 @@
             lblsvdisk.TabIndex = 9;
             lblsvdisk.Text = "Disk:";
             lblsvdisk.TextAlign = ContentAlignment.MiddleCenter;
-            lblsvdisk.Click += lblsvdisk_Click;
             // 
             // lblsvram
             // 
@@ -215,8 +364,20 @@
             pnlsvinfo.ForeColor = Color.FromArgb(236, 240, 243);
             pnlsvinfo.Location = new Point(12, 11);
             pnlsvinfo.Name = "pnlsvinfo";
-            pnlsvinfo.Size = new Size(245, 105);
+            pnlsvinfo.Size = new Size(401, 105);
             pnlsvinfo.TabIndex = 4;
+            // 
+            // lblsvstatus
+            // 
+            lblsvstatus.AutoSize = true;
+            lblsvstatus.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblsvstatus.ForeColor = Color.WhiteSmoke;
+            lblsvstatus.Location = new Point(3, 41);
+            lblsvstatus.Name = "lblsvstatus";
+            lblsvstatus.Size = new Size(64, 19);
+            lblsvstatus.TabIndex = 11;
+            lblsvstatus.Text = "Status:";
+            lblsvstatus.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblsvnode
             // 
@@ -265,62 +426,6 @@
             lblsvinfo.TabIndex = 7;
             lblsvinfo.Text = "Server Information:";
             lblsvinfo.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblram
-            // 
-            lblram.AutoSize = true;
-            lblram.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            lblram.ForeColor = Color.White;
-            lblram.Location = new Point(14, 7);
-            lblram.Name = "lblram";
-            lblram.Size = new Size(162, 28);
-            lblram.TabIndex = 3;
-            lblram.Text = "Memory Status:";
-            // 
-            // statsram
-            // 
-            statsram.ArrowThickness = 3;
-            statsram.BackColor = Color.Transparent;
-            statsram.Font = new Font("Verdana", 8.2F, FontStyle.Regular, GraphicsUnit.Point);
-            statsram.ForeColor = Color.FromArgb(139, 152, 166);
-            statsram.Location = new Point(43, 50);
-            statsram.MinimumSize = new Size(34, 34);
-            statsram.Name = "statsram";
-            statsram.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
-            statsram.ProgressEndCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
-            statsram.ProgressStartCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
-            statsram.ProgressThickness = 10;
-            statsram.ShowPercentage = false;
-            statsram.Size = new Size(265, 265);
-            statsram.TabIndex = 2;
-            // 
-            // lblcpu
-            // 
-            lblcpu.AutoSize = true;
-            lblcpu.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            lblcpu.ForeColor = Color.White;
-            lblcpu.Location = new Point(14, 7);
-            lblcpu.Name = "lblcpu";
-            lblcpu.Size = new Size(173, 28);
-            lblcpu.TabIndex = 1;
-            lblcpu.Text = "Processor Status:";
-            // 
-            // statscpu
-            // 
-            statscpu.ArrowThickness = 3;
-            statscpu.BackColor = Color.Transparent;
-            statscpu.Font = new Font("Verdana", 8.2F, FontStyle.Regular, GraphicsUnit.Point);
-            statscpu.ForeColor = Color.FromArgb(139, 152, 166);
-            statscpu.Location = new Point(43, 50);
-            statscpu.MinimumSize = new Size(34, 34);
-            statscpu.Name = "statscpu";
-            statscpu.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
-            statscpu.ProgressEndCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
-            statscpu.ProgressStartCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
-            statscpu.ProgressThickness = 10;
-            statscpu.ShowPercentage = false;
-            statscpu.Size = new Size(265, 265);
-            statscpu.TabIndex = 0;
             // 
             // PageFiles
             // 
@@ -442,7 +547,7 @@
             // 
             btntest.BorderColor = Color.Transparent;
             btntest.BorderRadius = 10;
-            btntest.CustomizableEdges = customizableEdges1;
+            btntest.CustomizableEdges = customizableEdges3;
             btntest.DisabledState.BorderColor = Color.DarkGray;
             btntest.DisabledState.CustomBorderColor = Color.DarkGray;
             btntest.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -452,7 +557,7 @@
             btntest.ForeColor = Color.White;
             btntest.Location = new Point(12, 316);
             btntest.Name = "btntest";
-            btntest.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btntest.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btntest.Size = new Size(230, 48);
             btntest.TabIndex = 9;
             btntest.Text = "Home";
@@ -461,7 +566,7 @@
             // 
             btnfilemanager.BorderColor = Color.Transparent;
             btnfilemanager.BorderRadius = 10;
-            btnfilemanager.CustomizableEdges = customizableEdges3;
+            btnfilemanager.CustomizableEdges = customizableEdges5;
             btnfilemanager.DisabledState.BorderColor = Color.DarkGray;
             btnfilemanager.DisabledState.CustomBorderColor = Color.DarkGray;
             btnfilemanager.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -471,7 +576,7 @@
             btnfilemanager.ForeColor = Color.White;
             btnfilemanager.Location = new Point(12, 265);
             btnfilemanager.Name = "btnfilemanager";
-            btnfilemanager.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnfilemanager.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnfilemanager.Size = new Size(230, 45);
             btnfilemanager.TabIndex = 8;
             btnfilemanager.Text = "File Manager";
@@ -481,7 +586,7 @@
             // 
             btnhome.BorderColor = Color.Transparent;
             btnhome.BorderRadius = 10;
-            btnhome.CustomizableEdges = customizableEdges5;
+            btnhome.CustomizableEdges = customizableEdges7;
             btnhome.DisabledState.BorderColor = Color.DarkGray;
             btnhome.DisabledState.CustomBorderColor = Color.DarkGray;
             btnhome.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -491,7 +596,7 @@
             btnhome.ForeColor = Color.White;
             btnhome.Location = new Point(12, 214);
             btnhome.Name = "btnhome";
-            btnhome.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnhome.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnhome.Size = new Size(230, 45);
             btnhome.TabIndex = 7;
             btnhome.Text = "Home";
@@ -518,39 +623,25 @@
             pbpanellogo.TabIndex = 5;
             pbpanellogo.TabStop = false;
             // 
-            // panel2
+            // btnstartconsole
             // 
-            panel2.BackColor = Color.FromArgb(34, 39, 57);
-            panel2.Controls.Add(statsram);
-            panel2.Controls.Add(lblcpu);
-            panel2.ForeColor = Color.FromArgb(236, 240, 243);
-            panel2.Location = new Point(12, 455);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(339, 318);
-            panel2.TabIndex = 7;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(34, 39, 57);
-            panel3.Controls.Add(lblram);
-            panel3.Controls.Add(statscpu);
-            panel3.ForeColor = Color.FromArgb(236, 240, 243);
-            panel3.Location = new Point(590, 455);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(339, 318);
-            panel3.TabIndex = 8;
-            // 
-            // lblsvstatus
-            // 
-            lblsvstatus.AutoSize = true;
-            lblsvstatus.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblsvstatus.ForeColor = Color.WhiteSmoke;
-            lblsvstatus.Location = new Point(3, 41);
-            lblsvstatus.Name = "lblsvstatus";
-            lblsvstatus.Size = new Size(64, 19);
-            lblsvstatus.TabIndex = 11;
-            lblsvstatus.Text = "Status:";
-            lblsvstatus.TextAlign = ContentAlignment.MiddleCenter;
+            btnstartconsole.BorderColor = Color.Transparent;
+            btnstartconsole.BorderRadius = 10;
+            btnstartconsole.CustomizableEdges = customizableEdges1;
+            btnstartconsole.DisabledState.BorderColor = Color.DarkGray;
+            btnstartconsole.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnstartconsole.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnstartconsole.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnstartconsole.FillColor = Color.FromArgb(0, 110, 179);
+            btnstartconsole.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnstartconsole.ForeColor = Color.White;
+            btnstartconsole.Location = new Point(28, 54);
+            btnstartconsole.Name = "btnstartconsole";
+            btnstartconsole.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnstartconsole.Size = new Size(171, 29);
+            btnstartconsole.TabIndex = 8;
+            btnstartconsole.Text = "Console";
+            btnstartconsole.Click += btnstartconsole_Click;
             // 
             // FrmServerController
             // 
@@ -571,9 +662,18 @@
             Load += FrmServerController_Load;
             Pages.ResumeLayout(false);
             PageHome.ResumeLayout(false);
+            panelpowers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbkill).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbrestart).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbstop).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbstart).EndInit();
+            panelramgr.ResumeLayout(false);
+            panelramgr.PerformLayout();
+            panelcpugr.ResumeLayout(false);
+            panelcpugr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcsvimg).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panellimitations.ResumeLayout(false);
+            panellimitations.PerformLayout();
             pnlsvinfo.ResumeLayout(false);
             pnlsvinfo.PerformLayout();
             navbar.ResumeLayout(false);
@@ -581,10 +681,6 @@
             ((System.ComponentModel.ISupportInitialize)pbappicon).EndInit();
             sidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbpanellogo).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -616,7 +712,7 @@
         private Panel pnlsvinfo;
         private Label lblsvname;
         private Label lblsvinfo;
-        private Panel panel1;
+        private Panel panellimitations;
         private Label lblsvcpu;
         private Label lblsvdisk;
         private Label lblsvram;
@@ -624,8 +720,14 @@
         private Label lblsvnode;
         private Label lblsvip;
         private PictureBox pcsvimg;
-        private Panel panel2;
-        private Panel panel3;
+        private Panel panelcpugr;
+        private Panel panelramgr;
         private Label lblsvstatus;
+        private Panel panelpowers;
+        private PictureBox pbstop;
+        private PictureBox pbrestart;
+        private PictureBox pbkill;
+        private PictureBox pbstart;
+        private Guna.UI2.WinForms.Guna2Button btnstartconsole;
     }
 }

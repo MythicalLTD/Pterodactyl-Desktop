@@ -12,6 +12,7 @@ namespace Pterodactyl.Forms
         public static string? sftp_ip;
         public static string? sftp_port;
         public static string? ipAlias;
+        public static string? sv_disktotal;
         public static string? svmport;
         public FrmServerController(string serverIdentifier)
         {
@@ -28,11 +29,20 @@ namespace Pterodactyl.Forms
                     long uptimeInMilliseconds = (long)(resource.Uptime);
                     TimeSpan uptime = TimeSpan.FromMilliseconds(uptimeInMilliseconds);
                     string formattedUptime = $"{uptime.Days}D {uptime.Hours}H {uptime.Minutes}M {uptime.Seconds}S";
-                    Console.WriteLine(formattedUptime);
-                    statscpu.Value = (int)(resource.CpuAbsolute);
-                    statsram.Value = (int)((resource.MemoryBytes / (double)resource.MemoryLimitBytes) * 100);
-                    lblsvstatus.Text = $"Status: {resource.State}";
-                    
+                    try
+                    {
+                        lblsvstatus.Invoke((Action)(() => lblsvstatus.Text = $"Uptime: {resource.State} ({formattedUptime})"));
+                        lblsvram.Invoke((Action)(() => lblsvram.Text = $"Memory: {(resource.MemoryBytes / (1024 * 1024))} MB / {(resource.MemoryLimitBytes / (1024 * 1024))} MB"));
+                        lblsvcpu.Invoke((Action)(() => lblsvcpu.Text = $"Processor: {resource.CpuAbsolute} / 100%"));
+                        lblsvdisk.Invoke((Action)(() => lblsvdisk.Text = $"Disk: {resource.DiskBytes / (1024 * 1024)} MB / {sv_disktotal} MB"));
+                        statscpu.Invoke((Action)(() => statscpu.Value = (int)(resource.CpuAbsolute)));
+                        statsram.Invoke((Action)(() => statsram.Value = (int)((resource.MemoryBytes / (double)resource.MemoryLimitBytes) * 100)));
+                    }
+                    catch (Exception ex)
+                    {
+                        Program.Alert("Failed to update server status", FrmAlert.enmType.Warning);
+                        Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.User.Login.cs]: \n" + ex.Message);
+                    }
                 };
                 console.RequestToken += pteroConsole =>
                 {
@@ -57,8 +67,8 @@ namespace Pterodactyl.Forms
         }
         private void FrmServerController_Load(object sender, EventArgs e)
         {
-            initPteroConsole();
             getServerInfo();
+            initPteroConsole();
             isMinecraftServer();
         }
 
@@ -157,6 +167,7 @@ namespace Pterodactyl.Forms
                     string serverMaxRam = serverInfo["attributes"]["limits"]["memory"].ToString();
                     string serverMaxDisk = serverInfo["attributes"]["limits"]["disk"].ToString();
                     string serverMaxCpu = serverInfo["attributes"]["limits"]["cpu"].ToString();
+                    sv_disktotal = serverMaxDisk;
                     sftp_port = serverInfo["attributes"]["sftp_details"]["port"].ToString();
                     sftp_ip = serverInfo["attributes"]["sftp_details"]["ip"].ToString();
                     if (serverMaxRam == "0")
@@ -197,9 +208,152 @@ namespace Pterodactyl.Forms
             }
         }
 
-        private void lblsvdisk_Click(object sender, EventArgs e)
+        private void pbstart_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var client = new RestClient(Pterodactyl.User.Info.panel_url);
+                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
+                request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
+                request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36");
+                request.AddParameter("application/json", "{ \"signal\": \"start\" }", ParameterType.RequestBody);
+                var response = client.Execute(request);
 
+                if (response.IsSuccessful)
+                {
+                    Program.Alert("Server is starting", FrmAlert.enmType.Succes);
+                }
+                else
+                {
+                    Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + response.Content);
+                    Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
+            }
+        }
+
+        private void pbstop_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var client = new RestClient(Pterodactyl.User.Info.panel_url);
+                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
+                request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
+                request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36");
+                request.AddParameter("application/json", "{ \"signal\": \"stop\" }", ParameterType.RequestBody);
+                var response = client.Execute(request);
+
+                if (response.IsSuccessful)
+                {
+                    Program.Alert("Server is stopping", FrmAlert.enmType.Succes);
+                }
+                else
+                {
+                    Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + response.Content);
+                    Program.Alert("Failed to stop the server", FrmAlert.enmType.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.Alert("Failed to stop the server", FrmAlert.enmType.Warning);
+            }
+        }
+
+        private void pbrestart_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var client = new RestClient(Pterodactyl.User.Info.panel_url);
+                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
+                request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
+                request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36");
+                request.AddParameter("application/json", "{ \"signal\": \"restart\" }", ParameterType.RequestBody);
+                var response = client.Execute(request);
+
+                if (response.IsSuccessful)
+                {
+                    Program.Alert("Server is restarting", FrmAlert.enmType.Succes);
+                }
+                else
+                {
+                    Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + response.Content);
+                    Program.Alert("Failed to restart the server", FrmAlert.enmType.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
+            }
+        }
+
+        private void pbkill_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var client = new RestClient(Pterodactyl.User.Info.panel_url);
+                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
+                request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
+                request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36");
+                request.AddParameter("application/json", "{ \"signal\": \"kill\" }", ParameterType.RequestBody);
+                var response = client.Execute(request);
+
+                if (response.IsSuccessful)
+                {
+                    Program.Alert("Server killed", FrmAlert.enmType.Succes);
+                }
+                else
+                {
+                    Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + response.Content);
+                    Program.Alert("Failed to kill the server", FrmAlert.enmType.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.Alert("Failed to kill the server", FrmAlert.enmType.Warning);
+            }
+        }
+
+        private void btnstartconsole_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (File.Exists(Application.StartupPath + @"\PteroConsole.exe"))
+                {
+                    string executablePath = "PteroConsole.exe";
+                    string arguments = $"--panel-url {Pterodactyl.User.Info.panel_url} --panel-apikey {Pterodactyl.User.Info.panel_api_key} --serveruuid {serverIdentifier}";
+
+                    Process process = new Process();
+                    process.StartInfo.FileName = executablePath;
+                    process.StartInfo.Arguments = arguments;
+                    process.StartInfo.UseShellExecute = true; 
+                    process.StartInfo.CreateNoWindow = false;
+                    process.Start();
+                }
+                else
+                {
+                    Program.Alert("PteroConsole is missing please reinstall", FrmAlert.enmType.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.Alert("Failed to start console", FrmAlert.enmType.Error);
+                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+            }
         }
     }
 }
