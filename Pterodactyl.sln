@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PteroController", "PteroController.csproj", "{E8F91865-3849-4773-B205-2DCFF069F11F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pterodactyl", "Pterodactyl.csproj", "{E8F91865-3849-4773-B205-2DCFF069F11F}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PteroControllerSetup", "PteroControllerSetup\PteroControllerSetup.vdproj", "{29BB4937-3D0E-458E-AA47-DB83EA05235A}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PterodactylSetup", "PterodactylSetup\PterodactylSetup.vdproj", "{29BB4937-3D0E-458E-AA47-DB83EA05235A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-﻿namespace PteroController.Forms
+﻿namespace Pterodactyl.Forms
 {
     partial class FrmServerSelector
     {
@@ -180,9 +180,9 @@
             lblappname.ForeColor = Color.WhiteSmoke;
             lblappname.Location = new Point(29, 3);
             lblappname.Name = "lblappname";
-            lblappname.Size = new Size(160, 19);
+            lblappname.Size = new Size(192, 19);
             lblappname.TabIndex = 4;
-            lblappname.Text = "PteroController (1.0.0)";
+            lblappname.Text = "Pterodactyl Desktop (1.0.0)";
             // 
             // lblminimize
             // 
@@ -241,9 +241,9 @@
             lblwlcdsc.ForeColor = Color.White;
             lblwlcdsc.Location = new Point(12, 97);
             lblwlcdsc.Name = "lblwlcdsc";
-            lblwlcdsc.Size = new Size(596, 19);
+            lblwlcdsc.Size = new Size(569, 19);
             lblwlcdsc.TabIndex = 5;
-            lblwlcdsc.Text = "Welcome to PteroController! Let's start by selecting the server that you want to control.";
+            lblwlcdsc.Text = "Welcome to Pterodactyl! Let's start by selecting the server that you want to control.";
             // 
             // FrmServerSelector
             // 
@@ -259,7 +259,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmServerSelector";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PteroController";
+            Text = "Pterodactyl";
             Load += FrmServerSelector_Load;
             navbar.ResumeLayout(false);
             navbar.PerformLayout();

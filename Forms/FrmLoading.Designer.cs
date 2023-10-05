@@ -1,4 +1,4 @@
-﻿namespace PteroController.Forms
+﻿namespace Pterodactyl.Forms
 {
     partial class FrmLoading
     {
@@ -40,6 +40,7 @@
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
             AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             LoaderElipse = new Guna.UI2.WinForms.Guna2Elipse(components);
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)appicon).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -71,16 +72,16 @@
             // 
             // lblappname
             // 
-            lblappname.AutoSize = true;
             lblappname.BackColor = Color.Transparent;
             lblappname.Font = new Font("Arial", 20F, FontStyle.Bold, GraphicsUnit.Point);
             lblappname.ForeColor = Color.FromArgb(236, 240, 243);
-            lblappname.Location = new Point(275, 156);
+            lblappname.Location = new Point(107, 158);
             lblappname.Margin = new Padding(4, 0, 4, 0);
             lblappname.Name = "lblappname";
-            lblappname.Size = new Size(217, 32);
+            lblappname.Size = new Size(558, 32);
             lblappname.TabIndex = 12;
-            lblappname.Text = "PteroController";
+            lblappname.Text = "Pterodactyl Desktop";
+            lblappname.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // drag
             // 
@@ -105,7 +106,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(0, 110, 179);
-            panel2.Location = new Point(17, 0);
+            panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(1, 29);
@@ -125,12 +126,26 @@
             LoaderElipse.BorderRadius = 20;
             LoaderElipse.TargetControl = panel1;
             // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Arial", 8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(236, 240, 243);
+            label1.Location = new Point(70, 312);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(640, 20);
+            label1.TabIndex = 14;
+            label1.Text = "We not affiliated with pterodactyl this is not an official product released by pterodactyl";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // FrmLoading
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(30, 45, 59);
+            BackColor = Color.FromArgb(27, 28, 46);
             ClientSize = new Size(765, 331);
+            Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(lblappname);
             Controls.Add(lblexit);
@@ -144,7 +159,7 @@
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PteroController";
+            Text = "Pterodactyl";
             Load += FrmLoading_Load;
             ((System.ComponentModel.ISupportInitialize)appicon).EndInit();
             panel1.ResumeLayout(false);
@@ -163,5 +178,6 @@
         private Guna.UI2.WinForms.Guna2Elipse Elipse;
         private Guna.UI2.WinForms.Guna2AnimateWindow AnimateWindow;
         private Guna.UI2.WinForms.Guna2Elipse LoaderElipse;
+        private Label label1;
     }
 }

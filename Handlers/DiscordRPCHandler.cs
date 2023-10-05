@@ -1,7 +1,7 @@
 ﻿using DiscordRPC.Logging;
 using DiscordRPC;
 
-namespace PteroController.Handlers
+namespace Pterodactyl.Handlers
 {
     public class DiscordRPCHandler
     {
@@ -26,16 +26,16 @@ namespace PteroController.Handlers
                 btns.Label = "Pterodactyl";
                 btns.Url = "https://pterodactyl.io";
                 btns2.Label = "Download app";
-                btns2.Url = "https://github.com/MythicalLTD/PteroController";
+                btns2.Url = "https://github.com/MythicalLTD/Pterodactyl";
 
                 client.SetPresence(new RichPresence()
                 {
-                    Details = "Using PteroController",
+                    Details = "Using Pterodactyl",
                     State = "A Pterodactyl Panel Desktop App! <3",
                     Assets = new Assets()
                     {
                         LargeImageKey = "logo",
-                        LargeImageText = "PteroController",
+                        LargeImageText = "Pterodactyl",
                     },
                     Buttons = new DiscordRPC.Button[]
                     {

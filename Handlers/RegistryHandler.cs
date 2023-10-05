@@ -1,12 +1,12 @@
 ﻿using Microsoft.Win32;
-using PteroController.Pterodactyl;
+using Pterodactyl.Pterodactyl;
 
-namespace PteroController.Handlers
+namespace Pterodactyl.Handlers
 {
     public class RegistryHandler
     {
-        private const string RegistryAccountBasePath = "Software\\MythicalSystems\\PteroController\\Sessions";
-        private const string RegistrySettingsBasePath = "Software\\MythicalSystems\\PteroController\\Settings";
+        private const string RegistryAccountBasePath = "Software\\MythicalSystems\\Pterodactyl\\Sessions";
+        private const string RegistrySettingsBasePath = "Software\\MythicalSystems\\Pterodactyl\\Settings";
 
 
         public void CreateAccountData(string sessionName, string url, string password, string apiKey)

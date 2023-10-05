@@ -1,4 +1,4 @@
-﻿namespace PteroController.Forms
+﻿namespace Pterodactyl.Forms
 {
     partial class FrmSessions
     {
@@ -70,9 +70,9 @@
             lblappname.ForeColor = Color.WhiteSmoke;
             lblappname.Location = new Point(29, 3);
             lblappname.Name = "lblappname";
-            lblappname.Size = new Size(160, 19);
+            lblappname.Size = new Size(192, 19);
             lblappname.TabIndex = 4;
-            lblappname.Text = "PteroController (1.0.0)";
+            lblappname.Text = "Pterodactyl Desktop (1.0.0)";
             // 
             // lblminimize
             // 
@@ -146,9 +146,9 @@
             lblwlc.ForeColor = Color.WhiteSmoke;
             lblwlc.Location = new Point(41, 49);
             lblwlc.Name = "lblwlc";
-            lblwlc.Size = new Size(588, 21);
+            lblwlc.Size = new Size(558, 21);
             lblwlc.TabIndex = 5;
-            lblwlc.Text = "Welcome to PteroController! Please select your panel to start using our app!";
+            lblwlc.Text = "Welcome to Pterodactyl! Please select your panel to start using our app!";
             // 
             // btnaddsession
             // 
@@ -209,7 +209,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmSessions";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PteroController";
+            Text = "Pterodactyl";
             Load += FrmSessions_Load;
             navbar.ResumeLayout(false);
             navbar.PerformLayout();

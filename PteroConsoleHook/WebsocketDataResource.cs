@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace PteroController.PteroConsoleHook
+namespace Pterodactyl.PteroConsoleHook
 {
     public class WebsocketDataResource
     {

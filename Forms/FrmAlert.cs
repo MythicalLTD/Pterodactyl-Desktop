@@ -1,8 +1,8 @@
 ﻿
-using PteroController.Properties;
+using Pterodactyl.Properties;
 # pragma warning disable
 
-namespace PteroController.Forms
+namespace Pterodactyl.Forms
 {
     public partial class FrmAlert : Form
     {

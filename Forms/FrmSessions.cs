@@ -1,7 +1,7 @@
-﻿using PteroController.Handlers;
-using PteroController.Pterodactyl;
+﻿using Pterodactyl.Handlers;
+using Pterodactyl.Pterodactyl;
 #pragma warning disable
-namespace PteroController.Forms
+namespace Pterodactyl.Forms
 {
     public partial class FrmSessions : Form
     {

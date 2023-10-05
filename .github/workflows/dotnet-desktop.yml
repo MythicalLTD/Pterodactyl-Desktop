@@ -17,7 +17,7 @@ jobs:
     runs-on: windows-latest  
                             
     env:
-      Solution_Name: PteroController.sln                         
+      Solution_Name: Pterodactyl.sln                         
 
     steps:
     - name: Checkout
@@ -33,10 +33,10 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test PteroController.csproj
+      run: dotnet test Pterodactyl.csproj
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore and build the application
-      run: dotnet build PteroController.csproj
+      run: dotnet build Pterodactyl.csproj
       env:
         Configuration: ${{ matrix.configuration }}

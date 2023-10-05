@@ -1,4 +1,4 @@
-﻿namespace PteroController.Pterodactyl
+﻿namespace Pterodactyl.Pterodactyl
 {
     public class SessionInfo
     {

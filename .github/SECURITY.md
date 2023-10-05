@@ -1,4 +1,4 @@
-# PteroController GitHub Security Policy
+# Pterodactyl GitHub Security Policy
 
 ## Table of Contents
 1. [Introduction](#introduction)

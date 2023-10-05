@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 #pragma warning disable
-namespace PteroController.Pterodactyl.User
+namespace Pterodactyl.Pterodactyl.User
 {
     public class Info
     {

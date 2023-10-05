@@ -1,4 +1,4 @@
-﻿namespace PteroController.Forms
+﻿namespace Pterodactyl.Forms
 {
     partial class FrmAlert
     {
@@ -52,7 +52,7 @@
             // 
             // icontype
             // 
-            this.icontype.Image = global::PteroController.Properties.Resources.happycloud;
+            this.icontype.Image = global::Pterodactyl.Properties.Resources.happycloud;
             this.icontype.Location = new System.Drawing.Point(12, 29);
             this.icontype.Name = "icontype";
             this.icontype.Size = new System.Drawing.Size(47, 43);

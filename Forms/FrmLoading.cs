@@ -1,9 +1,9 @@
 ﻿
-using PteroController.Properties;
+using Pterodactyl.Properties;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace PteroController.Forms
+namespace Pterodactyl.Forms
 {
     public partial class FrmLoading : Form
     {
@@ -19,7 +19,7 @@ namespace PteroController.Forms
 
         private async void CheckForUpdate()
         {
-            string url = "https://raw.githubusercontent.com/MythicalLTD/PteroController/v2develop/Program.cs";
+            string url = "https://raw.githubusercontent.com/MythicalLTD/Pterodactyl-Desktop/v2develop/Program.cs";
 
             using (HttpClient httpClient = new HttpClient())
             {
@@ -62,11 +62,11 @@ namespace PteroController.Forms
         }
         private void RunInstallerWithBatchScript()
         {
-            if (File.Exists("PteroControllerSetup.msi"))
+            if (File.Exists("PterodactylSetup.msi"))
             {
                 string batchScript = @"
         @echo off
-        start /b PteroControllerSetup.msi
+        start /b PterodactylSetup.msi
         exit
     ";
 
@@ -97,7 +97,7 @@ namespace PteroController.Forms
         }
         public static async Task Download()
         {
-            string releaseURL = "https://github.com/MythicalLTD/PteroController/releases/latest/download/PteroControllerSetup.msi";
+            string releaseURL = "https://github.com/MythicalLTD/Pterodactyl-Desktop/releases/latest/download/PterodactylSetup.msi";
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client.GetAsync(releaseURL);
@@ -106,7 +106,7 @@ namespace PteroController.Forms
                 {
                     using (Stream contentStream = await response.Content.ReadAsStreamAsync())
                     {
-                        using (FileStream fileStream = new FileStream("PteroControllerSetup.msi", FileMode.Create))
+                        using (FileStream fileStream = new FileStream("PterodactylSetup.msi", FileMode.Create))
                         {
                             await contentStream.CopyToAsync(fileStream);
                             Console.WriteLine("Updater has been downloaded successfully!");

@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <StartupObject>PteroController.Program</StartupObject>
+    <StartupObject></StartupObject>
     <ApplicationIcon>pterry.ico</ApplicationIcon>
     <IsPublishable>False</IsPublishable>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
@@ -14,19 +14,27 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <PackageProjectUrl>https://github.com/MythicalLTD/PteroController</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/MythicalLTD/Pterodactyl</PackageProjectUrl>
     <PackageIcon>pterry.png</PackageIcon>
     <PackageIconUrl />
-    <RepositoryUrl>https://github.com/MythicalLTD/PteroController</RepositoryUrl>
+    <RepositoryUrl>https://github.com/MythicalLTD/Pterodactyl</RepositoryUrl>
     <PackageTags>Pterodactyl</PackageTags>
     <Copyright>2023</Copyright>
     <Company>MythicalSystems LTD</Company>
     <Authors>MythicalSystems LTD</Authors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AssemblyName>$(MSBuildProjectName) Desktop</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
+    <NoWarn>1701;1702;SYSLIB0014</NoWarn>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;SYSLIB0014</NoWarn>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>

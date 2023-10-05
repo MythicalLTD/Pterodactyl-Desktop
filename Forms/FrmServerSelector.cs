@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http;
 
-namespace PteroController.Forms;
+namespace Pterodactyl.Forms;
 
 public partial class FrmServerSelector : Form
 {

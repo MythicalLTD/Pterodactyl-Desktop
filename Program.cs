@@ -1,7 +1,7 @@
-using PteroController.Forms;
-using PteroController.Managers;
+using Pterodactyl.Forms;
+using Pterodactyl.Managers;
 
-namespace PteroController
+namespace Pterodactyl
 {
     internal static class Program
     {
@@ -28,7 +28,7 @@ namespace PteroController
                 logger.Log(LogType.Error, "We are sorry, but we blocked this app from running on any other OS than Windows!");
                 Application.Exit();
             }
-            if (!File.Exists(Application.StartupPath + @"\PteroConsole.exe"))
+            if (!File.Exists(Application.StartupPath + @"\PteroConsole.exe") && !File.Exists(Application.StartupPath + @"\WinSCP.exe"))
             {
                 Application.Run(new FrmInstallTools());
             }

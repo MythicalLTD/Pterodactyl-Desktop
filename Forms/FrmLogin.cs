@@ -1,6 +1,6 @@
-﻿using PteroController.Handlers;
+﻿using Pterodactyl.Handlers;
 
-namespace PteroController.Forms
+namespace Pterodactyl.Forms
 {
     public partial class FrmLogin : Form
     {

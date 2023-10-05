@@ -1,4 +1,4 @@
-﻿namespace PteroController.Managers
+﻿namespace Pterodactyl.Managers
 {
     public enum LogType
     {

@@ -2,7 +2,7 @@
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 
-namespace PteroController.Pterodactyl.User
+namespace Pterodactyl.Pterodactyl.User
 {
     public class Login
     {

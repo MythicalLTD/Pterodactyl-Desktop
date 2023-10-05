@@ -1,4 +1,4 @@
-﻿namespace PteroController.Forms
+﻿namespace Pterodactyl.Forms
 {
     partial class FrmInstallTools
     {
@@ -71,9 +71,9 @@
             lblappname.ForeColor = Color.WhiteSmoke;
             lblappname.Location = new Point(29, 3);
             lblappname.Name = "lblappname";
-            lblappname.Size = new Size(160, 19);
+            lblappname.Size = new Size(192, 19);
             lblappname.TabIndex = 4;
-            lblappname.Text = "PteroController (1.0.0)";
+            lblappname.Text = "Pterodactyl Desktop (1.0.0)";
             // 
             // lblminimize
             // 
@@ -144,7 +144,7 @@
             lblinstalldesc.Name = "lblinstalldesc";
             lblinstalldesc.Size = new Size(992, 25);
             lblinstalldesc.TabIndex = 6;
-            lblinstalldesc.Text = "To use the PteroController, we will have to install additional packages for a smooth and up-to-date experience!";
+            lblinstalldesc.Text = "To use the Pterodactyl, we will have to install additional packages for a smooth and up-to-date experience!";
             lblinstalldesc.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnaccpetinstall
@@ -220,7 +220,7 @@
             Name = "FrmInstallTools";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PteroController";
+            Text = "Pterodactyl";
             navbar.ResumeLayout(false);
             navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).EndInit();

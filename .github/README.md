@@ -1,7 +1,7 @@
 
 ![Logo](https://i.imgur.com/xI3GLFc.jpeg)
 
-# PteroController
+# Pterodactyl
 A Pterodactyl Panel desktop app that uses the Client API!
 
 

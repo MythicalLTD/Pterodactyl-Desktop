@@ -2,7 +2,7 @@
 using System.IO.Compression;
 using System.Net.Http;
 
-namespace PteroController.Forms
+namespace Pterodactyl.Forms
 {
     public partial class FrmInstallTools : Form
     {
