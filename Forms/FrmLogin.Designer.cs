@@ -295,7 +295,7 @@
             txtpanelapikey.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             txtpanelapikey.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtpanelapikey.Location = new Point(17, 180);
-            txtpanelapikey.MaxLength = 32;
+            txtpanelapikey.MaxLength = 64;
             txtpanelapikey.Name = "txtpanelapikey";
             txtpanelapikey.PasswordChar = '●';
             txtpanelapikey.PlaceholderText = "●●●●●●●●●●●●●●●●●●●";
@@ -385,7 +385,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmAddSession";
+            Text = "Pterodactyl";
             Load += FrmAddSession_Load;
             navbar.ResumeLayout(false);
             navbar.PerformLayout();
