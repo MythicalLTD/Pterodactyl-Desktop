@@ -93,7 +93,7 @@ namespace Pterodactyl.Forms
         }
         private void FrmLoading_Load(object sender, EventArgs e)
         {
-            //CheckForUpdate();
+            CheckForUpdate();
         }
         public static async Task Download()
         {
@@ -133,6 +133,11 @@ namespace Pterodactyl.Forms
                 x.Show();
                 this.Hide();
             }
+        }
+
+        private void lblappname_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

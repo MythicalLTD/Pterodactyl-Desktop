@@ -32,12 +32,19 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServerController));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Pages = new Guna.UI2.WinForms.Guna2TabControl();
             PageHome = new TabPage();
             panelpowers = new Panel();
@@ -64,8 +71,11 @@
             lblsvip = new Label();
             lblsvname = new Label();
             lblsvinfo = new Label();
-            PageFiles = new TabPage();
             PageDatabases = new TabPage();
+            dataTable = new Guna.UI2.WinForms.Guna2DataGridView();
+            lbldbsub = new Label();
+            label1 = new Label();
+            lbldbs = new Label();
             PageBackups = new TabPage();
             navbar = new Panel();
             lblappname = new Label();
@@ -76,11 +86,14 @@
             AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
             sidebar = new Panel();
+            btndbs = new Guna.UI2.WinForms.Guna2Button();
             btnserverlist = new Guna.UI2.WinForms.Guna2Button();
             btnfilemanager = new Guna.UI2.WinForms.Guna2Button();
             btnhome = new Guna.UI2.WinForms.Guna2Button();
             lblpanelname = new Label();
             pbpanellogo = new PictureBox();
+            ToolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            btnnewdb = new Guna.UI2.WinForms.Guna2Button();
             Pages.SuspendLayout();
             PageHome.SuspendLayout();
             panelpowers.SuspendLayout();
@@ -93,6 +106,8 @@
             ((System.ComponentModel.ISupportInitialize)pcsvimg).BeginInit();
             panellimitations.SuspendLayout();
             pnlsvinfo.SuspendLayout();
+            PageDatabases.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataTable).BeginInit();
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).BeginInit();
             sidebar.SuspendLayout();
@@ -102,7 +117,6 @@
             // Pages
             // 
             Pages.Controls.Add(PageHome);
-            Pages.Controls.Add(PageFiles);
             Pages.Controls.Add(PageDatabases);
             Pages.Controls.Add(PageBackups);
             Pages.Dock = DockStyle.Fill;
@@ -447,24 +461,111 @@
             lblsvinfo.Text = "Server Information:";
             lblsvinfo.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // PageFiles
-            // 
-            PageFiles.Location = new Point(4, 5);
-            PageFiles.Name = "PageFiles";
-            PageFiles.Padding = new Padding(3);
-            PageFiles.Size = new Size(937, 781);
-            PageFiles.TabIndex = 1;
-            PageFiles.Text = "Files";
-            PageFiles.UseVisualStyleBackColor = true;
-            // 
             // PageDatabases
             // 
+            PageDatabases.BackColor = Color.FromArgb(27, 28, 46);
+            PageDatabases.Controls.Add(btnnewdb);
+            PageDatabases.Controls.Add(dataTable);
+            PageDatabases.Controls.Add(lbldbsub);
+            PageDatabases.Controls.Add(label1);
+            PageDatabases.Controls.Add(lbldbs);
             PageDatabases.Location = new Point(4, 5);
             PageDatabases.Name = "PageDatabases";
             PageDatabases.Size = new Size(937, 781);
             PageDatabases.TabIndex = 2;
             PageDatabases.Text = "Databases";
-            PageDatabases.UseVisualStyleBackColor = true;
+            // 
+            // dataTable
+            // 
+            dataTable.AllowUserToAddRows = false;
+            dataTable.AllowUserToDeleteRows = false;
+            dataTable.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(44, 48, 52);
+            dataTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataTable.BackgroundColor = Color.FromArgb(19, 26, 32);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(15, 16, 18);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataTable.ColumnHeadersHeight = 4;
+            dataTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(33, 37, 41);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(114, 117, 119);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataTable.DefaultCellStyle = dataGridViewCellStyle3;
+            dataTable.GridColor = Color.FromArgb(50, 56, 62);
+            dataTable.Location = new Point(12, 65);
+            dataTable.Name = "dataTable";
+            dataTable.ReadOnly = true;
+            dataTable.RowHeadersVisible = false;
+            dataTable.RowHeadersWidth = 45;
+            dataTable.RowTemplate.Height = 30;
+            dataTable.Size = new Size(910, 650);
+            dataTable.TabIndex = 0;
+            dataTable.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Dark;
+            dataTable.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(44, 48, 52);
+            dataTable.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dataTable.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dataTable.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dataTable.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dataTable.ThemeStyle.BackColor = Color.FromArgb(19, 26, 32);
+            dataTable.ThemeStyle.GridColor = Color.FromArgb(50, 56, 62);
+            dataTable.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(15, 16, 18);
+            dataTable.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataTable.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            dataTable.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dataTable.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataTable.ThemeStyle.HeaderStyle.Height = 4;
+            dataTable.ThemeStyle.ReadOnly = true;
+            dataTable.ThemeStyle.RowsStyle.BackColor = Color.FromArgb(33, 37, 41);
+            dataTable.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataTable.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            dataTable.ThemeStyle.RowsStyle.ForeColor = Color.White;
+            dataTable.ThemeStyle.RowsStyle.Height = 30;
+            dataTable.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(114, 117, 119);
+            dataTable.ThemeStyle.RowsStyle.SelectionForeColor = Color.White;
+            dataTable.CellDoubleClick += dataTable_CellDoubleClick;
+            // 
+            // lbldbsub
+            // 
+            lbldbsub.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lbldbsub.ForeColor = Color.WhiteSmoke;
+            lbldbsub.Location = new Point(12, 40);
+            lbldbsub.Name = "lbldbsub";
+            lbldbsub.Size = new Size(298, 22);
+            lbldbsub.TabIndex = 9;
+            lbldbsub.Text = "Create databases for your application.";
+            lbldbsub.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 17F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.WhiteSmoke;
+            label1.Location = new Point(349, 374);
+            label1.Name = "label1";
+            label1.Size = new Size(239, 33);
+            label1.TabIndex = 8;
+            label1.Text = "Databases";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbldbs
+            // 
+            lbldbs.Font = new Font("Arial", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lbldbs.ForeColor = Color.WhiteSmoke;
+            lbldbs.Location = new Point(12, 7);
+            lbldbs.Name = "lbldbs";
+            lbldbs.Size = new Size(239, 33);
+            lbldbs.TabIndex = 7;
+            lbldbs.Text = "Databases";
+            lbldbs.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // PageBackups
             // 
@@ -552,6 +653,7 @@
             // sidebar
             // 
             sidebar.BackColor = Color.FromArgb(34, 39, 57);
+            sidebar.Controls.Add(btndbs);
             sidebar.Controls.Add(btnserverlist);
             sidebar.Controls.Add(btnfilemanager);
             sidebar.Controls.Add(btnhome);
@@ -563,11 +665,31 @@
             sidebar.Size = new Size(248, 790);
             sidebar.TabIndex = 2;
             // 
+            // btndbs
+            // 
+            btndbs.BorderColor = Color.Transparent;
+            btndbs.BorderRadius = 10;
+            btndbs.CustomizableEdges = customizableEdges5;
+            btndbs.DisabledState.BorderColor = Color.DarkGray;
+            btndbs.DisabledState.CustomBorderColor = Color.DarkGray;
+            btndbs.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btndbs.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btndbs.FillColor = Color.FromArgb(0, 110, 179);
+            btndbs.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btndbs.ForeColor = Color.White;
+            btndbs.Location = new Point(12, 316);
+            btndbs.Name = "btndbs";
+            btndbs.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btndbs.Size = new Size(230, 45);
+            btndbs.TabIndex = 10;
+            btndbs.Text = "Databases";
+            btndbs.Click += btndbs_Click;
+            // 
             // btnserverlist
             // 
             btnserverlist.BorderColor = Color.Transparent;
             btnserverlist.BorderRadius = 10;
-            btnserverlist.CustomizableEdges = customizableEdges3;
+            btnserverlist.CustomizableEdges = customizableEdges7;
             btnserverlist.DisabledState.BorderColor = Color.DarkGray;
             btnserverlist.DisabledState.CustomBorderColor = Color.DarkGray;
             btnserverlist.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -577,7 +699,7 @@
             btnserverlist.ForeColor = Color.White;
             btnserverlist.Location = new Point(12, 724);
             btnserverlist.Name = "btnserverlist";
-            btnserverlist.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnserverlist.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnserverlist.Size = new Size(230, 48);
             btnserverlist.TabIndex = 9;
             btnserverlist.Text = "Server List";
@@ -587,7 +709,7 @@
             // 
             btnfilemanager.BorderColor = Color.Transparent;
             btnfilemanager.BorderRadius = 10;
-            btnfilemanager.CustomizableEdges = customizableEdges5;
+            btnfilemanager.CustomizableEdges = customizableEdges9;
             btnfilemanager.DisabledState.BorderColor = Color.DarkGray;
             btnfilemanager.DisabledState.CustomBorderColor = Color.DarkGray;
             btnfilemanager.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -597,7 +719,7 @@
             btnfilemanager.ForeColor = Color.White;
             btnfilemanager.Location = new Point(12, 265);
             btnfilemanager.Name = "btnfilemanager";
-            btnfilemanager.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnfilemanager.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnfilemanager.Size = new Size(230, 45);
             btnfilemanager.TabIndex = 8;
             btnfilemanager.Text = "File Manager";
@@ -607,7 +729,7 @@
             // 
             btnhome.BorderColor = Color.Transparent;
             btnhome.BorderRadius = 10;
-            btnhome.CustomizableEdges = customizableEdges7;
+            btnhome.CustomizableEdges = customizableEdges11;
             btnhome.DisabledState.BorderColor = Color.DarkGray;
             btnhome.DisabledState.CustomBorderColor = Color.DarkGray;
             btnhome.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -617,7 +739,7 @@
             btnhome.ForeColor = Color.White;
             btnhome.Location = new Point(12, 214);
             btnhome.Name = "btnhome";
-            btnhome.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnhome.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnhome.Size = new Size(230, 45);
             btnhome.TabIndex = 7;
             btnhome.Text = "Home";
@@ -643,6 +765,30 @@
             pbpanellogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pbpanellogo.TabIndex = 5;
             pbpanellogo.TabStop = false;
+            // 
+            // ToolTip
+            // 
+            ToolTip.AllowLinksHandling = true;
+            ToolTip.MaximumSize = new Size(0, 0);
+            // 
+            // btnnewdb
+            // 
+            btnnewdb.BorderColor = Color.Transparent;
+            btnnewdb.BorderRadius = 10;
+            btnnewdb.CustomizableEdges = customizableEdges3;
+            btnnewdb.DisabledState.BorderColor = Color.DarkGray;
+            btnnewdb.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnnewdb.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnnewdb.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnnewdb.FillColor = Color.FromArgb(0, 110, 179);
+            btnnewdb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnnewdb.ForeColor = Color.White;
+            btnnewdb.Location = new Point(772, 20);
+            btnnewdb.Name = "btnnewdb";
+            btnnewdb.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnnewdb.Size = new Size(144, 30);
+            btnnewdb.TabIndex = 10;
+            btnnewdb.Text = "New Database";
             // 
             // FrmServerController
             // 
@@ -677,6 +823,8 @@
             panellimitations.PerformLayout();
             pnlsvinfo.ResumeLayout(false);
             pnlsvinfo.PerformLayout();
+            PageDatabases.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataTable).EndInit();
             navbar.ResumeLayout(false);
             navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).EndInit();
@@ -689,7 +837,6 @@
 
         private Guna.UI2.WinForms.Guna2TabControl Pages;
         private TabPage PageHome;
-        private TabPage PageFiles;
         private Panel navbar;
         private Guna.UI2.WinForms.Guna2DragControl DragController;
         private PictureBox pbappicon;
@@ -730,5 +877,12 @@
         private PictureBox pbkill;
         private PictureBox pbstart;
         private Guna.UI2.WinForms.Guna2Button btnstartconsole;
+        private Label lbldbsub;
+        private Label label1;
+        private Label lbldbs;
+        private Guna.UI2.WinForms.Guna2DataGridView dataTable;
+        private Guna.UI2.WinForms.Guna2Button btndbs;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip ToolTip;
+        private Guna.UI2.WinForms.Guna2Button btnnewdb;
     }
 }

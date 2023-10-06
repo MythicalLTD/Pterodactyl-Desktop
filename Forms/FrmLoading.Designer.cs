@@ -82,6 +82,7 @@
             lblappname.TabIndex = 12;
             lblappname.Text = "Pterodactyl Desktop";
             lblappname.TextAlign = ContentAlignment.MiddleCenter;
+            lblappname.Click += lblappname_Click;
             // 
             // drag
             // 

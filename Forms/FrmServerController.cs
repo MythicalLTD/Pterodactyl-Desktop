@@ -2,8 +2,11 @@
 using Newtonsoft.Json.Linq;
 using Pterodactyl.PteroConsoleHook;
 using RestSharp;
+using System.Data;
 using System.Diagnostics;
 using System.Net;
+using System.Net.Http;
+
 namespace Pterodactyl.Forms
 {
     public partial class FrmServerController : Form
@@ -14,10 +17,100 @@ namespace Pterodactyl.Forms
         public static string? ipAlias;
         public static string? sv_disktotal;
         public static string? svmport;
+        private DataTable datatable;
+        private HttpClient httpClient;
+
         public FrmServerController(string serverIdentifier)
         {
             InitializeComponent();
             this.serverIdentifier = serverIdentifier;
+            httpClient = new HttpClient();
+            datatable = new DataTable();
+            AddColumnsToDataTable();
+            dataTable.DataSource = datatable;
+        }
+        private JObject ExtractJsonFromHtml(string html)
+        {
+            var startIndex = html.IndexOf('{');
+            var endIndex = html.LastIndexOf('}');
+
+            if (startIndex != -1 && endIndex != -1)
+            {
+                var jsonData = html.Substring(startIndex, endIndex - startIndex + 1);
+                return JObject.Parse(jsonData);
+            }
+
+            return null;
+        }
+        private async Task LoadDatabases()
+        {
+            try
+            {
+                var apiUrl = $"{Pterodactyl.User.Info.panel_url}/api/client/servers/{serverIdentifier}/databases?include=password";
+
+                var request = new HttpRequestMessage(HttpMethod.Get, apiUrl);
+                request.Headers.Add("Accept", "application/json");
+                request.Headers.Add("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
+
+                var response = await httpClient.SendAsync(request);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var jsonData = ExtractJsonFromHtml(content);
+
+                    if (jsonData != null && jsonData.ContainsKey("data"))
+                    {
+                        var data = jsonData["data"];
+
+                        datatable.Columns.Clear();
+                        datatable.Rows.Clear();
+                        datatable.Columns.Add("DB Name", typeof(string));
+                        datatable.Columns.Add("DB Username", typeof(string));
+                        datatable.Columns.Add("DB Password", typeof(string));
+                        datatable.Columns.Add("DB Address", typeof(string));
+                        datatable.Columns.Add("DB Port", typeof(int));
+                        datatable.Columns.Add("Allowed IP'S", typeof(string));
+
+                        foreach (var database in data)
+                        {
+                            var attributes = database["attributes"];
+                            var passwordAttributes = attributes["relationships"]["password"]["attributes"];
+                            string id = attributes["connections_from"]?.ToString();
+                            string name = attributes["name"]?.ToString();
+                            string username = attributes["username"]?.ToString();
+                            string password = passwordAttributes["password"]?.ToString();
+                            string hostAddress = attributes["host"]?["address"]?.ToString();
+                            int hostPort = attributes["host"]?["port"]?.Value<int>() ?? 0;
+
+                            datatable.Rows.Add(name, username, password, hostAddress, hostPort, id);
+                        }
+                    }
+                    else
+                    {
+                        Program.Alert("Failed to parse JSON from response.", FrmAlert.enmType.Warning);
+                    }
+                }
+                else
+                {
+                    var errorResponse = await response.Content.ReadAsStringAsync();
+                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + errorResponse);
+                    Program.Alert("Sowy we can't get your database list", FrmAlert.enmType.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.Alert("Sowy we can't get your database list", FrmAlert.enmType.Warning);
+            }
+        }
+        private void AddColumnsToDataTable()
+        {
+            datatable.Columns.Add("ID", typeof(string));
+            datatable.Columns.Add("Name", typeof(string));
+            datatable.Columns.Add("Username", typeof(string));
+            datatable.Columns.Add("Host Address", typeof(string));
+            datatable.Columns.Add("Host Port", typeof(int));
         }
         private async void initPteroConsole()
         {
@@ -65,11 +158,12 @@ namespace Pterodactyl.Forms
                 Program.Alert("We are sorry but we can't launch the stats", FrmAlert.enmType.Warning);
             }
         }
-        private void FrmServerController_Load(object sender, EventArgs e)
+        private async void FrmServerController_Load(object sender, EventArgs e)
         {
             getServerInfo();
             initPteroConsole();
             isMinecraftServer();
+            await LoadDatabases();
         }
 
         private void lblminimize_Click(object sender, EventArgs e)
@@ -86,7 +180,6 @@ namespace Pterodactyl.Forms
         {
             Pages.SelectedTab = PageHome;
         }
-
 
         private void btnfilemanager_Click(object sender, EventArgs e)
         {
@@ -361,6 +454,23 @@ namespace Pterodactyl.Forms
             FrmServerSelector x = new FrmServerSelector();
             x.Show();
             this.Hide();
+        }
+
+        private void btndbs_Click(object sender, EventArgs e)
+        {
+            Pages.SelectedTab = PageDatabases;
+        }
+
+        private void dataTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                var cellValue = dataTable.Rows[e.RowIndex].Cells[e.ColumnIndex].Value?.ToString();
+                if (!string.IsNullOrEmpty(cellValue))
+                {
+                    Clipboard.SetText(cellValue);
+                }
+            }
         }
     }
 }
