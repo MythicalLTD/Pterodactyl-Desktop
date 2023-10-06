@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServerController));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -36,11 +38,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Pages = new Guna.UI2.WinForms.Guna2TabControl();
             PageHome = new TabPage();
             panelpowers = new Panel();
+            btnstartconsole = new Guna.UI2.WinForms.Guna2Button();
             pbkill = new PictureBox();
             pbrestart = new PictureBox();
             pbstop = new PictureBox();
@@ -75,12 +76,11 @@
             AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
             sidebar = new Panel();
-            btntest = new Guna.UI2.WinForms.Guna2Button();
+            btnserverlist = new Guna.UI2.WinForms.Guna2Button();
             btnfilemanager = new Guna.UI2.WinForms.Guna2Button();
             btnhome = new Guna.UI2.WinForms.Guna2Button();
             lblpanelname = new Label();
             pbpanellogo = new PictureBox();
-            btnstartconsole = new Guna.UI2.WinForms.Guna2Button();
             Pages.SuspendLayout();
             PageHome.SuspendLayout();
             panelpowers.SuspendLayout();
@@ -161,6 +161,26 @@
             panelpowers.Name = "panelpowers";
             panelpowers.Size = new Size(227, 105);
             panelpowers.TabIndex = 9;
+            // 
+            // btnstartconsole
+            // 
+            btnstartconsole.BorderColor = Color.Transparent;
+            btnstartconsole.BorderRadius = 10;
+            btnstartconsole.CustomizableEdges = customizableEdges1;
+            btnstartconsole.DisabledState.BorderColor = Color.DarkGray;
+            btnstartconsole.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnstartconsole.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnstartconsole.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnstartconsole.FillColor = Color.FromArgb(0, 110, 179);
+            btnstartconsole.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnstartconsole.ForeColor = Color.White;
+            btnstartconsole.Location = new Point(28, 54);
+            btnstartconsole.Name = "btnstartconsole";
+            btnstartconsole.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnstartconsole.Size = new Size(171, 29);
+            btnstartconsole.TabIndex = 8;
+            btnstartconsole.Text = "Console";
+            btnstartconsole.Click += btnstartconsole_Click;
             // 
             // pbkill
             // 
@@ -532,7 +552,7 @@
             // sidebar
             // 
             sidebar.BackColor = Color.FromArgb(34, 39, 57);
-            sidebar.Controls.Add(btntest);
+            sidebar.Controls.Add(btnserverlist);
             sidebar.Controls.Add(btnfilemanager);
             sidebar.Controls.Add(btnhome);
             sidebar.Controls.Add(lblpanelname);
@@ -543,24 +563,25 @@
             sidebar.Size = new Size(248, 790);
             sidebar.TabIndex = 2;
             // 
-            // btntest
+            // btnserverlist
             // 
-            btntest.BorderColor = Color.Transparent;
-            btntest.BorderRadius = 10;
-            btntest.CustomizableEdges = customizableEdges3;
-            btntest.DisabledState.BorderColor = Color.DarkGray;
-            btntest.DisabledState.CustomBorderColor = Color.DarkGray;
-            btntest.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btntest.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btntest.FillColor = Color.FromArgb(0, 110, 179);
-            btntest.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btntest.ForeColor = Color.White;
-            btntest.Location = new Point(12, 316);
-            btntest.Name = "btntest";
-            btntest.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btntest.Size = new Size(230, 48);
-            btntest.TabIndex = 9;
-            btntest.Text = "Home";
+            btnserverlist.BorderColor = Color.Transparent;
+            btnserverlist.BorderRadius = 10;
+            btnserverlist.CustomizableEdges = customizableEdges3;
+            btnserverlist.DisabledState.BorderColor = Color.DarkGray;
+            btnserverlist.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnserverlist.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnserverlist.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnserverlist.FillColor = Color.FromArgb(0, 110, 179);
+            btnserverlist.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnserverlist.ForeColor = Color.White;
+            btnserverlist.Location = new Point(12, 724);
+            btnserverlist.Name = "btnserverlist";
+            btnserverlist.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnserverlist.Size = new Size(230, 48);
+            btnserverlist.TabIndex = 9;
+            btnserverlist.Text = "Server List";
+            btnserverlist.Click += btnserverlist_Click;
             // 
             // btnfilemanager
             // 
@@ -622,26 +643,6 @@
             pbpanellogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pbpanellogo.TabIndex = 5;
             pbpanellogo.TabStop = false;
-            // 
-            // btnstartconsole
-            // 
-            btnstartconsole.BorderColor = Color.Transparent;
-            btnstartconsole.BorderRadius = 10;
-            btnstartconsole.CustomizableEdges = customizableEdges1;
-            btnstartconsole.DisabledState.BorderColor = Color.DarkGray;
-            btnstartconsole.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnstartconsole.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnstartconsole.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnstartconsole.FillColor = Color.FromArgb(0, 110, 179);
-            btnstartconsole.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnstartconsole.ForeColor = Color.White;
-            btnstartconsole.Location = new Point(28, 54);
-            btnstartconsole.Name = "btnstartconsole";
-            btnstartconsole.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnstartconsole.Size = new Size(171, 29);
-            btnstartconsole.TabIndex = 8;
-            btnstartconsole.Text = "Console";
-            btnstartconsole.Click += btnstartconsole_Click;
             // 
             // FrmServerController
             // 
@@ -707,7 +708,7 @@
         private PictureBox pbpanellogo;
         private Label lblpanelname;
         private Guna.UI2.WinForms.Guna2Button btnhome;
-        private Guna.UI2.WinForms.Guna2Button btntest;
+        private Guna.UI2.WinForms.Guna2Button btnserverlist;
         private Guna.UI2.WinForms.Guna2Button btnfilemanager;
         private Panel pnlsvinfo;
         private Label lblsvname;

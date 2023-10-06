@@ -41,7 +41,7 @@ namespace Pterodactyl.Forms
                     catch (Exception ex)
                     {
                         Program.Alert("Failed to update server status", FrmAlert.enmType.Warning);
-                        Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.User.Login.cs]: \n" + ex.Message);
+                        Program.logger.Log(Managers.LogType.Error, "[User.Login.cs]: \n" + ex.Message);
                     }
                 };
                 console.RequestToken += pteroConsole =>
@@ -110,7 +110,7 @@ namespace Pterodactyl.Forms
             catch (Exception ex)
             {
                 Program.Alert("WinSCP failed to start", FrmAlert.enmType.Error);
-                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
             }
         }
         private void isMinecraftServer()
@@ -144,7 +144,7 @@ namespace Pterodactyl.Forms
             catch (Exception ex)
             {
                 Program.Alert("Failed to check for a minecraft server", FrmAlert.enmType.Warning);
-                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
             }
         }
         private void getServerInfo()
@@ -203,7 +203,7 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
                 Program.Alert("Failed to get the server info", FrmAlert.enmType.Warning);
             }
         }
@@ -227,13 +227,13 @@ namespace Pterodactyl.Forms
                 }
                 else
                 {
-                    Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + response.Content);
+                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + response.Content);
                     Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
                 Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
             }
         }
@@ -257,13 +257,13 @@ namespace Pterodactyl.Forms
                 }
                 else
                 {
-                    Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + response.Content);
+                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + response.Content);
                     Program.Alert("Failed to stop the server", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
                 Program.Alert("Failed to stop the server", FrmAlert.enmType.Warning);
             }
         }
@@ -287,13 +287,13 @@ namespace Pterodactyl.Forms
                 }
                 else
                 {
-                    Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + response.Content);
+                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + response.Content);
                     Program.Alert("Failed to restart the server", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
                 Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
             }
         }
@@ -317,13 +317,13 @@ namespace Pterodactyl.Forms
                 }
                 else
                 {
-                    Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + response.Content);
+                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + response.Content);
                     Program.Alert("Failed to kill the server", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
                 Program.Alert("Failed to kill the server", FrmAlert.enmType.Warning);
             }
         }
@@ -340,7 +340,7 @@ namespace Pterodactyl.Forms
                     Process process = new Process();
                     process.StartInfo.FileName = executablePath;
                     process.StartInfo.Arguments = arguments;
-                    process.StartInfo.UseShellExecute = true; 
+                    process.StartInfo.UseShellExecute = true;
                     process.StartInfo.CreateNoWindow = false;
                     process.Start();
                 }
@@ -352,8 +352,15 @@ namespace Pterodactyl.Forms
             catch (Exception ex)
             {
                 Program.Alert("Failed to start console", FrmAlert.enmType.Error);
-                Program.logger.Log(Managers.LogType.Error, "[Pterodactyl.Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
             }
+        }
+
+        private void btnserverlist_Click(object sender, EventArgs e)
+        {
+            FrmServerSelector x = new FrmServerSelector();
+            x.Show();
+            this.Hide();
         }
     }
 }

@@ -131,7 +131,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial", 8F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(236, 240, 243);
-            label1.Location = new Point(70, 312);
+            label1.Location = new Point(83, 302);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(640, 20);

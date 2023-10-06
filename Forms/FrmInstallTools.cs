@@ -42,8 +42,7 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error during deleting: " + ex.Message);
-
+                Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \n" + ex.Message);
             }
         }
 
@@ -57,16 +56,20 @@ namespace Pterodactyl.Forms
                 if (File.Exists(zipFilePath))
                 {
                     ZipFile.ExtractToDirectory(zipFilePath, extractPath);
-                    Console.WriteLine("Addons have been extracted successfully!");
+                    Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \nAddons have been extracted successfully!");
                 }
                 else
                 {
-                    Console.WriteLine("Client.zip not found for extraction.");
+                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmInstallTools.cs]: \nClient.zip not found for extraction.");
+                    MessageBox.Show("Client.zip not found for extraction. \nTry again later","Addons",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    Application.Exit();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error during unzip: " + ex.Message);
+                Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \n"+ex.Message);
+                MessageBox.Show("Client.zip faild extract. \nTry again later", "Addons", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
         }
 
@@ -84,14 +87,14 @@ namespace Pterodactyl.Forms
                         using (FileStream fileStream = new FileStream("Client.zip", FileMode.Create))
                         {
                             await contentStream.CopyToAsync(fileStream);
-                            Console.WriteLine("Addons have been downloaded successfully!");
+                            Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \nAddons have been downloaded successfully!");
                         }
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Failed to download Addons: {0}", response.StatusCode);
-                    MessageBox.Show("Failed to download update \nTry again later");
+                    Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \nFailed to download Addons: " + response.StatusCode);
+                    MessageBox.Show("Failed to download addons \nTry again later");
                     Application.Exit();
                 }
             }

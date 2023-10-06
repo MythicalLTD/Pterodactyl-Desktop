@@ -5,8 +5,6 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pterodactyl", "Pterodactyl.csproj", "{E8F91865-3849-4773-B205-2DCFF069F11F}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PterodactylSetup", "PterodactylSetup\PterodactylSetup.vdproj", "{29BB4937-3D0E-458E-AA47-DB83EA05235A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{E8F91865-3849-4773-B205-2DCFF069F11F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8F91865-3849-4773-B205-2DCFF069F11F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8F91865-3849-4773-B205-2DCFF069F11F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29BB4937-3D0E-458E-AA47-DB83EA05235A}.Debug|Any CPU.ActiveCfg = Debug
-		{29BB4937-3D0E-458E-AA47-DB83EA05235A}.Debug|Any CPU.Build.0 = Debug
-		{29BB4937-3D0E-458E-AA47-DB83EA05235A}.Release|Any CPU.ActiveCfg = Release
-		{29BB4937-3D0E-458E-AA47-DB83EA05235A}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

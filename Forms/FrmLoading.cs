@@ -93,7 +93,7 @@ namespace Pterodactyl.Forms
         }
         private void FrmLoading_Load(object sender, EventArgs e)
         {
-            CheckForUpdate();
+            //CheckForUpdate();
         }
         public static async Task Download()
         {

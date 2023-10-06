@@ -1,5 +1,7 @@
-﻿using Pterodactyl.Handlers;
+﻿using Newtonsoft.Json;
+using Pterodactyl.Handlers;
 using Pterodactyl.Pterodactyl;
+using System.Net.Http.Headers;
 #pragma warning disable
 namespace Pterodactyl.Forms
 {
@@ -75,28 +77,98 @@ namespace Pterodactyl.Forms
                         SessionInfo sessionInfo = registryHandler.GetSessionInfo(selectedSessionName);
                         if (sessionInfo != null)
                         {
-
-                            await Pterodactyl.User.Info.Get(sessionInfo.PanelUrl, sessionInfo.ApiKey, sessionInfo.PanelPwd);
-                            if (Pterodactyl.User.Info.panel_username != null &&
-                                Pterodactyl.User.Info.panel_email != null &&
-                                Pterodactyl.User.Info.panel_id != null)
+                            try
                             {
-                                SessionListBox.Enabled = false;
-                                FrmServerSelector x = new FrmServerSelector();
-                                x.Show();
-                                this.Hide();
+                                using HttpClient httpClient = new HttpClient();
+                                httpClient.BaseAddress = new Uri(sessionInfo.PanelUrl);
+                                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                                httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {sessionInfo.ApiKey}");
+
+                                HttpResponseMessage response = await httpClient.GetAsync("/api/client/account");
+
+                                if (response.IsSuccessStatusCode)
+                                {
+                                    string responseBody = await response.Content.ReadAsStringAsync();
+                                    if (responseBody.StartsWith("{\"object\":\"user\","))
+                                    {
+                                        try
+                                        {
+                                            dynamic userObject = JsonConvert.DeserializeObject<dynamic>(responseBody);
+
+                                            Pterodactyl.User.Info.panel_id = userObject.attributes.id;
+                                            Pterodactyl.User.Info.panel_admin = userObject.attributes.admin;
+                                            Pterodactyl.User.Info.panel_username = userObject.attributes.username;
+                                            Pterodactyl.User.Info.panel_email = userObject.attributes.email;
+                                            Pterodactyl.User.Info.panel_first_name = userObject.attributes.first_name;
+                                            Pterodactyl.User.Info.panel_last_name = userObject.attributes.last_name;
+                                            Pterodactyl.User.Info.panel_language = userObject.attributes.language;
+                                            Pterodactyl.User.Info.panel_url = sessionInfo.PanelUrl;
+                                            Pterodactyl.User.Info.panel_api_key = sessionInfo.ApiKey;
+                                            Pterodactyl.User.Info.panel_password = sessionInfo.PanelPwd;
+                                            try
+                                            {
+                                                Program.Alert("Successfully logged in!", FrmAlert.enmType.Succes);
+                                                FrmServerSelector x = new FrmServerSelector();
+                                                x.Show();
+                                                this.Hide();
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                Program.Alert("Login failed", FrmAlert.enmType.Error);
+                                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.Message);
+                                            }
+                                        }
+                                        catch (JsonException ex)
+                                        {
+                                            Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.Message);
+                                            Program.Alert("Login Failed. JSON deserialization error.", FrmAlert.enmType.Error);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Program.Alert("Login Failed. Unexpected response format.", FrmAlert.enmType.Error);
+                                    }
+                                }
+                                else if ((int)response.StatusCode >= 500)
+                                {
+                                    Program.Alert("Login Failed. Server returned an error.", FrmAlert.enmType.Error);
+                                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + $"Server returned an error ({(int)response.StatusCode}): {response.ReasonPhrase}");
+                                }
+                                else if (response.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable ||
+                                         response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                                {
+                                    Program.Alert("Login Failed. Server is protected by a verification page.", FrmAlert.enmType.Error);
+                                }
+                                else
+                                {
+                                    Program.Alert("Login Failed. Server returned an error.", FrmAlert.enmType.Error);
+                                    Program.logger.Log(Managers.LogType.Error, $"[Forms.FrmSessions.cs]: \nLogin Failed with status code: {response.StatusCode}");
+
+                                }
+                            }
+                            catch (HttpRequestException ex)
+                            {
+                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.Message);
+                                Program.Alert("Login Failed. Check url format", FrmAlert.enmType.Error);
+                            }
+                            catch (Exception ex)
+                            {
+                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.Message);
+                                Program.Alert("Login Failed", FrmAlert.enmType.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Session information not found.");
+                            Program.Alert("Session information not found.", FrmAlert.enmType.Error);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("We are sorry but we can't load the sessions:\n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.Message);
+                Program.Alert("We are sorry but we can't load the sessions.", FrmAlert.enmType.Error);
+
             }
         }
 

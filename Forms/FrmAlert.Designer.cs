@@ -28,65 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAlert));
-            this.lblMsg = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.icontype = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.icontype)).BeginInit();
-            this.SuspendLayout();
+            lblMsg = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
+            icontype = new PictureBox();
+            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            ((System.ComponentModel.ISupportInitialize)icontype).BeginInit();
+            SuspendLayout();
             // 
             // lblMsg
             // 
-            this.lblMsg.AutoSize = true;
-            this.lblMsg.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold);
-            this.lblMsg.Location = new System.Drawing.Point(65, 39);
-            this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(139, 22);
-            this.lblMsg.TabIndex = 1;
-            this.lblMsg.Text = "An alert message";
+            lblMsg.AutoSize = true;
+            lblMsg.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMsg.Location = new Point(76, 45);
+            lblMsg.Margin = new Padding(4, 0, 4, 0);
+            lblMsg.Name = "lblMsg";
+            lblMsg.Size = new Size(139, 22);
+            lblMsg.TabIndex = 1;
+            lblMsg.Text = "An alert message";
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            timer1.Tick += timer1_Tick;
             // 
             // icontype
             // 
-            this.icontype.Image = global::Pterodactyl.Properties.Resources.happycloud;
-            this.icontype.Location = new System.Drawing.Point(12, 29);
-            this.icontype.Name = "icontype";
-            this.icontype.Size = new System.Drawing.Size(47, 43);
-            this.icontype.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.icontype.TabIndex = 0;
-            this.icontype.TabStop = false;
+            icontype.Image = Properties.Resources.happycloud;
+            icontype.Location = new Point(14, 33);
+            icontype.Margin = new Padding(4, 3, 4, 3);
+            icontype.Name = "icontype";
+            icontype.Size = new Size(55, 50);
+            icontype.SizeMode = PictureBoxSizeMode.StretchImage;
+            icontype.TabIndex = 0;
+            icontype.TabStop = false;
+            // 
+            // guna2Elipse1
+            // 
+            guna2Elipse1.BorderRadius = 20;
+            guna2Elipse1.TargetControl = this;
             // 
             // FrmAlert
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.RoyalBlue;
-            this.ClientSize = new System.Drawing.Size(537, 99);
-            this.Controls.Add(this.lblMsg);
-            this.Controls.Add(this.icontype);
-            this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmAlert";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Launcher";
-            this.TopMost = true;
-            this.Load += new System.EventHandler(this.FrmAlert_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.icontype)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.RoyalBlue;
+            ClientSize = new Size(626, 114);
+            Controls.Add(lblMsg);
+            Controls.Add(icontype);
+            ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FrmAlert";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Launcher";
+            TopMost = true;
+            Load += FrmAlert_Load;
+            ((System.ComponentModel.ISupportInitialize)icontype).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private System.Windows.Forms.Label lblMsg;
-        private System.Windows.Forms.PictureBox icontype;
+        private Label lblMsg;
+        private PictureBox icontype;
         private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
