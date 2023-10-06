@@ -22,7 +22,7 @@ namespace Pterodactyl.Forms
             else
             {
                 try
-                { 
+                {
                     using HttpClient httpClient = new HttpClient();
                     httpClient.BaseAddress = new Uri(txtpanelurl.Text);
                     httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -59,7 +59,8 @@ namespace Pterodactyl.Forms
                                     FrmSessions x = new FrmSessions();
                                     x.Show();
                                     this.Hide();
-                                } catch (Exception ex)
+                                }
+                                catch (Exception ex)
                                 {
                                     Program.Alert("Login failed", FrmAlert.enmType.Error);
                                     Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + ex.Message);
@@ -79,7 +80,7 @@ namespace Pterodactyl.Forms
                     else if ((int)response.StatusCode >= 500)
                     {
                         Program.Alert("Login Failed. Server returned an error.", FrmAlert.enmType.Error);
-                        Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + $"Server returned an error ({ (int)response.StatusCode}): { response.ReasonPhrase}");
+                        Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + $"Server returned an error ({(int)response.StatusCode}): {response.ReasonPhrase}");
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable ||
                              response.StatusCode == System.Net.HttpStatusCode.Forbidden)

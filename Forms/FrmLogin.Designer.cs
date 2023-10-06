@@ -50,18 +50,17 @@
             pbappicon = new PictureBox();
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
             DragController = new Guna.UI2.WinForms.Guna2DragControl(components);
-            AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             btnaddsession = new Guna.UI2.WinForms.Guna2Button();
             txtpanelname = new Guna.UI2.WinForms.Guna2TextBox();
             cbdirectlogin = new Guna.UI2.WinForms.Guna2CheckBox();
             LoginPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            lblpanelpwd = new Label();
+            lblpanelapikey = new Label();
+            lblpanelurl = new Label();
             txtpanelapikey = new Guna.UI2.WinForms.Guna2TextBox();
             txtpanelpwd = new Guna.UI2.WinForms.Guna2TextBox();
             txtpanelurl = new Guna.UI2.WinForms.Guna2TextBox();
             lbladdsession = new Label();
-            lblpanelurl = new Label();
-            lblpanelapikey = new Label();
-            lblpanelpwd = new Label();
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).BeginInit();
             LoginPanel.SuspendLayout();
@@ -147,10 +146,6 @@
             DragController.DragStartTransparencyValue = 0.6D;
             DragController.TargetControl = navbar;
             DragController.UseTransparentDrag = true;
-            // 
-            // AnimateWindow
-            // 
-            AnimateWindow.TargetForm = this;
             // 
             // btnaddsession
             // 
@@ -249,6 +244,39 @@
             LoginPanel.Size = new Size(496, 402);
             LoginPanel.TabIndex = 23;
             // 
+            // lblpanelpwd
+            // 
+            lblpanelpwd.AutoSize = true;
+            lblpanelpwd.BackColor = Color.Transparent;
+            lblpanelpwd.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblpanelpwd.Location = new Point(21, 228);
+            lblpanelpwd.Name = "lblpanelpwd";
+            lblpanelpwd.Size = new Size(118, 19);
+            lblpanelpwd.TabIndex = 21;
+            lblpanelpwd.Text = "Panel Password:";
+            // 
+            // lblpanelapikey
+            // 
+            lblpanelapikey.AutoSize = true;
+            lblpanelapikey.BackColor = Color.Transparent;
+            lblpanelapikey.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblpanelapikey.Location = new Point(21, 158);
+            lblpanelapikey.Name = "lblpanelapikey";
+            lblpanelapikey.Size = new Size(121, 19);
+            lblpanelapikey.TabIndex = 20;
+            lblpanelapikey.Text = "Panel Client Key:";
+            // 
+            // lblpanelurl
+            // 
+            lblpanelurl.AutoSize = true;
+            lblpanelurl.BackColor = Color.Transparent;
+            lblpanelurl.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblpanelurl.Location = new Point(21, 88);
+            lblpanelurl.Name = "lblpanelurl";
+            lblpanelurl.Size = new Size(80, 19);
+            lblpanelurl.TabIndex = 19;
+            lblpanelurl.Text = "Panel URL:";
+            // 
             // txtpanelapikey
             // 
             txtpanelapikey.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -343,39 +371,6 @@
             lbladdsession.TabIndex = 5;
             lbladdsession.Text = "Login to Continue";
             // 
-            // lblpanelurl
-            // 
-            lblpanelurl.AutoSize = true;
-            lblpanelurl.BackColor = Color.Transparent;
-            lblpanelurl.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblpanelurl.Location = new Point(21, 88);
-            lblpanelurl.Name = "lblpanelurl";
-            lblpanelurl.Size = new Size(80, 19);
-            lblpanelurl.TabIndex = 19;
-            lblpanelurl.Text = "Panel URL:";
-            // 
-            // lblpanelapikey
-            // 
-            lblpanelapikey.AutoSize = true;
-            lblpanelapikey.BackColor = Color.Transparent;
-            lblpanelapikey.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblpanelapikey.Location = new Point(21, 158);
-            lblpanelapikey.Name = "lblpanelapikey";
-            lblpanelapikey.Size = new Size(121, 19);
-            lblpanelapikey.TabIndex = 20;
-            lblpanelapikey.Text = "Panel Client Key:";
-            // 
-            // lblpanelpwd
-            // 
-            lblpanelpwd.AutoSize = true;
-            lblpanelpwd.BackColor = Color.Transparent;
-            lblpanelpwd.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblpanelpwd.Location = new Point(21, 228);
-            lblpanelpwd.Name = "lblpanelpwd";
-            lblpanelpwd.Size = new Size(118, 19);
-            lblpanelpwd.TabIndex = 21;
-            lblpanelpwd.Text = "Panel Password:";
-            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -410,7 +405,6 @@
         private PictureBox pbappicon;
         private Guna.UI2.WinForms.Guna2Elipse Elipse;
         private Guna.UI2.WinForms.Guna2DragControl DragController;
-        private Guna.UI2.WinForms.Guna2AnimateWindow AnimateWindow;
         private Guna.UI2.WinForms.Guna2Button btnaddsession;
         private Guna.UI2.WinForms.Guna2TextBox txtpanelname;
         private Guna.UI2.WinForms.Guna2CheckBox cbdirectlogin;

@@ -61,13 +61,13 @@ namespace Pterodactyl.Forms
                 else
                 {
                     Program.logger.Log(Managers.LogType.Error, "[Forms.FrmInstallTools.cs]: \nClient.zip not found for extraction.");
-                    MessageBox.Show("Client.zip not found for extraction. \nTry again later","Addons",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Client.zip not found for extraction. \nTry again later", "Addons", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                 }
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \n"+ex.Message);
+                Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \n" + ex.Message);
                 MessageBox.Show("Client.zip faild extract. \nTry again later", "Addons", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }

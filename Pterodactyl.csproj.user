@@ -25,5 +25,8 @@
     <Compile Update="Forms\FrmSessions.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\FrmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

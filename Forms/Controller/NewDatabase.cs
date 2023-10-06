@@ -56,12 +56,17 @@ namespace Pterodactyl.Forms.Controller
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
                         Program.Alert("Database created successfully!", FrmAlert.enmType.Succes);
-                        this.Close();
+                        FrmServerController x = new FrmServerController(ServerId);
+                        x.Show();
+                        this.Hide();
                     }
                     else
                     {
                         Program.Alert("Error while creating your database!", FrmAlert.enmType.Error);
                         Program.logger.Log(Managers.LogType.Error, "[Forms.Controller.NewDatabase.cs]: " + response.ErrorMessage);
+                        FrmServerController x = new FrmServerController(ServerId);
+                        x.Show();
+                        this.Hide();
                     }
                 }
                 catch (Exception ex)

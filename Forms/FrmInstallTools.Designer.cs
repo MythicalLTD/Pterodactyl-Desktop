@@ -41,7 +41,6 @@
             pbappicon = new PictureBox();
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
             DragController = new Guna.UI2.WinForms.Guna2DragControl(components);
-            AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             lblinstallinfo = new Label();
             lblinstalldesc = new Label();
             btnaccpetinstall = new Guna.UI2.WinForms.Guna2Button();
@@ -53,7 +52,7 @@
             // 
             // navbar
             // 
-            navbar.BackColor = Color.FromArgb(29, 37, 49);
+            navbar.BackColor = Color.FromArgb(26, 21, 44);
             navbar.Controls.Add(lblappname);
             navbar.Controls.Add(lblminimize);
             navbar.Controls.Add(lblexit);
@@ -121,10 +120,6 @@
             DragController.TargetControl = navbar;
             DragController.UseTransparentDrag = true;
             // 
-            // AnimateWindow
-            // 
-            AnimateWindow.TargetForm = this;
-            // 
             // lblinstallinfo
             // 
             lblinstallinfo.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
@@ -158,7 +153,7 @@
             btnaccpetinstall.DisabledState.CustomBorderColor = Color.DarkGray;
             btnaccpetinstall.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnaccpetinstall.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnaccpetinstall.FillColor = Color.FromArgb(59, 130, 246);
+            btnaccpetinstall.FillColor = Color.FromArgb(0, 110, 179);
             btnaccpetinstall.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnaccpetinstall.ForeColor = Color.White;
             btnaccpetinstall.Location = new Point(400, 153);
@@ -180,7 +175,7 @@
             btndeny.DisabledState.CustomBorderColor = Color.DarkGray;
             btndeny.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btndeny.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btndeny.FillColor = Color.FromArgb(59, 130, 246);
+            btndeny.FillColor = Color.FromArgb(0, 110, 179);
             btndeny.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btndeny.ForeColor = Color.White;
             btndeny.Location = new Point(517, 153);
@@ -207,7 +202,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(30, 45, 59);
+            BackColor = Color.FromArgb(27, 28, 46);
             ClientSize = new Size(1018, 209);
             Controls.Add(lbldonotclose);
             Controls.Add(btndeny);
@@ -236,7 +231,6 @@
         private PictureBox pbappicon;
         private Guna.UI2.WinForms.Guna2Elipse Elipse;
         private Guna.UI2.WinForms.Guna2DragControl DragController;
-        private Guna.UI2.WinForms.Guna2AnimateWindow AnimateWindow;
         private Label lblinstalldesc;
         private Label lblinstallinfo;
         private Guna.UI2.WinForms.Guna2Button btnaccpetinstall;

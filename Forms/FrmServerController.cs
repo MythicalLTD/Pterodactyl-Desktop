@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Pterodactyl.Forms.Controller;
 using Pterodactyl.PteroConsoleHook;
 using RestSharp;
 using System.Data;
@@ -475,7 +476,9 @@ namespace Pterodactyl.Forms
 
         private void btnnewdb_Click(object sender, EventArgs e)
         {
-
+            NewDatabase x = new NewDatabase(serverIdentifier);
+            x.Show();
+            this.Hide();
         }
 
         private void PageDatabases_Click(object sender, EventArgs e)

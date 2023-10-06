@@ -185,5 +185,22 @@ namespace Pterodactyl.Forms
             x.Show();
             this.Hide();
         }
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnsettings_Click(object sender, EventArgs e)
+        {
+            FrmSettings x = new FrmSettings(session: false);
+            x.Show();
+            this.Hide();
+        }
+
+        private void btnhome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -38,7 +38,6 @@
             panel1 = new Panel();
             panel2 = new Panel();
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
-            AnimateWindow = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             LoaderElipse = new Guna.UI2.WinForms.Guna2Elipse(components);
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)appicon).BeginInit();
@@ -118,10 +117,6 @@
             Elipse.BorderRadius = 20;
             Elipse.TargetControl = this;
             // 
-            // AnimateWindow
-            // 
-            AnimateWindow.TargetForm = this;
-            // 
             // LoaderElipse
             // 
             LoaderElipse.BorderRadius = 20;
@@ -177,7 +172,6 @@
         private Panel panel1;
         private Panel panel2;
         private Guna.UI2.WinForms.Guna2Elipse Elipse;
-        private Guna.UI2.WinForms.Guna2AnimateWindow AnimateWindow;
         private Guna.UI2.WinForms.Guna2Elipse LoaderElipse;
         private Label label1;
     }

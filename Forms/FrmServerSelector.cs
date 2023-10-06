@@ -117,4 +117,47 @@ public partial class FrmServerSelector : Form
     {
 
     }
+
+    private void btnhome_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void btnsettings_Click(object sender, EventArgs e)
+    {
+        FrmSettings x = new FrmSettings(session: true);
+        x.Show();
+        this.Hide();
+    }
+
+    private void btnsvlist_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void btnprofile_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void btnexit_Click(object sender, EventArgs e)
+    {
+        Pterodactyl.User.Info.panel_id = null;
+        Pterodactyl.User.Info.panel_admin = null;
+        Pterodactyl.User.Info.panel_username = null;
+        Pterodactyl.User.Info.panel_email = null;
+        Pterodactyl.User.Info.panel_first_name = null;
+        Pterodactyl.User.Info.panel_last_name = null;
+        Pterodactyl.User.Info.panel_language = null;
+        Pterodactyl.User.Info.panel_url = null;
+        Pterodactyl.User.Info.panel_api_key = null;
+        FrmSessions x = new FrmSessions();
+        x.Show();
+        this.Hide();
+    }
+
+    private void lblwlcdsc_Click(object sender, EventArgs e)
+    {
+
+    }
 }
