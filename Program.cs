@@ -1,7 +1,5 @@
 using Pterodactyl.Forms;
 using Pterodactyl.Managers;
-using System.Diagnostics;
-using System.Security.Principal;
 
 namespace Pterodactyl
 {
@@ -24,25 +22,6 @@ namespace Pterodactyl
         [STAThread]
         public static void Main()
         {
-            WindowsIdentity identity = WindowsIdentity.GetCurrent();
-            WindowsPrincipal principal = new WindowsPrincipal(identity);
-            if (!principal.IsInRole(WindowsBuiltInRole.Administrator))
-            {
-                ProcessStartInfo processInfo = new ProcessStartInfo();
-                processInfo.Verb = "runas"; 
-                processInfo.FileName = Application.ExecutablePath;
-
-                try
-                {
-                    Process.Start(processInfo);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("We are sorry, but we require administrator access to use some app functions. Please allow us to start with UAC.", "Critical Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                Application.Exit();
-                return;
-            }
             ApplicationConfiguration.Initialize();
             if (!OperatingSystem.IsWindows())
             {

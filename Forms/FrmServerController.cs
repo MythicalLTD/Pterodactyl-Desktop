@@ -477,5 +477,10 @@ namespace Pterodactyl.Forms
         {
 
         }
+
+        private void PageDatabases_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
