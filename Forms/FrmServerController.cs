@@ -472,5 +472,10 @@ namespace Pterodactyl.Forms
                 }
             }
         }
+
+        private void btnnewdb_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
