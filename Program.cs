@@ -10,6 +10,7 @@ namespace Pterodactyl
         /// </summary>
         public static string AppVersion = "1.0.0";
         public static LoggerManager logger = new LoggerManager();
+        public static string themes = Application.StartupPath + @"\themes\theme.ini";        
         public static string osVersion;
         public static string osDescription;
         public static string cpuArchitecture;
@@ -27,7 +28,7 @@ namespace Pterodactyl
         public static void Main()
         {
             ApplicationConfiguration.Initialize();
-
+            ThemeManager.initThemes();
             osVersion = System.Environment.OSVersion.Version.ToString();
             osDescription = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
             cpuArchitecture = System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture.ToString();

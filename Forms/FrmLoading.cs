@@ -94,7 +94,8 @@ namespace Pterodactyl.Forms
                     MessageBox.Show("Can't find the installer please try again");
                     Application.Exit();
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Can't find the installer please try again");
                 ProblemHandler.Error("FrmLoading", ex.ToString());
@@ -104,11 +105,19 @@ namespace Pterodactyl.Forms
         }
         private void FrmLoading_Load(object sender, EventArgs e)
         {
+            LoadTheme();
             CheckForUpdate();
             if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
             {
                 this.TopMost = true;
             }
+        }
+        private void LoadTheme()
+        {
+            this.BackColor = Color.FromArgb(Managers.ThemeManager.background_r, Managers.ThemeManager.background_g, Managers.ThemeManager.background_b);
+            lblwarning.ForeColor = Color.FromArgb(Managers.ThemeManager.text_r, Managers.ThemeManager.text_g, Managers.ThemeManager.text_b);
+            lblappname.ForeColor = Color.FromArgb(Managers.ThemeManager.text_r, Managers.ThemeManager.text_g, Managers.ThemeManager.text_b);
+            lblexit.ForeColor = Color.FromArgb(Managers.ThemeManager.text_r, Managers.ThemeManager.text_g, Managers.ThemeManager.text_b);
         }
         public static async Task Download()
         {

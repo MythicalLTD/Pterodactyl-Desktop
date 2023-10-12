@@ -39,7 +39,7 @@
             panel2 = new Panel();
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
             LoaderElipse = new Guna.UI2.WinForms.Guna2Elipse(components);
-            label1 = new Label();
+            lblwarning = new Label();
             ((System.ComponentModel.ISupportInitialize)appicon).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -122,18 +122,18 @@
             LoaderElipse.BorderRadius = 20;
             LoaderElipse.TargetControl = panel1;
             // 
-            // label1
+            // lblwarning
             // 
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Arial", 8F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.FromArgb(236, 240, 243);
-            label1.Location = new Point(83, 302);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(640, 20);
-            label1.TabIndex = 14;
-            label1.Text = "We not affiliated with pterodactyl this is not an official product released by pterodactyl";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            lblwarning.BackColor = Color.Transparent;
+            lblwarning.Font = new Font("Arial", 8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblwarning.ForeColor = Color.FromArgb(236, 240, 243);
+            lblwarning.Location = new Point(83, 302);
+            lblwarning.Margin = new Padding(4, 0, 4, 0);
+            lblwarning.Name = "lblwarning";
+            lblwarning.Size = new Size(640, 20);
+            lblwarning.TabIndex = 14;
+            lblwarning.Text = "We not affiliated with pterodactyl this is not an official product released by pterodactyl";
+            lblwarning.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FrmLoading
             // 
@@ -141,7 +141,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(27, 28, 46);
             ClientSize = new Size(765, 331);
-            Controls.Add(label1);
+            Controls.Add(lblwarning);
             Controls.Add(panel1);
             Controls.Add(lblappname);
             Controls.Add(lblexit);
@@ -173,6 +173,6 @@
         private Panel panel2;
         private Guna.UI2.WinForms.Guna2Elipse Elipse;
         private Guna.UI2.WinForms.Guna2Elipse LoaderElipse;
-        private Label label1;
+        private Label lblwarning;
     }
 }
