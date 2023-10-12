@@ -115,12 +115,12 @@ namespace Pterodactyl.Forms
                                             catch (Exception ex)
                                             {
                                                 Program.Alert("Login failed", FrmAlert.enmType.Error);
-                                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.Message);
+                                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.ToString());
                                             }
                                         }
                                         catch (JsonException ex)
                                         {
-                                            Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.Message);
+                                            Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.ToString());
                                             Program.Alert("Login Failed. JSON deserialization error.", FrmAlert.enmType.Error);
                                         }
                                     }
@@ -148,12 +148,12 @@ namespace Pterodactyl.Forms
                             }
                             catch (HttpRequestException ex)
                             {
-                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.Message);
+                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.ToString());
                                 Program.Alert("Login Failed. Check url format", FrmAlert.enmType.Error);
                             }
                             catch (Exception ex)
                             {
-                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.Message);
+                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.ToString());
                                 Program.Alert("Login Failed", FrmAlert.enmType.Error);
                             }
                         }
@@ -166,9 +166,9 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmSessions.cs]: \n" + ex.ToString());
                 Program.Alert("We are sorry but we can't load the sessions.", FrmAlert.enmType.Error);
-
+                ProblemHandler.Error("FrmSessions", ex.ToString());
             }
         }
 

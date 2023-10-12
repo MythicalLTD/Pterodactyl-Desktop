@@ -1,4 +1,5 @@
 ﻿
+using Pterodactyl.Handlers;
 using Pterodactyl.Properties;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
@@ -52,41 +53,51 @@ namespace Pterodactyl.Forms
                     else
                     {
                         Console.WriteLine("[{0:HH:mm:ss}] Version not found in Program.cs", DateTime.Now);
+                        ProblemHandler.Critical("FrmLoading", "Version not found in Program.cs");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("[{0:HH:mm:ss}] Error: " + ex.Message, DateTime.Now);
+                    ProblemHandler.Error("FrmLoading", ex.ToString());
+                    Console.WriteLine("[{0:HH:mm:ss}] Error: " + ex.ToString(), DateTime.Now);
                 }
             }
         }
         private void RunInstallerWithBatchScript()
         {
-            if (File.Exists("PterodactylSetup.msi"))
+            try
             {
-                string batchScript = @"
+                if (File.Exists("PterodactylSetup.msi"))
+                {
+                    string batchScript = @"
         @echo off
         start /b PterodactylSetup.msi
         exit
     ";
 
-                string batchFilePath = Path.Combine(Environment.CurrentDirectory, "InstallInBackground.bat");
+                    string batchFilePath = Path.Combine(Environment.CurrentDirectory, "InstallInBackground.bat");
 
-                File.WriteAllText(batchFilePath, batchScript);
+                    File.WriteAllText(batchFilePath, batchScript);
 
-                Process.Start(new ProcessStartInfo
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = batchFilePath,
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        CreateNoWindow = true,
+                        UseShellExecute = false
+                    });
+
+                    Application.Exit();
+                }
+                else
                 {
-                    FileName = batchFilePath,
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    CreateNoWindow = true,
-                    UseShellExecute = false
-                });
-
-                Application.Exit();
-            }
-            else
+                    MessageBox.Show("Can't find the installer please try again");
+                    Application.Exit();
+                }
+            } catch (Exception ex)
             {
                 MessageBox.Show("Can't find the installer please try again");
+                ProblemHandler.Error("FrmLoading", ex.ToString());
                 Application.Exit();
             }
 

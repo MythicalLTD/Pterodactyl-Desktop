@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Pterodactyl.Handlers;
 using System.Net.Http;
 
 namespace Pterodactyl.Forms;
@@ -40,7 +41,8 @@ public partial class FrmServerSelector : Form
         }
         catch (Exception ex)
         {
-            Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred: " + ex.Message + "", DateTime.Now);
+            ProblemHandler.Error("FrmServerSelector", ex.ToString());
+            Console.WriteLine("[{0:HH:mm:ss}] (SERVER LIST) An error occurred: " + ex.ToString() + "", DateTime.Now);
         }
     }
 
@@ -87,7 +89,8 @@ public partial class FrmServerSelector : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show("We are sorry but we can't load the servers:\n" + ex.Message);
+            ProblemHandler.Warning("FrmServerSelector", ex.ToString());
+            MessageBox.Show("We are sorry but we can't load the servers:\n" + ex.ToString());
         }
     }
 

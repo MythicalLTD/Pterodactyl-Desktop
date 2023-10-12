@@ -55,6 +55,7 @@ namespace Pterodactyl.Forms
                                         RegistryHandler rh = new RegistryHandler();
                                         rh.CreateAccountData(txtpanelname.Text, txtpanelurl.Text, txtpanelpwd.Text, txtpanelapikey.Text);
                                     }
+                                    TelemetryHandler.Login();
                                     Program.Alert("Successfully logged in!", FrmAlert.enmType.Succes);
                                     FrmSessions x = new FrmSessions();
                                     x.Show();
@@ -63,12 +64,12 @@ namespace Pterodactyl.Forms
                                 catch (Exception ex)
                                 {
                                     Program.Alert("Login failed", FrmAlert.enmType.Error);
-                                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + ex.Message);
+                                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + ex.ToString());
                                 }
                             }
                             catch (JsonException ex)
                             {
-                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + ex.Message);
+                                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + ex.ToString());
                                 Program.Alert("Login Failed. JSON deserialization error.", FrmAlert.enmType.Error);
                             }
                         }
@@ -96,17 +97,20 @@ namespace Pterodactyl.Forms
                 }
                 catch (HttpRequestException ex)
                 {
-                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + ex.Message);
+                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + ex.ToString());
+                    ProblemHandler.Error("FrmLogin", ex.ToString());
                     Program.Alert("Login Failed. Check url format", FrmAlert.enmType.Error);
                 }
                 catch (Exception ex)
                 {
-                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + ex.Message);
+                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmLogin.cs]: \n" + ex.ToString());
                     Program.Alert("Login Failed", FrmAlert.enmType.Error);
+                    ProblemHandler.Error("FrmLogin", ex.ToString());
                 }
             }
         }
 
+        
         private void lblexit_Click(object sender, EventArgs e)
         {
             Application.Exit();

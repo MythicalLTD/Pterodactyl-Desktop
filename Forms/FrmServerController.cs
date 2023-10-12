@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Pterodactyl.Forms.Controller;
+using Pterodactyl.Handlers;
 using Pterodactyl.PteroConsoleHook;
 using RestSharp;
 using System.Data;
@@ -101,8 +102,9 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
                 Program.Alert("Sowy we can't get your database list", FrmAlert.enmType.Warning);
+                ProblemHandler.Error("FrmServerController", ex.ToString());
             }
         }
         private void AddColumnsToDataTable()
@@ -135,7 +137,7 @@ namespace Pterodactyl.Forms
                     catch (Exception ex)
                     {
                         Program.Alert("Failed to update server status", FrmAlert.enmType.Warning);
-                        Program.logger.Log(Managers.LogType.Error, "[User.Login.cs]: \n" + ex.Message);
+                        Program.logger.Log(Managers.LogType.Error, "[User.Login.cs]: \n" + ex.ToString());
                     }
                 };
                 console.RequestToken += pteroConsole =>
@@ -155,6 +157,7 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
+                ProblemHandler.Error("FrmServerController", ex.ToString());
                 Console.WriteLine(ex.ToString());
                 Program.Alert("We are sorry but we can't launch the stats", FrmAlert.enmType.Warning);
             }
@@ -203,8 +206,9 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
+                ProblemHandler.Error("FrmServerController", ex.ToString());
                 Program.Alert("WinSCP failed to start", FrmAlert.enmType.Error);
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
             }
         }
         private void isMinecraftServer()
@@ -237,8 +241,9 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
+                ProblemHandler.Warning("FrmServerController", ex.ToString());
                 Program.Alert("Failed to check for a minecraft server", FrmAlert.enmType.Warning);
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
             }
         }
         private void getServerInfo()
@@ -297,7 +302,8 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
+                ProblemHandler.Warning("FrmServerController", ex.ToString());
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
                 Program.Alert("Failed to get the server info", FrmAlert.enmType.Warning);
             }
         }
@@ -327,7 +333,8 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
+                ProblemHandler.Warning("FrmServerController", ex.ToString());
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
                 Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
             }
         }
@@ -357,7 +364,8 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
+                ProblemHandler.Warning("FrmServerController", ex.ToString());
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
                 Program.Alert("Failed to stop the server", FrmAlert.enmType.Warning);
             }
         }
@@ -387,7 +395,8 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
+                ProblemHandler.Warning("FrmServerController", ex.ToString());
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
                 Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
             }
         }
@@ -411,13 +420,15 @@ namespace Pterodactyl.Forms
                 }
                 else
                 {
+
                     Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + response.Content);
                     Program.Alert("Failed to kill the server", FrmAlert.enmType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
+                ProblemHandler.Warning("FrmServerController", ex.ToString());
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
                 Program.Alert("Failed to kill the server", FrmAlert.enmType.Warning);
             }
         }
@@ -445,8 +456,9 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
+                ProblemHandler.Error("FrmServerController", ex.ToString());
                 Program.Alert("Failed to start console", FrmAlert.enmType.Error);
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
             }
         }
 

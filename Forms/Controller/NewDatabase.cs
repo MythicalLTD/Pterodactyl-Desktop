@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Pterodactyl.Handlers;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,6 +72,7 @@ namespace Pterodactyl.Forms.Controller
                 }
                 catch (Exception ex)
                 {
+                    ProblemHandler.Error("NewDatabase", ex.ToString());
                     Program.logger.Log(Managers.LogType.Error, "[Forms.Controller.NewDatabase.cs]: "+ex.Message);
                 }
             }

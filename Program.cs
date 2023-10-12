@@ -10,6 +10,10 @@ namespace Pterodactyl
         /// </summary>
         public static string AppVersion = "1.0.0";
         public static LoggerManager logger = new LoggerManager();
+        public static string osVersion;
+        public static string osDescription;
+        public static string cpuArchitecture;
+        public static string osArchitecture;
         public static string mcascii = @" 
   _____  _                  _____            _             _ _           
  |  __ \| |                / ____|          | |           | | |          
@@ -23,6 +27,11 @@ namespace Pterodactyl
         public static void Main()
         {
             ApplicationConfiguration.Initialize();
+
+            osVersion = System.Environment.OSVersion.Version.ToString();
+            osDescription = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
+            cpuArchitecture = System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture.ToString();
+            osArchitecture = System.Environment.Is64BitOperatingSystem ? "64-bit" : "32-bit";
             if (!OperatingSystem.IsWindows())
             {
                 logger.Log(LogType.Error, "We are sorry, but we blocked this app from running on any other OS than Windows!");

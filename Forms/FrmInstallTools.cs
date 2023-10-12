@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Pterodactyl.Handlers;
+using System.IO;
 using System.IO.Compression;
 using System.Net.Http;
 
@@ -19,6 +20,7 @@ namespace Pterodactyl.Forms
 
         private async void btnaccpetinstall_Click(object sender, EventArgs e)
         {
+            TelemetryHandler.InstallTools();
             lbldonotclose.Visible = true;
             lblinstallinfo.Text = "Additional software installation";
             lblinstalldesc.Text = "Please wait while we download and install our core add-ons.";
@@ -42,7 +44,8 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \n" + ex.Message);
+                ProblemHandler.Error("FrmInstallTools", ex.ToString());
+                Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \n" + ex.ToString());
             }
         }
 
@@ -67,7 +70,8 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \n" + ex.Message);
+                ProblemHandler.Error("FrmInstallTools", ex.ToString());
+                Program.logger.Log(Managers.LogType.Info, "[Forms.FrmInstallTools.cs]: \n" + ex.ToString());
                 MessageBox.Show("Client.zip faild extract. \nTry again later", "Addons", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }

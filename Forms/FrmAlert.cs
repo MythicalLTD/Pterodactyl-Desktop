@@ -1,4 +1,5 @@
 ﻿
+using Pterodactyl.Handlers;
 using Pterodactyl.Properties;
 # pragma warning disable
 
@@ -126,7 +127,7 @@ namespace Pterodactyl.Forms
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[{0:HH:mm:ss}] (Alert) An error occurred: " + ex.Message, DateTime.Now);
+                ProblemHandler.Error("FrmAlert", ex.ToString());
             }
         }
     }
