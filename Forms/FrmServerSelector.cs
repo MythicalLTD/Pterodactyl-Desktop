@@ -19,6 +19,10 @@ public partial class FrmServerSelector : Form
 
     private async void FrmServerSelector_Load(object sender, EventArgs e)
     {
+        if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
+        {
+            this.TopMost = true;
+        }
         lblwlc.Text = "Welcome, " + Pterodactyl.User.Info.panel_username;
         try
         {

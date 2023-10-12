@@ -239,6 +239,7 @@
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pterodactyl";
+            Load += NewDatabase_Load;
             ResumeLayout(false);
             PerformLayout();
         }

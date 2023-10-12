@@ -46,6 +46,7 @@
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PteroConsole.NET" Version="1.0.4" />
+    <PackageReference Include="Salaros.ConfigParser" Version="0.3.8" />
   </ItemGroup>
 
   <ItemGroup>

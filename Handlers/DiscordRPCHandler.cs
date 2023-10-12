@@ -9,44 +9,51 @@ namespace Pterodactyl.Handlers
 
         public void InitializeRPC()
         {
-            try
+            if (RegistryHandler.GetSetting("DisableDiscordRPC") == "false")
             {
-                client = new DiscordRpcClient("1114229771426078790");
-                client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
-                client.OnReady += (sender, e) =>
+                try
                 {
-                };
-                client.OnPresenceUpdate += (sender, e) =>
-                {
-                };
-                client.Initialize();
-
-                DiscordRPC.Button btns = new DiscordRPC.Button();
-                DiscordRPC.Button btns2 = new DiscordRPC.Button();
-                btns.Label = "Pterodactyl";
-                btns.Url = "https://pterodactyl.io";
-                btns2.Label = "Download app";
-                btns2.Url = "https://github.com/MythicalLTD/Pterodactyl";
-
-                client.SetPresence(new RichPresence()
-                {
-                    Details = "Using Pterodactyl",
-                    State = "A Pterodactyl Panel Desktop App! <3",
-                    Assets = new Assets()
+                    client = new DiscordRpcClient("1114229771426078790");
+                    client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
+                    client.OnReady += (sender, e) =>
                     {
-                        LargeImageKey = "logo",
-                        LargeImageText = "Pterodactyl",
-                    },
-                    Buttons = new DiscordRPC.Button[]
+                    };
+                    client.OnPresenceUpdate += (sender, e) =>
                     {
+                    };
+                    client.Initialize();
+
+                    DiscordRPC.Button btns = new DiscordRPC.Button();
+                    DiscordRPC.Button btns2 = new DiscordRPC.Button();
+                    btns.Label = "Pterodactyl";
+                    btns.Url = "https://pterodactyl.io";
+                    btns2.Label = "Download app";
+                    btns2.Url = "https://github.com/MythicalLTD/Pterodactyl";
+
+                    client.SetPresence(new RichPresence()
+                    {
+                        Details = "Using Pterodactyl",
+                        State = "A Pterodactyl Panel Desktop App! <3",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Pterodactyl",
+                        },
+                        Buttons = new DiscordRPC.Button[]
+                        {
                         btns,
                         btns2
-                    },
-                });
-            }
-            catch (Exception ex)
+                        },
+                    });
+                }
+                catch (Exception ex)
+                {
+                    ProblemHandler.Warning("DIscordRPCHandler", ex.ToString());
+                    Program.logger.Log(Managers.LogType.Error, "[Handlers.DiscordRPCHandler.cs]: \n" + ex.Message);
+                }
+            } else
             {
-                Program.logger.Log(Managers.LogType.Error, "[Handlers.DiscordRPCHandler.cs]: \n" + ex.Message);
+                Program.logger.Log(Managers.LogType.Warning, "Discord RPC is disabled");
             }
         }
     }

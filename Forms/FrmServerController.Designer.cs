@@ -160,6 +160,7 @@
             PageHome.Size = new Size(937, 781);
             PageHome.TabIndex = 0;
             PageHome.Text = "Home";
+            PageHome.Click += PageHome_Click;
             // 
             // panelpowers
             // 

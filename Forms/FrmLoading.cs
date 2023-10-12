@@ -105,6 +105,10 @@ namespace Pterodactyl.Forms
         private void FrmLoading_Load(object sender, EventArgs e)
         {
             CheckForUpdate();
+            if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
+            {
+                this.TopMost = true;
+            }
         }
         public static async Task Download()
         {

@@ -73,9 +73,19 @@ namespace Pterodactyl.Forms.Controller
                 catch (Exception ex)
                 {
                     ProblemHandler.Error("NewDatabase", ex.ToString());
-                    Program.logger.Log(Managers.LogType.Error, "[Forms.Controller.NewDatabase.cs]: "+ex.Message);
+                    Program.logger.Log(Managers.LogType.Error, "[Forms.Controller.NewDatabase.cs]: " + ex.Message);
                 }
             }
+        }
+
+        private void NewDatabase_Load(object sender, EventArgs e)
+        {
+
+            if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
+            {
+                this.TopMost = true;
+            }
+
         }
     }
 }

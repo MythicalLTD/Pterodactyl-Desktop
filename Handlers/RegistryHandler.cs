@@ -21,6 +21,7 @@ namespace Pterodactyl.Handlers
                 }
             } catch (Exception ex)
             {
+                ProblemHandler.Error("RegistryHandler", ex.ToString());
                 Program.logger.Log(Managers.LogType.Error, "[Handlers.RegistryHandler.cs]: \n" + ex.Message);
             }
         }
@@ -51,6 +52,7 @@ namespace Pterodactyl.Handlers
             }
             catch (Exception ex)
             {
+                ProblemHandler.Error("RegistryHandler", ex.ToString());
                 Program.logger.Log(Managers.LogType.Error, "[Handlers.RegistryHandler.cs]: \n" + ex.Message);
                 return null;
             }
@@ -80,6 +82,39 @@ namespace Pterodactyl.Handlers
             }
             catch (Exception ex)
             {
+                ProblemHandler.Error("RegistryHandler", ex.ToString());
+                Program.logger.Log(Managers.LogType.Error, "[Handlers.RegistryHandler.cs]: \n" + ex.Message);
+                return null;
+            }
+        }
+        public static void SetSetting(string st, string value)
+        {
+            try
+            {
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(RegistrySettingsBasePath))
+                {
+                    key.SetValue(st, value);
+                }
+            }
+            catch (Exception ex)
+            {
+                ProblemHandler.Error("RegistryHandler", ex.ToString());
+                Program.logger.Log(Managers.LogType.Error, "[Handlers.RegistryHandler.cs]: \n" + ex.Message);
+            }
+        }
+
+        public static string GetSetting(string st)
+        {
+            try
+            {
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(RegistrySettingsBasePath))
+                {
+                    return key?.GetValue(st)?.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                ProblemHandler.Error("RegistryHandler", ex.ToString());
                 Program.logger.Log(Managers.LogType.Error, "[Handlers.RegistryHandler.cs]: \n" + ex.Message);
                 return null;
             }

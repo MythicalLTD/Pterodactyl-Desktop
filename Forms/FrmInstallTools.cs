@@ -20,6 +20,11 @@ namespace Pterodactyl.Forms
 
         private async void btnaccpetinstall_Click(object sender, EventArgs e)
         {
+            RegistryHandler.SetSetting("AlwaysOnTop", "false");
+            RegistryHandler.SetSetting("DisableUnstableMode", "true");
+            RegistryHandler.SetSetting("DisableTelemetry", "false");
+            RegistryHandler.SetSetting("DisableErrorReporting", "false");
+            RegistryHandler.SetSetting("DisableDiscordRPC", "false");
             TelemetryHandler.InstallTools();
             lbldonotclose.Visible = true;
             lblinstallinfo.Text = "Additional software installation";
@@ -112,6 +117,14 @@ namespace Pterodactyl.Forms
         private void lblminimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void FrmInstallTools_Load(object sender, EventArgs e)
+        {
+            if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
+            {
+                this.TopMost = true;
+            }
         }
     }
 }

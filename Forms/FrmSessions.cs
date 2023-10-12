@@ -30,6 +30,10 @@ namespace Pterodactyl.Forms
         }
         private void FrmSessions_Load(object sender, EventArgs e)
         {
+            if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
+            {
+                this.TopMost = true;
+            }
             DiscordRPCHandler discordRPC = new DiscordRPCHandler();
             discordRPC.InitializeRPC();
         }

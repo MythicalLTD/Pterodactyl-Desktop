@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -38,6 +39,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSettings));
             navbar = new Panel();
             lblappname = new Label();
@@ -52,6 +55,20 @@
             btnhome = new Guna.UI2.WinForms.Guna2Button();
             lblpanelname = new Label();
             pbpanellogo = new PictureBox();
+            lblsettings = new Label();
+            btnsavesettings = new Guna.UI2.WinForms.Guna2Button();
+            cbalwaysontop = new Guna.UI2.WinForms.Guna2CheckBox();
+            lblappsettings = new Label();
+            cbdisableunstablemode = new Guna.UI2.WinForms.Guna2CheckBox();
+            cbdisabletlmtry = new Guna.UI2.WinForms.Guna2CheckBox();
+            cberrorreport = new Guna.UI2.WinForms.Guna2CheckBox();
+            disablerpc = new Guna.UI2.WinForms.Guna2CheckBox();
+            lblexperimentalsettings = new Label();
+            lblappinfo = new Label();
+            lblappversion = new Label();
+            lblbranch = new Label();
+            DragController = new Guna.UI2.WinForms.Guna2DragControl(components);
+            Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).BeginInit();
             sidebar.SuspendLayout();
@@ -253,12 +270,214 @@
             pbpanellogo.TabIndex = 5;
             pbpanellogo.TabStop = false;
             // 
+            // lblsettings
+            // 
+            lblsettings.Font = new Font("Segoe UI", 19F, FontStyle.Bold, GraphicsUnit.Point);
+            lblsettings.ForeColor = Color.WhiteSmoke;
+            lblsettings.Location = new Point(299, 29);
+            lblsettings.Name = "lblsettings";
+            lblsettings.Size = new Size(383, 44);
+            lblsettings.TabIndex = 12;
+            lblsettings.Text = "Welcome to the settings page.";
+            lblsettings.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // btnsavesettings
+            // 
+            btnsavesettings.BorderColor = Color.Transparent;
+            btnsavesettings.BorderRadius = 10;
+            btnsavesettings.CustomizableEdges = customizableEdges11;
+            btnsavesettings.DisabledState.BorderColor = Color.DarkGray;
+            btnsavesettings.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnsavesettings.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnsavesettings.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnsavesettings.FillColor = Color.FromArgb(0, 110, 179);
+            btnsavesettings.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnsavesettings.ForeColor = Color.White;
+            btnsavesettings.Location = new Point(922, 643);
+            btnsavesettings.Name = "btnsavesettings";
+            btnsavesettings.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnsavesettings.Size = new Size(161, 40);
+            btnsavesettings.TabIndex = 13;
+            btnsavesettings.Text = "Save";
+            btnsavesettings.Click += btnsavesettings_Click;
+            // 
+            // cbalwaysontop
+            // 
+            cbalwaysontop.AutoSize = true;
+            cbalwaysontop.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbalwaysontop.CheckedState.BorderRadius = 0;
+            cbalwaysontop.CheckedState.BorderThickness = 0;
+            cbalwaysontop.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            cbalwaysontop.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            cbalwaysontop.Location = new Point(303, 120);
+            cbalwaysontop.Name = "cbalwaysontop";
+            cbalwaysontop.Size = new Size(103, 19);
+            cbalwaysontop.TabIndex = 14;
+            cbalwaysontop.Text = "Always on top";
+            cbalwaysontop.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            cbalwaysontop.UncheckedState.BorderRadius = 0;
+            cbalwaysontop.UncheckedState.BorderThickness = 0;
+            cbalwaysontop.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            // 
+            // lblappsettings
+            // 
+            lblappsettings.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            lblappsettings.ForeColor = Color.WhiteSmoke;
+            lblappsettings.Location = new Point(299, 86);
+            lblappsettings.Name = "lblappsettings";
+            lblappsettings.Size = new Size(160, 29);
+            lblappsettings.TabIndex = 15;
+            lblappsettings.Text = "App Settings:";
+            lblappsettings.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // cbdisableunstablemode
+            // 
+            cbdisableunstablemode.AutoSize = true;
+            cbdisableunstablemode.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbdisableunstablemode.CheckedState.BorderRadius = 0;
+            cbdisableunstablemode.CheckedState.BorderThickness = 0;
+            cbdisableunstablemode.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            cbdisableunstablemode.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            cbdisableunstablemode.Location = new Point(303, 145);
+            cbdisableunstablemode.Name = "cbdisableunstablemode";
+            cbdisableunstablemode.Size = new Size(151, 19);
+            cbdisableunstablemode.TabIndex = 16;
+            cbdisableunstablemode.Text = "Disable unstable mode";
+            cbdisableunstablemode.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            cbdisableunstablemode.UncheckedState.BorderRadius = 0;
+            cbdisableunstablemode.UncheckedState.BorderThickness = 0;
+            cbdisableunstablemode.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            // 
+            // cbdisabletlmtry
+            // 
+            cbdisabletlmtry.AutoSize = true;
+            cbdisabletlmtry.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbdisabletlmtry.CheckedState.BorderRadius = 0;
+            cbdisabletlmtry.CheckedState.BorderThickness = 0;
+            cbdisabletlmtry.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            cbdisabletlmtry.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            cbdisabletlmtry.Location = new Point(303, 170);
+            cbdisabletlmtry.Name = "cbdisabletlmtry";
+            cbdisabletlmtry.Size = new Size(126, 19);
+            cbdisabletlmtry.TabIndex = 17;
+            cbdisabletlmtry.Text = "Disable Telemetry";
+            cbdisabletlmtry.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            cbdisabletlmtry.UncheckedState.BorderRadius = 0;
+            cbdisabletlmtry.UncheckedState.BorderThickness = 0;
+            cbdisabletlmtry.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            // 
+            // cberrorreport
+            // 
+            cberrorreport.AutoSize = true;
+            cberrorreport.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cberrorreport.CheckedState.BorderRadius = 0;
+            cberrorreport.CheckedState.BorderThickness = 0;
+            cberrorreport.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            cberrorreport.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            cberrorreport.Location = new Point(303, 195);
+            cberrorreport.Name = "cberrorreport";
+            cberrorreport.Size = new Size(156, 19);
+            cberrorreport.TabIndex = 18;
+            cberrorreport.Text = "Disable Error Reporting";
+            cberrorreport.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            cberrorreport.UncheckedState.BorderRadius = 0;
+            cberrorreport.UncheckedState.BorderThickness = 0;
+            cberrorreport.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            // 
+            // disablerpc
+            // 
+            disablerpc.AutoSize = true;
+            disablerpc.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            disablerpc.CheckedState.BorderRadius = 0;
+            disablerpc.CheckedState.BorderThickness = 0;
+            disablerpc.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            disablerpc.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            disablerpc.Location = new Point(303, 220);
+            disablerpc.Name = "disablerpc";
+            disablerpc.Size = new Size(136, 19);
+            disablerpc.TabIndex = 19;
+            disablerpc.Text = "Disable Discord RPC";
+            disablerpc.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            disablerpc.UncheckedState.BorderRadius = 0;
+            disablerpc.UncheckedState.BorderThickness = 0;
+            disablerpc.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            // 
+            // lblexperimentalsettings
+            // 
+            lblexperimentalsettings.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            lblexperimentalsettings.ForeColor = Color.WhiteSmoke;
+            lblexperimentalsettings.Location = new Point(299, 252);
+            lblexperimentalsettings.Name = "lblexperimentalsettings";
+            lblexperimentalsettings.Size = new Size(292, 29);
+            lblexperimentalsettings.TabIndex = 20;
+            lblexperimentalsettings.Text = "Experimental Settings: (SOON)";
+            lblexperimentalsettings.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblappinfo
+            // 
+            lblappinfo.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            lblappinfo.ForeColor = Color.WhiteSmoke;
+            lblappinfo.Location = new Point(303, 589);
+            lblappinfo.Name = "lblappinfo";
+            lblappinfo.Size = new Size(292, 29);
+            lblappinfo.TabIndex = 21;
+            lblappinfo.Text = "App Info:";
+            lblappinfo.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblappversion
+            // 
+            lblappversion.AutoSize = true;
+            lblappversion.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblappversion.ForeColor = Color.WhiteSmoke;
+            lblappversion.Location = new Point(307, 618);
+            lblappversion.Name = "lblappversion";
+            lblappversion.Size = new Size(139, 19);
+            lblappversion.TabIndex = 22;
+            lblappversion.Text = "Version: %version%";
+            lblappversion.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblbranch
+            // 
+            lblbranch.AutoSize = true;
+            lblbranch.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblbranch.ForeColor = Color.WhiteSmoke;
+            lblbranch.Location = new Point(307, 637);
+            lblbranch.Name = "lblbranch";
+            lblbranch.Size = new Size(133, 19);
+            lblbranch.TabIndex = 23;
+            lblbranch.Text = "Branch: %branch%";
+            lblbranch.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // DragController
+            // 
+            DragController.DockIndicatorTransparencyValue = 0.6D;
+            DragController.DragStartTransparencyValue = 0.6D;
+            DragController.TargetControl = navbar;
+            DragController.UseTransparentDrag = true;
+            // 
+            // Elipse
+            // 
+            Elipse.BorderRadius = 20;
+            Elipse.TargetControl = this;
+            // 
             // FrmSettings
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(27, 28, 46);
             ClientSize = new Size(1095, 695);
+            Controls.Add(lblbranch);
+            Controls.Add(lblappversion);
+            Controls.Add(lblappinfo);
+            Controls.Add(lblexperimentalsettings);
+            Controls.Add(disablerpc);
+            Controls.Add(cberrorreport);
+            Controls.Add(cbdisabletlmtry);
+            Controls.Add(cbdisableunstablemode);
+            Controls.Add(lblappsettings);
+            Controls.Add(cbalwaysontop);
+            Controls.Add(btnsavesettings);
+            Controls.Add(lblsettings);
             Controls.Add(sidebar);
             Controls.Add(navbar);
             Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
@@ -275,6 +494,7 @@
             sidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbpanellogo).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -292,5 +512,19 @@
         private Guna.UI2.WinForms.Guna2Button btnhome;
         private Label lblpanelname;
         private PictureBox pbpanellogo;
+        private Label lblsettings;
+        private Guna.UI2.WinForms.Guna2Button btnsavesettings;
+        private Guna.UI2.WinForms.Guna2CheckBox cbalwaysontop;
+        private Label lblappsettings;
+        private Guna.UI2.WinForms.Guna2CheckBox cbdisableunstablemode;
+        private Guna.UI2.WinForms.Guna2CheckBox cbdisabletlmtry;
+        private Guna.UI2.WinForms.Guna2CheckBox cberrorreport;
+        private Guna.UI2.WinForms.Guna2CheckBox disablerpc;
+        private Label lblexperimentalsettings;
+        private Label lblappinfo;
+        private Label lblappversion;
+        private Label lblbranch;
+        private Guna.UI2.WinForms.Guna2DragControl DragController;
+        private Guna.UI2.WinForms.Guna2Elipse Elipse;
     }
 }

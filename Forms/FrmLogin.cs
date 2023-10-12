@@ -131,6 +131,10 @@ namespace Pterodactyl.Forms
             {
                 cbdirectlogin.Checked = false;
             }
+            if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
+            {
+                this.TopMost = true;
+            }
         }
     }
 }

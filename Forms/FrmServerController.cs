@@ -164,12 +164,15 @@ namespace Pterodactyl.Forms
         }
         private async void FrmServerController_Load(object sender, EventArgs e)
         {
+            if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
+            {
+                this.TopMost = true;
+            }
             getServerInfo();
             initPteroConsole();
             isMinecraftServer();
             await LoadDatabases();
         }
-
         private void lblminimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -494,6 +497,11 @@ namespace Pterodactyl.Forms
         }
 
         private void PageDatabases_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PageHome_Click(object sender, EventArgs e)
         {
 
         }

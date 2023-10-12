@@ -216,6 +216,7 @@
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pterodactyl";
+            Load += FrmInstallTools_Load;
             navbar.ResumeLayout(false);
             navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).EndInit();
