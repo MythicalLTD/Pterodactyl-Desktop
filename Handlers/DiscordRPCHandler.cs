@@ -28,11 +28,11 @@ namespace Pterodactyl.Handlers
                     btns.Label = "Pterodactyl";
                     btns.Url = "https://pterodactyl.io";
                     btns2.Label = "Download app";
-                    btns2.Url = "https://github.com/MythicalLTD/Pterodactyl";
+                    btns2.Url = "https://github.com/MythicalLTD/Pterodactyl-Desktop";
 
                     client.SetPresence(new RichPresence()
                     {
-                        Details = "Using Pterodactyl",
+                        Details = "Using Pterodactyl Desktop",
                         State = "A Pterodactyl Panel Desktop App! <3",
                         Assets = new Assets()
                         {
