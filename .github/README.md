@@ -5,7 +5,7 @@
 A Pterodactyl Panel desktop app that uses the Client API!
 
 
-<p><img src="https://discord.com/api/guilds/1080933452091752448/widget.png?style=shield" />
+<p><img src="https://discord.com/api/guilds/1175092855421800570/widget.png?style=shield" />
 
 ## Download
 
@@ -17,7 +17,7 @@ Project is not done yet
 
 For support, join our Discord server.
 
-Discord: [discord.gg/mythicalsystems](https://discord.gg/7BZTmSK2D8)
+Discord: [discord.gg/mythicalsystems](https://discord.gg/3FWyugpznc)
 
 
 ## Features
@@ -77,7 +77,7 @@ This project is used by the following companies:
 
 - [MythicalSystems](https://mythicalsystems.me)
 
-[IF YOU WANT YOUR NAME HERE, DM ME ON DISCORD: `NaysKutzu#5375`]
+[IF YOU WANT YOUR NAME HERE, DM ME ON DISCORD: `mythicaldoggo`]
 
 
 ## Tech Stack
