@@ -2,25 +2,36 @@
 using Newtonsoft.Json.Linq;
 using Pterodactyl.Forms.Controller;
 using Pterodactyl.Handlers;
+using Pterodactyl.Managers;
 using Pterodactyl.PteroConsoleHook;
 using RestSharp;
 using System.Data;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Pterodactyl.Forms
 {
     public partial class FrmServerController : Form
     {
+        public static string? db_limit;
+        public static string? allocations_limit;
+        public static string? backups_limit;
+        //Server info
         private string? serverIdentifier;
         public static string? sftp_ip;
         public static string? sftp_port;
         public static string? ipAlias;
         public static string? sv_disktotal;
         public static string? svmport;
+        public static bool? shall_user_acces_this;
+
+        //Libs
         private DataTable datatable;
         private HttpClient httpClient;
+        private UIStyler styler;
 
         public FrmServerController(string serverIdentifier)
         {
@@ -30,6 +41,16 @@ namespace Pterodactyl.Forms
             datatable = new DataTable();
             AddColumnsToDataTable();
             dataTable.DataSource = datatable;
+            try
+            {
+                styler = new UIStyler();
+                styler.LoadFromYaml("styles.yaml");
+                styler.ApplyStyles(this);
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(LogType.Error, "[UI] Failed to apply UI modification: \n" + ex.ToString());
+            }
         }
         private JObject ExtractJsonFromHtml(string html)
         {
@@ -164,15 +185,23 @@ namespace Pterodactyl.Forms
         }
         private async void FrmServerController_Load(object sender, EventArgs e)
         {
+            shall_user_acces_this = false;
+            getServerInfo();
             if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
             {
                 this.TopMost = true;
             }
-            getServerInfo();
             initPteroConsole();
             isMinecraftServer();
             await LoadDatabases();
+            if (shall_user_acces_this == true)
+            {
+                FrmServerSelector x = new FrmServerSelector();
+                x.Show();
+                this.Hide();
+            }
         }
+
         private void lblminimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -190,65 +219,9 @@ namespace Pterodactyl.Forms
 
         private void btnfilemanager_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (File.Exists(Application.StartupPath + @"\WinSCP.exe"))
-                {
-                    string command = Application.StartupPath + @"\WinSCP.exe";
-                    string arguments = @"sftp://" + Pterodactyl.User.Info.panel_username + "." + serverIdentifier + ":" + Pterodactyl.User.Info.panel_password + "@" + sftp_ip + ":" + sftp_port + "";
-                    ProcessStartInfo processInfo = new ProcessStartInfo(command, arguments);
-                    processInfo.RedirectStandardOutput = true;
-                    processInfo.UseShellExecute = false;
-
-                    Process process = Process.Start(processInfo);
-                }
-                else
-                {
-                    Program.Alert("WinSCP missing please reinstall", FrmAlert.enmType.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                ProblemHandler.Error("FrmServerController", ex.ToString());
-                Program.Alert("WinSCP failed to start", FrmAlert.enmType.Error);
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
-            }
+            Helper.StartWinSCP(serverIdentifier, sftp_ip, sftp_port);
         }
-        private void isMinecraftServer()
-        {
-            try
-            {
-                string url = "https://api.mcsrvstat.us/2/" + ipAlias + ":" + svmport;
-                string json = new WebClient().DownloadString(url);
-                JObject data = JObject.Parse(json);
-                bool isOnline = (bool)data["online"];
-                if (isOnline)
-                {
-                    string imageDataUri = (string)data["icon"];
-                    if (imageDataUri != null)
-                    {
-                        string base64Data = imageDataUri.Split(',')[1];
-                        byte[] imageData = Convert.FromBase64String(base64Data);
-                        using (MemoryStream ms = new MemoryStream(imageData))
-                        {
-                            Image image = Image.FromStream(ms);
-                            pcsvimg.Image = image;
-                        }
-                    }
-                    else
-                    {
-                        Program.Alert("Failed to get the icon", FrmAlert.enmType.Warning);
-                    }
 
-                }
-            }
-            catch (Exception ex)
-            {
-                ProblemHandler.Warning("FrmServerController", ex.ToString());
-                Program.Alert("Failed to check for a minecraft server", FrmAlert.enmType.Warning);
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
-            }
-        }
         private void getServerInfo()
         {
             try
@@ -272,6 +245,35 @@ namespace Pterodactyl.Forms
                     sv_disktotal = serverMaxDisk;
                     sftp_port = serverInfo["attributes"]["sftp_details"]["port"].ToString();
                     sftp_ip = serverInfo["attributes"]["sftp_details"]["ip"].ToString();
+                    string serverbackups = serverInfo["attributes"]["feature_limits"]["backups"].ToString();
+                    string serverallocations = serverInfo["attributes"]["feature_limits"]["allocations"].ToString();
+                    string serverdatabases = serverInfo["attributes"]["feature_limits"]["databases"].ToString();
+
+                    bool is_suspended = bool.Parse(serverInfo["attributes"]["is_suspended"].ToString());
+                    bool is_installing = bool.Parse(serverInfo["attributes"]["is_installing"].ToString());
+                    bool server_owner = bool.Parse(serverInfo["attributes"]["server_owner"].ToString());
+
+                    if (!server_owner == true)
+                    {
+                        Program.Alert("You are not the server owner!", FrmAlert.enmType.Warning);
+                        shall_user_acces_this = true;
+                    }
+
+                    if (is_suspended == true)
+                    {
+                        Program.Alert("Your server is suspended!", FrmAlert.enmType.Warning);
+                        shall_user_acces_this = true;
+                    }
+
+                    if (is_installing == true)
+                    {
+                        Program.Alert("Your server is still installing!", FrmAlert.enmType.Warning);
+                        shall_user_acces_this = true;
+                    }
+
+                    db_limit = serverdatabases;
+                    allocations_limit = serverallocations;
+                    backups_limit = serverbackups;
                     if (serverMaxRam == "0")
                     {
                         lblsvram.Text = "Memory: Unlimited";
@@ -313,156 +315,22 @@ namespace Pterodactyl.Forms
 
         private void pbstart_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var client = new RestClient(Pterodactyl.User.Info.panel_url);
-                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
-                request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
-                request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36");
-                request.AddParameter("application/json", "{ \"signal\": \"start\" }", ParameterType.RequestBody);
-                var response = client.Execute(request);
-
-                if (response.IsSuccessful)
-                {
-                    Program.Alert("Server is starting", FrmAlert.enmType.Succes);
-                }
-                else
-                {
-                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + response.Content);
-                    Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
-                }
-            }
-            catch (Exception ex)
-            {
-                ProblemHandler.Warning("FrmServerController", ex.ToString());
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
-                Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
-            }
+            Pterodactyl.Server.Power.Start(serverIdentifier);
         }
 
         private void pbstop_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var client = new RestClient(Pterodactyl.User.Info.panel_url);
-                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
-                request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
-                request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36");
-                request.AddParameter("application/json", "{ \"signal\": \"stop\" }", ParameterType.RequestBody);
-                var response = client.Execute(request);
-
-                if (response.IsSuccessful)
-                {
-                    Program.Alert("Server is stopping", FrmAlert.enmType.Succes);
-                }
-                else
-                {
-                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + response.Content);
-                    Program.Alert("Failed to stop the server", FrmAlert.enmType.Warning);
-                }
-            }
-            catch (Exception ex)
-            {
-                ProblemHandler.Warning("FrmServerController", ex.ToString());
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
-                Program.Alert("Failed to stop the server", FrmAlert.enmType.Warning);
-            }
+            Pterodactyl.Server.Power.Stop(serverIdentifier);
         }
 
         private void pbrestart_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var client = new RestClient(Pterodactyl.User.Info.panel_url);
-                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
-                request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
-                request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36");
-                request.AddParameter("application/json", "{ \"signal\": \"restart\" }", ParameterType.RequestBody);
-                var response = client.Execute(request);
-
-                if (response.IsSuccessful)
-                {
-                    Program.Alert("Server is restarting", FrmAlert.enmType.Succes);
-                }
-                else
-                {
-                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + response.Content);
-                    Program.Alert("Failed to restart the server", FrmAlert.enmType.Warning);
-                }
-            }
-            catch (Exception ex)
-            {
-                ProblemHandler.Warning("FrmServerController", ex.ToString());
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
-                Program.Alert("Failed to start the server", FrmAlert.enmType.Warning);
-            }
+            Pterodactyl.Server.Power.Restart(serverIdentifier);
         }
 
         private void pbkill_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var client = new RestClient(Pterodactyl.User.Info.panel_url);
-                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
-                request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
-                request.AddHeader("Content-Type", "application/json");
-                request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
-                request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36");
-                request.AddParameter("application/json", "{ \"signal\": \"kill\" }", ParameterType.RequestBody);
-                var response = client.Execute(request);
-
-                if (response.IsSuccessful)
-                {
-                    Program.Alert("Server killed", FrmAlert.enmType.Succes);
-                }
-                else
-                {
-
-                    Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + response.Content);
-                    Program.Alert("Failed to kill the server", FrmAlert.enmType.Warning);
-                }
-            }
-            catch (Exception ex)
-            {
-                ProblemHandler.Warning("FrmServerController", ex.ToString());
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
-                Program.Alert("Failed to kill the server", FrmAlert.enmType.Warning);
-            }
-        }
-
-        private void btnstartconsole_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (File.Exists(Application.StartupPath + @"\PteroConsole.exe"))
-                {
-                    string executablePath = "PteroConsole.exe";
-                    string arguments = $"--panel-url {Pterodactyl.User.Info.panel_url} --panel-apikey {Pterodactyl.User.Info.panel_api_key} --serveruuid {serverIdentifier}";
-
-                    Process process = new Process();
-                    process.StartInfo.FileName = executablePath;
-                    process.StartInfo.Arguments = arguments;
-                    process.StartInfo.UseShellExecute = true;
-                    process.StartInfo.CreateNoWindow = false;
-                    process.Start();
-                }
-                else
-                {
-                    Program.Alert("PteroConsole is missing please reinstall", FrmAlert.enmType.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                ProblemHandler.Error("FrmServerController", ex.ToString());
-                Program.Alert("Failed to start console", FrmAlert.enmType.Error);
-                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
-            }
+            Pterodactyl.Server.Power.Kill(serverIdentifier);
         }
 
         private void btnserverlist_Click(object sender, EventArgs e)
@@ -474,7 +342,14 @@ namespace Pterodactyl.Forms
 
         private void btndbs_Click(object sender, EventArgs e)
         {
-            Pages.SelectedTab = PageDatabases;
+            if (int.Parse(backups_limit) > 0)
+            {
+                Pages.SelectedTab = PageDatabases;
+            }
+            else
+            {
+                Program.Alert("You have no database slots!", FrmAlert.enmType.Warning);
+            }
         }
 
         private void dataTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -496,14 +371,95 @@ namespace Pterodactyl.Forms
             this.Hide();
         }
 
-        private void PageDatabases_Click(object sender, EventArgs e)
+        private void btnconsole_Click(object sender, EventArgs e)
         {
+            Helper.StartPterodactylConsole(serverIdentifier);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Helper.StartWinSCP(serverIdentifier, sftp_ip, sftp_port);
+        }
+
+        private void pbdbs_Click(object sender, EventArgs e)
+        {
+            Pages.SelectedTab = PageDatabases;
+        }
+
+        private void btnschedules_Click(object sender, EventArgs e)
+        {
+            Program.Alert("This future is not fully done yet!", FrmAlert.enmType.Warning);
+        }
+
+        private void btnbackups_Click(object sender, EventArgs e)
+        {
+            Program.Alert("This future is not fully done yet!", FrmAlert.enmType.Warning);
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Program.Alert("This future is not fully done yet!", FrmAlert.enmType.Warning);
+        }
+
+        private void btnsettings_Click(object sender, EventArgs e)
+        {
+            Program.Alert("This future is not fully done yet!", FrmAlert.enmType.Warning);
+        }
+
+        private void pbbackups_Click(object sender, EventArgs e)
+        {
+            Program.Alert("This future is not fully done yet!", FrmAlert.enmType.Warning);
 
         }
 
-        private void PageHome_Click(object sender, EventArgs e)
+        private void pbnetwork_Click(object sender, EventArgs e)
         {
+            Program.Alert("This future is not fully done yet!", FrmAlert.enmType.Warning);
 
+        }
+
+        private void pbsettings_Click(object sender, EventArgs e)
+        {
+            Program.Alert("This future is not fully done yet!", FrmAlert.enmType.Warning);
+
+        }
+
+        public static void isMinecraftServer()
+        {
+            try
+            {
+                if (RegistryHandler.GetSetting("NoMinecraftServerIcon") == "true")
+                {
+                    //string url = "https://api.mcsrvstat.us/2/" + FrmServerController.ipAlias + ":" + FrmServerController.svmport;
+                    //string json = new WebClient().DownloadString(url);
+                    //JObject data = JObject.Parse(json);
+                    //bool isOnline = (bool)data["online"];
+                    //if (isOnline)
+                    //{
+                    //    string imageDataUri = (string)data["icon"];
+                    //    if (imageDataUri != null)
+                    //    {
+                    //        string base64Data = imageDataUri.Split(',')[1];
+                    //        byte[] imageData = Convert.FromBase64String(base64Data);
+                    //        using (MemoryStream ms = new MemoryStream(imageData))
+                    //        {
+                    //            Image image = Image.FromStream(ms);
+                    //            pbpanellogo.Image = image;
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        Program.Alert("Failed to get the icon", FrmAlert.enmType.Warning);
+                    //    }
+                    //}
+                }
+            }
+            catch (Exception ex)
+            {
+                ProblemHandler.Warning("FrmServerController", ex.ToString());
+                Program.Alert("Failed to check for a minecraft server", FrmAlert.enmType.Warning);
+                Program.logger.Log(Managers.LogType.Error, "[Forms.FrmServerController.cs]: \n" + ex.ToString());
+            }
         }
     }
 }

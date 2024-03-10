@@ -1,5 +1,6 @@
 ﻿
 using Pterodactyl.Handlers;
+using Pterodactyl.Managers;
 using Pterodactyl.Properties;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
@@ -8,9 +9,21 @@ namespace Pterodactyl.Forms
 {
     public partial class FrmLoading : Form
     {
+        private UIStyler styler;
+
         public FrmLoading()
         {
             InitializeComponent();
+            try
+            {
+                styler = new UIStyler();
+                styler.LoadFromYaml("styles.yaml");
+                styler.ApplyStyles(this);
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(LogType.Error, "[UI] Failed to apply UI modification: \n" + ex.ToString());
+            }
         }
 
         private void lblexit_Click(object sender, EventArgs e)
@@ -105,20 +118,13 @@ namespace Pterodactyl.Forms
         }
         private void FrmLoading_Load(object sender, EventArgs e)
         {
-            LoadTheme();
             CheckForUpdate();
             if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
             {
                 this.TopMost = true;
             }
         }
-        private void LoadTheme()
-        {
-            this.BackColor = Color.FromArgb(Managers.ThemeManager.background_r, Managers.ThemeManager.background_g, Managers.ThemeManager.background_b);
-            lblwarning.ForeColor = Color.FromArgb(Managers.ThemeManager.text_r, Managers.ThemeManager.text_g, Managers.ThemeManager.text_b);
-            lblappname.ForeColor = Color.FromArgb(Managers.ThemeManager.text_r, Managers.ThemeManager.text_g, Managers.ThemeManager.text_b);
-            lblexit.ForeColor = Color.FromArgb(Managers.ThemeManager.text_r, Managers.ThemeManager.text_g, Managers.ThemeManager.text_b);
-        }
+
         public static async Task Download()
         {
             string releaseURL = "https://github.com/MythicalLTD/Pterodactyl-Desktop/releases/latest/download/PterodactylSetup.msi";
@@ -160,6 +166,11 @@ namespace Pterodactyl.Forms
         }
 
         private void lblappname_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appicon_Click(object sender, EventArgs e)
         {
 
         }

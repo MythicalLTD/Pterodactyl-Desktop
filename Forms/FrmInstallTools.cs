@@ -1,4 +1,5 @@
 ﻿using Pterodactyl.Handlers;
+using Pterodactyl.Managers;
 using System.IO;
 using System.IO.Compression;
 using System.Net.Http;
@@ -7,9 +8,20 @@ namespace Pterodactyl.Forms
 {
     public partial class FrmInstallTools : Form
     {
+        private UIStyler styler;
         public FrmInstallTools()
         {
             InitializeComponent();
+            try
+            {
+                styler = new UIStyler();
+                styler.LoadFromYaml("styles.yaml");
+                styler.ApplyStyles(this);
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(LogType.Error, "[UI] Failed to apply UI modification: \n" + ex.ToString());
+            }
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

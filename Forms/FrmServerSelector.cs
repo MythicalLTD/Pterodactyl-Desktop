@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Pterodactyl.Handlers;
+using Pterodactyl.Managers;
 using System.Net.Http;
 
 namespace Pterodactyl.Forms;
@@ -7,6 +8,7 @@ namespace Pterodactyl.Forms;
 public partial class FrmServerSelector : Form
 {
     private HttpClient httpClient;
+    private UIStyler styler;
 
     public FrmServerSelector()
     {
@@ -14,6 +16,16 @@ public partial class FrmServerSelector : Form
         serverListBox.SelectedIndex = -1;
         httpClient = new HttpClient();
         httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
+        try
+        {
+            styler = new UIStyler();
+            styler.LoadFromYaml("styles.yaml");
+            styler.ApplyStyles(this);
+        }
+        catch (Exception ex)
+        {
+            Program.logger.Log(LogType.Error, "[UI] Failed to apply UI modification: \n" + ex.ToString());
+        }
     }
     private bool isFirstLoad = true;
 

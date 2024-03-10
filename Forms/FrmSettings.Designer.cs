@@ -1,4 +1,8 @@
-﻿namespace Pterodactyl.Forms
+﻿using Pterodactyl.Properties;
+using Pterodactyl;
+
+
+namespace Pterodactyl.Forms
 {
     partial class FrmSettings
     {
@@ -29,6 +33,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSettings));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -41,7 +46,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSettings));
             navbar = new Panel();
             lblappname = new Label();
             lblminimize = new Label();
@@ -69,6 +73,9 @@
             lblbranch = new Label();
             DragController = new Guna.UI2.WinForms.Guna2DragControl(components);
             Elipse = new Guna.UI2.WinForms.Guna2Elipse(components);
+            cbnoicon = new Guna.UI2.WinForms.Guna2CheckBox();
+            label1 = new Label();
+            guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbappicon).BeginInit();
             sidebar.SuspendLayout();
@@ -91,7 +98,7 @@
             // lblappname
             // 
             lblappname.AutoSize = true;
-            lblappname.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblappname.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblappname.ForeColor = Color.WhiteSmoke;
             lblappname.Location = new Point(33, 3);
             lblappname.Name = "lblappname";
@@ -102,7 +109,7 @@
             // lblminimize
             // 
             lblminimize.AutoSize = true;
-            lblminimize.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblminimize.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblminimize.ForeColor = Color.WhiteSmoke;
             lblminimize.Location = new Point(1056, 0);
             lblminimize.Name = "lblminimize";
@@ -114,7 +121,7 @@
             // lblexit
             // 
             lblexit.AutoSize = true;
-            lblexit.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblexit.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblexit.ForeColor = Color.WhiteSmoke;
             lblexit.Location = new Point(1074, 3);
             lblexit.Name = "lblexit";
@@ -125,7 +132,7 @@
             // 
             // pbappicon
             // 
-            pbappicon.Image = Properties.Resources.pterry1;
+            pbappicon.Image = (Image)resources.GetObject("pbappicon.Image");
             pbappicon.Location = new Point(3, 3);
             pbappicon.Name = "pbappicon";
             pbappicon.Size = new Size(23, 23);
@@ -159,7 +166,7 @@
             btnsettings.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnsettings.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnsettings.FillColor = Color.FromArgb(0, 110, 179);
-            btnsettings.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnsettings.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnsettings.ForeColor = Color.White;
             btnsettings.Location = new Point(12, 301);
             btnsettings.Name = "btnsettings";
@@ -167,7 +174,6 @@
             btnsettings.Size = new Size(262, 40);
             btnsettings.TabIndex = 12;
             btnsettings.Text = "Settings";
-            btnsettings.Click += btnsettings_Click;
             // 
             // btnprofile
             // 
@@ -179,7 +185,7 @@
             btnprofile.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnprofile.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnprofile.FillColor = Color.FromArgb(0, 110, 179);
-            btnprofile.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnprofile.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnprofile.ForeColor = Color.White;
             btnprofile.Location = new Point(14, 393);
             btnprofile.Name = "btnprofile";
@@ -187,7 +193,6 @@
             btnprofile.Size = new Size(262, 40);
             btnprofile.TabIndex = 11;
             btnprofile.Text = "Profile";
-            btnprofile.Click += btnprofile_Click;
             // 
             // btnexit
             // 
@@ -199,7 +204,7 @@
             btnexit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnexit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnexit.FillColor = Color.FromArgb(0, 110, 179);
-            btnexit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnexit.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnexit.ForeColor = Color.White;
             btnexit.Location = new Point(12, 617);
             btnexit.Name = "btnexit";
@@ -219,7 +224,7 @@
             btnsvlist.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnsvlist.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnsvlist.FillColor = Color.FromArgb(0, 110, 179);
-            btnsvlist.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnsvlist.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnsvlist.ForeColor = Color.White;
             btnsvlist.Location = new Point(12, 347);
             btnsvlist.Name = "btnsvlist";
@@ -239,7 +244,7 @@
             btnhome.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnhome.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnhome.FillColor = Color.FromArgb(0, 110, 179);
-            btnhome.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnhome.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnhome.ForeColor = Color.White;
             btnhome.Location = new Point(12, 255);
             btnhome.Name = "btnhome";
@@ -251,7 +256,7 @@
             // 
             // lblpanelname
             // 
-            lblpanelname.Font = new Font("Segoe UI", 17F, FontStyle.Bold, GraphicsUnit.Point);
+            lblpanelname.Font = new Font("Segoe UI", 17F, FontStyle.Bold);
             lblpanelname.ForeColor = Color.WhiteSmoke;
             lblpanelname.Location = new Point(3, 167);
             lblpanelname.Name = "lblpanelname";
@@ -262,7 +267,7 @@
             // 
             // pbpanellogo
             // 
-            pbpanellogo.Image = Properties.Resources.pterry1;
+            pbpanellogo.Image = (Image)resources.GetObject("pbpanellogo.Image");
             pbpanellogo.Location = new Point(64, 14);
             pbpanellogo.Name = "pbpanellogo";
             pbpanellogo.Size = new Size(151, 150);
@@ -272,7 +277,7 @@
             // 
             // lblsettings
             // 
-            lblsettings.Font = new Font("Segoe UI", 19F, FontStyle.Bold, GraphicsUnit.Point);
+            lblsettings.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             lblsettings.ForeColor = Color.WhiteSmoke;
             lblsettings.Location = new Point(299, 29);
             lblsettings.Name = "lblsettings";
@@ -291,7 +296,7 @@
             btnsavesettings.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnsavesettings.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnsavesettings.FillColor = Color.FromArgb(0, 110, 179);
-            btnsavesettings.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnsavesettings.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnsavesettings.ForeColor = Color.White;
             btnsavesettings.Location = new Point(922, 643);
             btnsavesettings.Name = "btnsavesettings";
@@ -308,8 +313,8 @@
             cbalwaysontop.CheckedState.BorderRadius = 0;
             cbalwaysontop.CheckedState.BorderThickness = 0;
             cbalwaysontop.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            cbalwaysontop.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            cbalwaysontop.Location = new Point(303, 120);
+            cbalwaysontop.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            cbalwaysontop.Location = new Point(307, 118);
             cbalwaysontop.Name = "cbalwaysontop";
             cbalwaysontop.Size = new Size(103, 19);
             cbalwaysontop.TabIndex = 14;
@@ -321,7 +326,7 @@
             // 
             // lblappsettings
             // 
-            lblappsettings.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            lblappsettings.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             lblappsettings.ForeColor = Color.WhiteSmoke;
             lblappsettings.Location = new Point(299, 86);
             lblappsettings.Name = "lblappsettings";
@@ -337,8 +342,8 @@
             cbdisableunstablemode.CheckedState.BorderRadius = 0;
             cbdisableunstablemode.CheckedState.BorderThickness = 0;
             cbdisableunstablemode.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            cbdisableunstablemode.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            cbdisableunstablemode.Location = new Point(303, 145);
+            cbdisableunstablemode.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            cbdisableunstablemode.Location = new Point(307, 143);
             cbdisableunstablemode.Name = "cbdisableunstablemode";
             cbdisableunstablemode.Size = new Size(151, 19);
             cbdisableunstablemode.TabIndex = 16;
@@ -355,8 +360,8 @@
             cbdisabletlmtry.CheckedState.BorderRadius = 0;
             cbdisabletlmtry.CheckedState.BorderThickness = 0;
             cbdisabletlmtry.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            cbdisabletlmtry.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            cbdisabletlmtry.Location = new Point(303, 170);
+            cbdisabletlmtry.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            cbdisabletlmtry.Location = new Point(307, 168);
             cbdisabletlmtry.Name = "cbdisabletlmtry";
             cbdisabletlmtry.Size = new Size(126, 19);
             cbdisabletlmtry.TabIndex = 17;
@@ -373,8 +378,8 @@
             cberrorreport.CheckedState.BorderRadius = 0;
             cberrorreport.CheckedState.BorderThickness = 0;
             cberrorreport.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            cberrorreport.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            cberrorreport.Location = new Point(303, 195);
+            cberrorreport.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            cberrorreport.Location = new Point(307, 193);
             cberrorreport.Name = "cberrorreport";
             cberrorreport.Size = new Size(156, 19);
             cberrorreport.TabIndex = 18;
@@ -391,8 +396,8 @@
             disablerpc.CheckedState.BorderRadius = 0;
             disablerpc.CheckedState.BorderThickness = 0;
             disablerpc.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            disablerpc.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            disablerpc.Location = new Point(303, 220);
+            disablerpc.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            disablerpc.Location = new Point(307, 218);
             disablerpc.Name = "disablerpc";
             disablerpc.Size = new Size(136, 19);
             disablerpc.TabIndex = 19;
@@ -404,9 +409,9 @@
             // 
             // lblexperimentalsettings
             // 
-            lblexperimentalsettings.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            lblexperimentalsettings.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             lblexperimentalsettings.ForeColor = Color.WhiteSmoke;
-            lblexperimentalsettings.Location = new Point(299, 252);
+            lblexperimentalsettings.Location = new Point(299, 397);
             lblexperimentalsettings.Name = "lblexperimentalsettings";
             lblexperimentalsettings.Size = new Size(292, 29);
             lblexperimentalsettings.TabIndex = 20;
@@ -415,7 +420,7 @@
             // 
             // lblappinfo
             // 
-            lblappinfo.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            lblappinfo.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             lblappinfo.ForeColor = Color.WhiteSmoke;
             lblappinfo.Location = new Point(303, 589);
             lblappinfo.Name = "lblappinfo";
@@ -427,7 +432,7 @@
             // lblappversion
             // 
             lblappversion.AutoSize = true;
-            lblappversion.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblappversion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblappversion.ForeColor = Color.WhiteSmoke;
             lblappversion.Location = new Point(307, 618);
             lblappversion.Name = "lblappversion";
@@ -439,7 +444,7 @@
             // lblbranch
             // 
             lblbranch.AutoSize = true;
-            lblbranch.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblbranch.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblbranch.ForeColor = Color.WhiteSmoke;
             lblbranch.Location = new Point(307, 637);
             lblbranch.Name = "lblbranch";
@@ -460,12 +465,62 @@
             Elipse.BorderRadius = 20;
             Elipse.TargetControl = this;
             // 
+            // cbnoicon
+            // 
+            cbnoicon.AutoSize = true;
+            cbnoicon.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbnoicon.CheckedState.BorderRadius = 0;
+            cbnoicon.CheckedState.BorderThickness = 0;
+            cbnoicon.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            cbnoicon.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            cbnoicon.Location = new Point(307, 302);
+            cbnoicon.Name = "cbnoicon";
+            cbnoicon.Size = new Size(200, 19);
+            cbnoicon.TabIndex = 24;
+            cbnoicon.Text = "Disable Server Icon (Minecraft)";
+            cbnoicon.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            cbnoicon.UncheckedState.BorderRadius = 0;
+            cbnoicon.UncheckedState.BorderThickness = 0;
+            cbnoicon.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            label1.ForeColor = Color.WhiteSmoke;
+            label1.Location = new Point(299, 259);
+            label1.Name = "label1";
+            label1.Size = new Size(292, 29);
+            label1.TabIndex = 25;
+            label1.Text = "Server Settings";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // guna2CheckBox1
+            // 
+            guna2CheckBox1.AutoSize = true;
+            guna2CheckBox1.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2CheckBox1.CheckedState.BorderRadius = 0;
+            guna2CheckBox1.CheckedState.BorderThickness = 0;
+            guna2CheckBox1.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            guna2CheckBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            guna2CheckBox1.Location = new Point(307, 327);
+            guna2CheckBox1.Name = "guna2CheckBox1";
+            guna2CheckBox1.Size = new Size(49, 19);
+            guna2CheckBox1.TabIndex = 26;
+            guna2CheckBox1.Text = "Test";
+            guna2CheckBox1.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            guna2CheckBox1.UncheckedState.BorderRadius = 0;
+            guna2CheckBox1.UncheckedState.BorderThickness = 0;
+            guna2CheckBox1.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            // 
             // FrmSettings
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(27, 28, 46);
             ClientSize = new Size(1095, 695);
+            Controls.Add(guna2CheckBox1);
+            Controls.Add(label1);
+            Controls.Add(cbnoicon);
             Controls.Add(lblbranch);
             Controls.Add(lblappversion);
             Controls.Add(lblappinfo);
@@ -480,7 +535,7 @@
             Controls.Add(lblsettings);
             Controls.Add(sidebar);
             Controls.Add(navbar);
-            Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             ForeColor = Color.WhiteSmoke;
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -526,5 +581,8 @@
         private Label lblbranch;
         private Guna.UI2.WinForms.Guna2DragControl DragController;
         private Guna.UI2.WinForms.Guna2Elipse Elipse;
+        private Label label1;
+        private Guna.UI2.WinForms.Guna2CheckBox cbnoicon;
+        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
     }
 }

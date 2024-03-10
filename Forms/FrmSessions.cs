@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Pterodactyl.Handlers;
+using Pterodactyl.Managers;
 using Pterodactyl.Pterodactyl;
 using System.Net.Http.Headers;
 #pragma warning disable
@@ -9,6 +10,8 @@ namespace Pterodactyl.Forms
     {
         private RegistryHandler registryHandler;
         private bool isFirstLoad = true;
+        private UIStyler styler;
+
 
         public FrmSessions()
         {
@@ -16,6 +19,16 @@ namespace Pterodactyl.Forms
             registryHandler = new RegistryHandler();
             SessionListBox.SelectedIndex = -1;
             PopulateListBoxWithSessions();
+            try
+            {
+                styler = new UIStyler();
+                styler.LoadFromYaml("styles.yaml");
+                styler.ApplyStyles(this);
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(LogType.Error, "[UI] Failed to apply UI modification: \n" + ex.ToString());
+            }
         }
         private void PopulateListBoxWithSessions()
         {

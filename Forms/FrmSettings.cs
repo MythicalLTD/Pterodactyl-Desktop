@@ -1,5 +1,7 @@
 ﻿using Pterodactyl.Handlers;
+using Pterodactyl.Managers;
 using Salaros.Configuration;
+using Salaros.Configuration.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +17,22 @@ namespace Pterodactyl.Forms
     public partial class FrmSettings : Form
     {
         public bool hasSession;
+        private UIStyler styler;
+
         public FrmSettings(bool session)
         {
             InitializeComponent();
             this.hasSession = session;
+            try
+            {
+                styler = new UIStyler();
+                styler.LoadFromYaml("styles.yaml");
+                styler.ApplyStyles(this);
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(LogType.Error, "[UI] Failed to apply UI modification: \n" + ex.ToString());
+            }
         }
 
         private void lblexit_Click(object sender, EventArgs e)
@@ -29,11 +43,6 @@ namespace Pterodactyl.Forms
         private void lblminimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnsettings_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnhome_Click(object sender, EventArgs e)
@@ -94,11 +103,10 @@ namespace Pterodactyl.Forms
             {
                 disablerpc.Checked = true;
             }
-        }
-
-        private void btnprofile_Click(object sender, EventArgs e)
-        {
-
+            if (RegistryHandler.GetSetting("NoMinecraftServerIcon") == "true")
+            {
+                cbnoicon.Checked = true;
+            }
         }
 
         private void btnexit_Click(object sender, EventArgs e)
@@ -108,46 +116,64 @@ namespace Pterodactyl.Forms
 
         private void btnsavesettings_Click(object sender, EventArgs e)
         {
-            if (cbalwaysontop.Checked == true)
+            try
             {
-                RegistryHandler.SetSetting("AlwaysOnTop", "true");
+                if (cbnoicon.Checked == true)
+                {
+                    RegistryHandler.SetSetting("NoMinecraftServerIcon", "true");
+                }
+                else
+                {
+                    RegistryHandler.SetSetting("NoMinecraftServerIcon", "false");
+                }
+                if (cbalwaysontop.Checked == true)
+                {
+                    RegistryHandler.SetSetting("AlwaysOnTop", "true");
+                }
+                else
+                {
+                    RegistryHandler.SetSetting("AlwaysOnTop", "false");
+                }
+                if (cbdisableunstablemode.Checked == false)
+                {
+                    RegistryHandler.SetSetting("DisableUnstableMode", "false");
+                }
+                else
+                {
+                    RegistryHandler.SetSetting("DisableUnstableMode", "true");
+                }
+                if (cbdisabletlmtry.Checked == true)
+                {
+                    RegistryHandler.SetSetting("DisableTelemetry", "true");
+                }
+                else
+                {
+                    RegistryHandler.SetSetting("DisableTelemetry", "false");
+                }
+                if (cberrorreport.Checked == true)
+                {
+                    RegistryHandler.SetSetting("DisableErrorReporting", "true");
+                }
+                else
+                {
+                    RegistryHandler.SetSetting("DisableErrorReporting", "false");
+                }
+                if (disablerpc.Checked == true)
+                {
+                    RegistryHandler.SetSetting("DisableDiscordRPC", "true");
+                }
+                else
+                {
+                    RegistryHandler.SetSetting("DisableDiscordRPC", "false");
+                }
+                Program.Alert("Settings saved!", FrmAlert.enmType.Succes);
             }
-            else
+            catch (Exception ex)
             {
-                RegistryHandler.SetSetting("AlwaysOnTop", "false");
+                Program.Alert("Failed to save the settings!", FrmAlert.enmType.Warning);
+                Program.logger.Log(Managers.LogType.Error, "[FrmSettings] Failed to save settings:\n" + ex.ToString());
             }
-            if (cbdisableunstablemode.Checked == false)
-            {
-                RegistryHandler.SetSetting("DisableUnstableMode", "false");
-            }
-            else
-            {
-                RegistryHandler.SetSetting("DisableUnstableMode", "true");
-            }
-            if (cbdisabletlmtry.Checked == true)
-            {
-                RegistryHandler.SetSetting("DisableTelemetry", "true");
-            }
-            else
-            {
-                RegistryHandler.SetSetting("DisableTelemetry", "false");
-            }
-            if (cberrorreport.Checked == true)
-            {
-                RegistryHandler.SetSetting("DisableErrorReporting", "true");
-            }
-            else
-            {
-                RegistryHandler.SetSetting("DisableErrorReporting", "false");
-            }
-            if (disablerpc.Checked == true)
-            {
-                RegistryHandler.SetSetting("DisableDiscordRPC", "true");
-            }
-            else
-            {
-                RegistryHandler.SetSetting("DisableDiscordRPC", "false");
-            }
+
         }
     }
 }

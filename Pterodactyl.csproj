@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <StartupObject></StartupObject>
+    <StartupObject>Pterodactyl.Program</StartupObject>
     <ApplicationIcon>pterry.ico</ApplicationIcon>
     <IsPublishable>False</IsPublishable>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
@@ -19,11 +19,17 @@
     <PackageIconUrl />
     <RepositoryUrl>https://github.com/MythicalLTD/Pterodactyl</RepositoryUrl>
     <PackageTags>Pterodactyl</PackageTags>
-    <Copyright>2023</Copyright>
+    <Copyright>2023-2024</Copyright>
     <Company>MythicalSystems LTD</Company>
     <Authors>MythicalSystems LTD</Authors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <AssemblyName>$(MSBuildProjectName) Desktop</AssemblyName>
+    <SupportedOSPlatformVersion>8.0</SupportedOSPlatformVersion>
+    <SignAssembly>False</SignAssembly>
+    <Title>Pterodactyl Desktop</Title>
+    <Description>The pterodactyl desktop app to manage multiple pterodactyl panels in a single place!</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -38,15 +44,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Libs\ConsoleControl.dll" />
+    <None Remove="Libs\ConsoleControlAPI.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="pterry.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Libs\ConsoleControlAPI.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
-    <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.5" />
+    <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.6" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PteroConsole.NET" Version="1.0.4" />
     <PackageReference Include="Salaros.ConfigParser" Version="0.3.8" />
+    <PackageReference Include="YamlDotNet" Version="15.1.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -70,10 +89,29 @@
     <None Update="PteroConsole.runtimeconfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include=".github\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="Resources\pterry.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Libs\ConsoleControl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ConsoleControl">
+      <HintPath>Libs\ConsoleControl.dll</HintPath>
+    </Reference>
+    <Reference Include="ConsoleControlAPI">
+      <HintPath>Libs\ConsoleControlAPI.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

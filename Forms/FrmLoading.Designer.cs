@@ -54,12 +54,13 @@
             appicon.SizeMode = PictureBoxSizeMode.StretchImage;
             appicon.TabIndex = 9;
             appicon.TabStop = false;
+            appicon.Click += appicon_Click;
             // 
             // lblexit
             // 
             lblexit.AutoSize = true;
             lblexit.BackColor = Color.Transparent;
-            lblexit.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblexit.Font = new Font("Arial", 12F, FontStyle.Bold);
             lblexit.ForeColor = Color.FromArgb(236, 240, 243);
             lblexit.Location = new Point(728, 14);
             lblexit.Margin = new Padding(4, 0, 4, 0);
@@ -72,7 +73,7 @@
             // lblappname
             // 
             lblappname.BackColor = Color.Transparent;
-            lblappname.Font = new Font("Arial", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            lblappname.Font = new Font("Arial", 20F, FontStyle.Bold);
             lblappname.ForeColor = Color.FromArgb(236, 240, 243);
             lblappname.Location = new Point(107, 158);
             lblappname.Margin = new Padding(4, 0, 4, 0);
@@ -125,7 +126,7 @@
             // lblwarning
             // 
             lblwarning.BackColor = Color.Transparent;
-            lblwarning.Font = new Font("Arial", 8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblwarning.Font = new Font("Arial", 8F, FontStyle.Bold);
             lblwarning.ForeColor = Color.FromArgb(236, 240, 243);
             lblwarning.Location = new Point(83, 302);
             lblwarning.Margin = new Padding(4, 0, 4, 0);

@@ -1,4 +1,5 @@
 ﻿using Pterodactyl.Handlers;
+using Pterodactyl.Managers;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,22 @@ namespace Pterodactyl.Forms.Controller
     public partial class NewDatabase : Form
     {
         private string ServerId;
+        private UIStyler styler;
+
         public NewDatabase(string Serverid)
         {
             InitializeComponent();
             this.ServerId = Serverid;
+            try
+            {
+                styler = new UIStyler();
+                styler.LoadFromYaml("styles.yaml");
+                styler.ApplyStyles(this);
+            }
+            catch (Exception ex)
+            {
+                Program.logger.Log(LogType.Error, "[UI] Failed to apply UI modification: \n" + ex.ToString());
+            }
         }
 
         private void lblclose_Click(object sender, EventArgs e)
@@ -64,7 +77,7 @@ namespace Pterodactyl.Forms.Controller
                     else
                     {
                         Program.Alert("Error while creating your database!", FrmAlert.enmType.Error);
-                        Program.logger.Log(Managers.LogType.Error, "[Forms.Controller.NewDatabase.cs]: " + response.ErrorMessage);
+                        Program.logger.Log(Managers.LogType.Error, "[Forms.Controller.NewDatabase.cs]: " + response.Content);
                         FrmServerController x = new FrmServerController(ServerId);
                         x.Show();
                         this.Hide();
@@ -80,12 +93,7 @@ namespace Pterodactyl.Forms.Controller
 
         private void NewDatabase_Load(object sender, EventArgs e)
         {
-
-            if (RegistryHandler.GetSetting("AlwaysOnTop") == "true")
-            {
-                this.TopMost = true;
-            }
-
+            this.TopMost = true;
         }
     }
 }

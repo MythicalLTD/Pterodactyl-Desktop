@@ -10,25 +10,25 @@ namespace Pterodactyl
         /// </summary>
         public static string AppVersion = "1.0.0";
         public static LoggerManager logger = new LoggerManager();
-        public static string themes = Application.StartupPath + @"\themes\theme.ini";        
         public static string osVersion;
         public static string osDescription;
         public static string cpuArchitecture;
         public static string osArchitecture;
         public static string mcascii = @" 
-  _____  _                  _____            _             _ _           
- |  __ \| |                / ____|          | |           | | |          
- | |__) | |_ ___ _ __ ___ | |     ___  _ __ | |_ _ __ ___ | | | ___ _ __ 
- |  ___/| __/ _ \ '__/ _ \| |    / _ \| '_ \| __| '__/ _ \| | |/ _ \ '__|
- | |    | ||  __/ | | (_) | |___| (_) | | | | |_| | | (_) | | |  __/ |   
- |_|     \__\___|_|  \___/ \_____\___/|_| |_|\__|_|  \___/|_|_|\___|_|   
-                                                                                 
+
+  _____  _                     _            _         _ 
+ |  __ \| |                   | |          | |       | |
+ | |__) | |_ ___ _ __ ___   __| | __ _  ___| |_ _   _| |
+ |  ___/| __/ _ \ '__/ _ \ / _` |/ _` |/ __| __| | | | |
+ | |    | ||  __/ | | (_) | (_| | (_| | (__| |_| |_| | |
+ |_|     \__\___|_|  \___/ \__,_|\__,_|\___|\__|\__, |_|
+                                                 __/ |  
+                                                |___/                                                               
     ";
         [STAThread]
         public static void Main()
         {
             ApplicationConfiguration.Initialize();
-            ThemeManager.initThemes();
             osVersion = System.Environment.OSVersion.Version.ToString();
             osDescription = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
             cpuArchitecture = System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture.ToString();
@@ -37,6 +37,17 @@ namespace Pterodactyl
             {
                 logger.Log(LogType.Error, "We are sorry, but we blocked this app from running on any other OS than Windows!");
                 Application.Exit();
+            }
+            if (!File.Exists(Application.StartupPath+ @"\styles.yaml"))
+            {
+                string yamlContent = @"
+lblappname:
+  Text: Pterodactyl Panel
+";
+
+                File.AppendAllText(Application.StartupPath + @"\styles.yaml", yamlContent);
+
+                Application.Restart();
             }
             if (!File.Exists(Application.StartupPath + @"\PteroConsole.exe") && !File.Exists(Application.StartupPath + @"\WinSCP.exe"))
             {

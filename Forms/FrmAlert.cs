@@ -1,5 +1,6 @@
 ﻿
 using Pterodactyl.Handlers;
+using Pterodactyl.Managers;
 using Pterodactyl.Properties;
 # pragma warning disable
 
@@ -7,9 +8,19 @@ namespace Pterodactyl.Forms
 {
     public partial class FrmAlert : Form
     {
+        private UIStyler styler;
+
         public FrmAlert()
         {
             InitializeComponent();
+            try {
+                styler = new UIStyler();
+                styler.LoadFromYaml("styles.yaml");
+                styler.ApplyStyles(this);
+            } catch (Exception ex)
+            {
+                Program.logger.Log(LogType.Error, "[UI] Failed to apply UI modification: \n"+ex.ToString());
+            }
         }
 
         private void FrmAlert_Load(object sender, EventArgs e)
@@ -66,7 +77,6 @@ namespace Pterodactyl.Forms
                         base.Close();
                     }
                     break;
-
             }
 
         }
@@ -95,7 +105,6 @@ namespace Pterodactyl.Forms
                 }
                 this.x = Screen.PrimaryScreen.WorkingArea.Width - base.Width - 5;
 
-
                 switch (type)
                 {
                     case enmType.Succes:
@@ -115,8 +124,6 @@ namespace Pterodactyl.Forms
                         this.BackColor = Color.RoyalBlue;
                         break;
                 }
-
-
 
                 this.lblMsg.Text = msg;
 

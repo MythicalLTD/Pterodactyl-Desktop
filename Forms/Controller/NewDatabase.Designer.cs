@@ -61,7 +61,7 @@
             btnadddb.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnadddb.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnadddb.FillColor = Color.FromArgb(0, 110, 179);
-            btnadddb.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnadddb.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnadddb.ForeColor = Color.White;
             btnadddb.Location = new Point(516, 270);
             btnadddb.Name = "btnadddb";
@@ -81,7 +81,7 @@
             btncancel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btncancel.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btncancel.FillColor = Color.Transparent;
-            btncancel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btncancel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btncancel.ForeColor = Color.White;
             btncancel.Location = new Point(12, 270);
             btncancel.Name = "btncancel";
@@ -94,7 +94,7 @@
             // lblsvinfo
             // 
             lblsvinfo.AutoSize = true;
-            lblsvinfo.Font = new Font("Arial", 19F, FontStyle.Bold, GraphicsUnit.Point);
+            lblsvinfo.Font = new Font("Arial", 19F, FontStyle.Bold);
             lblsvinfo.ForeColor = Color.WhiteSmoke;
             lblsvinfo.Location = new Point(12, 9);
             lblsvinfo.Name = "lblsvinfo";
@@ -118,7 +118,7 @@
             txtpanelname.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtpanelname.FillColor = Color.FromArgb(42, 47, 65);
             txtpanelname.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtpanelname.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            txtpanelname.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             txtpanelname.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtpanelname.Location = new Point(12, 101);
             txtpanelname.MaxLength = 32;
@@ -133,7 +133,7 @@
             // lbldbname
             // 
             lbldbname.AutoSize = true;
-            lbldbname.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lbldbname.Font = new Font("Arial", 10F, FontStyle.Bold);
             lbldbname.ForeColor = Color.WhiteSmoke;
             lbldbname.Location = new Point(12, 82);
             lbldbname.Name = "lbldbname";
@@ -145,7 +145,7 @@
             // lblconfrom
             // 
             lblconfrom.AutoSize = true;
-            lblconfrom.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblconfrom.Font = new Font("Arial", 10F, FontStyle.Bold);
             lblconfrom.ForeColor = Color.WhiteSmoke;
             lblconfrom.Location = new Point(12, 161);
             lblconfrom.Name = "lblconfrom";
@@ -162,14 +162,14 @@
             txtconfrom.BorderRadius = 12;
             txtconfrom.Cursor = Cursors.IBeam;
             txtconfrom.CustomizableEdges = customizableEdges7;
-            txtconfrom.DefaultText = "";
+            txtconfrom.DefaultText = "%";
             txtconfrom.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtconfrom.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtconfrom.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtconfrom.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtconfrom.FillColor = Color.FromArgb(42, 47, 65);
             txtconfrom.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtconfrom.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            txtconfrom.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             txtconfrom.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtconfrom.Location = new Point(12, 180);
             txtconfrom.MaxLength = 32;
@@ -195,7 +195,7 @@
             // lblclose
             // 
             lblclose.AutoSize = true;
-            lblclose.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblclose.Font = new Font("Arial", 12F, FontStyle.Bold);
             lblclose.ForeColor = Color.WhiteSmoke;
             lblclose.Location = new Point(715, 9);
             lblclose.Name = "lblclose";
@@ -208,7 +208,7 @@
             // lblconwarning
             // 
             lblconwarning.AutoSize = true;
-            lblconwarning.Font = new Font("Arial", 8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblconwarning.Font = new Font("Arial", 8F, FontStyle.Bold);
             lblconwarning.ForeColor = Color.WhiteSmoke;
             lblconwarning.Location = new Point(12, 228);
             lblconwarning.Name = "lblconwarning";

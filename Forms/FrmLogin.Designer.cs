@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -41,7 +42,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             lblpanelname = new Label();
             navbar = new Panel();
             lblappname = new Label();
@@ -70,7 +70,7 @@
             // 
             lblpanelname.AutoSize = true;
             lblpanelname.BackColor = Color.Transparent;
-            lblpanelname.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblpanelname.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblpanelname.Location = new Point(21, 18);
             lblpanelname.Name = "lblpanelname";
             lblpanelname.Size = new Size(94, 19);
@@ -93,7 +93,7 @@
             // lblappname
             // 
             lblappname.AutoSize = true;
-            lblappname.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblappname.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblappname.ForeColor = Color.WhiteSmoke;
             lblappname.Location = new Point(29, 3);
             lblappname.Name = "lblappname";
@@ -104,7 +104,7 @@
             // lblminimize
             // 
             lblminimize.AutoSize = true;
-            lblminimize.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblminimize.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblminimize.ForeColor = Color.WhiteSmoke;
             lblminimize.Location = new Point(724, 2);
             lblminimize.Name = "lblminimize";
@@ -116,7 +116,7 @@
             // lblexit
             // 
             lblexit.AutoSize = true;
-            lblexit.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblexit.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblexit.ForeColor = Color.WhiteSmoke;
             lblexit.Location = new Point(740, 4);
             lblexit.Name = "lblexit";
@@ -127,7 +127,7 @@
             // 
             // pbappicon
             // 
-            pbappicon.Image = Properties.Resources.pterry1;
+            pbappicon.Image = (Image)resources.GetObject("pbappicon.Image");
             pbappicon.Location = new Point(3, 3);
             pbappicon.Name = "pbappicon";
             pbappicon.Size = new Size(20, 20);
@@ -162,7 +162,7 @@
             btnaddsession.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnaddsession.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnaddsession.FillColor = Color.FromArgb(0, 110, 179);
-            btnaddsession.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnaddsession.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnaddsession.ForeColor = Color.White;
             btnaddsession.Location = new Point(21, 330);
             btnaddsession.Name = "btnaddsession";
@@ -188,7 +188,7 @@
             txtpanelname.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtpanelname.FillColor = Color.FromArgb(42, 47, 65);
             txtpanelname.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtpanelname.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            txtpanelname.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             txtpanelname.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtpanelname.Location = new Point(17, 41);
             txtpanelname.MaxLength = 32;
@@ -208,7 +208,8 @@
             cbdirectlogin.CheckedState.BorderRadius = 0;
             cbdirectlogin.CheckedState.BorderThickness = 0;
             cbdirectlogin.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            cbdirectlogin.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            cbdirectlogin.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            cbdirectlogin.ForeColor = Color.White;
             cbdirectlogin.Location = new Point(21, 301);
             cbdirectlogin.Name = "cbdirectlogin";
             cbdirectlogin.Size = new Size(288, 23);
@@ -248,7 +249,7 @@
             // 
             lblpanelpwd.AutoSize = true;
             lblpanelpwd.BackColor = Color.Transparent;
-            lblpanelpwd.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblpanelpwd.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblpanelpwd.Location = new Point(21, 228);
             lblpanelpwd.Name = "lblpanelpwd";
             lblpanelpwd.Size = new Size(118, 19);
@@ -259,7 +260,7 @@
             // 
             lblpanelapikey.AutoSize = true;
             lblpanelapikey.BackColor = Color.Transparent;
-            lblpanelapikey.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblpanelapikey.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblpanelapikey.Location = new Point(21, 158);
             lblpanelapikey.Name = "lblpanelapikey";
             lblpanelapikey.Size = new Size(121, 19);
@@ -270,7 +271,7 @@
             // 
             lblpanelurl.AutoSize = true;
             lblpanelurl.BackColor = Color.Transparent;
-            lblpanelurl.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblpanelurl.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblpanelurl.Location = new Point(21, 88);
             lblpanelurl.Name = "lblpanelurl";
             lblpanelurl.Size = new Size(80, 19);
@@ -292,7 +293,7 @@
             txtpanelapikey.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtpanelapikey.FillColor = Color.FromArgb(42, 47, 65);
             txtpanelapikey.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtpanelapikey.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            txtpanelapikey.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             txtpanelapikey.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtpanelapikey.Location = new Point(17, 180);
             txtpanelapikey.MaxLength = 64;
@@ -320,7 +321,7 @@
             txtpanelpwd.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtpanelpwd.FillColor = Color.FromArgb(42, 47, 65);
             txtpanelpwd.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtpanelpwd.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            txtpanelpwd.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             txtpanelpwd.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtpanelpwd.Location = new Point(17, 250);
             txtpanelpwd.MaxLength = 64;
@@ -348,7 +349,7 @@
             txtpanelurl.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtpanelurl.FillColor = Color.FromArgb(42, 47, 65);
             txtpanelurl.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtpanelurl.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            txtpanelurl.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             txtpanelurl.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtpanelurl.Location = new Point(17, 110);
             txtpanelurl.MaxLength = 64;
@@ -363,7 +364,7 @@
             // lbladdsession
             // 
             lbladdsession.AutoSize = true;
-            lbladdsession.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbladdsession.Font = new Font("Arial", 18F, FontStyle.Bold);
             lbladdsession.ForeColor = Color.WhiteSmoke;
             lbladdsession.Location = new Point(274, 46);
             lbladdsession.Name = "lbladdsession";
