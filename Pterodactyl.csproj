@@ -44,27 +44,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Libs\ConsoleControl.dll" />
-    <None Remove="Libs\ConsoleControlAPI.dll" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="pterry.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Libs\ConsoleControlAPI.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.6" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="7.0.4" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PteroConsole.NET" Version="1.0.4" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
     <PackageReference Include="Salaros.ConfigParser" Version="0.3.8" />
+    <PackageReference Include="System.CodeDom" Version="8.0.0" />
+    <PackageReference Include="System.Management" Version="8.0.0" />
+    <PackageReference Include="System.Security.AccessControl" Version="6.0.0" />
+    <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0" />
     <PackageReference Include="YamlDotNet" Version="15.1.2" />
   </ItemGroup>
 
@@ -97,12 +97,6 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Libs\ConsoleControl.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>

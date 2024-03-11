@@ -16,7 +16,7 @@ namespace Pterodactyl.Pterodactyl.Server
             try
             {
                 var client = new RestClient(Pterodactyl.User.Info.panel_url);
-                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
+                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.Post);
                 request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
                 request.AddHeader("Content-Type", "application/json");
                 request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
@@ -47,7 +47,7 @@ namespace Pterodactyl.Pterodactyl.Server
             try
             {
                 var client = new RestClient(Pterodactyl.User.Info.panel_url);
-                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
+                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.Post);
                 request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
                 request.AddHeader("Content-Type", "application/json");
                 request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
@@ -78,7 +78,7 @@ namespace Pterodactyl.Pterodactyl.Server
             try
             {
                 var client = new RestClient(Pterodactyl.User.Info.panel_url);
-                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
+                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.Post);
                 request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
                 request.AddHeader("Content-Type", "application/json");
                 request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
@@ -110,7 +110,7 @@ namespace Pterodactyl.Pterodactyl.Server
             try
             {
                 var client = new RestClient(Pterodactyl.User.Info.panel_url);
-                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.POST);
+                var request = new RestRequest($"/api/client/servers/{serverIdentifier}/power", Method.Post);
                 request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
                 request.AddHeader("Content-Type", "application/json");
                 request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");

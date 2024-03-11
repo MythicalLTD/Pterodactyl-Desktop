@@ -57,7 +57,7 @@ namespace Pterodactyl.Forms.Controller
                 try
                 {
                     var client = new RestClient(Pterodactyl.User.Info.panel_url);
-                    var request = new RestRequest($"/api/client/servers/" + ServerId + "/databases", Method.POST);
+                    var request = new RestRequest($"/api/client/servers/" + ServerId + "/databases", Method.Post);
                     request.AddHeader("Accept", "application/json");
                     request.AddHeader("Content-Type", "application/json");
                     request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");

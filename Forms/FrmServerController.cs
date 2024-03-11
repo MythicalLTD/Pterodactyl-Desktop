@@ -227,7 +227,7 @@ namespace Pterodactyl.Forms
             try
             {
                 var client = new RestClient(Pterodactyl.User.Info.panel_url);
-                var request = new RestRequest($"/api/client/servers/{serverIdentifier}", Method.GET);
+                var request = new RestRequest($"/api/client/servers/{serverIdentifier}", Method.Get);
                 request.AddHeader("Authorization", $"Bearer {Pterodactyl.User.Info.panel_api_key}");
                 request.AddHeader("Accept", "Application/vnd.pterodactyl.v1+json");
 
